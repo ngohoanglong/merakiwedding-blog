@@ -12,6 +12,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import Tags from '../../components/tags'
+import { stripHtml } from "string-strip-html";
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
@@ -63,6 +64,10 @@ export default function Post({ post, posts, preview }) {
 
 export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData)
+  
+  const {post} = data;
+  const {content} = post;
+  console.log(stripHtml(content).result);
 
   return {
     props: {
