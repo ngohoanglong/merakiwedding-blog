@@ -8,3 +8,5 @@ npm run dev
 ## URL
 
 https://merakiweddingplanner.com/blog/
+
+https://theplannersvn.com/blog/
