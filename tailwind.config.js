@@ -8,6 +8,16 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
+        primary: '#478e00'
+      },
+      fonts: {
+        'prata': [
+          'Prata'
+        ],
+        serif: [
+          'Prata',
+          'serif',
+        ],
       },
       spacing: {
         28: '7rem',

@@ -1,3 +1,24 @@
+@import url("https://fonts.gstatic.com/s/prata/v13/6xKhdSpbNNCT-sWPCm7bLnwI.woff2");
+
+@font-face {
+  font-family: "Prata";
+  src: local("prata"), url("/fonts/prata.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Leaguescript";
+  src: local("leaguescript"), url("/fonts/leaguescript.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("roboto"), url("/fonts/roboto.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 @tailwind base;
 
 /* Write your own custom base styles here */
@@ -101,4 +122,22 @@
 
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
+}
+
+@screen md {
+  .container {
+    max-width: 75vw;
+  }
+}
+
+.text-prata {
+  font-family: "Prata", "Times New Roman", Times, serif;
+}
+.text-roboto {
+  font-family: "Roboto", Helvetica, sans-serif;
+}
+/* //theme */
+:root {
+  --header-height: 107px;
+  --color-primary: #478e00;
 }
