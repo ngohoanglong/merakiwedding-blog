@@ -4,7 +4,6 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import MoreStories from '../components/more-stories'
 import { getAllPostsForHome } from '../lib/api'
-import { CMS_NAME } from '../lib/constants'
 
 export default function Index({ allPosts: { edges }, preview }) {
   const morePosts = edges
@@ -12,7 +11,7 @@ export default function Index({ allPosts: { edges }, preview }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>About us - Meraki Wedding Planner</title>
         </Head>
         <Intro />
         <div className="h-12 lg:h-32"></div>
