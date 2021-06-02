@@ -7,8 +7,19 @@ export default function MoreStories({ posts }) {
       <div className="grid grid-cols-1 md:grid-cols-2 col-gap-8 row-gap-12 mb-32">
         {posts.map(({ node }) => {
           let excerpt = stripHtml(node.content || '').result
-          const duplicated = excerpt.includes(node.title)
-          excerpt = excerpt.substring(duplicated ? node.title.length + 1 : 0, Math.min(excerpt.length, 174)) + '...';
+          excerpt = excerpt.replace(/\n|\r/g, " ");
+          excerpt = excerpt.replace(/\s\s+/g, ' ');
+          excerpt = excerpt.trim();
+          const duplicated = excerpt.toLowerCase().includes(node.title.toLowerCase())
+          excerpt.replace(node.title, '')
+          excerpt = excerpt.substring(duplicated ? node.title.length : 0, Math.min(excerpt.length, 174)) + '...';
+          excerpt = excerpt.trim();
+          console.log({
+            excerpt,
+            duplicated,
+            title: node.title
+          })
+
           return (
             <PostPreview
               key={node.slug}
