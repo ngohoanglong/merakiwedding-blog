@@ -1,3 +1,4 @@
+@import url("https://fonts.gstatic.com/s/prata/v13/6xKhdSpbNNCT-sWPCm7bLnwI.woff2");
 @tailwind base;
 
 /* Write your own custom base styles here */
@@ -103,7 +104,12 @@
   @apply grid grid-cols-2 gap-4;
 }
 
+.container {
+  max-width: 75vw;
+}
 
-:root{
-  --header-height:107px
+/* //theme */
+:root {
+  --header-height: 107px;
+  --color-primary: #478e00;
 }

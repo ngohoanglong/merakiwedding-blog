@@ -1,7 +1,6 @@
-import Avatar from '../components/avatar'
+import Link from 'next/link'
 import Date from '../components/date'
 import CoverImage from './cover-image'
-import Link from 'next/link'
 
 export default function PostPreview({
   title,
@@ -16,22 +15,26 @@ export default function PostPreview({
       <div className="mb-5">
         <CoverImage title={title} coverImage={coverImage} slug={slug} />
       </div>
-      <h3 className="text-3xl mb-3 leading-snug">
+      <h3 className="text-xl leading-snug font-serif capitalize">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a
-            className="hover:underline"
+            className="hover:underline leading-relaxed"
             dangerouslySetInnerHTML={{ __html: title }}
           ></a>
         </Link>
       </h3>
-      <div className="text-lg mb-4">
+      <div className="mb-4 text-sm text-gray-600">
         <Date dateString={date} />
       </div>
       <div
-        className="text-lg leading-relaxed mb-4"
+        className="leading-relaxed mb-3 text-sm"
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
-      <Avatar author={author} />
+      <div>
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          <a className="underline text-xs font-serif">Read more »</a>
+        </Link>
+      </div>
     </div>
   )
 }
