@@ -11,7 +11,7 @@ export default function Index({ allPosts: { edges }, preview }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>About us - Meraki Wedding Planner</title>
+          <title>Blog - Meraki Wedding Planner</title>
           <link rel="icon" href="/favicon.png" sizes="32x32"></link>
         </Head>
         <Intro />
