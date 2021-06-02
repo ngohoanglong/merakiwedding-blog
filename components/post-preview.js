@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Date from '../components/date'
 import CoverImage from './cover-image'
 
@@ -10,30 +9,27 @@ export default function PostPreview({
   author,
   slug,
 }) {
+  const href = `http://merakiweddingplanner.com/${slug}`
   return (
     <div>
       <div className="mb-5">
-        <CoverImage title={title} coverImage={coverImage} slug={slug} />
+        <CoverImage title={title} coverImage={coverImage} href={href} />
       </div>
-      <h3 className="text-xl leading-snug font-serif capitalize">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a
-            className="hover:underline leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: title }}
-          ></a>
-        </Link>
+      <h3 style={{ fontWeight: 200 }} className="text-xl leading-snug text-prata capitalize">
+        <a href={href}
+          className="hover:underline leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: title }}
+        ></a>
       </h3>
       <div className="mb-4 text-sm text-gray-600">
         <Date dateString={date} />
       </div>
       <div
-        className="leading-relaxed mb-3 text-sm"
+        className="leading-relaxed mb-3 text-sm font-light  "
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
       <div>
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="underline text-xs font-serif">Read more »</a>
-        </Link>
+        <a href={href} className="underline hover:text-primary text-xs text-prata">Read more »</a>
       </div>
     </div>
   )

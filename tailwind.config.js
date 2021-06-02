@@ -11,6 +11,9 @@ module.exports = {
         primary: '#478e00'
       },
       fonts: {
+        'prata': [
+          'Prata'
+        ],
         serif: [
           'Prata',
           'serif',

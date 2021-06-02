@@ -1,47 +1,30 @@
 import Footer from '../components/footer'
 import Meta from '../components/meta'
-const navigation = [
-  {
-    "title": "Home",
-    "href": "http://merakiweddingplanner.com/"
-  },
-  {
-    "title": "About us",
-    "href": "http://merakiweddingplanner.com/about-us/"
-  },
-  {
-    "title": "Gallery",
-    "href": "http://merakiweddingplanner.com/gallery/"
-  },
-  {
-    "title": "Blog",
-    "href": "http://merakiweddingplanner.com/blog/"
-  },
-  {
-    "title": "Services",
-    "href": "http://merakiweddingplanner.com/services/"
-  },
-  {
-    "title": "Contact",
-    "href": "http://merakiweddingplanner.com/contact-us/"
-  }
-]
+import { pages } from '../const'
+
 
 const Header = () => {
-  return <header className="z-10 relative text-white">
-    <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="flex flex-wrap items-center justify-between">
+  return <header className="z-10 relative text-white px-6">
+    <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="hidden md:flex flex-wrap items-center justify-between">
       <div className="flex-1">
-        <img style={{ maxWidth: '200px' }} className="w-full " src="/logo.png" />
+        <img style={{ maxWidth: '160px' }} className="w-full" src="/logo-3.png" />
       </div>
       <div className="px-3">
         {
-          navigation.map(({ title, href }) => {
-            return <a style={{ fontSize: '18px' }} className="px-4 text-pr font-serif hover:text-primary" href={href}>{title}</a>
+          pages.map(({ title, href }) => {
+            return <a style={{ fontSize: '18px' }} className="px-4 text-pr text-prata hover:text-primary" href={href}>{title}</a>
           })
         }
       </div>
     </nav>
+    <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="flex md:hidden flex-wrap py-3 items-start justify-center">
+      <div className=" text-center ">
+        <img style={{ maxWidth: '100px' }} className="w-full" src="/logo-3.png" />
+      </div>
+      {/* <div className="px-3">
 
+      </div> */}
+    </nav>
   </header>
 }
 export default function Layout({ preview, children }) {
