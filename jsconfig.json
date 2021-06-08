@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@config/*": ["config/*"],
+      "@components/*": ["components/*"],
+      "@sections/*": [
+        "meraki/sections/*"
+      ],
+      "@templates/*": [
+        "meraki/templates/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.js",
+    "**/*.d.js",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.js"
+  ],
+  "exclude": ["node_modules", "out"]
+}
