@@ -10,6 +10,7 @@ const Image = ({ src, alt, ...rest }) => {
       sizes="(max-width: 400px) 300px, 800px"
       quality="85"
       objectFit="cover"
+      objectPosition="bottom center"
       {...rest}
     />
   )
@@ -210,7 +211,7 @@ export default function Home() {
   const local = 'en'
   return (
     <div className="-mt-header">
-      <div className="bg-element-1">
+      <div className="bg-element-1 relative">
         <IntroSlider >
           {Array.from(data[local].IntroSlider.items, ({ src, alt }, i) => (
             <div
@@ -219,12 +220,22 @@ export default function Home() {
             >
               <div className="absolute inset-0">
                 <Image
+
                   src={src}
                 />
               </div>
             </div>
           ))}
         </IntroSlider>
+        <div className='z-10 text-center absolute bottom-12 left-0 w-full text-white'>
+          <Container>
+            <div>
+              <div className="text-4xl uppercase font-kinfolk">{data[local].IntroSlider.title}</div>
+              <div className="text-2xl font-bold font-garamond italic">{data[local].IntroSlider.subTitle}</div>
+            </div>
+          </Container>
+
+        </div>
       </div>
       <div className="bg-element-1 py-12">
         <Container>
@@ -242,12 +253,34 @@ export default function Home() {
               {data[local].Block1.title}
             </h2>
             <div className="font-garamond italic text-2xl text-center" dangerouslySetInnerHTML={{ __html: data[local].Block1.description }}></div>
-            <div className="py-14 w-full flex items-center space-x-12">
+            <div className="py-14 w-full lg:flex items-center space-y-6 lg:space-y-0 lg:space-x-12">
               <div className="leading-loose flex-1 text-justify">{data[local].Block1.text1}</div>
-              <div className="w-px h-full bg-element-5 flex"></div>
+              <div className="hidden lg:block w-px h-full bg-element-5 "></div>
               <div className="text-center flex-1 space-y-4 flex flex-col items-center">
                 <div className="font-garamond italic  max-w-sm text-2xl">{data[local].Block1.text2}</div>
                 <div className="font-semibold text-sm">{data[local].Block1.text3}</div>
+              </div>
+            </div>
+            <div className='flex w-full bg-element-2'>
+              <div className="w-2/5 relative">
+                <div style={{ paddingTop: `${2048 / 1364 * 100}%` }}></div>
+                <Image src={data[local].Block2.image.src}></Image>
+              </div>
+              <div className='flex-1 py-6 leading-loose px-6'>
+                <Container>
+                  <div className="text-3xl font-kinfolk">{data[local].Block2.title}</div>
+                  <div className="text font-garamond italic">{data[local].Block2.subTitle}</div>
+                  <div className="text font-commissioner font-bold">{data[local].Block2.description}</div>
+                  <div className="space-y-6 mt-6">
+                    {
+                      data[local].Block2.texts.map((item, i) => {
+                        return <div key={i}>
+                          {item}
+                        </div>
+                      })
+                    }
+                  </div>
+                </Container>
               </div>
             </div>
           </div>
