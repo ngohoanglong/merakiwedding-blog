@@ -65,12 +65,12 @@
 }
 
 /* public/fonts/EBGaramond-Italic-VariableFont_wght.ttf */
-/* @font-face {
+@font-face {
   font-family: EBGaramond;
   font-style: italic;
   src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf')
     format('truetype');
-} */
+}
 
 @tailwind base;
 
@@ -98,7 +98,7 @@
 /* Theme */
 :root {
   --header-height: 107px;
-  --color-primary: #478e00;
+  --color-primary: #656d51;
 }
 
 body {

@@ -3,10 +3,10 @@ import cn from 'classnames'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import React, { Children, forwardRef, useRef, useState } from 'react'
-import s from './IntroSlider.module.css'
+import s from './Slider.module.css'
 
 
-const Slider = forwardRef(({ children }, ref) => {
+const SliderInner = forwardRef(({ children }, ref) => {
   return (
     <div ref={ref} className="keen-slider">
       {Children.map(children, (child) => {
@@ -16,7 +16,7 @@ const Slider = forwardRef(({ children }, ref) => {
     </div>
   )
 })
-const IntroSlider = ({ children }) => {
+const Slider = ({ children, breakpoints, disableIndicator = true }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
   const sliderContainerRef = useRef(null)
@@ -29,9 +29,23 @@ const IntroSlider = ({ children }) => {
     slideChanged(s) {
       setCurrentSlide(s.details().relativeSlide)
     },
+    breakpoints: breakpoints
+      ? breakpoints
+      : {
+        '(min-width: 600px)': {
+          slidesPerView: 2,
+          mode: 'free-snap',
+        },
+        '(min-width: 1240px)': {
+          slidesPerView: 3,
+          mode: 'free-snap',
+        },
+
+      },
+
   })
   return (
-    <div ref={sliderContainerRef} className={s.root} data-testid="IntroSlider">
+    <div ref={sliderContainerRef} className={s.root} data-testid="Slider">
       <div className="pointer-events-none absolute inset-0  flex items-center">
         <Container>
           <div className="flex items-center justify-between">
@@ -73,8 +87,8 @@ const IntroSlider = ({ children }) => {
         </Container>
       </div>
 
-      <Slider ref={sliderRef}>{children}</Slider>
-      {slider && (
+      <SliderInner ref={sliderRef}>{children}</SliderInner>
+      {!disableIndicator && slider && (
         <div className={cn(s.positionIndicatorsContainer)}>
           {[...Array(slider.details().size).keys()].map((idx) => {
             return (
@@ -97,4 +111,4 @@ const IntroSlider = ({ children }) => {
     </div>
   )
 }
-export default IntroSlider
+export default Slider
