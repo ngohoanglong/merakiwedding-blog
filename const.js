@@ -8,16 +8,20 @@ export const pages = [
         "href": "http://merakiweddingplanner.com/about-us/"
     },
     {
-        "title": "Gallery",
+        "title": "Journal",
         "href": "http://merakiweddingplanner.com/gallery/"
     },
     {
-        "title": "Blog",
+        "title": "Service",
         "href": "http://merakiweddingplanner.com/blog/"
     },
     {
-        "title": "Services",
+        "title": "Blog",
         "href": "http://merakiweddingplanner.com/services/"
+    },
+    {
+        "title": "Kind words",
+        "href": "http://merakiweddingplanner.com/contact-us/"
     },
     {
         "title": "Contact",
