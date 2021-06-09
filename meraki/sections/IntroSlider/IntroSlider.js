@@ -16,7 +16,7 @@ const Slider = forwardRef(({ children }, ref) => {
     </div>
   )
 })
-const IntroSlider = ({ children }) => {
+const IntroSlider = ({ children, loop = true }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
   const sliderContainerRef = useRef(null)
@@ -24,7 +24,7 @@ const IntroSlider = ({ children }) => {
     spacing: 0,
     slidesPerView: 1,
     centered: false,
-    loop: false,
+    loop,
     mounted: () => setIsMounted(true),
     slideChanged(s) {
       setCurrentSlide(s.details().relativeSlide)
@@ -36,7 +36,7 @@ const IntroSlider = ({ children }) => {
         <Container>
           <div className="flex items-center justify-between">
             <button
-              className={cn(s.leftControl, s.control, "transform transition-transform", slider && currentSlide !== 0 ? "scale-100" : "scale-0")}
+              className={cn(s.leftControl, s.control, "transform transition-transform", loop || (slider && currentSlide !== 0) ? "scale-100" : "scale-0")}
               onClick={slider?.prev}
               aria-label="Previous Product Image"
             >
@@ -53,7 +53,7 @@ const IntroSlider = ({ children }) => {
             </button>
             <div className="flex-1" />
             <button
-              className={cn(s.rightControl, s.control, "transform transition-transform", slider && currentSlide < slider.details().size - 1 ? "scale-100" : "scale-0")}
+              className={cn(s.rightControl, s.control, "transform transition-transform", loop || (slider && currentSlide < slider.details().size - 1) ? "scale-100" : "scale-0")}
               onClick={slider?.next}
               aria-label="Next Product Image"
             >
