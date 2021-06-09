@@ -8,9 +8,15 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
-        primary: '#478e00'
+        primary: '#656D51',
+
+        'element-1': "#F7F5EF",
+        'element-2': "#FFFDFB",
+        'element-3': "#656D51",
+        'element-4': "#B4BA90",
+        'element-5': "#333333",
       },
-      fonts: {
+      fontFamily: {
         'prata': [
           'Prata'
         ],
@@ -18,9 +24,27 @@ module.exports = {
           'Prata',
           'serif',
         ],
+        kinfolk: [
+          'Kinfolk',
+          'Times New Roman'
+        ],
+        commissioner: [
+          'Commissioner', 'Times New Roman'
+        ],
+        garamond: [
+          'EBGaramond',
+          'Roboto', "Helvetica", "sans-serif"
+        ],
+        'sweetsans': [
+          'SweetSans'
+        ]
+      },
+      boxShadow: {
+        'outline-normal': '0 0 0 2px #656D51',
       },
       spacing: {
         28: '7rem',
+        'header': 'var(--header-height)'
       },
       letterSpacing: {
         tighter: '-.04em',

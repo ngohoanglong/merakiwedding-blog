@@ -1,0 +1,64 @@
+.root {
+  position: relative;
+  width: 100%;
+  @apply px-12;
+}
+
+.leftControl,
+.rightControl {
+  @apply bg-opacity-0 text-element-5 pointer-events-auto z-20 text-3xl w-12 h-12  flex items-center justify-center rounded-full;
+}
+
+.leftControl:hover,
+.rightControl:hover {
+  @apply bg-opacity-40;
+}
+
+.leftControl:hover,
+.rightControl:hover,
+.leftControl:focus,
+.rightControl:focus {
+  @apply outline-none;
+}
+
+.leftControl {
+  @apply -left-3 md:-left-4;
+}
+
+.rightControl {
+  @apply -right-3 md:-right-4;
+}
+
+.positionIndicatorsContainer {
+  @apply absolute bottom-3 transform -translate-x-1/2 block left-1/2;
+}
+
+.positionIndicator {
+  @apply rounded-full p-2;
+}
+
+.dot {
+  @apply bg-transparent transition  rounded-full border ring-element-2;
+  width: 6px;
+  height: 6px;
+}
+
+.positionIndicator:hover .dot {
+  @apply bg-element-2;
+}
+
+.positionIndicator:focus {
+  @apply outline-none;
+}
+
+.positionIndicator:focus .dot {
+  @apply ring-1 ring-element-3;
+}
+
+.positionIndicatorActive .dot {
+  @apply bg-element-2;
+}
+
+.positionIndicatorActive:hover .dot {
+  @apply bg-element-2;
+}

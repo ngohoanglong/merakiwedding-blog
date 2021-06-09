@@ -1,8 +1,6 @@
+import Layout from '@components/layout'
+import Home from '@templates/home/Home'
 import Head from 'next/head'
-import Container from '../components/container'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import MoreStories from '../components/more-stories'
 import { getAllPostsForHome } from '../lib/api'
 
 export default function Index({ allPosts: { edges }, preview }) {
@@ -14,11 +12,7 @@ export default function Index({ allPosts: { edges }, preview }) {
           <title>Blog - Meraki Wedding Planner</title>
           <link rel="icon" href="/favicon.png" sizes="32x32"></link>
         </Head>
-        <Intro />
-        <div className="h-12 lg:h-32"></div>
-        <Container>
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
+        <Home />
       </Layout>
     </>
   )

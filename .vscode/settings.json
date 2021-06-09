@@ -1,0 +1,16 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "editor.tabSize": 2,
+  "editor.foldingStrategy": "indentation",
+  "prettier.printWidth": 40,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.jsxBracketSameLine": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true
+}

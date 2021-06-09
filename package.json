@@ -12,12 +12,14 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "keen-slider": "^5.4.0",
     "string-strip-html": "^8.3.0"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.4.6"
+    "postcss": "^8.2.9",
+    "tailwindcss": "^2.1.1"
   },
   "license": "MIT"
 }
