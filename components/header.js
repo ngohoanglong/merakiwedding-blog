@@ -7,6 +7,7 @@ const LangSwitcher = () => {
   </div>
 }
 export default function Header() {
+
   return (
     <header className="z-10 relative text-white ">
       <Container>
