@@ -6,11 +6,11 @@ const SourceProvider = ({ source, local = 'en', screen = 'xs', children }) => {
   return <ContextSource.Provider value={{
     local,
     screen,
-    get: (path) => {
+    get: (path, fallbackValue = "/favicon.png") => {
       console.log({
         get, local, source, screen, path
       })
-      return get(source, `${local}.${path}.${screen}`, get(source, `${local}.${path}`, '/favicon.png'))
+      return get(source, `${local}.${path}.${screen}`, get(source, `${local}.${path}`, fallbackValue))
     }
   }}>
     {children}

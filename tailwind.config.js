@@ -63,5 +63,18 @@ module.exports = {
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
     },
+
+  },
+  variants: {
+    extend: {
+      translate: ['active', 'group-hover', 'group-focus'],
+      display: ['active', 'group-hover', 'group-focus'],
+      margin: ['group-hover', 'group-focus'],
+      pointerEvents: ['focus', 'group-hover', 'group-focus'],
+      width: ['focus', 'group-hover', 'group-focus'],
+      zIndex: ['focus'],
+      pointerEvents: ['hover', 'focus'],
+    },
+    lineClamp: ['responsive', 'hover', 'focus'],
   },
 }
