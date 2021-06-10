@@ -1,7 +1,7 @@
+import LocalProvider from '@providers/local'
 import classNames from 'classnames'
 import { throttle } from 'lodash'
 import { useRouter } from 'next/router'
-import LocalProvider from 'providers/local'
 import { useEffect, useState } from 'react'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
@@ -19,7 +19,6 @@ export default function Layout({ preview, children }) {
     const handleScroll = throttle(() => {
       const offset = window.outerHeight || 0
       const { scrollTop } = window.document.documentElement
-      console.log(scrollTop)
       const scrolled = scrollTop > offset
       if (hasScrolled !== scrolled) {
         setHasScrolled(scrolled)

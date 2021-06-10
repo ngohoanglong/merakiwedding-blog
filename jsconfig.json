@@ -25,6 +25,7 @@
       "@sections/*": [
         "meraki/sections/*"
       ],
+      "@providers/*": ["providers/*"],
       "@templates/*": [
         "meraki/templates/*"
       ]

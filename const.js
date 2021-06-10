@@ -28,3 +28,8 @@ export const pages = [
         "href": "http://merakiweddingplanner.com/contact-us/"
     }
 ]
+
+export const locals = {
+    en: 'en',
+    vi: 'vi'
+}
