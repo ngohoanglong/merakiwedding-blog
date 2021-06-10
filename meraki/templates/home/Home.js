@@ -281,8 +281,8 @@ export default function Home() {
             <div className="w-full lg:flex items-center space-y-6 lg:space-y-0 lg:space-x-12">
               <div className="leading-loose flex-1 text-justify">{data[local].Block1.text1}</div>
               <div className="hidden lg:block w-px h-full bg-element-5 "></div>
-              <div className="text-center flex-1 space-y-4 flex flex-col items-center">
-                <div className="font-garamond italic  max-w-sm text-2xl">{data[local].Block1.text2}</div>
+              <div className="text-center flex-1 space-y-6 flex flex-col items-center">
+                <div className="font-garamond italic leading-loose max-w-sm text-2xl">{data[local].Block1.text2}</div>
                 <div className="font-semibold text-sm">{data[local].Block1.text3}</div>
               </div>
             </div>
