@@ -44,7 +44,7 @@ export default function Index({ allPosts: { edges }, pageData, preview }) {
         description: 'Instagram Images',
         itemProps: item => ({
           key: item.id,
-          label: item.name,
+          label: item.title,
         }),
         defaultItem: () => ({
           name: 'Title',
