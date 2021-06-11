@@ -1,16 +1,48 @@
-import { pages } from "const"
+import { useLocal } from "@providers/local"
+import classNames from 'classnames'
+import { locals, pages } from "const"
+import { useState } from "react"
 import Container from "./container"
 const LangSwitcher = () => {
-  return <div className="inline-flex items-baseline text-xs uppercase p-px bg-white">
-    <label className="flex-1 px-1 bg-white text-element-4">ENG</label>
-    <label className="flex-1 px-1 bg-element-4 text-white">VIE</label>
-  </div>
+  const { local, setLocal } = useLocal()
+  const handleChangeLang = () => {
+    if (local === locals.vi) {
+      return setLocal(locals.en)
+    }
+    return setLocal(locals.vi)
+  }
+  if (local === locals.en)
+    return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
+      <svg fill="currentColor" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 116.93 111.19">
+        <path d="M4.36,58.55V106.9H113.79V58.55ZM38,97.81H33.47L20.06,68.9h5.66l10,22.58H36L46,68.9h5.4Zm24.35,0h-5V68.9h5Zm34.53,0H72.34V68.9H95.8v4.43H77.3V80.5H88.41v4.43H77.3v8.45H96.87Z" /><path d="M92.68,12a21.2,21.2,0,0,1,13.46,5.22l-3.45,3.1a15,15,0,0,0-10-3.9c-6.25,0-10.63,5-10.63,10.94,0,5.57,3.81,10.89,11.11,10.89,3,0,6.55-.89,8.5-2.35v-5.8H92.64V25.7h13.59V38.36A23.78,23.78,0,0,1,92.9,42.7c-9.16,0-16-6.86-16-15.36A15.42,15.42,0,0,1,92.68,12Z" /><polygon points="43.41 12.91 47.79 12.91 64.48 32.96 64.52 32.96 64.52 12.91 69.48 12.91 69.48 41.82 65.1 41.82 48.41 21.77 48.37 21.77 48.37 41.82 43.41 41.82 43.41 12.91" /><polygon points="11.8 12.91 35.26 12.91 35.26 17.34 16.76 17.34 16.76 24.51 27.87 24.51 27.87 28.94 16.76 28.94 16.76 37.39 36.32 37.39 36.32 41.82 11.8 41.82 11.8 12.91" /><path d="M0,0V111.19H116.93V0ZM111.9,106.25H5V59.17H111.9Zm0-55.34H5V3.83H111.9Z" />
+      </svg>
+    </button>
+  return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
+    <svg fill="currentColor" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 116.93 111.19"><g ><path d="M51.4,68.9,38,97.81H33.47L20.06,68.9h5.66l10,22.58H36L46,68.9Z" /><path d="M57.38,97.81V68.9h5V97.81Z" /><path d="M88.41,84.93H77.3v8.45H96.87v4.43H72.34V68.9H95.8v4.43H77.3V80.5H88.41Z" /><path d="M0,0V111.19H116.93V0ZM92.68,12a21.2,21.2,0,0,1,13.46,5.22l-3.45,3.1a15,15,0,0,0-10-3.9c-6.25,0-10.63,5-10.63,10.94,0,5.57,3.81,10.89,11.11,10.89,3,0,6.55-.89,8.5-2.35v-5.8H92.64V25.7h13.59V38.36A23.78,23.78,0,0,1,92.9,42.7c-9.16,0-16-6.86-16-15.36A15.42,15.42,0,0,1,92.68,12Zm-49.27.88h4.38L64.48,33h0v-20h5V41.82H65.1L48.41,21.76h0V41.82h-5Zm-31.61,0H35.26v4.43H16.76v7.17H27.87v4.43H16.76v8.45H36.32v4.43H11.8Zm100.1,93.34H5V59.17H111.9Z" /></g></svg>
+  </button>
+}
+const LGLangSwitcher = () => {
+  const { local, setLocal } = useLocal()
+  const handleChangeLang = () => {
+    if (local === locals.vi) {
+      return setLocal(locals.en)
+    }
+    return setLocal(locals.vi)
+  }
+  if (local === locals.en)
+    return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
+      <img className="h-5" src="/web-icon-language-13.png"></img>
+    </button>
+  return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
+    <img className="h-5" src="/web-icon-language-14.png"></img>
+  </button>
 }
 export default function Header() {
+  const [open, setOpen] = useState(false)
   return (
-    <header className="z-10 relative text-white ">
+    <header className={classNames("z-50 text-element-2", open ? "sticky top-0" : "relative")}>
       <Container>
-        <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden md:flex flex-wrap items-center justify-between">
+        <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden xl:flex flex-wrap items-center justify-between">
           <div className="flex-1">
             <img style={{ maxWidth: '160px' }} className="w-full" src="/logo-3.png" />
           </div>
@@ -20,12 +52,40 @@ export default function Header() {
                 return <a className="font-sweetsans py-1 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
               })
             }
-            <LangSwitcher />
+            <div className="leading-none">
+              <LGLangSwitcher />
+            </div>
           </div>
         </nav>
-        <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="flex md:hidden flex-wrap py-3 items-start justify-center">
+        <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="flex xl:hidden flex-wrap py-3 justify-between items-center">
           <div className=" text-center ">
             <img style={{ maxWidth: '100px' }} className="w-full" src="/logo-3.png" />
+          </div>
+          <div className="flex items-center space-x-6">
+            <LangSwitcher />
+            <div className="group leading-none ">
+              <button onClick={() => setOpen(!open)} className="text-3xl text-white z-20 ">
+                {
+                  open ? <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000" strokeWidth={2} d="M3,3 L21,21 M3,21 L21,3" /></svg>
+                    : <svg fill="currentColor" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 116.92 111.19"><path d="M0,0V111.19H116.92V0ZM98.94,84.48H18v-10h81Zm0-23.9H18v-10h81Zm0-23.91H18v-10h81Z" /></svg>
+                }
+              </button>
+              {open && <div style={{ backgroundColor: "#E5DFD6", zIndex: '-1' }} className=" pointer-events-auto fixed inset-0">
+                <Container>
+                  <div className="py-header flex flex-col items-center text-center px-6" >
+                    <div className="h-6"></div>
+                    {
+                      pages.map(({ title, href }, i, arr) => {
+                        if (i === arr.length - 1) {
+                          return <a className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                        }
+                        return <a className="font-sweetsans text-element-5 py-5 border-b border-white w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                      })
+                    }
+                  </div>
+                </Container>
+              </div>}
+            </div>
           </div>
         </nav>
       </Container>

@@ -1,7 +1,12 @@
+import { locals } from "const"
+import { useContext, useState } from "react"
+
 const ContextLocal = React.createContext()
-const LocalProvider = ({ local = 'en', children }) => {
+const LocalProvider = ({ children }) => {
+  const [local, setLocal] = useState(locals.en)
   return <ContextLocal.Provider value={{
-    local
+    local,
+    setLocal
   }}>
     {children}
   </ContextLocal.Provider>

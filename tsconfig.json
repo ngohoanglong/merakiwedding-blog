@@ -26,6 +26,7 @@
       "@sections/*": [
         "meraki/sections/*"
       ],
+      "@providers/*": ["providers/*"],
       "@templates/*": [
         "meraki/templates/*"
       ]
@@ -34,9 +35,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
+    "**/*.js",
     "**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
