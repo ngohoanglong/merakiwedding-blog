@@ -1,14 +1,22 @@
 .root {
   position: relative;
   width: 100%;
-  @apply px-12;
+  @apply px-6;
+  @screen lg {
+    @apply px-12;
+  }
 }
 
 .leftControl,
 .rightControl {
   @apply bg-opacity-0 text-element-5 pointer-events-auto z-20 text-3xl w-12 h-12  flex items-center justify-center rounded-full;
 }
-
+.leftControl {
+  @apply -ml-6;
+}
+.rightControl {
+  @apply -mr-6;
+}
 .leftControl:hover,
 .rightControl:hover {
   @apply bg-opacity-40;

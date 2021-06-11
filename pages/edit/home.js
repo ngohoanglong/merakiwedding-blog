@@ -19,7 +19,6 @@ const createScreenGroup = ({
     name,
     component: 'group',
     description,
-
     fields: screens.map(str => {
       return {
         label: `${label} - ${str}`,
@@ -47,9 +46,70 @@ const createBlock = ({
           component: 'text',
         })
       }
+      if (item && item.component === 'image') {
+        return createScreenGroup({
+          ...item,
+          component: 'group',
+          fields: [
+            {
+              label: 'alt',
+              name: 'alt',
+              component: 'text',
+            },
+            {
+              label: 'Image',
+              name: 'src',
+              component: 'image',
+              // Generate the frontmatter value based on the filename
+              parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
+
+              // Decide the file upload directory for the post
+              uploadDir: () => '/',
+
+              // Generate the src attribute for the preview image.
+              previewSrc: fullSrc => {
+                return fullSrc;
+              },
+            },
+          ],
+
+        })
+      }
       return createScreenGroup(item)
     }).filter(Boolean)
   })
+}
+const createImageFieldConfig = ({
+  label = 'image', name = 'image'
+} = {
+    label: 'image', name: 'image'
+  }) => {
+  return {
+    label, name,
+    component: 'group',
+    fields: [
+      {
+        label: 'alt',
+        name: 'alt',
+        component: 'text',
+      },
+      {
+        label: 'Image',
+        name: 'src',
+        component: 'image',
+        // Generate the frontmatter value based on the filename
+        parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
+
+        // Decide the file upload directory for the post
+        uploadDir: () => '/',
+
+        // Generate the src attribute for the preview image.
+        previewSrc: fullSrc => {
+          return fullSrc;
+        },
+      },
+    ],
+  }
 }
 function Index({ pageData, preview }) {
   const cms = useCMS();
@@ -154,6 +214,119 @@ function Index({ pageData, preview }) {
             name: 'image.src',
             component: 'image'
           }
+        ]
+      }),
+      createBlock({
+        label: 'block2',
+        name: 'Block2',
+        fields: [
+          'title',
+          'subTitle',
+          'description',
+          'url',
+          'buttonText',
+          {
+            label: 'texts',
+            name: 'texts',
+            component: 'textarea'
+          },
+          {
+            label: 'image',
+            name: 'image',
+            component: 'image',
+          },
+        ]
+      }),
+      createBlock({
+        label: 'block3',
+        name: 'Block3',
+        fields: [
+          'title',
+          'description',
+          'url',
+          'buttonText',
+        ]
+      }),
+      createBlock({
+        label: 'block4',
+        name: 'Block4',
+        fields: [
+          'title',
+          'description',
+          'url',
+          'buttonText',
+          ({
+            label: 'items',
+            name: 'items',
+            component: 'group-list',
+            fields: [
+              {
+                label: 'title',
+                name: 'title',
+                component: 'text'
+              }, {
+                label: 'description',
+                name: 'description',
+                component: 'text'
+              }
+            ],
+          })
+        ]
+      }),
+      createBlock({
+        label: 'block5',
+        name: 'Block5',
+        fields: [
+          'title',
+          'description',
+          'url',
+          'buttonText',
+          {
+            label: 'image',
+            name: 'image',
+            component: 'image',
+          },
+        ]
+      }),
+      createBlock({
+        label: 'block6',
+        name: 'Block6',
+        fields: [
+          'title',
+          'description',
+          'url',
+          'buttonText',
+          ({
+            label: 'items',
+            name: 'items',
+            component: 'group-list',
+            fields: [
+              {
+                label: 'title',
+                name: 'title',
+                component: 'text'
+              }, {
+                label: 'description',
+                name: 'description',
+                component: 'text'
+              }, createImageFieldConfig()
+            ],
+          })
+        ]
+      }),
+      createBlock({
+        label: 'block7',
+        name: 'Block7',
+        fields: [
+          'title',
+          'description',
+          'url',
+          'buttonText',
+          {
+            label: 'image',
+            name: 'image',
+            component: 'image',
+          },
         ]
       }),
       {

@@ -2,15 +2,15 @@ import { get } from "lodash"
 import { useContext } from "react"
 
 const ContextSource = React.createContext()
-const SourceProvider = ({ source, local = 'en', screen = 'xs', children }) => {
+const SourceProvider = ({ source, local = 'en', children }) => {
   return <ContextSource.Provider value={{
     local,
-    screen,
     get: (path, fallbackValue = "/favicon.png") => {
-      console.log({
-        get, local, source, screen, path
-      })
-      return get(source, `${local}.${path}.${screen}`, get(source, `${local}.${path}`, fallbackValue))
+      const result = get(source, `${local}.${path}`)
+      if (fallbackValue && typeof fallbackValue !== typeof result) {
+        console.error('invalid value')
+      }
+      return result || fallbackValue
     }
   }}>
     {children}
