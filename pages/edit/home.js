@@ -1,8 +1,10 @@
 
 import Layout from "@components/layout";
-import { getAllPostsForHome } from '@lib/api';
+import { useLocal } from "@providers/local";
 import Home from '@templates/home/Home';
+import LoadingDots from "meraki/components/LoadingDots";
 import Head from 'next/head';
+import { useEffect, useState } from "react";
 import { fetchGraphql } from 'react-tinacms-strapi';
 import { useCMS, useForm, usePlugin } from "tinacms";
 import BuilderProvider from "../../providers/tinacms";
@@ -111,11 +113,12 @@ const createImageFieldConfig = ({
     ],
   }
 }
-function Index({ pageData, preview }) {
+function Index({ id, pageData, galleries, preview }) {
   const cms = useCMS();
+  const { local } = useLocal()
   const formConfig = {
-    id: "homepage",
-    label: 'Homepage',
+    id,
+    label: 'Homepage ' + local,
     initialValues: pageData,
     onSubmit: async (values) => {
       const saveMutation = `
@@ -201,7 +204,7 @@ function Index({ pageData, preview }) {
         ]
       },
       createBlock({
-        label: 'block1',
+        label: 'quotes',
         name: 'Block1',
         fields: [
           'title',
@@ -217,7 +220,7 @@ function Index({ pageData, preview }) {
         ]
       }),
       createBlock({
-        label: 'block2',
+        label: 'about us',
         name: 'Block2',
         fields: [
           'title',
@@ -238,17 +241,41 @@ function Index({ pageData, preview }) {
         ]
       }),
       createBlock({
-        label: 'block3',
+        label: 'EXPLORE OUR WEDDINGS',
         name: 'Block3',
         fields: [
           'title',
           'description',
           'url',
           'buttonText',
+          {
+            label: 'custom gallery',
+            name: 'customGallery',
+            component: 'toggle'
+          },
+          {
+            label: 'images',
+            name: 'items',
+            component: 'group-list', defaultItem: () => ({
+              title: 'Boundles Amour',
+              subTitle: 'TESS & ANDY',
+            }),
+            fields: [
+              {
+                label: 'title',
+                name: 'title',
+                component: 'text'
+              }, {
+                label: 'title',
+                name: 'subTitle',
+                component: 'text'
+              }, createImageFieldConfig()
+            ],
+          }
         ]
       }),
       createBlock({
-        label: 'block4',
+        label: 'OUR SERVICES',
         name: 'Block4',
         fields: [
           'title',
@@ -274,7 +301,7 @@ function Index({ pageData, preview }) {
         ]
       }),
       createBlock({
-        label: 'block5',
+        label: 'BLOG',
         name: 'Block5',
         fields: [
           'title',
@@ -289,7 +316,7 @@ function Index({ pageData, preview }) {
         ]
       }),
       createBlock({
-        label: 'block6',
+        label: 'KIND WORDS',
         name: 'Block6',
         fields: [
           'title',
@@ -299,11 +326,19 @@ function Index({ pageData, preview }) {
           ({
             label: 'items',
             name: 'items',
-            component: 'group-list',
+            component: 'group-list', defaultItem: () => ({
+              title: 'Tess & Andy',
+              subTitle: 'NEW ZEALAND / UNITED KINGDOM',
+              description: "“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”"
+            }),
             fields: [
               {
                 label: 'title',
                 name: 'title',
+                component: 'text'
+              }, {
+                label: 'title',
+                name: 'subTitle',
                 component: 'text'
               }, {
                 label: 'description',
@@ -315,7 +350,7 @@ function Index({ pageData, preview }) {
         ]
       }),
       createBlock({
-        label: 'block7',
+        label: 'CONTACT',
         name: 'Block7',
         fields: [
           'title',
@@ -377,21 +412,61 @@ function Index({ pageData, preview }) {
   const [post, form] = useForm(formConfig)
   usePlugin(form);
   return (
-    <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Home - Meraki Wedding Planner</title>
-          <link rel="icon" href="/favicon.png" sizes="32x32"></link>
-        </Head>
-        <Home post={post} />
-      </Layout>
-    </>
+    <Home post={post} galleries={galleries} />
   )
 }
 export default (props) => {
-  return <BuilderProvider>
-    <Index {...props} />
-  </BuilderProvider>
+  const [update, setUpdate] = useState()
+  const [data, setSetData] = useState({})
+  const [isloading, setLoading] = useState()
+  const { local } = useLocal()
+  useEffect(() => {
+    let visible = true
+    const getData = async () => {
+      const pageResults = await fetchGraphql(
+        process.env.STRAPI_URL,
+        `
+          query{
+            homepage(locale: "${local}"){
+              data
+            }
+          }
+      `
+      );
+      console.log(pageResults, pageResults?.data?.homepage?.data)
+      const data = pageResults?.data?.homepage?.data || {}
+      if (typeof data === 'string')
+        return JSON.parse(data)
+      return data
+    }
+    setLoading(true)
+    getData().then(data => {
+      if (visible) {
+        setSetData({
+          ...data,
+          [local]: data
+        })
+        setUpdate(Date.now())
+      }
+    }).finally(() => {
+      setLoading(false)
+    })
+    return () => {
+      visible = false
+    }
+  }, [local])
+  return <Layout preview={props.preview}>
+    <Head>
+      <title>Home - Meraki Wedding Planner</title>
+      <link rel="icon" href="/favicon.png" sizes="32x32"></link>
+    </Head>
+    {update && <BuilderProvider>
+      {!isloading && <Index pageData={data[local] || {}} id={'homepage.' + local} galleries={props.galleries} />}
+      {isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
+        <LoadingDots />
+      </div>}
+    </BuilderProvider>}
+  </Layout>
 }
 export async function getStaticProps({ preview = false }) {
   try {
@@ -399,21 +474,26 @@ export async function getStaticProps({ preview = false }) {
       process.env.STRAPI_URL,
       `
           query{
-              homepage {
-                  data
+            galleries{
+              title
+              locale
+              couples
+              photo{
+                url
+                alternativeText
               }
+            }
           }
       `
     );
-    const pageData = JSON.parse(pageResults.data.homepage.data);
-    const allPosts = await getAllPostsForHome(preview);
+    const galleries = pageResults.data.galleries;
     return {
-      props: { allPosts, pageData, preview },
+      props: { preview, galleries },
       revalidate: 300
     }
   } catch (error) {
     return {
-      props: { allPosts: [], pageData: [], preview },
+      props: { preview, galleries: [] },
       revalidate: 300
     }
   }

@@ -23,6 +23,7 @@
     "tinacms": "^0.41.0"
   },
   "devDependencies": {
+    "@types/lodash.get": "^4.4.6",
     "postcss": "^8.2.9",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",

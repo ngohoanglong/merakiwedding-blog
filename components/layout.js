@@ -1,4 +1,3 @@
-import LocalProvider from '@providers/local'
 import classNames from 'classnames'
 import { throttle } from 'lodash'
 import { useRouter } from 'next/router'
@@ -31,7 +30,7 @@ export default function Layout({ preview, children }) {
     }
   }, [isReady, hasScrolled])
   return (
-    <LocalProvider>
+    <>
       <Meta />
       <div className="min-h-screen">
         <Header hasScrolled={hasScrolled} />
@@ -58,6 +57,6 @@ export default function Layout({ preview, children }) {
           </div>
         </div>
       </div>
-    </LocalProvider>
+    </>
   )
 }

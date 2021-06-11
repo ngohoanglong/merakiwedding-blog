@@ -55,16 +55,7 @@ const Slider = ({ children, breakpoints, disableIndicator = true, loop = true })
               onClick={slider?.prev}
               aria-label="Previous Product Image"
             >
-              <svg fill="currentColor"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14.0002 18L15.4102 16.59L10.8302 12L15.4102 7.41L14.0002 6L8.00016 12L14.0002 18Z"
-                />
-              </svg>
+              <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M9.224 1.553a.5.5 0 01.223.67L6.56 8l2.888 5.776a.5.5 0 11-.894.448l-3-6a.5.5 0 010-.448l3-6a.5.5 0 01.67-.223z" clipRule="evenodd" /></svg>
             </button>
             <div className="flex-1" />
             <button
@@ -72,16 +63,7 @@ const Slider = ({ children, breakpoints, disableIndicator = true, loop = true })
               onClick={slider?.next}
               aria-label="Next Product Image"
             >
-              <svg fill="currentColor"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.99984 6L8.58984 7.41L13.1698 12L8.58984 16.59L9.99984 18L15.9998 12L9.99984 6Z"
-                />
-              </svg>
+              <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6.776 1.553a.5.5 0 01.671.223l3 6a.5.5 0 010 .448l-3 6a.5.5 0 11-.894-.448L9.44 8 6.553 2.224a.5.5 0 01.223-.671z" clipRule="evenodd" /></svg>
             </button>
           </div>
 

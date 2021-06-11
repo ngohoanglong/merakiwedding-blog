@@ -4,7 +4,9 @@ import SourceProvider, { useSource } from "@providers/source";
 import IntroSlider from "@sections/IntroSlider";
 import Slider from "@sections/Slider";
 import classNames from 'classnames';
+import homeData from "data/homeData";
 import NextImage from "next/image";
+const data = { en: homeData }
 const Image = ({ src, alt, variant, ...rest }) => {
   let sizes = "(max-width: 400px) 300px, 800px"
   switch (variant) {
@@ -26,6 +28,7 @@ const Image = ({ src, alt, variant, ...rest }) => {
       src={src || '/logo.png'}
       alt={alt || 'Meraki Image'}
       sizes={sizes}
+
       quality="85"
       objectFit="cover"
       objectPosition="bottom center"
@@ -33,206 +36,12 @@ const Image = ({ src, alt, variant, ...rest }) => {
     />
   )
 }
-const data = {
-  en: {
-    others: {
-      'read more': 'read more'
-    },
-    IntroSlider: {
-      items: [
-        {
-          alt: '',
-          src: '/home/banner/banner-1.jpg'
-        },
-        {
-          alt: '',
-          src: '/home/banner/banner-2.jpg'
-        }, {
-          alt: '',
-          src: '/home/banner/banner-3.jpg'
-        }, {
-          alt: '',
-          src: '/home/banner/banner-4.jpg'
-        }, {
-          alt: '',
-          src: '/home/banner/banner-5.jpg'
-        }, {
-          alt: '',
-          src: '/home/banner/banner-6.jpg'
-        }, {
-          alt: '',
-          src: '/home/banner/banner-7.jpg'
-        },
-      ],
-      title: 'DESTINATION WEDDING PLANNER',
-      subTitle: 'Based in Vietnam'
-    },
-    Block1: {
-      image: {
-        src: '/home/icons/web-homepage-icons-01.png',
-        alt: ''
-      },
-      title: 'INDEPENDENT / ATTENTIVENESS / DEDICATION',
-      description: 'Every wedding crafted by Meraki is a <b class="font-bold">unique experience</b> that was delivered beautifully.',
-      text1: `We love weddings and we are here to serve you with everything we have while providing an experience you will never forget. We want to laugh with you, dance with you, jump around and adventure. We want the small moments to be memorable, and the big moments to become framed memories. Yes, we are absolutely thrilled to be considered as your potential wedding planner. Let’s get connected and let us fulfill the beginning of your journey with joy and amusement.`,
-      text2: `"There is so much joy that goes into the planning and dreaming of your wedding - It is the happiest of projects"`,
-      text3: `- MARTHA STEWART -`
-    },
-    Block2: {
-      image: {
-        src: '/home/web-homepage-about.JPG',
-        alt: ''
-      },
-      title: 'MERAKI',
-      subTitle: '[may-rah-kee] Greek',
-      description: 'Doing something with soul, creativity, and love',
-      texts: [
-        `Wedding is a notable milestone in life. It is the beginning of a lifetime commitment. As wedding planners, we want the bride and groom to enjoy their celebration to the fullest so that they can begin the shared journey with many great memories.`,
-        `Meraki has been walking on a fascinating journey. As we are devoted to do what we love and are passionate about, our hearts are nurtured each day and every day. Each team member is an essential part, we complete each other, bringing balance and making Meraki a diverse and aggregate team. We stay behind the scenes to spark your special day and translate your vision into life.`
-      ]
-    },
-    Block3: {
-      title: 'EXPLORE OUR WEDDINGS',
-      description: 'We hope you find inspiration through the beautiful photos from our amazing photographers',
-      slider: [
-        {
-          image: {
-            src: '/home/explore-our-wedding/1.jpg',
-            alt: ''
-          },
-          title: 'Boundles Amour',
-          subTitle: 'TESS & ANDY'
-        }, {
-          image: {
-            src: '/home/explore-our-wedding/2.jpg',
-            alt: ''
-          },
-          title: 'Elopement on the top of Halong Bay',
-          subTitle: 'PHONG & HOANG'
-        }, {
-          image: {
-            src: '/home/explore-our-wedding/3.jpg',
-            alt: ''
-          },
-          title: 'An Esthetic Conviviality',
-          subTitle: 'LUCIA & QUI'
-        }, {
-          image: {
-            src: '/home/explore-our-wedding/4.jpg',
-            alt: ''
-          },
-          title: 'Boundles Amour',
-          subTitle: 'TESS & ANDY'
-        }, {
-          image: {
-            src: '/home/explore-our-wedding/5.jpg',
-            alt: ''
-          },
-          title: 'Elopement on the top of Halong Bay',
-          subTitle: 'PHONG & HOANG'
-        }, {
-          image: {
-            src: '/home/explore-our-wedding/6.jpg',
-            alt: ''
-          },
-          title: 'An Esthetic Conviviality',
-          subTitle: 'LUCIA & QUI'
-        },
-      ]
-    },
-    Block4: {
-      image: {
-        src: '/home/icons/web-homepage-icons-02.png',
-        alt: ''
-      },
-      title: 'OUR SERVICES',
-      description: 'Our services are customized for your needs',
-      items: [
-        {
-          title: 'PARTIAL SERVICE WEDDING PLANNING',
-          description: 'Designed for everyone, this package is our most popular option for couples who need guidance in wedding planning.'
-        },
-        {
-          title: 'FULL - SERVICE WEDDING PLANNING',
-          description: 'This package is designed for couples who need us to take the lead on every aspect of the wedding.'
-        },
-        {
-          title: 'MONTH OF COORDINATION',
-          description: 'This package is for couple who want to plan the wedding by themselves but still need an expert for guidance.'
-        },
-      ],
-      text: 'Our top priority is delivering an intimate wedding where you and your guests can enjoy and get lost in the moment. We are here to plan, give advice, organize, and hold your hand throughout the whole planning phase to ensure your wedding day is stress-free.'
-    },
-    Block5: {
-      imageLeft: {
-        src: '/home/icons/web-homepage-icons-03.png',
-        alt: ''
-      },
-      imageRight: {
-        src: '/home/web-homepage-blog.jpg',
-        alt: ''
-      },
-      title: 'BLOG',
-      description: 'We are here not for just inspiration but also for practical advice',
-      button: {
-        text: 'BROWSE FOR TIPS AND INSPIRATION'
-      }
-    },
-    Block6: {
-      title: 'KIND WORDS',
-      description: 'Sweet testimonials from clients are our motivation in the whole journey',
-      items: [
-        {
-          image: {
-            src: '/home/kind-words/web-homepage-kindwords-1.jpg', alt: ''
-          },
-          title: 'Tess & Andy',
-          subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-          description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
-        },
-        {
-          image: {
-            src: '/home/kind-words/web-homepage-kindwords-2.jpg', alt: ''
-          },
-          title: 'Tess & Andy',
-          subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-          description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
-        }, {
-          image: {
-            src: '/home/kind-words/web-homepage-kindwords-3.jpg', alt: ''
-          },
-          title: 'Tess & Andy',
-          subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-          description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
-        }, {
-          image: {
-            src: '/home/kind-words/web-homepage-kindwords-4.jpg', alt: ''
-          },
-          title: 'Tess & Andy',
-          subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-          description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
-        },
-      ],
-    },
-    Block7: {
-      image: {
-        src: '/home/web-homepage-contact.jpg',
-        alt: ''
-      },
-      title: 'BOOK YOUR CONSULTATION',
-      subTitle: 'Tell us how we can help',
-      button: {
-        text: 'CONTACT US',
 
-      }
-    }
-  },
-}
 const local = 'en'
 const Block = ({ title, description, children, small = true }) => {
   return <Container>
     <div className={classNames('w-full flex flex-col items-center  mx-auto py-8 lg:py-14', small && "max-w-5xl")}>
-      <h2 className="text-3xl font-kinfolk text-center">{title}</h2>
+      <h2 className="text-5xl font-kinfolk text-center">{title}</h2>
       <div className="mt-2 text-center">{description}</div>
       {children}
     </div>
@@ -260,7 +69,7 @@ const Intro = () => {
   return <>
     <XS>
       {
-        (get) => <div className="relative">
+        (get) => <div className="relative text-element-2">
           <IntroSlider >
             {Array.from(get('IntroSlider.items'), ({ src, alt }, i) => (
               <div
@@ -289,7 +98,7 @@ const Intro = () => {
     </XS>
     <LG>
       {
-        (get) => <div className="relative">
+        (get) => <div className="relative text-element-2">
           <IntroSlider >
             {Array.from(get('IntroSlider.items'), ({ src, alt }, i) => (
               <div
@@ -438,7 +247,7 @@ const Block1 = () => {
                         })
                       }
                     </div>
-                    <div className="h-4" />
+                    <div className="h-14" />
                     <div className='flex'>
                       <Button>{data[local].others["read more"]}</Button>
                     </div>
@@ -451,7 +260,11 @@ const Block1 = () => {
     </LG>
   </>
 }
+// gallery
 const Block3 = () => {
+  const { get } = useSource()
+
+  const galleries = get('galleries', [])
   return (
     <>
       <XS>
@@ -467,22 +280,43 @@ const Block3 = () => {
             >
 
               <div className="mt-4 w-full">
-                <Slider>
-                  {
-                    data[local].Block3.slider.map((item, i) => <div key={i} className="p-3 relative pb-12">
-                      <div className="relative">
-                        <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                        <Image {...item.image}></Image>
-                      </div>
-                      <div className='absolute bottom-0 left-0 right-0 px-8'>
-                        <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                          <div className="font-garamond text-2xl leading-none font-bolder">{item.title}</div>
-                          <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                {
+                  get('Block3.customGallery') === true ? <Slider>
+                    {
+                      get('Block3.items', []).map((item, i) => <div key={i} className="p-3 relative pb-12">
+                        <div className="relative">
+                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                          <Image {...item.image}></Image>
                         </div>
-                      </div>
-                    </div>)
-                  }
-                </Slider>
+                        <div className='absolute bottom-0 left-0 right-0 px-8'>
+                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                            <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
+                            <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                          </div>
+                        </div>
+                      </div>)
+                    }
+                  </Slider> : <Slider>
+                    {
+                      galleries.map((item, i) => <div key={i} className="p-3 relative pb-12">
+                        <div className="relative">
+                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                          <Image {...{
+                            src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
+                          }}></Image>
+                        </div>
+                        <div className='absolute bottom-0 left-0 right-0 px-8'>
+                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                            <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
+                            <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
+                          </div>
+                        </div>
+                      </div>)
+                    }
+                  </Slider>
+                }
+
+
               </div>
               <div className="h-12"></div>
               <div className="flex justify-center">
@@ -499,29 +333,47 @@ const Block3 = () => {
           <Block
             {
             ...{
-              title: data[local].Block3.title,
-              description: data[local].Block3.description
+              title: get('Block3.title'),
+              description: get('Block3.description')
             }
             }
           >
-
-            <div className="mt-4 w-full">
-              <Slider>
-                {
-                  data[local].Block3.slider.map((item, i) => <div key={i} className="relative pb-12 px-4">
-                    <div className="relative">
-                      <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                      <Image {...item.image}></Image>
-                    </div>
-                    <div className='absolute bottom-0 left-0 right-0 px-12'>
-                      <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                        <div className="font-garamond text-xl leading-none font-bolder">{item.title}</div>
-                        <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+            <div className="mt-8 w-full">
+              {
+                get('Block3.customGallery') === true ? <Slider>
+                  {
+                    data[local].Block3.slider.map((item, i) => <div key={i} className="relative pb-12 px-4">
+                      <div className="relative">
+                        <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                        <Image {...item.image}></Image>
                       </div>
-                    </div>
-                  </div>)
-                }
-              </Slider>
+                      <div className='absolute bottom-0 left-0 right-0 px-12'>
+                        <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                          <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
+                          <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                        </div>
+                      </div>
+                    </div>)
+                  }
+                </Slider> : <Slider>
+                  {
+                    galleries.map((item, i) => <div key={i} className="relative pb-12 px-4">
+                      <div className="relative">
+                        <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                        <Image {...{
+                          src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
+                        }}></Image>
+                      </div>
+                      <div className='absolute bottom-0 left-0 right-0 px-12'>
+                        <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                          <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
+                          <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
+                        </div>
+                      </div>
+                    </div>)
+                  }
+                </Slider>
+              }
             </div>
             <div className="h-12"></div>
             <div className="flex justify-center">
@@ -538,25 +390,27 @@ const Instagram = () => {
   console.log({
     instagram: get('instagram')
   })
-  return <div className="lg:max-w-5xl lg:px-12">
+  return <div className="lg:max-w-5xl mx-auto lg:px-12">
     <div className="flex flex-col items-center text-center">
       <div className="text-2xl font-sweetsans">
         {get('instagram.title', 'INSTAGRAM')}
       </div>
-      <div className="w-32 h-12 relative">
+      <div className="w-40 h-14 relative">
         <Image {...get('instagram.image', {
           src: '/home/icons/web-homepage-icons-04.png'
         })} objectFit="contain"></Image>
       </div>
       <div className='h-12'></div>
-      <div className="grid grid-cols-3 lg:grid-cols-5 gap-px lg:gap-6 w-full" >
+      <div className="flex flex-wrap w-full justify-center" >
         {
           get('instagram', []).map((item, i) => {
             const src = item.image
             if (!src) return null
-            return <div key={i} className="flex-1 relative bg-element-4">
-              <div style={{ paddingTop: '100%' }}></div>
-              <Image variant="card" src={item.image || '/logo.png'}></Image>
+            return <div key={i} className="flex-1 w-1/3 lg:w-32 p-px lg:p-3">
+              <div className="w-full relative bg-element-4">
+                <div style={{ paddingTop: '100%' }}></div>
+                <Image variant="card" src={item.image || '/logo.png'}></Image>
+              </div>
             </div>
           })
         }
@@ -564,6 +418,7 @@ const Instagram = () => {
     </div>
   </div>
 }
+// services
 const Block4 = () => {
   return <>
     <XS>
@@ -577,11 +432,11 @@ const Block4 = () => {
               </Link>
             </div>
             <div className="h-8"></div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 w-full'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 w-full items-center justify-center justify-items-center '>
               {
                 get("Block4.items", []).map((item, i) => {
                   return (
-                    <div className="flex flex-col items-center text-center">
+                    <div className="flex flex-col items-center text-center max-w-md">
                       <div className="text-3xl font-kinfolk ">{`${i < 9 ? '0' : ''}${i + 1}.`}</div>
                       <div className="font-sweetsans text-sm uppercase">{item.title}</div>
                       <div className="leading-relaxed mt-1 ">{item.description}</div>
@@ -614,14 +469,14 @@ const Block4 = () => {
               <Button>see details</Button>
             </div>
             <div className="h-14"></div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-center'>
               {
                 data[local].Block4.items.map((item, i) => {
                   return (
-                    <div className="flex flex-col items-center text-center">
+                    <div className="flex flex-col items-center text-center max-w-md">
                       <div className="text-6xl font-kinfolk px-6">{`${i < 9 ? '0' : ''}${i + 1}.`}</div>
                       <div className="font-sweetsans mt-2  px-12 uppercase">{item.title}</div>
-                      <div className="leading-loose mt-6 text-lg">{item.description}</div>
+                      <div className="leading-loose mt-6 ">{item.description}</div>
                     </div>
                   )
                 })
@@ -634,7 +489,7 @@ const Block4 = () => {
               </div>
             </div>
             <div className="h-6"></div>
-            <div className="w-full font-garamond italic text-center">
+            <div className="w-full font-garamond italic text-center text-xl">
               {data[local].Block4.text}
             </div>
             <div className="h-14"></div>
@@ -644,6 +499,7 @@ const Block4 = () => {
     </LG>
   </>
 }
+// blog
 const Block5 = () => {
   return <>
     <XS>
@@ -684,8 +540,8 @@ const Block5 = () => {
               }}></div>
               <Image {...data[local].Block5.imageLeft} objectFit="contain" className="opacity-40" ></Image>
               <div className="absolute inset-0 flex justify-center items-center isolate">
-                <div className="max-w-sm mx-auto text-element-2">
-                  <Block title={get('Block5.title')} description={get('Block5.description')}>
+                <div className="max-w-md mx-auto text-element-2">
+                  <Block title={get('Block5.title')} description={<div className="text-base">{get('Block5.description')}</div>}>
                     <div className="mt-6 flex justify-center">
                       <Link href={get('Block5.url')}><Button reverse>{get('Block5.buttonText')}</Button></Link>
                     </div>
@@ -702,6 +558,7 @@ const Block5 = () => {
     </LG>
   </>
 }
+// kind words
 const Block6 = () => {
   return <>
     <XS>
@@ -794,10 +651,10 @@ const Block7 = () => {
         get => <div> <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
           <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
           <Image {...data[local].Block7.image}></Image>
-          <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-            <div className="leading-none font-garamond italic text-2xl font-bold">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>
+          <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
+            <div className="leading-none font-garamond italic text-3xl">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>
             <div className='h-5'></div>
-            <div className="leading-none text-3xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
+            <div className="leading-none text-5xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
             <div className='h-6'></div>
             <div className='flex justify-center'>
               <Link href={get('Block7.url', '/')}>
@@ -810,7 +667,7 @@ const Block7 = () => {
     </LG>
   </>
 }
-export default function Home({ post }) {
+export default function Home({ post, galleries }) {
   // const {local='en'}=  useLocal()
   const local = 'en'
   console.log({ data })
@@ -818,8 +675,9 @@ export default function Home({ post }) {
     <SourceProvider source={
       {
         en: {
-          ...data.en,
-          ...post
+          ...homeData.en,
+          ...post,
+          galleries,
         }
       }
     }>
