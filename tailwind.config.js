@@ -1,5 +1,22 @@
 module.exports = {
-  purge: ['./components/**/*.js', './pages/**/*.js'],
+  mode: 'jit',
+  future: {
+    purgeLayersByDefault: true,
+    applyComplexClasses: true,
+  },
+  purge: {
+    content: [
+      './pages/**/*.{js,ts,jsx,tsx}',
+      './components/**/*.{js,ts,jsx,tsx}',
+      './meraki/**/*.{js,ts,jsx,tsx}',
+
+    ],
+    options: {
+      safelist: {
+        standard: ['outline-none'],
+      },
+    },
+  },
   theme: {
     extend: {
       colors: {
