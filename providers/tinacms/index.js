@@ -2,6 +2,7 @@ import LocalProvider from "@providers/local";
 import { get } from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useMemo } from "react";
+import { HtmlFieldPlugin, MarkdownFieldPlugin } from 'react-tinacms-editor';
 import {
   StrapiClient, StrapiMediaStore,
   StrapiProvider
@@ -38,7 +39,10 @@ function BuilderProvider({ children }) {
       }),
     []
   )
-
+  useEffect(() => {
+    cms.plugins.add(MarkdownFieldPlugin)
+    cms.plugins.add(HtmlFieldPlugin)
+  }, [])
   return <TinaProvider cms={cms}>
     <LocalProvider initialLocale={locale}>
       <StrapiProvider>

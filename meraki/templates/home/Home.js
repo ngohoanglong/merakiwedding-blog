@@ -3,69 +3,15 @@ import Container from "@components/container";
 import SourceProvider, { useSource } from "@providers/source";
 import IntroSlider from "@sections/IntroSlider";
 import Slider from "@sections/Slider";
-import classNames from 'classnames';
 import homeData from "data/homeData";
-import NextImage from "next/image";
+import { Block } from "../../components/Block";
+import { Image } from "../../components/Image";
+import { LG } from "../../components/LG";
+import { Link } from "../../components/Link";
+import { XS } from "../../components/XS";
 const data = { en: homeData }
-const Image = ({ src, alt, variant, ...rest }) => {
-  let sizes = "(max-width: 400px) 300px, 800px"
-  switch (variant) {
-    case 'cover':
-      sizes = "(max-width: 400px) 800px, 1400px"
-      break;
-    case 'card':
-      sizes = "(max-width: 400px) 400px, 400px"
-      break;
-    case 'card-large':
-      sizes = "(max-width: 400px) 400px, 800px"
-      break;
-    default:
-      break;
-  }
-  return (
-    <NextImage
-      layout="fill"
-      src={src || '/logo.png'}
-      alt={alt || 'Meraki Image'}
-      sizes={sizes}
-
-      quality="85"
-      objectFit="cover"
-      objectPosition="bottom center"
-      {...rest}
-    />
-  )
-}
-
 const local = 'en'
-const Block = ({ title, description, children, small = true }) => {
-  return <Container>
-    <div className={classNames('w-full flex flex-col items-center  mx-auto py-8 lg:py-14', small && "max-w-5xl")}>
-      <h2 className="text-5xl font-kinfolk text-center">{title}</h2>
-      <div className="mt-2 text-center">{description}</div>
-      {children}
-    </div>
-  </Container>
-}
-const LG = ({ children }) => {
-  const { get } = useSource()
-  const element = children((path, fallbackValue) => get(`${path}.lg`, get(`${path}.xs`, fallbackValue)))
-  return React.cloneElement(element, {
-    ...element.props,
-    className: classNames(element.className, "hidden lg:block")
-  })
-}
-const XS = ({ children }) => {
-  const { get } = useSource()
-  const element = children((path, ...args) => get(`${path}.xs`, ...args))
-  return React.cloneElement(element, {
-    ...element.props,
-    className: classNames(element.className, "lg:hidden")
-  })
-}
 const Intro = () => {
-  const { get } = useSource()
-
   return <>
     <XS>
       {
@@ -129,9 +75,6 @@ const Intro = () => {
 
 
 }
-const Link = (props) => {
-  return <a {...props} />
-}
 const Block1 = () => {
   const { get } = useSource()
   return <>
@@ -186,9 +129,9 @@ const Block1 = () => {
                   </div>
                   <div className="h-4" />
                   <div className='flex justify-center'>
-                    <a href={get('Block2.url', '/')}>
+                    <Link href={get('Block2.url', '/')}>
                       <Button>{get('Block2.buttonText', 'read more')}</Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </Container>
@@ -249,7 +192,9 @@ const Block1 = () => {
                     </div>
                     <div className="h-14" />
                     <div className='flex'>
-                      <Button>{data[local].others["read more"]}</Button>
+                      <Link href={get('Block2.url', '/')}>
+                        <Button>{data[local].others["read more"]}</Button>
+                      </Link>
                     </div>
                   </div>
                 </Container>
@@ -283,34 +228,39 @@ const Block3 = () => {
                 {
                   get('Block3.customGallery') === true ? <Slider>
                     {
-                      get('Block3.items', []).map((item, i) => <div key={i} className="p-3 relative pb-12">
-                        <div className="relative">
-                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                          <Image {...item.image}></Image>
-                        </div>
-                        <div className='absolute bottom-0 left-0 right-0 px-8'>
-                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
-                            <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                      get('Block3.items', []).map((item, i) => <div key={i} >
+                        <Link href={item.url} className="block p-3 relative pb-12">
+                          <div className="relative">
+                            <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                            <Image {...item.image}></Image>
                           </div>
-                        </div>
+                          <div className='absolute bottom-0 left-0 right-0 px-8'>
+                            <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                              <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
+                              <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                            </div>
+                          </div>
+                        </Link>
                       </div>)
                     }
                   </Slider> : <Slider>
                     {
-                      galleries.map((item, i) => <div key={i} className="p-3 relative pb-12">
-                        <div className="relative">
-                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                          <Image {...{
-                            src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
-                          }}></Image>
-                        </div>
-                        <div className='absolute bottom-0 left-0 right-0 px-8'>
-                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
-                            <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
+                      galleries.map((item, i) => <div key={i} >
+                        <Link href={"https://merakiweddingplanner.com/gallery/" + item.slug} className="block p-3 relative pb-12">
+                          <div className="relative">
+                            <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                            <Image {...{
+                              src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
+                            }}></Image>
                           </div>
-                        </div>
+                          <div className='absolute bottom-0 left-0 right-0 px-8'>
+                            <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                              <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
+                              <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
+                            </div>
+                          </div>
+                        </Link>
+
                       </div>)
                     }
                   </Slider>
@@ -320,9 +270,9 @@ const Block3 = () => {
               </div>
               <div className="h-12"></div>
               <div className="flex justify-center">
-                <a href={get('Block3.url', '/')}>
+                <Link href={get('Block3.url', '/')}>
                   <Button>{get('Block3.buttonText', 'read more')}</Button>
-                </a>
+                </Link>
               </div>
             </Block>
           </div>
@@ -342,34 +292,38 @@ const Block3 = () => {
               {
                 get('Block3.customGallery') === true ? <Slider>
                   {
-                    data[local].Block3.slider.map((item, i) => <div key={i} className="relative pb-12 px-4">
-                      <div className="relative">
-                        <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                        <Image {...item.image}></Image>
-                      </div>
-                      <div className='absolute bottom-0 left-0 right-0 px-12'>
-                        <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                          <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
-                          <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                    data[local].Block3.slider.map((item, i) => <div key={i} >
+                      <Link href={item.url} className="block relative pb-12 px-4">
+                        <div className="relative">
+                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                          <Image {...item.image}></Image>
                         </div>
-                      </div>
+                        <div className='absolute bottom-0 left-0 right-0 px-12'>
+                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                            <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
+                            <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
+                          </div>
+                        </div>
+                      </Link>
                     </div>)
                   }
                 </Slider> : <Slider>
                   {
-                    galleries.map((item, i) => <div key={i} className="relative pb-12 px-4">
-                      <div className="relative">
-                        <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                        <Image {...{
-                          src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
-                        }}></Image>
-                      </div>
-                      <div className='absolute bottom-0 left-0 right-0 px-12'>
-                        <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                          <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
-                          <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
+                    galleries.map((item, i) => <div key={i} >
+                      <Link href={"https://merakiweddingplanner.com/gallery/" + item.slug} className="block relative pb-12 px-4">
+                        <div className="relative">
+                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                          <Image {...{
+                            src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
+                          }}></Image>
                         </div>
-                      </div>
+                        <div className='absolute bottom-0 left-0 right-0 px-12'>
+                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                            <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
+                            <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
+                          </div>
+                        </div>
+                      </Link>
                     </div>)
                   }
                 </Slider>
@@ -377,7 +331,9 @@ const Block3 = () => {
             </div>
             <div className="h-12"></div>
             <div className="flex justify-center">
-              <Button>read more</Button>
+              <Link href={get('Block3.url', '/')}>
+                <Button>{get('Block3.buttonText', 'read more')}</Button>
+              </Link>
             </div>
           </Block>
         </div>}
@@ -466,7 +422,9 @@ const Block4 = () => {
           <Block title={data[local].Block4.title} description={data[local].Block4.description}>
             <div className="h-6"></div>
             <div className="flex justify-center">
-              <Button>see details</Button>
+              <Link href={get("Block4.url")}>
+                <Button>{get("Block4.buttonText")}</Button>
+              </Link>
             </div>
             <div className="h-14"></div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-center'>
@@ -623,6 +581,7 @@ const Block6 = () => {
   </>
 }
 
+//contact
 const Block7 = () => {
   return <>
     <XS>

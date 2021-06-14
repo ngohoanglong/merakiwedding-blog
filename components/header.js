@@ -50,8 +50,8 @@ export default function Header() {
           </div>
           <div className="px-3 mt-1 flex-1 space-x-12 flex flex-wrap justify-center items-center">
             {
-              appdata[local].navbar.map(({ title, href }) => {
-                return <a className="font-sweetsans py-1 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+              appdata[local].navbar.map(({ title, href }, i) => {
+                return <a key={i} className="font-sweetsans py-1 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
               })
             }
 
@@ -80,9 +80,9 @@ export default function Header() {
                     {
                       appdata[local].navbar.map(({ title, href }, i, arr) => {
                         if (i === arr.length - 1) {
-                          return <a className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                          return <a key={i} className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
                         }
-                        return <a className="font-sweetsans text-element-5 py-5 border-b border-white w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                        return <a key={i} className="font-sweetsans text-element-5 py-5 border-b border-white w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
                       })
                     }
                   </div>
