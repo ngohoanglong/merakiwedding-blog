@@ -1,7 +1,7 @@
 import LocalProvider from "@providers/local";
 import { get } from "lodash";
 import { useRouter } from "next/router";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import {
   StrapiClient, StrapiMediaStore,
   StrapiProvider
@@ -19,7 +19,13 @@ export class MyMediaStore extends StrapiMediaStore {
   }
 }
 function BuilderProvider({ children }) {
-  const { locale } = useRouter()
+  const { locale, query } = useRouter()
+  const { tina_strapi_jwt } = query
+  useEffect(() => {
+    if (tina_strapi_jwt) {
+      document.cookie = `tina_strapi_jwt=${tina_strapi_jwt}; expires=2023-06-03T09:40:20.000Z ;path=/`;
+    }
+  }, [tina_strapi_jwt])
   const cms = useMemo(
     () =>
       new TinaCMS({
