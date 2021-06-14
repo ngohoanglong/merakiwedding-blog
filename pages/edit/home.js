@@ -172,7 +172,7 @@ function Index({ id, pageData, galleries, preview }) {
             description: 'Slider Images',
             itemProps: item => ({
               key: item.id,
-              label: item.title,
+              label: item.src ? item.src.replace(process.env.STRAPI_URL + '/uploads/', '') : 'undefined',
             }),
             defaultItem: () => ({
               name: 'Title',
@@ -198,7 +198,7 @@ function Index({ id, pageData, galleries, preview }) {
 
                 // Generate the src attribute for the preview image.
                 previewSrc: fullSrc => {
-                  return fullSrc;
+                  return fullSrc.replace('/uploads/', '/uploads/small_');
                 },
               },
             ],
@@ -258,6 +258,10 @@ function Index({ id, pageData, galleries, preview }) {
           {
             label: 'images',
             name: 'items',
+            itemProps: item => ({
+              key: item.id,
+              label: item.title,
+            }),
             component: 'group-list', defaultItem: () => ({
               title: 'Boundles Amour',
               subTitle: 'TESS & ANDY',
@@ -288,6 +292,10 @@ function Index({ id, pageData, galleries, preview }) {
             label: 'items',
             name: 'items',
             component: 'group-list',
+            itemProps: item => ({
+              key: item.id,
+              label: item.title,
+            }),
             fields: [
               {
                 label: 'title',
@@ -328,6 +336,10 @@ function Index({ id, pageData, galleries, preview }) {
           ({
             label: 'items',
             name: 'items',
+            itemProps: item => ({
+              key: item.id,
+              label: item.title,
+            }),
             component: 'group-list', defaultItem: () => ({
               title: 'Tess & Andy',
               subTitle: 'NEW ZEALAND / UNITED KINGDOM',
@@ -404,7 +416,7 @@ function Index({ id, pageData, galleries, preview }) {
 
             // Generate the src attribute for the preview image.
             previewSrc: fullSrc => {
-              return fullSrc;
+              return fullSrc.replace('/uploads/', '/uploads/small_');
             },
           },
         ],

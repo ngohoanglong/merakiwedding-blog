@@ -1,10 +1,7 @@
 .root {
   position: relative;
   width: 100%;
-  @apply px-6;
-  @screen lg {
-    @apply px-12;
-  }
+  @apply px-6 lg:px-12;
 }
 
 .leftControl,
