@@ -198,7 +198,7 @@ function Index({ id, pageData, galleries, preview }) {
 
                 // Generate the src attribute for the preview image.
                 previewSrc: fullSrc => {
-                  return fullSrc;
+                  return fullSrc.replace('/uploads/', '/uploads/small_');
                 },
               },
             ],
@@ -404,7 +404,7 @@ function Index({ id, pageData, galleries, preview }) {
 
             // Generate the src attribute for the preview image.
             previewSrc: fullSrc => {
-              return fullSrc;
+              return fullSrc.replace('/uploads/', '/uploads/small_');
             },
           },
         ],
