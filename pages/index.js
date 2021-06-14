@@ -4,10 +4,10 @@ import Home from '@templates/home/Home';
 import Head from 'next/head';
 import { fetchGraphql } from 'react-tinacms-strapi';
 
-export default function Index({ galleries, pageData, preview }) {
+export default function Index({ locale, galleries, pageData, preview }) {
   return (
     <>
-      <Layout preview={preview}>
+      <Layout preview={preview} locale={locale}>
         <Head>
           <title>Home - Meraki Wedding Planner</title>
           <link rel="icon" href="/favicon.png" sizes="32x32"></link>
@@ -18,16 +18,18 @@ export default function Index({ galleries, pageData, preview }) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
+export async function getStaticProps(props) {
+  const { locale, preview = false } = props
+  console.log({ props })
   const pageResults = await fetchGraphql(
     process.env.STRAPI_URL,
     `
-        query{
-            homepage {
-                data
-            }
+      query{
+        homepage(locale: "${locale}"){
+          data
         }
-      `
+      }
+    `
   );
   const galleryResults = await fetchGraphql(
     process.env.STRAPI_URL,
@@ -46,9 +48,24 @@ export async function getStaticProps({ preview = false }) {
     `
   );
   const galleries = galleryResults.data.galleries;
-  const pageData = JSON.parse(pageResults?.data?.homepage?.data || `{}`);
+  let pageData = {}
+  try {
+    if (typeof pageResults?.data?.homepage?.data === 'string') {
+      pageData = (JSON.parse(pageResults?.data?.homepage?.data) || `{}`);
+    }
+    else {
+      pageData = (pageResults?.data?.homepage?.data || {});
+    }
+  } catch (error) {
+    console.error(error)
+    pageData = {}
+  }
+  console.log({
+    locale, pageResults, sd: pageResults?.data?.homepage?.data,
+    pageData
+  })
   return {
-    props: { galleries, pageData, preview },
+    props: { locale, galleries, pageData, preview },
     revalidate: 300
   }
 }

@@ -7,7 +7,7 @@ import Meta from '../components/meta'
 import Header from './header'
 
 
-export default function Layout({ preview, children }) {
+export default function Layout({ locale, preview, children }) {
   const { isReady } = useRouter()
   const [hasScrolled, setHasScrolled] = useState()
   useEffect(() => {

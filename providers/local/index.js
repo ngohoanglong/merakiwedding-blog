@@ -1,8 +1,9 @@
 import { locals } from "const"
+import { useRouter } from "next/router"
 import { useContext, useState } from "react"
 
 const ContextLocal = React.createContext()
-const LocalProvider = ({ children }) => {
+const LocalProvider = ({ children, initialLocale = "en" }) => {
   const [local, setLocal] = useState(locals.en)
   return <ContextLocal.Provider value={{
     local,
@@ -12,6 +13,17 @@ const LocalProvider = ({ children }) => {
   </ContextLocal.Provider>
 }
 export const useLocal = () => {
-  return useContext(ContextLocal)
+  const localdata = useContext(ContextLocal)
+  const { locale, push, pathname, query, } = useRouter()
+  if (localdata) return localdata
+  return {
+    local: locale,
+    setLocal: (locale) => {
+      console.log(locale)
+      push(pathname, pathname, {
+        locale,
+      })
+    }
+  }
 }
 export default LocalProvider

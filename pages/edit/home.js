@@ -118,23 +118,25 @@ function Index({ id, pageData, galleries, preview }) {
   const { local } = useLocal()
   const formConfig = {
     id,
-    label: 'Homepage ' + local,
+    label: `Homepage (${local})`,
     initialValues: pageData,
     onSubmit: async (values) => {
       const saveMutation = `
-            mutation updateHomepage(
-                $data: JSON
-            ) {
-                updateHomepage(input: {data: {data: $data}}) {
-                    homepage {
-                        data
-                    }
-                }
-            }`;
+        mutation updateHomepage(
+              $data: JSON
+              $locale: String
+          ) {
+              updateHomepage(input: {data: {data: $data}} locale:$locale) {
+                  homepage {
+                      data
+                  }
+              }
+        }`;
       const response = await cms.api.strapi.fetchGraphql(
         saveMutation,
         {
           data: JSON.stringify(values),
+          locale: local
         }
       );
       if (response.data) {
@@ -415,7 +417,7 @@ function Index({ id, pageData, galleries, preview }) {
     <Home post={post} galleries={galleries} />
   )
 }
-export default (props) => {
+function EnchancedIndex(props) {
   const [update, setUpdate] = useState()
   const [data, setSetData] = useState({})
   const [isloading, setLoading] = useState()
@@ -455,18 +457,22 @@ export default (props) => {
       visible = false
     }
   }, [local])
-  return <Layout preview={props.preview}>
+  return <>
+    {update &&
+      !isloading && <Index pageData={data[local] || {}} id={'homepage.' + local} galleries={props.galleries} />}
+    {update && isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
+      <LoadingDots />
+    </div>}
+  </>
+}
+export default (props) => {
+  return <BuilderProvider><Layout preview={props.preview}>
     <Head>
       <title>Home - Meraki Wedding Planner</title>
       <link rel="icon" href="/favicon.png" sizes="32x32"></link>
     </Head>
-    {update && <BuilderProvider>
-      {!isloading && <Index pageData={data[local] || {}} id={'homepage.' + local} galleries={props.galleries} />}
-      {isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
-        <LoadingDots />
-      </div>}
-    </BuilderProvider>}
-  </Layout>
+    <EnchancedIndex {...props} />
+  </Layout></BuilderProvider>
 }
 export async function getStaticProps({ preview = false }) {
   try {
@@ -497,6 +503,4 @@ export async function getStaticProps({ preview = false }) {
       revalidate: 300
     }
   }
-
-
 }

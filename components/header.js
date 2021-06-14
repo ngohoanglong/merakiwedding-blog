@@ -1,7 +1,8 @@
 import { useLocal } from "@providers/local"
 import classNames from 'classnames'
-import { locals, pages } from "const"
+import { locals } from "const"
 import { useState } from "react"
+import appdata from '../data/app'
 import Container from "./container"
 const LangSwitcher = () => {
   const { local, setLocal } = useLocal()
@@ -29,7 +30,7 @@ const LGLangSwitcher = () => {
     }
     return setLocal(locals.vi)
   }
-  if (local === locals.en)
+  if (local === locals.vi)
     return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
       <img className="h-5" src="/web-icon-language-13.png"></img>
     </button>
@@ -38,23 +39,25 @@ const LGLangSwitcher = () => {
   </button>
 }
 export default function Header() {
+  const { local, setLocal } = useLocal()
   const [open, setOpen] = useState(false)
   return (
     <header className={classNames("z-50 text-element-2", open ? "sticky top-0" : "relative")}>
       <Container>
-        <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden xl:flex flex-wrap items-center justify-between">
-          <div className="flex-1">
-            <img style={{ maxWidth: '160px' }} className="w-full" src="/logo-3.png" />
+        <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden xl:flex justify-center items-center ">
+          <div style={{ width: '160px' }} className="flex-shrink-0 ">
+            <img className="w-full" src="/logo-3.png" />
           </div>
-          <div className="px-3 space-x-12 flex items-center">
+          <div className="px-3 mt-1 flex-1 space-x-12 flex flex-wrap justify-center items-center">
             {
-              pages.map(({ title, href }) => {
+              appdata[local].navbar.map(({ title, href }) => {
                 return <a className="font-sweetsans py-1 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
               })
             }
-            <div className="leading-none">
-              <LGLangSwitcher />
-            </div>
+
+          </div>
+          <div className="leading-none">
+            <LGLangSwitcher />
           </div>
         </nav>
         <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="flex xl:hidden flex-wrap py-3 justify-between items-center">
@@ -75,7 +78,7 @@ export default function Header() {
                   <div className="py-header flex flex-col items-center text-center px-6" >
                     <div className="h-6"></div>
                     {
-                      pages.map(({ title, href }, i, arr) => {
+                      appdata[local].navbar.map(({ title, href }, i, arr) => {
                         if (i === arr.length - 1) {
                           return <a className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
                         }

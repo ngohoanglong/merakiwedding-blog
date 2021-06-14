@@ -1,3 +1,5 @@
+import LocalProvider from "@providers/local";
+import { useRouter } from "next/router";
 import { useMemo } from "react";
 import {
   StrapiClient, StrapiMediaStore,
@@ -6,6 +8,7 @@ import {
 import { TinaCMS, TinaProvider } from 'tinacms';
 
 function BuilderProvider({ children }) {
+  const { locale } = useRouter()
   const cms = useMemo(
     () =>
       new TinaCMS({
@@ -20,9 +23,12 @@ function BuilderProvider({ children }) {
   )
 
   return <TinaProvider cms={cms}>
-    <StrapiProvider>
-      {children}
-    </StrapiProvider>
+    <LocalProvider initialLocale={locale}>
+      <StrapiProvider>
+        {children}
+      </StrapiProvider>
+    </LocalProvider>
+
   </TinaProvider>
 }
 
