@@ -158,23 +158,23 @@ export default {
         image: {
           src: '/home/kind-words/web-homepage-kindwords-2.jpg', alt: ''
         },
-        title: 'Tess & Andy',
-        subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-        description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
+        title: 'Mai & Chris',
+        subTitle: 'UNITED STATE',
+        description: '“We used Tu and Xuan for our wedding in Saigon in November 2018. From the start Xuan and Tu were extremely responsive to us. They went the extra mile to secure a venue that we had never even seen in person before and they patiently worked with us through emails for 7 months. To us they are family now ...”'
       }, {
         image: {
           src: '/home/kind-words/web-homepage-kindwords-3.jpg', alt: ''
         },
-        title: 'Tess & Andy',
-        subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-        description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
+        title: 'Lucia & Qui',
+        subTitle: 'VIET NAM / AUSTRALIA',
+        description: '“When it came to select a wedding planner, we thanked our lucky stars we found Meraki Wedding Planner Hoang Thanh Xuan - You are the best wedding planner in Vietnam. Without your help our special day would not have been the picture-perfect event we always dreamed of. Thank you so much. We appreciate you more than words can say...”'
       }, {
         image: {
           src: '/home/kind-words/web-homepage-kindwords-4.jpg', alt: ''
         },
-        title: 'Tess & Andy',
-        subTitle: 'NEW ZEALAND / UNITED KINGDOM',
-        description: '“Xuan and Tu were very attentive and insured our vision came true. They worked with us with great communication, informing us on all details – even if there were things we couldn’t achieve they talked us through reasons and available options. We were so happy to have Xuan and Tu as wedding planners and they became a special part of our wedding and remain our close friends today...”'
+        title: 'Lele & Thomas',
+        subTitle: 'VIET NAM / FRANCE',
+        description: '“Xu and Meraki team are amazing. They were the secret weapon for our unforgettable wedding night on a boat along Saigon river. With Xu, no details are too small, no speed is too fast, and all ideas are seemingly achievable. So if you want your special day to be really special, out of the box, yet you want minimal stress and worries, Meraki is the team of choice as a trusted planner and friend...'
       },
     ],
   },

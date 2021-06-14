@@ -436,7 +436,7 @@ const Block4 = () => {
               {
                 get("Block4.items", []).map((item, i) => {
                   return (
-                    <div className="flex flex-col items-center text-center max-w-md">
+                    <div key={i} className="flex flex-col items-center text-center max-w-md">
                       <div className="text-3xl font-kinfolk ">{`${i < 9 ? '0' : ''}${i + 1}.`}</div>
                       <div className="font-sweetsans text-sm uppercase">{item.title}</div>
                       <div className="leading-relaxed mt-1 ">{item.description}</div>
@@ -473,7 +473,7 @@ const Block4 = () => {
               {
                 data[local].Block4.items.map((item, i) => {
                   return (
-                    <div className="flex flex-col items-center text-center max-w-md">
+                    <div key={i} className="flex flex-col items-center text-center max-w-md">
                       <div className="text-6xl font-kinfolk px-6">{`${i < 9 ? '0' : ''}${i + 1}.`}</div>
                       <div className="font-sweetsans mt-2  px-12 uppercase">{item.title}</div>
                       <div className="leading-loose mt-6 ">{item.description}</div>
