@@ -1,14 +1,9 @@
 import Container from "@components/container";
 import Layout from "@components/layout";
-import { useLocal } from "@providers/local";
 import SourceProvider, { useSource } from "@providers/source";
-import { createFields, createImageFieldConfig, createImageFields } from "@providers/tinacms/helpers";
 import { Contact } from "@sections/Contact";
 import defaultData from '@templates/services/data';
 import { Image } from "meraki/components/Image";
-import LoadingDots from "meraki/components/LoadingDots";
-import { useEffect, useState } from "react";
-import { useCMS, useForm, usePlugin } from "tinacms";
 const Cover = () => {
   const { get } = useSource()
   return <div className="min min-h-screen relative -mt-header lg:bg-element-7">
