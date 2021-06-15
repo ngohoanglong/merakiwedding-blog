@@ -21,7 +21,7 @@ export const Image = ({ src, alt, variant, ...rest }) => {
       src={src || '/logo.png'}
       alt={alt || 'Meraki Image'}
       sizes={sizes}
-
+      placeholder="blur"
       quality="85"
       objectFit="cover"
       objectPosition="bottom center"

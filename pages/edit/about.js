@@ -42,7 +42,7 @@ function AboutForm({ id, pageData = {}, preview }) {
     },
     fields: createFields([
       'title',
-      'description',
+      'subTitle',
       {
         label: 'content',
         name: 'description',
@@ -59,12 +59,16 @@ function AboutForm({ id, pageData = {}, preview }) {
         fields: createImageFields(),
       },
       {
-        label: 'content',
+        label: 'meet the team',
         name: 'content',
         component: 'group',
         fields: createFields([
           'title',
-          'subTitle',
+          {
+            label: 'description',
+            name: 'subTitle',
+            component: 'textarea'
+          },
           {
             label: 'content',
             name: 'description',
