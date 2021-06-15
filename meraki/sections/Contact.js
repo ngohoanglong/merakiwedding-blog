@@ -15,15 +15,15 @@ export const Contact = ({ }) => {
         get => <div>
           <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
             <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
-            <Image {...get('app.contact.image', data[local].Block7.image)}></Image>
+            <Image {...get('app.data.contact.image', data[local].Block7.image)}></Image>
             <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-              <div className="leading-none font-garamond italic text-xl font-bold">{get('app.contact.subTitle', data[local].Block7.subTitle)}</div>
+              <div className="leading-none font-garamond italic text-xl font-bold">{get('app.data.contact.subTitle', data[local].Block7.subTitle)}</div>
               <div className='h-5'></div>
-              <div className="leading-none text-4xl font-kinfolk">{get('app.contact.title', data[local].Block7.title)}</div>
+              <div className="leading-none text-4xl font-kinfolk">{get('app.data.contact.title', data[local].Block7.title)}</div>
               <div className='h-6'></div>
               <div className='flex justify-center'>
-                <Link href={get('app.contact.url', '/')}>
-                  <Button reverse>{get('app.contact.buttonText', data[local].Block7.buttonText)}</Button>
+                <Link href={get('app.data.contact.url', '/')}>
+                  <Button reverse>{get('app.data.contact.buttonText', data[local].Block7.buttonText)}</Button>
                 </Link>
               </div>
             </div>
@@ -32,21 +32,23 @@ export const Contact = ({ }) => {
     </XS>
     <LG>
       {
-        get => <div> <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
-          <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
-          <Image {...data[local].Block7.image}></Image>
-          <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
-            <div className="leading-none font-garamond italic text-3xl">{get('app.contact.subTitle', data[local].Block7.subTitle)}</div>
-            <div className='h-5'></div>
-            <div className="leading-none text-5xl font-kinfolk">{get('app.contact.title', data[local].Block7.title)}</div>
-            <div className='h-6'></div>
-            <div className='flex justify-center'>
-              <Link href={get('app.contact.url', '/')}>
-                <Button reverse>{get('app.contact.buttonText', data[local].Block7.buttonText)}</Button>
-              </Link>
+        get => {
+          return <div> <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
+            <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
+            <Image {...data[local].Block7.image}></Image>
+            <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
+              <div className="leading-none font-garamond italic text-3xl">{get('app.data.contact.subTitle', data[local].Block7.subTitle)}</div>
+              <div className='h-5'></div>
+              <div className="leading-none text-5xl font-kinfolk">{get('app.data.contact.title', data[local].Block7.title)}</div>
+              <div className='h-6'></div>
+              <div className='flex justify-center'>
+                <Link href={get('app.data.contact.url', '/')}>
+                  <Button reverse>{get('app.data.contact.buttonText', data[local].Block7.buttonText)}</Button>
+                </Link>
+              </div>
             </div>
-          </div>
-        </div></div>}
+          </div></div>
+        }}
     </LG>
   </>;
 };

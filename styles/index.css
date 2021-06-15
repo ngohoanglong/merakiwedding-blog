@@ -105,6 +105,9 @@ body {
   @apply text-element-5 font-commissioner font-light;
 }
 
+p {
+  margin-top: 1.6em;
+}
 /* Your own custom utilities */
 .fit {
   min-height: calc(

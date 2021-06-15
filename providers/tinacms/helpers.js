@@ -21,6 +21,30 @@ export const createScreenGroup = ({
     }),
   };
 };
+export const createImageFields = () => {
+  return [
+    {
+      label: 'alt',
+      name: 'alt',
+      component: 'text',
+    },
+    {
+      label: 'Image',
+      name: 'src',
+      component: 'image',
+      // Generate the frontmatter value based on the filename
+      parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
+
+      // Decide the file upload directory for the post
+      uploadDir: () => '/',
+
+      // Generate the src attribute for the preview image.
+      previewSrc: fullSrc => {
+        return fullSrc.replace('/uploads/', '/uploads/small_');
+      },
+    },
+  ]
+}
 export const createFields = (fields) => {
   return fields.map(item => {
     if (typeof item === 'string') {

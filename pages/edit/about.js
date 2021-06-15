@@ -4,89 +4,109 @@ import Layout from "@components/layout";
 import { useLocal } from "@providers/local";
 import SourceProvider, { useSource } from "@providers/source";
 import { createFields, createImageFieldConfig, createImageFields } from "@providers/tinacms/helpers";
-import { Contact } from "@sections/Contact";
-import defaultData from '@templates/services/data';
+import { Instagram } from "@sections/Instagram";
+import defaultData from '@templates/about/data';
 import { Image } from "meraki/components/Image";
 import LoadingDots from "meraki/components/LoadingDots";
 import { useEffect, useState } from "react";
 import { fetchGraphql } from 'react-tinacms-strapi';
 import { useCMS, useForm, usePlugin } from "tinacms";
 import BuilderProvider from "../../providers/tinacms";
+
 const Cover = () => {
   const { get } = useSource()
-  console.log({
-    services: get('services')
-  })
-  return <div className="min min-h-screen relative -mt-header lg:bg-element-7">
-    <div className='absolute right-0 top-0 w-full bottom-24 lg:w-1/3 lg:h-full'>
-      <Image src={get('services.image.src', '/services/service-mobile-banner.jpg')} />
-    </div>
-    <div className="absolute w-full h-full left-0 bottom-0  pt-header text-center lg:w-2/3 flex">
-      <Container >
-        <div className="flex flex-col items-center lg:text-left lg:flex-row h-full ">
-          <div className="p-6 text-white lg:text-element-5 lg:flex-1">
-            <h1 className="text-3xl font-kinfolk lg:text-7xl leading-none">{get('services.title', defaultData.title)}</h1>
-            <div className="text-xl font-garamond italic lg:mt-6">{get('services.subTitle', defaultData.subTitle)}</div>
+  return <div style={{ backgroundColor: '#61684b' }} className="min-h-screen relative -mt-header  pt-header">
+    <Container >
+      <div className="flex lg:space-x-20  py-6 lg:py-6 lg:pb-12 items-center mx-auto max-w-5xl">
+        <div className="hidden lg:flex relative w-1/3">
+          <div style={{
+            paddingTop: `${2048 / 1400 * 100}%`
+          }}></div>
+          {get('about.images', [])[0] && <Image {...get('about.images', [])[0]} />}
+        </div>
+        <div className="flex flex-1 flex-col text-center lg:text-left  h-full">
+          <div className=" text-white lg:text-element-5 space-y-6 lg:space-y-10">
+            <h1 style={{
+              color: '#ede1ca'
+            }} className="text-3xl font-kinfolk lg:text-6xl leading-none">{get('about.title', defaultData.title)}</h1>
+            <div style={{ color: "#2a2b0c" }} className="text-lg lg:text-xl font-garamond italic lg:mt-6">{get('about.subTitle', defaultData.subTitle)}</div>
           </div>
-          <div className="flex-1 lg:hidden"></div>
-          <div className="lg:w-2/5 self-center lg:pt-24">
-            <div className="bg-element-6 p-6 lg:bg-transparent text-justify lg:p-0">
-              {get('services.description')}
+          <div className="flex-1 lg:hidden flex space-x-2 w-full mt-6">
+            {
+              get('about.images', []).map((image, i) => {
+                if (!image || !image.src) return null
+                return <div key={i} className="relative flex-1 ">
+                  <div style={{
+                    paddingTop: `${2048 / 1366 * 100}%`
+                  }}></div>
+                  <Image {...image} />
+                </div>
+              })
+            }
+          </div>
+          <div className="self-center">
+            <div style={{
+              color: '#ede1ca'
+            }} className="lg:bg-transparent text-justify lg:p-0 leading-loose" dangerouslySetInnerHTML={{ __html: get('about.description') }}>
             </div>
           </div>
         </div>
-      </Container>
-    </div>
+      </div>
+
+    </Container>
   </div>
 }
 const Blocks = () => {
   const { get } = useSource()
-  return <Container>
-    <div className="flex flex-col space-y-12 lg:space-y-24">
-      {
-        get('services.blocks', []).map((item = {}, i) => {
-          console.log(item)
-          return <div key={i} className="text-center relative">
-            <div className="lg:w-6/12 max-w-md mx-auto space-y-12 lg:px-12 lg:py-24">
-              <h2 className="text-6xl font-garamond italic font-bold">{item.title}</h2>
-              <div className="flex space-x-2 lg:space-x-0 lg:m-0  lg:px-12 lg:absolute lg:inset-0  justify-between">
-                {item?.images[0] && <div className="relative flex-1 self-start lg:flex-none lg:w-3/12">
-                  <div style={{
-                    paddingTop: `${2048 / 1366 * 100}%`
-                  }}></div>
-                  <Image {...item?.images[0]} />
-                </div>}
-                {item?.images[1] && <div className="relative flex-1 self-end lg:flex-none lg:w-3/12">
-                  <div style={{
-                    paddingTop: `${2048 / 1366 * 100}%`
-                  }}></div>
-                  <Image {...item?.images[1]} />
-                </div>}
-              </div>
-              <div className="" dangerouslySetInnerHTML={{ __html: item.description }}></div>
-              <div className="flex justify-center items-center lg:hidden">
-                <div className="w-16 h-16 relative">
-                  <Image src="/home/icons/web-homepage-icons-02.png" objectFit="contain" />
-                </div>
-              </div>
+  return <div style={{
+    backgroundColor: '#ede8df'
+  }}>
+    <div className="relative bg-element-2 lg:hidden">
+      <div style={{
+        paddingTop: '100%',
+
+      }}></div>
+      {get('about.image') && <Image {...get('about.image')} />}
+    </div>
+    <Container>
+      <div className="flex flex-col lg:space-y-12 py-12 max-w-5xl mx-auto">
+        <h2 className=" text-center text-3xl font-kinfolk">
+          {get('about.content.title')}
+        </h2>
+        <div>
+          <div className="leading-loose lg:text-center lg:px-6">{get('about.content.subTitle')}</div>
+          <div className="flex lg:space-x-20 lg:py-16">
+            <div className="whitespace-pre-line text-justify leading-loose flex-1 w-full max-w-sm" dangerouslySetInnerHTML={{ __html: get('about.content.description') }}></div>
+            <div className="flex-1 relative">
+              <div style={{
+                paddingTop: '100%',
+
+              }}></div>
+              {get('about.image') && <Image {...get('about.image')} />}
             </div>
           </div>
-        })
-      }
-    </div>
-  </Container>
+        </div>
+        <div className="flex flex-col items-center mt-12">
+          <div className="w-20 h-20 relative ">
+            <Image src="/home/icons/web-homepage-icons-02.png" />
+          </div>
+          <div className="text-center text-lg lg:text-xl font-garamond italic mx-auto max-w-2xl leading-loose" dangerouslySetInnerHTML={{ __html: get('about.content.quote') }} />
+        </div>
+      </div>
+    </Container>
+    <div className="h-20" />
+  </div>
 }
-const Services = () => {
+const About = () => {
   const { get } = useSource()
   return <Layout preview={true}>
     <Cover />
-    <div className="h-24 lg:hidden" />
     <Blocks />
     <div className="h-24" />
-    <Contact />
+    <Instagram />
   </Layout>
 }
-function ServicesForm({ id, pageData = {}, app, galleries, preview }) {
+function AboutForm({ id, pageData = {}, app, galleries, preview }) {
   const cms = useCMS();
   const { local } = useLocal()
   const formConfig = {
@@ -95,12 +115,12 @@ function ServicesForm({ id, pageData = {}, app, galleries, preview }) {
     initialValues: pageData,
     onSubmit: async (values) => {
       const saveMutation = `
-        mutation updateService(
+        mutation updateAbout(
               $data: JSON
               $locale: String
           ) {
-              updateService(input: {data: {data: $data}} locale:$locale) {
-                  service{
+              updateAbout(input: {data: {data: $data}} locale:$locale) {
+                  about{
                       data
                   }
               }
@@ -121,34 +141,39 @@ function ServicesForm({ id, pageData = {}, app, galleries, preview }) {
     fields: createFields([
       'title',
       'subTitle',
-      'description',
+      {
+        label: 'content',
+        name: 'description',
+        component: 'html'
+      },
       createImageFieldConfig(),
       {
-        label: 'blocks',
-        name: 'blocks',
-        component: 'group-list',
-        defaultItem: () => defaultData.blocks[0],
+        label: 'images',
+        name: 'images',
         itemProps: item => ({
           key: item.id,
           label: item.title,
         }),
+        component: 'group-list',
+        fields: createImageFields(),
+      },
+      {
+        label: 'content',
+        name: 'content',
+        component: 'group',
         fields: createFields([
           'title',
+          'subTitle',
           {
             label: 'content',
             name: 'description',
             component: 'html'
           },
           {
-            label: 'images',
-            name: 'images',
-            itemProps: item => ({
-              key: item.id,
-              label: item.title,
-            }),
-            component: 'group-list',
-            fields: createImageFields(),
-          }
+            label: 'quote',
+            name: 'quote',
+            component: 'html'
+          },
         ])
       }
     ]),
@@ -160,10 +185,10 @@ function ServicesForm({ id, pageData = {}, app, galleries, preview }) {
       [local]: {
         app,
         galleries,
-        services: data
+        about: data
       }
     }}>
-      <Services />
+      <About />
     </SourceProvider>
   )
 }
@@ -192,13 +217,13 @@ function EnchancedIndex(props) {
                 alternativeText
               }
             }
-            service(locale: "${local}"){
+            about(locale: "${local}"){
               data
             }
           }
       `
       );
-      const data = pageResults?.data?.service?.data || {}
+      const data = pageResults?.data?.about?.data || {}
       if (typeof data === 'string')
         return JSON.parse(data)
       return data
@@ -221,7 +246,7 @@ function EnchancedIndex(props) {
   }, [local])
   return <>
     {update &&
-      !isloading && <ServicesForm {...props} pageData={data[local] || {}} id={'services.' + local} />}
+      !isloading && <AboutForm {...props} pageData={data[local] || {}} id={'about.' + local} />}
     {update && isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
       <LoadingDots />
     </div>}
