@@ -1,118 +1,12 @@
 
-import Layout from "@components/layout";
 import { useLocal } from "@providers/local";
 import Home from '@templates/home/Home';
 import LoadingDots from "meraki/components/LoadingDots";
-import Head from 'next/head';
 import { useEffect, useState } from "react";
 import { fetchGraphql } from 'react-tinacms-strapi';
 import { useCMS, useForm, usePlugin } from "tinacms";
 import BuilderProvider from "../../providers/tinacms";
-const screens = ['xs', 'lg']
-const createScreenGroup = ({
-  label,
-  name,
-  component,
-  description,
-  ...rest
-}) => {
-  return {
-    label,
-    name,
-    component: 'group',
-    description,
-    fields: screens.map(str => {
-      return {
-        label: `${label} - ${str}`,
-        name: str,
-        component,
-        ...rest
-      }
-    }),
-  }
-}
-const createBlock = ({
-  label, name, description, fields = []
-}) => {
-  return ({
-    label,
-    name,
-    component: 'group',
-    description,
-    fields: fields.map(item => {
-      console.log({ item })
-      if (typeof item === 'string') {
-        return createScreenGroup({
-          label: item,
-          name: item,
-          component: 'text',
-        })
-      }
-      if (item && item.component === 'image') {
-        return createScreenGroup({
-          ...item,
-          component: 'group',
-          fields: [
-            {
-              label: 'alt',
-              name: 'alt',
-              component: 'text',
-            },
-            {
-              label: 'Image',
-              name: 'src',
-              component: 'image',
-              // Generate the frontmatter value based on the filename
-              parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
-
-              // Decide the file upload directory for the post
-              uploadDir: () => '/',
-
-              // Generate the src attribute for the preview image.
-              previewSrc: fullSrc => {
-                return fullSrc;
-              },
-            },
-          ],
-
-        })
-      }
-      return createScreenGroup(item)
-    }).filter(Boolean)
-  })
-}
-const createImageFieldConfig = ({
-  label = 'image', name = 'image'
-} = {
-    label: 'image', name: 'image'
-  }) => {
-  return {
-    label, name,
-    component: 'group',
-    fields: [
-      {
-        label: 'alt',
-        name: 'alt',
-        component: 'text',
-      },
-      {
-        label: 'Image',
-        name: 'src',
-        component: 'image',
-        // Generate the frontmatter value based on the filename
-        parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
-
-        // Decide the file upload directory for the post
-        uploadDir: () => '/',
-
-        // Generate the src attribute for the preview image.
-        previewSrc: fullSrc => {
-          return fullSrc;
-        },
-      },
-    ],
-  }
-}
+import { createBlock, createImageFieldConfig, createScreenGroup } from "../../providers/tinacms/helpers";
 function Index({ id, pageData, galleries, preview }) {
   const cms = useCMS();
   const { local } = useLocal()
@@ -140,9 +34,6 @@ function Index({ id, pageData, galleries, preview }) {
         }
       );
       if (response.data) {
-        console.log({
-          data: response.data
-        })
         cms.alerts.success("Changes Saved");
       } else {
         cms.alerts.error("Error saving changes");
@@ -447,7 +338,6 @@ function EnchancedIndex(props) {
           }
       `
       );
-      console.log(pageResults, pageResults?.data?.homepage?.data)
       const data = pageResults?.data?.homepage?.data || {}
       if (typeof data === 'string')
         return JSON.parse(data)
@@ -478,13 +368,9 @@ function EnchancedIndex(props) {
   </>
 }
 export default (props) => {
-  return <BuilderProvider><Layout preview={props.preview}>
-    <Head>
-      <title>Home - Meraki Wedding Planner</title>
-      <link rel="icon" href="/favicon.png" sizes="32x32"></link>
-    </Head>
+  return <BuilderProvider>
     <EnchancedIndex {...props} />
-  </Layout></BuilderProvider>
+  </BuilderProvider>
 }
 export async function getStaticProps({ preview = false }) {
   try {
@@ -496,6 +382,7 @@ export async function getStaticProps({ preview = false }) {
               title
               locale
               couples
+              slug
               photo{
                 url
                 alternativeText

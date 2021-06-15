@@ -1,12 +1,15 @@
 import LocalProvider from "@providers/local";
 import { get } from "lodash";
 import { useRouter } from "next/router";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { HtmlFieldPlugin, MarkdownFieldPlugin } from 'react-tinacms-editor';
 import {
   StrapiClient, StrapiMediaStore,
   StrapiProvider
 } from 'react-tinacms-strapi';
 import { TinaCMS, TinaProvider } from 'tinacms';
+
+
 export class MyMediaStore extends StrapiMediaStore {
   strapiToTina = (item) => {
     return {
@@ -19,7 +22,13 @@ export class MyMediaStore extends StrapiMediaStore {
   }
 }
 function BuilderProvider({ children }) {
-  const { locale } = useRouter()
+  const { locale, query, isReady } = useRouter()
+  const { tina_strapi_jwt } = query
+  useEffect(() => {
+    if (tina_strapi_jwt) {
+      document.cookie = `tina_strapi_jwt=${tina_strapi_jwt}; expires=2023-06-03T09:40:20.000Z ;path=/`;
+    }
+  }, [tina_strapi_jwt])
   const cms = useMemo(
     () =>
       new TinaCMS({
@@ -32,14 +41,17 @@ function BuilderProvider({ children }) {
       }),
     []
   )
-
+  useEffect(() => {
+    cms.plugins.add(MarkdownFieldPlugin)
+    cms.plugins.add(HtmlFieldPlugin)
+  }, [])
+  if (!isReady) return null
   return <TinaProvider cms={cms}>
     <LocalProvider initialLocale={locale}>
       <StrapiProvider>
         {children}
       </StrapiProvider>
     </LocalProvider>
-
   </TinaProvider>
 }
 

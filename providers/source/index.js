@@ -4,12 +4,13 @@ import { useContext } from "react"
 const ContextSource = React.createContext()
 const SourceProvider = ({ source, local = 'en', children }) => {
   return <ContextSource.Provider value={{
+    source,
     local,
-    get: (path, fallbackValue = "/favicon.png") => {
-      const result = get(source, `${local}.${path}`)
-      if (fallbackValue && typeof fallbackValue !== typeof result) {
-        console.error('invalid value')
-      }
+    get: (path, fallbackValue) => {
+      const result = get(source, `${local}.${path}`, fallbackValue)
+      // if (fallbackValue && typeof fallbackValue !== typeof result) {
+      //   console.error('invalid value')
+      // }
       return result || fallbackValue
     }
   }}>

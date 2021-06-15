@@ -32,16 +32,16 @@ module.exports = {
         'element-3': "#656D51",
         'element-4': "#B4BA90",
         'element-5': "#333333",
+        'element-6': "#faebd7",
+        'element-7': "#e5dfd6"
       },
       fontFamily: {
-        'prata': [
-          'Prata'
-        ],
         serif: [
           'Prata',
           'serif',
         ],
         kinfolk: [
+
           'Kinfolk',
           'Times New Roman'
         ],

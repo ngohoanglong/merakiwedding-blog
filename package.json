@@ -17,6 +17,8 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-tinacms-editor": "^0.41.1",
+    "react-tinacms-inline": "^0.41.1",
     "react-tinacms-strapi": "^0.41.0",
     "serverless-mysql": "^1.5.4",
     "string-strip-html": "^8.3.0",
