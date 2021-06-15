@@ -1,21 +1,9 @@
 
-import Layout from "@components/layout";
 import Home from '@templates/home/Home';
-import Head from 'next/head';
 import { fetchGraphql } from 'react-tinacms-strapi';
 
 export default function Index({ locale, galleries, pageData, preview }) {
-  return (
-    <>
-      <Layout preview={preview} locale={locale}>
-        <Head>
-          <title>Home - Meraki Wedding Planner</title>
-          <link rel="icon" href="/favicon.png" sizes="32x32"></link>
-        </Head>
-        <Home post={pageData} galleries={galleries} />
-      </Layout>
-    </>
-  )
+  return <Home post={pageData} galleries={galleries} />
 }
 
 export async function getStaticProps(props) {
@@ -60,10 +48,7 @@ export async function getStaticProps(props) {
     console.error(error)
     pageData = {}
   }
-  console.log({
-    locale, pageResults, sd: pageResults?.data?.homepage?.data,
-    pageData
-  })
+
   return {
     props: { locale, galleries, pageData, preview },
     revalidate: 300

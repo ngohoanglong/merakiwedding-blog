@@ -8,6 +8,8 @@ import {
   StrapiProvider
 } from 'react-tinacms-strapi';
 import { TinaCMS, TinaProvider } from 'tinacms';
+
+
 export class MyMediaStore extends StrapiMediaStore {
   strapiToTina = (item) => {
     return {
@@ -20,7 +22,7 @@ export class MyMediaStore extends StrapiMediaStore {
   }
 }
 function BuilderProvider({ children }) {
-  const { locale, query } = useRouter()
+  const { locale, query, isReady } = useRouter()
   const { tina_strapi_jwt } = query
   useEffect(() => {
     if (tina_strapi_jwt) {
@@ -43,13 +45,13 @@ function BuilderProvider({ children }) {
     cms.plugins.add(MarkdownFieldPlugin)
     cms.plugins.add(HtmlFieldPlugin)
   }, [])
+  if (!isReady) return null
   return <TinaProvider cms={cms}>
     <LocalProvider initialLocale={locale}>
       <StrapiProvider>
         {children}
       </StrapiProvider>
     </LocalProvider>
-
   </TinaProvider>
 }
 

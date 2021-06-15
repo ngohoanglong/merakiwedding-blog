@@ -31,6 +31,7 @@ export default function Layout({ locale, preview, children }) {
   }, [isReady, hasScrolled])
   return (
     <>
+      {/* <Alert preview={preview} /> */}
       <Meta />
       <div className="min-h-screen">
         <Header hasScrolled={hasScrolled} />

@@ -1,5 +1,6 @@
 import Button from "@components/button";
 import Container from "@components/container";
+import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import IntroSlider from "@sections/IntroSlider";
 import Slider from "@sections/Slider";
@@ -627,9 +628,6 @@ const Block7 = () => {
   </>
 }
 export default function Home({ post, galleries }) {
-  // const {local='en'}=  useLocal()
-  const local = 'en'
-  console.log({ data })
   return (
     <SourceProvider source={
       {
@@ -640,41 +638,43 @@ export default function Home({ post, galleries }) {
         }
       }
     }>
-      <div className="-mt-header">
-        <div className="bg-element-3">
-          <Intro />
-        </div>
-        <div className="bg-element-1 py-12">
-          <Container>
-            <Block1 />
-          </Container>
-        </div>
-        <div className="bg-white">
-          <Block3 />
-        </div>
-        <div className="bg-element-1">
-          <Block4 />
-        </div>
-        <div className="bg-white">
-          <Block5 />
-        </div>
-        <div className="bg-element-1">
-          <Block6 />
-        </div>
-        <div className="bg-element-3">
-          <Block7 />
-        </div>
-        <div className=" py-14">
-          <Instagram />
-        </div>
-        <div>
-          <Container>
-            <div className="w-full flex justify-center">
+      <Layout>
+        <div className="-mt-header">
+          <div className="bg-element-3">
+            <Intro />
+          </div>
+          <div className="bg-element-1 py-12">
+            <Container>
+              <Block1 />
+            </Container>
+          </div>
+          <div className="bg-white">
+            <Block3 />
+          </div>
+          <div className="bg-element-1">
+            <Block4 />
+          </div>
+          <div className="bg-white">
+            <Block5 />
+          </div>
+          <div className="bg-element-1">
+            <Block6 />
+          </div>
+          <div className="bg-element-3">
+            <Block7 />
+          </div>
+          <div className=" py-14">
+            <Instagram />
+          </div>
+          <div>
+            <Container>
+              <div className="w-full flex justify-center">
 
-            </div>
-          </Container>
+              </div>
+            </Container>
+          </div>
         </div>
-      </div>
+      </Layout>
     </SourceProvider>
 
   )

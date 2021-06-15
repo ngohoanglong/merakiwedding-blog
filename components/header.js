@@ -1,4 +1,5 @@
 import { useLocal } from "@providers/local"
+import { useSource } from "@providers/source"
 import classNames from 'classnames'
 import { locals } from "const"
 import { useState } from "react"
@@ -39,8 +40,9 @@ const LGLangSwitcher = () => {
   </button>
 }
 export default function Header() {
-  const { local, setLocal } = useLocal()
   const [open, setOpen] = useState(false)
+  const { get } = useSource()
+  const pages = get('app.data.navbar', appdata.en.navbar)
   return (
     <header className={classNames("z-50 text-element-2", open ? "sticky top-0" : "relative")}>
       <Container>
@@ -50,7 +52,7 @@ export default function Header() {
           </div>
           <div className="px-3 mt-1 flex-1 space-x-12 flex flex-wrap justify-center items-center">
             {
-              appdata[local].navbar.map(({ title, href }, i) => {
+              pages.map(({ title, href }, i) => {
                 return <a key={i} className="font-sweetsans py-1 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
               })
             }
@@ -78,7 +80,7 @@ export default function Header() {
                   <div className="py-header flex flex-col items-center text-center px-6" >
                     <div className="h-6"></div>
                     {
-                      appdata[local].navbar.map(({ title, href }, i, arr) => {
+                      pages.map(({ title, href }, i, arr) => {
                         if (i === arr.length - 1) {
                           return <a key={i} className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
                         }

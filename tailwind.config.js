@@ -36,14 +36,12 @@ module.exports = {
         'element-7': "#e5dfd6"
       },
       fontFamily: {
-        'prata': [
-          'Prata'
-        ],
         serif: [
           'Prata',
           'serif',
         ],
         kinfolk: [
+
           'Kinfolk',
           'Times New Roman'
         ],

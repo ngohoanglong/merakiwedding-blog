@@ -1,5 +1,4 @@
 
-import Layout from "@components/layout";
 import { useLocal } from "@providers/local";
 import Home from '@templates/home/Home';
 import LoadingDots from "meraki/components/LoadingDots";
@@ -369,9 +368,9 @@ function EnchancedIndex(props) {
   </>
 }
 export default (props) => {
-  return <BuilderProvider><Layout preview={props.preview}>
+  return <BuilderProvider>
     <EnchancedIndex {...props} />
-  </Layout></BuilderProvider>
+  </BuilderProvider>
 }
 export async function getStaticProps({ preview = false }) {
   try {
