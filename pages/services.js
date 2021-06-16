@@ -2,7 +2,7 @@
 import Services from "@templates/services/Services";
 import { fetchGraphql } from 'react-tinacms-strapi';
 
-export default (props) => {
+export default function ServicesPage(props) {
   return <Services {...props} />
 }
 export async function getStaticProps({ locale, preview = false }) {

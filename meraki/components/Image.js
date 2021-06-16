@@ -1,3 +1,4 @@
+import { getThumb } from "@providers/tinacms/helpers";
 import NextImage from "next/image";
 
 export const Image = ({ src, alt, variant, ...rest }) => {
@@ -21,7 +22,8 @@ export const Image = ({ src, alt, variant, ...rest }) => {
       src={src || '/logo.png'}
       alt={alt || 'Meraki Image'}
       sizes={sizes}
-
+      placeholder={src && "blur"}
+      blurDataURL={getThumb(src)}
       quality="85"
       objectFit="cover"
       objectPosition="bottom center"
