@@ -12,12 +12,12 @@ const Cover = () => {
   return <div style={{ backgroundColor: '#61684b' }} className="min-h-screen relative -mt-header  py-header flex justify-center">
     <XS>
       {
-        get => <div><Image {...get('data.cover.image')} /></div>
+        get => <div><Image {...get('data.cover.image')} variant="cover" /></div>
       }
     </XS>
     <LG>
       {
-        get => <div><Image {...get('data.cover.image')} /></div>
+        get => <div><Image {...get('data.cover.image')} variant="cover" /></div>
       }
     </LG>
     <div style={{ minHeight: '500px' }} className="self-center py-16 z-10 text-center  font-bold text-element-1">
@@ -40,7 +40,6 @@ const Cover = () => {
         </LG>
       </Container>
     </div>
-
   </div>
 }
 const Blocks = () => {
