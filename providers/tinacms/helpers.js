@@ -45,6 +45,7 @@ export const createImageFields = () => {
     },
   ]
 }
+export const getThumb = src => src && src.replace('/uploads/', '/uploads/small_')
 export const createFields = (fields) => {
   return fields.map(item => {
     if (typeof item === 'string') {
