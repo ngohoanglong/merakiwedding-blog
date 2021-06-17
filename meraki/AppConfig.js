@@ -1,6 +1,6 @@
 import { useLocal } from "@providers/local";
+import { createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import { useCMS, useForm, usePlugin } from 'tinacms';
-import { createFields, createImageFieldConfig, createImageFields } from "./helpers";
 
 const AppConfig = ({ data = {} }) => {
   const cms = useCMS();
@@ -24,7 +24,7 @@ const AppConfig = ({ data = {} }) => {
       const response = await cms.api.strapi.fetchGraphql(
         saveMutation,
         {
-          data: JSON.stringify(values),
+          data: (values),
           locale: local
         }
       );
@@ -36,45 +36,81 @@ const AppConfig = ({ data = {} }) => {
     },
     fields: createFields([
       'title',
-      'subTitle',
-      {
-        label: 'content',
-        name: 'description',
-        component: 'html'
-      },
+      'description',
+      'email',
       createImageFieldConfig(),
       {
-        label: 'images',
-        name: 'images',
+        name: 'socials',
+        component: 'group-list',
+        fields: [
+          {
+            name: 'title', component: 'text'
+          },
+          {
+            name: 'url', component: 'text'
+          },
+          createImageFieldConfig()
+        ]
+      },
+      {
+        label: 'navbar',
+        name: 'navbar',
         itemProps: item => ({
           key: item.id,
           label: item.title,
         }),
         component: 'group-list',
-        fields: createImageFields(),
-      },
-      {
-        label: 'content',
-        name: 'content',
-        component: 'group',
         fields: createFields([
           'title',
-          'subTitle',
+          'href'
+        ]),
+      },
+      {
+        label: 'Instagram Images',
+        name: 'instagram',
+        component: 'group-list',
+        description: 'Instagram Images',
+        itemProps: item => ({
+          key: item.id,
+          label: item.title,
+        }),
+        defaultItem: () => ({
+          name: 'Title',
+          id: Math.random()
+            .toString(36)
+            .substr(2, 9),
+        }),
+        fields: [
           {
-            label: 'content',
-            name: 'description',
-            component: 'html'
+            label: 'Title',
+            name: 'title',
+            component: 'text',
           },
           {
-            label: 'quote',
-            name: 'quote',
-            component: 'html'
+            label: 'Url',
+            name: 'url',
+            component: 'text',
           },
-        ])
-      }
+          {
+            label: 'Image',
+            name: 'image',
+            component: 'image',
+            // Generate the frontmatter value based on the filename
+            parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
+
+            // Decide the file upload directory for the post
+            uploadDir: () => '/',
+
+            // Generate the src attribute for the preview image.
+            previewSrc: fullSrc => {
+              return fullSrc.replace('/uploads/', '/uploads/small_');
+            },
+          },
+        ],
+      },
     ]),
   }
-  const [data, form] = useForm(formConfig)
+  const [_, form] = useForm(formConfig)
   usePlugin(form);
   return null
 }

@@ -1,5 +1,6 @@
 import { getAppInfo } from "@lib/app";
 import { useLocal } from "@providers/local";
+import AppConfig from "meraki/AppConfig";
 import LoadingDots from "meraki/components/LoadingDots";
 import { useEffect, useState } from "react";
 import { useCMS, useForm, usePlugin } from "tinacms";
@@ -89,7 +90,10 @@ export const withBuilderForm = (
     }, [local]);
     return <>
       {update &&
-        !isloading && <Form {...props} pageData={data} id={label + '.' + local} />}
+        !isloading && <>
+          <Form {...props} pageData={data} id={label + '.' + local} />
+          <AppConfig data={data?.app?.data} />
+        </>}
       {update && isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
         <LoadingDots />
       </div>}

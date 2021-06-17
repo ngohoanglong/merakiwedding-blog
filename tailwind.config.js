@@ -41,12 +41,12 @@ module.exports = {
           'serif',
         ],
         kinfolk: [
-
           'Kinfolk',
           'Times New Roman'
         ],
         commissioner: [
-          'Commissioner', 'Times New Roman'
+          'Commissioner',
+          'Times New Roman'
         ],
         garamond: [
           'EBGaramond',
