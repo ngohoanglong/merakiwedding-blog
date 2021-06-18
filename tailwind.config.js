@@ -27,13 +27,15 @@ module.exports = {
         cyan: '#79FFE1',
         primary: '#656D51',
 
+
         'element-1': "#F7F5EF",
         'element-2': "#FFFDFB",
         'element-3': "#656D51",
         'element-4': "#B4BA90",
         'element-5': "#333333",
         'element-6': "#faebd7",
-        'element-7': "#e5dfd6"
+        'element-7': "#e5dfd6",
+        "element-8": "#fdf6f0",
       },
       fontFamily: {
         serif: [

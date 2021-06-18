@@ -26,6 +26,8 @@ const Intro = () => {
               >
                 <div className="absolute inset-0">
                   <Image
+                    placeholder={false}
+                    priority={i === 0}
                     variant="cover"
                     src={src}
                     alt={alt}
@@ -56,6 +58,8 @@ const Intro = () => {
               >
                 <div className="absolute inset-0">
                   <Image
+                    placeholder={false}
+                    priority={i === 0}
                     variant="cover"
                     src={src}
                     alt={alt}

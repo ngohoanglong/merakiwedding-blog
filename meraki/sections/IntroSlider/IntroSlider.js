@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import { useRouter } from 'next/router'
 import React, { Children, forwardRef, useRef, useState } from 'react'
 import s from './IntroSlider.module.css'
 
@@ -16,10 +17,12 @@ const Slider = forwardRef(({ children }, ref) => {
   )
 })
 const IntroSlider = ({ children, loop = true }) => {
+  const { isReady } = useRouter()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isMounted, setIsMounted] = useState(false)
   const sliderContainerRef = useRef(null)
   const [sliderRef, slider] = useKeenSlider({
+
     spacing: 0,
     slidesPerView: 1,
     centered: false,
@@ -29,6 +32,7 @@ const IntroSlider = ({ children, loop = true }) => {
       setCurrentSlide(s.details().relativeSlide)
     },
   })
+
   return (
     <div ref={sliderContainerRef} className={s.root} data-testid="IntroSlider">
       <div className="pointer-events-none absolute inset-0  flex items-center">
@@ -68,11 +72,9 @@ const IntroSlider = ({ children, loop = true }) => {
               </svg>
             </button>
           </div>
-
         </div>
       </div>
-
-      <Slider ref={sliderRef}>{children}</Slider>
+      {isReady && <Slider ref={sliderRef}>{children}</Slider>}
       {slider && (
         <div className={cn(s.positionIndicatorsContainer)}>
           {[...Array(slider.details().size).keys()].map((idx) => {

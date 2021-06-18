@@ -11,7 +11,7 @@ import { XS } from "meraki/components/XS";
 import { useState } from "react";
 const Cover = () => {
   const { get } = useSource()
-  return <div className=" relative -mt-header  pt-header flex justify-center">
+  return <div className=" relative -mt-header min-h-screen  py-header flex justify-center">
     <div style={{ zIndex: -1 }} className="fixed inset-0">
       <XS>
         {
@@ -26,7 +26,7 @@ const Cover = () => {
     </div>
     <div style={{
       textShadow: '2px 2px #000'
-    }} className="self-end py-16 z-10 text-center text-4xl font-kinfolk font-bold text-element-1">
+    }} className="self-center py-16 z-10 text-center text-4xl lg:text-7xl font-kinfolk text-element-1">
       <Container >
         <XS>
           {

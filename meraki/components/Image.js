@@ -1,7 +1,7 @@
 import { getThumb } from "@providers/tinacms/helpers";
 import NextImage from "next/image";
 
-export const Image = ({ src, alt, variant, priority, ...rest }) => {
+export const Image = ({ src, alt, variant, priority, placeholder = "blur", ...rest }) => {
   let sizes = "(max-width: 400px) 300px, 800px";
   switch (variant) {
     case 'cover':
@@ -22,9 +22,8 @@ export const Image = ({ src, alt, variant, priority, ...rest }) => {
       src={src || '/logo.png'}
       alt={alt || 'Meraki Image'}
       sizes={sizes}
-      placeholder={src && "blur"}
+      placeholder={src && placeholder}
       blurDataURL={getThumb(src)}
-      quality="85"
       priority={priority}
       objectFit="cover"
       objectPosition="bottom center"

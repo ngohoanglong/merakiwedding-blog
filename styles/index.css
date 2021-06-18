@@ -103,8 +103,12 @@
 
 body {
   @apply text-element-5 font-commissioner font-light;
+  background: #fdf6f0;
 }
-
+html,
+body {
+  width: 100%;
+}
 p {
   margin-top: 1.6em;
 }
