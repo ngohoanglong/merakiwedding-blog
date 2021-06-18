@@ -1,4 +1,5 @@
 const screens = ['xs', 'lg'];
+const screensdescriptions = ['mobile', 'laptop'];
 export const createScreenGroup = ({
   label,
   name,
@@ -7,15 +8,14 @@ export const createScreenGroup = ({
   ...rest
 }) => {
   return {
-    label,
     name,
     component: 'group',
     description,
-    fields: screens.map(str => {
+    fields: screens.map((str, i) => {
       return {
-        label: `${label} - ${str}`,
         name: str,
         component,
+        description: label + ' ' + screensdescriptions[i],
         ...rest
       };
     }),

@@ -45,7 +45,7 @@ export default function Header() {
   const pages = get('app.data.navbar', appdata.en.navbar)
   return (
     <header className={classNames("z-50 text-element-2", open ? "sticky top-0" : "relative")}>
-      <Container>
+      <Container style={{ maxWidth: '1440px' }}>
         <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden xl:flex justify-center items-center ">
           <div style={{ width: '160px' }} className="flex-shrink-0 ">
             <img className="w-full" src="/logo-3.png" />
@@ -53,7 +53,7 @@ export default function Header() {
           <div className="px-3 mt-1 flex-1 space-x-12 flex flex-wrap justify-center items-center">
             {
               pages.map(({ title, href }, i) => {
-                return <a key={i} className="font-sweetsans py-1 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                return <a key={i} className="font-sweetsans py-1  my-2 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
               })
             }
 
@@ -75,7 +75,7 @@ export default function Header() {
                     : <svg fill="currentColor" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 116.92 111.19"><path d="M0,0V111.19H116.92V0ZM98.94,84.48H18v-10h81Zm0-23.9H18v-10h81Zm0-23.91H18v-10h81Z" /></svg>
                 }
               </button>
-              {open && <div style={{ backgroundColor: "#E5DFD6", zIndex: '-1' }} className=" pointer-events-auto fixed inset-0">
+              {open && <div style={{ backgroundColor: "#E5DFD6", zIndex: '-1' }} className=" pointer-events-auto fixed inset-0 overflow-auto">
                 <Container>
                   <div className="py-header flex flex-col items-center text-center px-6" >
                     <div className="h-6"></div>

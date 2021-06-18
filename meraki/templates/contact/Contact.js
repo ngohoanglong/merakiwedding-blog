@@ -212,7 +212,10 @@ const input_template = {
   },
   fields: createFields([
     'label',
-    'description',
+    {
+      name: 'description',
+      component: 'textarea',
+    },
     'inputType',
     'layout', 'required'
   ]),
@@ -227,24 +230,28 @@ const createInputField = ({
   layout,
   required
 }) => {
+  const defaultItem = {
+    ...input_template.defaultItem,
+    name,
+    label,
+    description,
+    inputType, required,
+    layout,
+  }
   return ({
     name,
     component: 'group',
+    description: `${label || name} - ${description}`,
     itemProps: (item, i) => {
       return ({
         key: item.name,
         label: item.label || item.name
       })
     },
-    defaultItem: {
-      ...input_template.defaultItem,
-      name,
-      label,
-      description,
-      inputType, required,
-      layout,
-    },
-    fields: input_template.fields
+    defaultItem,
+    fields: input_template.fields.map(item => ({
+      ...item,
+    }))
   })
 }
 const formFields = [

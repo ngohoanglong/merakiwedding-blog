@@ -41,15 +41,22 @@ const AppConfig = ({ data = {} }) => {
       createImageFieldConfig(),
       {
         name: 'socials',
-        component: 'group-list',
+        component: 'group',
+        itemProps: item => ({
+          key: item.id,
+          label: item.title,
+        }),
         fields: [
           {
-            name: 'title', component: 'text'
+            name: 'facebook', component: 'text'
           },
           {
-            name: 'url', component: 'text'
+            name: 'instagram', component: 'text'
           },
-          createImageFieldConfig()
+          {
+            name: 'pinterest', component: 'text'
+          },
+
         ]
       },
       {

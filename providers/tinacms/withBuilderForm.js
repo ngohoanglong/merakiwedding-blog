@@ -18,20 +18,25 @@ export const withBuilderForm = (
     const { local } = useLocal();
     const formConfig = {
       id,
-      label: `${label} (${local})`,
+      label: `Page ${label} (${local})`,
       initialValues: pageData.data || template.defaultItem,
       onSubmit: async (values) => {
-        const response = await onSubmit(
-          {
-            data: JSON.stringify(values),
-            locale: local
+        try {
+          const response = await onSubmit(
+            {
+              data: (values),
+              locale: local,
+            }, pageData?.pageInfo
+          );
+          if (response) {
+            cms.alerts.success("Changes Saved");
+          } else {
+            cms.alerts.error("Error saving changes");
           }
-        );
-        if (response) {
-          cms.alerts.success("Changes Saved");
-        } else {
+        } catch (error) {
           cms.alerts.error("Error saving changes");
         }
+
       },
       ...template
     };
@@ -61,18 +66,19 @@ export const withBuilderForm = (
           }
         );
         let data = {};
+        let pageInfo = {}
         if (getPageInfo) {
-          const result = await getPageInfo({
+          pageInfo = await getPageInfo({
             locale: local
           });
-          data = result?.data;
+          data = pageInfo?.data;
           if (typeof data === 'string') {
             data = JSON.parse(data);
           }
         }
 
         return {
-          galleries, app, data
+          galleries, app, data, pageInfo
         };
       };
       setLoading(true);
@@ -81,6 +87,8 @@ export const withBuilderForm = (
           setSetData(data);
           setUpdate(Date.now());
         }
+      }).catch(error => {
+        console.error(error);
       }).finally(() => {
         setLoading(false);
       });

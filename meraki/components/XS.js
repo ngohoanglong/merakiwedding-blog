@@ -7,6 +7,6 @@ export const XS = ({ children }) => {
   const element = children((path, ...args) => get(`${path}.xs`, ...args));
   return cloneElement(element, {
     ...element.props,
-    className: classNames(element.className, "lg:hidden")
+    className: classNames(element.props.className, "lg:hidden")
   });
 };
