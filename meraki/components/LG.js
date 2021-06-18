@@ -7,6 +7,6 @@ export const LG = ({ children }) => {
   const element = children((path, fallbackValue) => get(`${path}.lg`, get(`${path}.xs`, fallbackValue)));
   return cloneElement(element, {
     ...element.props,
-    className: classNames(element.className, "hidden lg:block")
+    className: classNames(element.props.className, "hidden lg:block")
   });
 };

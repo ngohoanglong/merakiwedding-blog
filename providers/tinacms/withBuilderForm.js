@@ -1,5 +1,6 @@
 import { getAppInfo } from "@lib/app";
 import { useLocal } from "@providers/local";
+import AppConfig from "meraki/AppConfig";
 import LoadingDots from "meraki/components/LoadingDots";
 import { useEffect, useState } from "react";
 import { useCMS, useForm, usePlugin } from "tinacms";
@@ -17,20 +18,25 @@ export const withBuilderForm = (
     const { local } = useLocal();
     const formConfig = {
       id,
-      label: `${label} (${local})`,
+      label: `Page ${label} (${local})`,
       initialValues: pageData.data || template.defaultItem,
       onSubmit: async (values) => {
-        const response = await onSubmit(
-          {
-            data: JSON.stringify(values),
-            locale: local
+        try {
+          const response = await onSubmit(
+            {
+              data: (values),
+              locale: local,
+            }, pageData?.pageInfo
+          );
+          if (response) {
+            cms.alerts.success("Changes Saved");
+          } else {
+            cms.alerts.error("Error saving changes");
           }
-        );
-        if (response) {
-          cms.alerts.success("Changes Saved");
-        } else {
+        } catch (error) {
           cms.alerts.error("Error saving changes");
         }
+
       },
       ...template
     };
@@ -60,18 +66,19 @@ export const withBuilderForm = (
           }
         );
         let data = {};
+        let pageInfo = {}
         if (getPageInfo) {
-          const result = await getPageInfo({
+          pageInfo = await getPageInfo({
             locale: local
           });
-          data = result?.data;
+          data = pageInfo?.data;
           if (typeof data === 'string') {
             data = JSON.parse(data);
           }
         }
 
         return {
-          galleries, app, data
+          galleries, app, data, pageInfo
         };
       };
       setLoading(true);
@@ -80,6 +87,8 @@ export const withBuilderForm = (
           setSetData(data);
           setUpdate(Date.now());
         }
+      }).catch(error => {
+        console.error(error);
       }).finally(() => {
         setLoading(false);
       });
@@ -89,7 +98,10 @@ export const withBuilderForm = (
     }, [local]);
     return <>
       {update &&
-        !isloading && <Form {...props} pageData={data} id={label + '.' + local} />}
+        !isloading && <>
+          <Form {...props} pageData={data} id={label + '.' + local} />
+          <AppConfig data={data?.app?.data} />
+        </>}
       {update && isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
         <LoadingDots />
       </div>}

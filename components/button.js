@@ -1,11 +1,17 @@
-export default function Button({ children, reverse, ...rest }) {
+
+import classnames from 'classnames'
+export default function Button({ children, size, reverse, ...rest }) {
+  const sizeClassNames = classnames({
+    ['px-6 pt-2 py-1']: size === 'large',
+    ['text-xs']: !size
+  })
   if (reverse) {
-    return <button className="px-2 pt-1  leading-relaxed bg-white text-primary font-sweetsans text-xs uppercase hover:bg-opacity-70 focus:ring focus:outline-none ring-element-4 ring-offset-2 transition-all duration-300 ease-in-out" {...rest}>
+    return <button className={classnames(sizeClassNames, "px-2 pt-1  leading-relaxed bg-white text-primary font-sweetsans uppercase hover:bg-opacity-70 focus:ring focus:outline-none ring-element-4 ring-offset-2 transition-all duration-300 ease-in-out")} {...rest}>
       {children}
     </button>
   }
   return (
-    <button className="px-2  pt-1 leading-relaxed bg-primary text-white font-sweetsans text-xs uppercase hover:bg-opacity-70 focus:ring focus:outline-none ring-element-4 ring-offset-2 transition-all duration-300 ease-in-out" {...rest}>
+    <button className={classnames(sizeClassNames, "px-2  pt-1 leading-relaxed bg-primary text-white font-sweetsans uppercase hover:bg-opacity-70 focus:ring focus:outline-none ring-element-4 ring-offset-2 transition-all duration-300 ease-in-out")} {...rest}>
       {children}
     </button>
   )
