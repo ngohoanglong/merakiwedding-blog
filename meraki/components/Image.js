@@ -23,7 +23,7 @@ export const Image = ({ src, alt, variant, priority, placeholder = "blur", ...re
       alt={alt || 'Meraki Image'}
       sizes={sizes}
       placeholder={src && placeholder}
-      blurDataURL={getThumb(src)}
+      blurDataURL={placeholder && getThumb(src)}
       priority={priority}
       objectFit="cover"
       objectPosition="bottom center"
