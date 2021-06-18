@@ -7,6 +7,7 @@
       format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Leaguescript';
@@ -15,6 +16,7 @@
       format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,18 +26,21 @@
       format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Kinfolk;
   src: url('/fonts/Kinfolk_Reg.otf')
     format('opentype');
+  font-display: swap;
 }
 /* public/fonts/SweetSansProMedium.otf */
 @font-face {
   font-family: SweetSans;
   src: url('/fonts/SweetSansProMedium.otf')
     format('opentype');
+  font-display: swap;
 }
 /* public/fonts/Commissioner-Light.ttf */
 @font-face {
@@ -43,12 +48,14 @@
   font-weight: 300;
   src: url('/fonts/Commissioner-Light.ttf')
     format('truetype');
+  font-display: swap;
 }
 /* public/fonts/Commissioner-Medium.ttf */
 @font-face {
   font-family: Commissioner;
   src: url('/fonts/Commissioner-Medium.ttf')
     format('truetype');
+  font-display: swap;
 }
 /* public/fonts/Commissioner-SemiBold.ttf */
 @font-face {
@@ -56,12 +63,14 @@
   font-weight: 600;
   src: url('/fonts/Commissioner-SemiBold.ttf')
     format('truetype');
+  font-display: swap;
 }
 /* public/fonts/EBGaramond-VariableFont_wght.ttf */
 @font-face {
   font-family: EBGaramond;
   src: url('/fonts/EBGaramond-VariableFont_wght.ttf')
     format('truetype');
+  font-display: swap;
 }
 
 /* public/fonts/EBGaramond-Italic-VariableFont_wght.ttf */
@@ -70,6 +79,7 @@
   font-style: italic;
   src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf')
     format('truetype');
+  font-display: swap;
 }
 
 @tailwind base;
@@ -103,8 +113,12 @@
 
 body {
   @apply text-element-5 font-commissioner font-light;
+  background: #fdf6f0;
 }
-
+html,
+body {
+  width: 100%;
+}
 p {
   margin-top: 1.6em;
 }

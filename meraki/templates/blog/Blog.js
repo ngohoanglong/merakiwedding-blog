@@ -7,6 +7,7 @@ import { createBlock, createImageFieldConfig } from "@providers/tinacms/helpers"
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
 import { XS } from "meraki/components/XS";
+import Head from "next/head";
 const Cover = () => {
   const { get } = useSource()
   return <div style={{ backgroundColor: '#61684b' }} className="min-h-screen relative -mt-header  pt-header flex justify-center">
@@ -54,6 +55,9 @@ const Blog = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <Head>
+        <title>Meraki wedding planner - Blog</title>
+      </Head>
       <Cover />
       <Blocks />
     </Layout>

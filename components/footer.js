@@ -4,7 +4,7 @@ import Container from "./container";
 export default function Footer() {
   const { get } = useSource()
   return (
-    <footer style={{ fontSize: '15px', lineHeight: '1.857', padding: '40px 0', }}>
+    <footer style={{ fontSize: '15px', lineHeight: '1.857', padding: '40px 0', background: "#fdf6f0" }}>
       <div className="p-12 w-full flex justify-center space-x-6">
         <a target="_blank" href={get('app.data.socials.facebook')} title="facebook" className="text-5xl hover:shadow-lg rounded-full">
           <svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.66 85.66" style={{ color: 'white', fill: 'currentColor' }}><g id="About"><path className="cls-1" d="M85.66,42.83A42.83,42.83,0,1,0,36.14,85.14V55.21H25.26V42.83H36.14V33.39c0-10.73,6.39-16.66,16.17-16.66a65.58,65.58,0,0,1,9.59.84V28.11H56.5c-5.32,0-7,3.3-7,6.69v8H61.4L59.5,55.21h-10V85.14A42.83,42.83,0,0,0,85.66,42.83Z" style={{ fill: 'gray' }} /><path className="cls-2" d="M59.5,55.21l1.9-12.38H49.52v-8c0-3.39,1.66-6.69,7-6.69h5.4V17.57a65.58,65.58,0,0,0-9.59-.84c-9.78,0-16.17,5.93-16.17,16.66v9.44H25.26V55.21H36.14V85.14a43.29,43.29,0,0,0,13.38,0V55.21Z" /></g></svg>
