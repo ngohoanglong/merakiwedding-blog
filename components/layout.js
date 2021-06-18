@@ -7,8 +7,8 @@ import Meta from '../components/meta'
 import Header from './header'
 
 
-export default function Layout({ locale, preview, children }) {
-  const { isReady } = useRouter()
+export default function Layout({ locale, children }) {
+  const { isReady, isPreview } = useRouter()
   const [hasScrolled, setHasScrolled] = useState()
   useEffect(() => {
     if (!isReady) {
@@ -31,7 +31,7 @@ export default function Layout({ locale, preview, children }) {
   }, [isReady, hasScrolled])
   return (
     <>
-      {/* <Alert preview={preview} /> */}
+      {/* <Alert preview={isPreview} /> */}
       <Meta />
       <div className="min-h-screen">
         <Header hasScrolled={hasScrolled} />

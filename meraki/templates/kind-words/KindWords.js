@@ -79,13 +79,15 @@ const Blocks = () => {
               </div>
             </div>}
             <div className="lg:w-1/2">
-              <Container>
-                <div className="pt-12">
-                  <h3 className="text-2xl font-kinfolk">{item.title}</h3>
-                  <div className="text-lg font-garamond italic">{item.subTitle}</div>
-                </div>
-                <div className='text-justify' dangerouslySetInnerHTML={{ __html: item.content }}></div>
-              </Container>
+              <div className="max-w-prose mx-auto">
+                <Container>
+                  <div className="pt-12">
+                    <h3 className="text-2xl font-kinfolk">{item.title}</h3>
+                    <div className="text-lg font-garamond italic">{item.subTitle}</div>
+                  </div>
+                  <div className='text-justify' dangerouslySetInnerHTML={{ __html: item.content }}></div>
+                </Container>
+              </div>
             </div>
           </div>
         })
