@@ -9,10 +9,10 @@
   @apply bg-opacity-0 text-element-5 pointer-events-auto z-20 text-3xl w-12 h-12  flex items-center justify-center rounded-full;
 }
 .leftControl {
-  @apply -ml-6;
+  @apply -ml-6  lg:-ml-20;
 }
 .rightControl {
-  @apply -mr-6;
+  @apply -mr-6 lg:-mr-20;
 }
 .leftControl:hover,
 .rightControl:hover {

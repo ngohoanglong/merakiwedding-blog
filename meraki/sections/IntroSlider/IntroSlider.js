@@ -1,4 +1,3 @@
-import Container from '@components/container'
 import cn from 'classnames'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -33,7 +32,7 @@ const IntroSlider = ({ children, loop = true }) => {
   return (
     <div ref={sliderContainerRef} className={s.root} data-testid="IntroSlider">
       <div className="pointer-events-none absolute inset-0  flex items-center">
-        <Container>
+        <div className="px-3 lg:px-12 w-full mx-auto">
           <div className="flex items-center justify-between">
             <button
               className={cn(s.leftControl, s.control, "transform transition-transform", loop || (slider && currentSlide !== 0) ? "scale-100" : "scale-0")}
@@ -70,7 +69,7 @@ const IntroSlider = ({ children, loop = true }) => {
             </button>
           </div>
 
-        </Container>
+        </div>
       </div>
 
       <Slider ref={sliderRef}>{children}</Slider>

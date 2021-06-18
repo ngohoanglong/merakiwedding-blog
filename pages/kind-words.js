@@ -1,11 +1,12 @@
 
-import { getAboutPageInfo, getAppInfo } from "@lib/app";
-import About from "@templates/about/About";
+import { getAppInfo, getKindWordsPageInfo } from '@lib/app';
+import KindWords from '@templates/kind-words/KindWords';
 
-export default About
+export default KindWords
+
 export async function getStaticProps(config) {
   const { galleries, app } = await getAppInfo(config)
-  const result = await getAboutPageInfo(config)
+  const result = await getKindWordsPageInfo(config)
   let pageData = result?.data || {}
   if (typeof pageData === 'string') {
     pageData = JSON.parse(pageData)

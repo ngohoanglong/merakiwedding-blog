@@ -1,48 +1,22 @@
 
-import Services from "@templates/services/Services";
-import { fetchGraphql } from 'react-tinacms-strapi';
+import { getAppInfo, getServicePageInfo } from '@lib/app';
+import Services from '@templates/services/Services';
 
-export default function ServicesPage(props) {
-  return <Services {...props} />
-}
-export async function getStaticProps({ locale, preview = false }) {
-  try {
-    const pageResults = await fetchGraphql(
-      process.env.STRAPI_URL,
-      `
-          query{
-            app(locale: "${locale}"){
-              data
-            }
-            galleries(locale: "${locale}"){
-              title
-              locale
-              couples
-              slug
-              photo{
-                url
-                alternativeText
-              }
-            }
-            service(locale: "${locale}"){
-              data
-            }
-          }
-      `
-    );
-    const { galleries, app, service } = pageResults.data;
-    let pageData = service?.data
-    if (typeof pageData === 'string') {
-      pageData = JSON.parse(pageData)
-    }
-    return {
-      props: { preview, pageData: { galleries, app, service: pageData } },
-      revalidate: 300
-    }
-  } catch (error) {
-    return {
-      props: { preview, pageData: {} },
-      revalidate: 300
-    }
+export default Services
+
+export async function getStaticProps(config) {
+  const { galleries, app } = await getAppInfo(config)
+  const result = await getServicePageInfo(config)
+  let pageData = result?.data || {}
+  if (typeof pageData === 'string') {
+    pageData = JSON.parse(pageData)
+  }
+  return {
+    props: {
+      source: {
+        galleries, app, data: pageData
+      }
+    },
+    revalidate: 300
   }
 }
