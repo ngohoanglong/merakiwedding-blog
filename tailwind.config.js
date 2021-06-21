@@ -9,7 +9,6 @@ module.exports = {
       './pages/**/*.{js,ts,jsx,tsx}',
       './components/**/*.{js,ts,jsx,tsx}',
       './meraki/**/*.{js,ts,jsx,tsx}',
-
     ],
     options: {
       safelist: {
@@ -26,7 +25,6 @@ module.exports = {
         success: '#0070f3',
         cyan: '#79FFE1',
         primary: '#656D51',
-
 
         'element-1': "#F7F5EF",
         'element-2': "#FFFDFB",

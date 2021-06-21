@@ -1,5 +1,5 @@
-import React from "react";
 import NextLink from "next/link";
+import React from "react";
 function isValidHttpUrl(string) {
   let url;
 
@@ -16,8 +16,9 @@ export const Link = React.forwardRef(({ href, ...props }, ref) => {
   const cms = false
   const isExternal = isValidHttpUrl(href)
   if (isExternal)
-    return <a href={href} target="_blank" {...props} ></a>
+    return <a href={href} target="_blank" rel="noreferrer" {...props} ></a>
   return <NextLink ref={ref} href={cms ? `/edit${href}` : href} >
     <a {...props} ></a>
   </NextLink>;
 });
+Link.displayName = "CustomLink"

@@ -2,6 +2,7 @@ import { getAppInfo } from "@lib/app";
 import { useLocal } from "@providers/local";
 import AppConfig from "meraki/AppConfig";
 import LoadingDots from "meraki/components/LoadingDots";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useCMS, useForm, usePlugin } from "tinacms";
 import BuilderProvider from ".";
@@ -53,11 +54,16 @@ export const withBuilderForm = (
       }} />;
   }
   function Loader({ ...props }) {
+    const router = useRouter()
+    const [mouted, setMouted] = useState()
     const [update, setUpdate] = useState();
     const [data, setSetData] = useState({});
     const [isloading, setLoading] = useState();
     const { local } = useLocal();
     useEffect(() => {
+      if (!mouted) {
+        return setMouted(true)
+      }
       let visible = true;
       const getData = async () => {
         const { app, galleries } = await getAppInfo(
@@ -69,7 +75,8 @@ export const withBuilderForm = (
         let pageInfo = {}
         if (getPageInfo) {
           pageInfo = await getPageInfo({
-            locale: local
+            locale: local,
+            router
           });
           data = pageInfo?.data;
           if (typeof data === 'string') {
@@ -95,7 +102,7 @@ export const withBuilderForm = (
       return () => {
         visible = false;
       };
-    }, [local]);
+    }, [local, router]);
     return <>
       {update &&
         !isloading && <>

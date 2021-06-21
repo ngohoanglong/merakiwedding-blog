@@ -18,6 +18,7 @@ export const Image = ({ src, alt, variant, priority, placeholder = "blur", ...re
   }
   return (
     <NextImage
+      key={src}
       layout="fill"
       src={src || '/logo.png'}
       alt={alt || 'Meraki Image'}
@@ -26,7 +27,7 @@ export const Image = ({ src, alt, variant, priority, placeholder = "blur", ...re
       blurDataURL={placeholder && getThumb(src)}
       priority={priority}
       objectFit="cover"
-      objectPosition="bottom center"
+      objectPosition="center center"
       {...rest} />
   );
 };
