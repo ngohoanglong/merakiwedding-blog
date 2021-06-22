@@ -94,7 +94,7 @@ const Block1 = () => {
               paddingTop: `${1067 / 547 * 100}%`
             }} >
             </div>
-            <Image src="/home/icons/web-homepage-icons-01.png" objectFit="contain" >
+            <Image priority src="/home/icons/web-homepage-icons-01.png" objectFit="contain" >
             </Image>
           </div>
           <h2 className="font-kinfolk uppercase text-2xl text-center leading-normal">
@@ -483,7 +483,7 @@ const Block5 = () => {
             }}></div>
             <Image {...data[local].Block5.imageLeft} objectFit="contain" className="opacity-40" ></Image>
             <div className="absolute inset-0 flex justify-center items-center isolate">
-              <div className="max-w-sm mx-auto text-element-2">
+              <div className="max-w-lg mx-auto text-element-2">
                 <Block title={get('Block5.title')} description={get('Block5.description')}>
                   <div className="mt-6 flex justify-center">
                     <Link href={get('Block5.url')}><Button reverse>{get('Block5.buttonText')}</Button></Link>
@@ -506,7 +506,7 @@ const Block5 = () => {
               }}></div>
               <Image {...data[local].Block5.imageLeft} objectFit="contain" className="opacity-40" ></Image>
               <div className="absolute inset-0 flex justify-center items-center isolate">
-                <div className="max-w-md mx-auto text-element-2">
+                <div className="max-w-lg mx-auto text-element-2">
                   <Block title={get('Block5.title')} description={<div className="text-base">{get('Block5.description')}</div>}>
                     <div className="mt-6 flex justify-center">
                       <Link href={get('Block5.url')}><Button reverse>{get('Block5.buttonText')}</Button></Link>

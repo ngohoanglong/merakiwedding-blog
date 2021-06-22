@@ -62,7 +62,7 @@ export const withBuilderForm = (
     const { local } = useLocal();
     useEffect(() => {
       if (!mouted) {
-        return setMouted(true)
+        setMouted(true)
       }
       let visible = true;
       const getData = async () => {
