@@ -7,7 +7,7 @@ import defaultData from '@templates/services/data';
 import { Image } from "meraki/components/Image";
 const Cover = () => {
   const { get } = useSource()
-  return <div className="min min-h-screen relative -mt-header lg:bg-element-7">
+  return <div className="min min-h-screen relative -mt-header bg-element-7">
     <div className='absolute right-0 top-0 w-full bottom-24 lg:w-1/3 lg:h-full'>
       <Image src={get('data.image.src', '/services/service-mobile-banner.jpg')} />
     </div>

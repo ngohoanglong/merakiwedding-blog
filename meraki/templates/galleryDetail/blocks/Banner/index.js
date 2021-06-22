@@ -11,9 +11,9 @@ const layouts = {
   layout1: Banner1,
   layout2: Banner2,
   layout3: Banner3,
-  layout3: Banner4,
-  layout3: Banner5,
-  default: Banner5,
+  layout4: Banner4,
+  layout5: Banner5,
+  default: Banner4,
 }
 
 const Banner = ({
@@ -30,6 +30,7 @@ export const banner_template = {
     image: {
       src: '/home/explore-our-wedding/3.jpg'
     },
+    layout: 'layout4',
     details: [{ label: 'Quốc tịch:', value: ' New Zealand / Anh ' },
     { label: 'Số lượng khách:', value: ' 70 khách ' },
     { label: 'Tính chất:', value: ' Destination wedding ' },
