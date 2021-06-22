@@ -32,9 +32,11 @@ export const withBuilderForm = (
           if (response) {
             cms.alerts.success("Changes Saved");
           } else {
+            console.error(response);
             cms.alerts.error("Error saving changes");
           }
         } catch (error) {
+          console.error(error);
           cms.alerts.error("Error saving changes");
         }
 
@@ -83,7 +85,6 @@ export const withBuilderForm = (
             data = JSON.parse(data);
           }
         }
-
         return {
           galleries, app, data, pageInfo
         };
@@ -106,8 +107,16 @@ export const withBuilderForm = (
     return <>
       {update &&
         !isloading && <>
-          <Form {...props} pageData={data} id={label + '.' + local} />
-          <AppConfig data={data?.app?.data} />
+          <AppConfig data={data?.app?.data} >
+            {appData => {
+              return <Form {...props} pageData={{
+                ...data,
+                app: {
+                  data: appData
+                }
+              }} id={label + '.' + local} />
+            }}
+          </AppConfig>
         </>}
       {update && isloading && <div className="fixed inset-0 opacity-50 z-50 flex bg-element-5 bg-opacity-30 justify-center items-center">
         <LoadingDots />

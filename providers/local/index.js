@@ -1,5 +1,5 @@
-import { locals } from "const"
-import { useRouter } from "next/router"
+import { locals } from "const";
+import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
 
 const ContextLocal = React.createContext()
@@ -15,7 +15,7 @@ const LocalProvider = ({ children, initialLocale = "en" }) => {
 export const useLocal = () => {
   const localdata = useContext(ContextLocal)
   const { locale, push, pathname, query, } = useRouter()
-  if (localdata) return localdata
+  // if (localdata) return localdata
   return {
     local: locale,
     setLocal: (locale) => {

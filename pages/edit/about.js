@@ -1,5 +1,5 @@
 
-import { getAboutPageInfo } from "@lib/app";
+import { fetcher, getAboutPageInfo } from "@lib/app";
 import { withBuilderForm } from "@providers/tinacms/withBuilderForm";
 import About, { about_template } from "@templates/about/About";
 

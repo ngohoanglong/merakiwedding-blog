@@ -8,7 +8,7 @@ import Container from "./container"
 const LangSwitcher = () => {
   const { local, setLocal } = useLocal()
   const handleChangeLang = () => {
-    if (local === locals.vi) {
+    if (local !== locals.vi) {
       return setLocal(locals.en)
     }
     return setLocal(locals.vi)
@@ -31,7 +31,7 @@ const LGLangSwitcher = () => {
     }
     return setLocal(locals.vi)
   }
-  if (local === locals.vi)
+  if (local !== locals.vi)
     return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
       <img className="h-5" src="/web-icon-language-13.png"></img>
     </button>

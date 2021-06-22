@@ -11,7 +11,7 @@ const Banner3 = ({ title, subTitle, details }) => {
     <div className="">
       <Container>
         <ul className="py-12 md:text-lg space-y-5">
-          {details.map((item, i) => (<li key={i}><div className="font-extrabold">{item.label}</div><div>{item.value}</div></li>))}
+          {details.map((item, i) => (<li key={i}><div className="font-extrabold truncate">{item.label}</div><div>{item.value}</div></li>))}
         </ul>
       </Container>
     </div>

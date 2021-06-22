@@ -2,7 +2,7 @@ import { useLocal } from "@providers/local";
 import { createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import { useCMS, useForm, usePlugin } from 'tinacms';
 
-const AppConfig = ({ data = {} }) => {
+const AppConfig = ({ data = {}, children }) => {
   const cms = useCMS();
   const { local } = useLocal()
   const formConfig = {
@@ -117,8 +117,8 @@ const AppConfig = ({ data = {} }) => {
       },
     ]),
   }
-  const [_, form] = useForm(formConfig)
+  const [formdata, form] = useForm(formConfig)
   usePlugin(form);
-  return null
+  return (children || null) && children(formdata)
 }
 export default AppConfig
