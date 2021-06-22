@@ -15,7 +15,7 @@ export const Layout26 = ({
         <div className=" relative col-start-2 col-end-3 row-start-1 row-end-2 bg-gray-100">
           {images[1] && <Image {...images[1]} />}
         </div>
-        <div className=" relative col-start-3 col-end-7 row-start-1 row-end-3 bg-gray-100">
+        <div className=" relative col-start-3 col-end-5 row-start-1 row-end-3 bg-gray-100">
           {images[2] && <Image {...images[2]} />}
         </div>
         <div className=" relative col-start-1 col-end-3 row-start-2 row-end-4 bg-gray-100">
