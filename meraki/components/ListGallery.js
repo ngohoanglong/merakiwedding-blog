@@ -19,7 +19,7 @@ export default function ListGallery({ items = [], perPage = 6, buttonText = "vie
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-12 lg:gap-y-32 mb-12 ">
         {listItems.map((item, i) => {
           return (
-            <Link key={i} href={"https://merakiweddingplanner.com/gallery/" + item.slug} className=" p-3 relative space-y-6 flex flex-col justify-center sm:odd:flex-col-reverse sm:odd:space-y-reverse hover:shadow-2xl transition-shadow duration-700 ease-in-out">
+            <Link key={i} href={"/gallery/" + item.slug} className=" p-3 relative space-y-6 flex flex-col justify-center sm:odd:flex-col-reverse sm:odd:space-y-reverse hover:shadow-2xl transition-shadow duration-700 ease-in-out">
               <div className="relative">
                 <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
                 <Image {...{

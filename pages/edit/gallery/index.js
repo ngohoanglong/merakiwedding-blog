@@ -1,5 +1,4 @@
 
-import { getAllPostsForHome } from "@lib/api";
 import { fetcher, getGalleryPageInfo } from "@lib/app";
 import { withBuilderForm } from "@providers/tinacms/withBuilderForm";
 import Gallery, { gallery_template } from "@templates/gallery/Gallery";
@@ -35,9 +34,8 @@ export default withBuilderForm({
   template: gallery_template,
 })(Gallery)
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
   return {
-    props: { preview, gallery: { posts: allPosts?.edges || [] } },
+    props: { preview, },
     revalidate: 300
   }
 }
