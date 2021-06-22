@@ -101,7 +101,7 @@ export const createFields = (fields) => {
   }).filter(Boolean)
 }
 export const createBlock = ({
-  label, name, description, fields = []
+  label, name, description, fields = [], composeField = createScreenGroup
 }) => {
   return ({
     label,
@@ -110,14 +110,14 @@ export const createBlock = ({
     description,
     fields: fields.map(item => {
       if (typeof item === 'string') {
-        return createScreenGroup({
+        return composeField({
           label: item,
           name: item,
           component: 'text',
         });
       }
       if (item && item.component === 'image') {
-        return createScreenGroup({
+        return composeField({
           ...item,
           component: 'group',
           fields: [
@@ -144,7 +144,7 @@ export const createBlock = ({
           ],
         });
       }
-      return createScreenGroup(item);
+      return composeField(item);
     }).filter(Boolean)
   });
 };
