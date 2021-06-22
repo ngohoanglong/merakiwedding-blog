@@ -20,8 +20,11 @@ export const useLocal = () => {
     local: locale,
     setLocal: (locale) => {
       console.log(locale)
-      push(pathname, pathname, {
+      push({
+        pathname,
+        query,
         locale,
+
       })
     }
   }
