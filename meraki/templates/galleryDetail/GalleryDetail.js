@@ -39,7 +39,7 @@ const GalleryDetail = ({ source, preview }) => {
           }
         </LG>
       </>
-      <div className="space-y-3 lg:space-y-6 py-12 px-3 md:px-6">
+      <div className="space-y-2 lg:space-y-3 py-12 px-3 md:px-6">
         <Blocks blocks={PAGE_BLOCKS} placeholder={
           <div className="flex-grow flex items-center justify-center transition duration-150 ease-out text-gray-700 dark:text-gray-100 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 body-font overflow-hidden">
             <p className="opacity-30">
