@@ -9,9 +9,35 @@ import Meta from '../components/meta'
 import Container from './container'
 import Header from './header'
 
+const Editable = () => {
+  const { isReady, isPreview, asPath } = useRouter()
+  const [mouted, setMouted] = useState()
+  useEffect(() => {
+    if (!mouted) {
+      setMouted(true)
+    }
+  }, [mouted])
+  if (!mouted) return null
+  return mouted && !asPath.includes('/edit') && Cookies.get('tina_strapi_jwt') && <div
+    className={classNames('border-b bg-accent-7 border-accent-7 text-white', {
+    })}
+  >
+    <Container>
+      <div className="py-2 text-center text-sm">
+        <Link
+          href={"/edit" + asPath}
+          className=" hover:text-cyan duration-200 transition-colors"
+        >
+          Click here to edit
+        </Link>{' '}
+      </div>
+    </Container>
+  </div>
+}
 export default function Layout({ locale, children }) {
   const { isReady, isPreview, asPath } = useRouter()
   const [hasScrolled, setHasScrolled] = useState()
+
   useEffect(() => {
     if (!isReady) {
       return
@@ -33,29 +59,14 @@ export default function Layout({ locale, children }) {
   }, [isReady, hasScrolled])
   return (
     <>
-      {!asPath.includes('/edit') && Cookies.get('tina_strapi_jwt') && <div
-        className={classNames('border-b bg-accent-7 border-accent-7 text-white', {
-        })}
-      >
-        <Container>
-          <div className="py-2 text-center text-sm">
-            This is page is a preview.{' '}
-            <Link
-              href={"/edit" + asPath}
-              className=" hover:text-cyan duration-200 transition-colors"
-            >
-              Click here to edit
-            </Link>{' '}
-          </div>
-        </Container>
-      </div>}
-      <Meta />
-      <div className="min-h-screen w-full">
+      <Editable />
+      <Meta key="meta" />
+      <div key="main" className="min-h-screen w-full">
         <Header hasScrolled={hasScrolled} />
         <main>{children}</main>
       </div>
-      <Footer ></Footer>
-      <div style={{
+      <Footer key="footer"></Footer>
+      <div key="srollTopButton" style={{
         padding: `env(safe-area-inset-top, 50px)
           env(safe-area-inset-right, 50px)
           env(safe-area-inset-bottom, 50px)
