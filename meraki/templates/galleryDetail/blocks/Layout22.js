@@ -13,7 +13,7 @@ export const Layout22 = ({
       <div className="flex-1 relative">
         <div style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner>
-            <Image src={image1?.src} alt="meraki wedding planners"></Image>
+            <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
       </div>
@@ -22,12 +22,12 @@ export const Layout22 = ({
           <div className="flex space-x-6 mb-6">
             <div className="flex-1">
               <RatioContaner>
-                <Image src={image2?.src} alt="meraki wedding planners"></Image>
+                <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
               </RatioContaner>
             </div>
             <div className="flex-1">
               <RatioContaner>
-                <Image src={image3?.src} alt="meraki wedding planners"></Image>
+                <Image src={image3?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
               </RatioContaner>
             </div>
           </div>

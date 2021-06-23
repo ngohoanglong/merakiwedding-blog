@@ -10,12 +10,12 @@ export const Layout15 = ({
     <div className="grid grid-cols-2 gap-3 lg:gap-6 space-y-28">
       <div>
         <RatioContaner variant="square">
-          <Image src={image1?.src} alt="meraki wedding planners"></Image>
+          <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
       <div>
         <RatioContaner variant="square">
-          <Image src={image2?.src} alt="meraki wedding planners"></Image>
+          <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
     </div>

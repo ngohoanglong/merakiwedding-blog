@@ -13,12 +13,12 @@ export const Layout12 = ({
       <div className="flex-1 relative flex space-x-3">
         <div className="flex-1" style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner >
-            <Image src={image1?.src} alt="meraki wedding planners"></Image>
+            <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
         <div className="flex-1" style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner >
-            <Image src={image2?.src} alt="meraki wedding planners"></Image>
+            <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
       </div>

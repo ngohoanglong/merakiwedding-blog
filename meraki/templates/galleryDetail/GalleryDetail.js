@@ -9,10 +9,10 @@ import Banner, { banner_template } from "./blocks/Banner";
 
 export const Blocks = ({ blocks, placeholder = null }) => {
   const { get } = useSource()
-  const data = get('data.blocks')
+  const data = get('data.blocks') || []
   if (data.length < 1) return placeholder;
   console.log({ data })
-  return data
+  return data && data.map
     ? data.map(function (block, i) {
       console.log({ block, component: blocks[block._template] })
       const BlockComponent = blocks[block._template]

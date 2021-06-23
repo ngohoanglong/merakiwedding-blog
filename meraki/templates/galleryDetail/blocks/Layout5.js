@@ -8,7 +8,7 @@ export const Layout5 = ({
 }) => {
   return <Container>
     <RatioContaner variant={"horizontal"}>
-      <Image src={image1?.src} alt="meraki wedding planners"></Image>
+      <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
     </RatioContaner>
   </Container>;
 };
