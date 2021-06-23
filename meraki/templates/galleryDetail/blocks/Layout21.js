@@ -10,11 +10,11 @@ export const Layout21 = ({
     <div className="grid md:grid-cols-3 gap-3 lg:gap-6">
       <div className="md:col-span-2">
         <RatioContaner variant="horizontal">
-          <Image src={image1?.src} alt="meraki wedding planners"></Image>
+          <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
       <RatioContaner>
-        <Image src={image2?.src} alt="meraki wedding planners"></Image>
+        <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
       </RatioContaner>
     </div>
   </Container>;
