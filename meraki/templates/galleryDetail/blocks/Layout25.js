@@ -13,7 +13,7 @@ export const Layout25 = ({
           <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
-      <div className='flex space-x-3 lg:space-x-6'>
+      <div className='flex space-x-2 lg:space-x-3'>
         <div className="flex-1 relative">
           <RatioContaner >
             <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>

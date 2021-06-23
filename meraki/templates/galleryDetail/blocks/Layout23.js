@@ -7,13 +7,13 @@ export const Layout23 = ({
   image1 = {}, image2 = {}, image3 = {}
 }) => {
   return <Container>
-    <div className="grid md:grid-cols-3 gap-2 lg:gap-3">
+    <div className="grid md:grid-cols-3 gap-2 md:gap-3">
       <div className="md:col-span-2">
         <RatioContaner variant="horizontal">
           <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
-      <div className='flex flex-col space-y-3 lg:space-y-6'>
+      <div className='flex flex-col space-y-2 lg:space-y-3'>
         <div className="flex-1 relative">
           <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </div>

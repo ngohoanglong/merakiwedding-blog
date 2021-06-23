@@ -8,7 +8,7 @@ export const Layout19 = ({
 }) => {
   return <Container>
     <RatioContaner ratio={70 / 100}>
-      <div className="absolute inset-0 w-full h-full grid grid-cols-6 grid-rows-6 gap-6">
+      <div className="absolute inset-0 w-full h-full grid grid-cols-6 grid-rows-6  gap-3 ">
         <div className=" relative col-start-1 col-end-3 row-start-1 row-end-3 bg-gray-100">
           {images[0] && <Image {...images[0]} objectPosition="center center" />}
         </div>
