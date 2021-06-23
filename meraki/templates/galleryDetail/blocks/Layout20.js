@@ -8,7 +8,7 @@ export const Layout20 = ({
 }) => {
   return <Container>
     <RatioContaner variant={variant}>
-      <Image {...image} />
+      <Image {...image} objectPosition="center center" />
     </RatioContaner>
   </Container>;
 };

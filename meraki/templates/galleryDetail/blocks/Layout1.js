@@ -10,7 +10,7 @@ export const Layout1 = ({
     <div className="grid grid-cols-3 gap-3 lg:gap-6">
       {images.map((item, i) => {
         return <RatioContaner key={i} variant={variant}>
-          <Image src={item.src} alt="meraki wedding planners"></Image>
+          <Image src={item.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       })}
 

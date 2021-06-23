@@ -160,16 +160,16 @@ const Block1 = () => {
               <Image src="/home/icons/web-homepage-icons-01.png" objectFit="contain" >
               </Image>
             </div>
-            <h2 className="font-kinfolk uppercase text-xl text-center ">
+            <h2 className="font-kinfolk uppercase text-3xl text-center ">
               {get('Block1.title')}
             </h2>
             <div className="font-garamond italic text-2xl text-center" dangerouslySetInnerHTML={{ __html: get('Block1.description') }}></div>
             <div className="h-14" />
             <div className="w-full flex space-x-14 justify-evenly">
-              <div className="leading-loose max-w-sm py-12 flex-1 text-justify">{get('Block1.text1')}</div>
+              <div className="leading-loose max-w-sm py-8 flex-1 text-justify">{get('Block1.text1')}</div>
               <div className=" w-px bg-element-5 "></div>
-              <div className="text-center max-w-sm py-12 flex-1 space-y-6 flex flex-col items-center">
-                <div className="font-garamond italic leading-loose max-w-sm text-2xl">{get('Block1.text2')}</div>
+              <div className="text-center max-w-sm py-8 flex-1 space-y-6 flex flex-col items-center">
+                <div className="font-garamond italic leading-loose max-w-sm text-xl">{get('Block1.text2')}</div>
                 <div className="font-semibold text-sm font-sweetsans">{get('Block1.text3')}</div>
               </div>
             </div>
