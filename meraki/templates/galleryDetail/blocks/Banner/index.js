@@ -1,6 +1,4 @@
 import { createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
-import { LG } from "meraki/components/LG";
-import { XS } from "meraki/components/XS";
 import React from 'react';
 import Banner1 from "./Banner1";
 import Banner2 from "./Banner2";
@@ -17,34 +15,19 @@ const layouts = {
   default: Banner4,
 }
 
-const Banner = ({
+const Banner = (data = {
 }) => {
-  return <>
-    <XS>
-      {
-        get => {
-          const data = get('data.banner') || {}
-          const Component = layouts[data.layout] || layouts.default
-          return <div className={styles.root}><Component {...data} /></div>
-        }
-      }
-    </XS>
-    <LG>
-      {
-        get => {
-          const data = get('data.banner') || {}
-          const Component = layouts[data.layout] || layouts.default
-          return <div className={styles.root}><Component {...data} /></div>
-        }
-      }
-    </LG>
-  </>
+  const Component = layouts[data.layout] || layouts.default
+  return <div className={styles.root}><Component {...data} /></div>
 };
 export const banner_template = {
   defaultItem: {
     title: 'LOREM IPSUM DOLOR SIT AMET, CONSECTETUER',
     subTitle: 'Lorem ipsum',
     image: {
+      src: '/home/explore-our-wedding/3.jpg'
+    },
+    image2: {
       src: '/home/explore-our-wedding/3.jpg'
     },
     layout: 'layout4',
@@ -74,7 +57,8 @@ export const banner_template = {
       }),
       fields: createFields(['label', 'value'])
     },
-    createImageFieldConfig()
+    createImageFieldConfig(),
+    createImageFieldConfig({ name: 'image2' })
   ])
 }
 export default Banner

@@ -2,6 +2,7 @@ import { useLocal } from "@providers/local"
 import { useSource } from "@providers/source"
 import classNames from 'classnames'
 import { locals } from "const"
+import { Link } from "meraki/components/Link"
 import { useState } from "react"
 import appdata from '../data/app'
 import Container from "./container"
@@ -47,9 +48,9 @@ export default function Header() {
     <header className={classNames("z-50 text-element-2", open ? "sticky top-0" : "relative")}>
       <Container style={{ maxWidth: '1440px' }}>
         <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden xl:flex justify-center items-center ">
-          <div style={{ width: '160px' }} className="flex-shrink-0 ">
+          <Link href="/" style={{ width: '160px' }} className="flex-shrink-0 ">
             <img className="w-full" src="/logo-3.png" />
-          </div>
+          </Link>
           <div className="px-3 mt-1 flex-1 space-x-[3vw] flex flex-wrap justify-center items-center">
             {
               pages.map(({ title, href }, i) => {
@@ -63,9 +64,9 @@ export default function Header() {
           </div>
         </nav>
         <nav style={{ height: 'var(--header-height)', maxWidth: '1200px', margin: 'auto' }} className="flex xl:hidden flex-wrap py-3 justify-between items-center">
-          <div className=" text-center ">
+          <Link href="/" className=" text-center ">
             <img style={{ maxWidth: '100px' }} className="w-full" src="/logo-3.png" />
-          </div>
+          </Link>
           <div className="flex items-center space-x-6">
             <LangSwitcher />
             <div className="group leading-none ">
