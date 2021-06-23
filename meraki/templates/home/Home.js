@@ -427,7 +427,7 @@ const Block4 = () => {
     <LG>
       {
         get => <div>
-          <Block title={data[local].Block4.title} description={data[local].Block4.description}>
+          <Block title={get("Block4.title")} description={get("Block4.description")}>
             <div className="h-6"></div>
             <div className="flex justify-center">
               <Link href={get("Block4.url")}>
@@ -435,9 +435,9 @@ const Block4 = () => {
               </Link>
             </div>
             <div className="h-14"></div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-center'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-start'>
               {
-                data[local].Block4.items.map((item, i) => {
+                get("Block4.items", []).map((item, i) => {
                   return (
                     <div key={i} className="flex flex-col items-center text-center max-w-md">
                       <div className="text-6xl font-kinfolk px-6">{`${i < 9 ? '0' : ''}${i + 1}.`}</div>
@@ -451,12 +451,16 @@ const Block4 = () => {
             <div className="h-14"></div>
             <div className="flex justify-center">
               <div className="w-14 h-14 relative">
-                <Image {...data[local].Block4.image}></Image>
+                <Image {...{
+                  src: get("Block4.image", {
+                    src: '/home/icons/web-homepage-icons-02.png'
+                  }).src
+                }}></Image>
               </div>
             </div>
             <div className="h-6"></div>
             <div className="w-full font-garamond italic text-center text-xl">
-              {data[local].Block4.text}
+              {get("Block4.text")}
             </div>
             <div className="h-14"></div>
           </Block>
@@ -1123,6 +1127,7 @@ export const home_template = {
       name: 'Block4',
       fields: [
         'title',
+        'text',
         'description',
         'url',
         'buttonText',

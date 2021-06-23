@@ -3,7 +3,7 @@ import React from 'react';
 import Banner3 from './Banner3';
 const Banner1 = ({ image = {}, ...rest }) => {
   return <>
-    <div className="min min-h-screen relative -mt-header bg-element-9">
+    <div style={{ height: '60vh' }} className=" relative -mt-header bg-element-9">
       <div className='absolute inset-0'>
         <Image {...image} variant="cover" />
       </div>

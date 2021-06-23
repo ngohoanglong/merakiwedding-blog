@@ -9,7 +9,7 @@ export const Layout2 = ({
   title, description, content, image1
 }) => {
   return <Container>
-    <div className="md:flex items-center">
+    <div className="md:flex items-center space-x-12">
       <div className="flex-1 relative">
         <div style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner>
