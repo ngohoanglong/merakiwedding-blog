@@ -32,7 +32,7 @@ const LGLangSwitcher = () => {
     }
     return setLocal(locals.vi)
   }
-  if (local !== locals.en)
+  if (local === locals.en)
     return <button onClick={handleChangeLang} className="flex flex-col lg:flex-row items-stretch uppercase  font-sweetsans  text-3xl text-white">
       <img className="h-5" src="/web-icon-language-13.png"></img>
     </button>

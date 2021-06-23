@@ -46,7 +46,7 @@ const FaqList = () => {
   const [active, setActive] = useState({ 0: true })
   const handleItemClick = (key) => {
     setActive({
-      [key]: !active[key]
+      [key]: true
     })
   }
   const questions = get('data.faqs.questions', [])
