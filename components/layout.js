@@ -17,8 +17,8 @@ const Editable = () => {
       setMouted(true)
     }
   }, [mouted])
-  if (!mouted) return null
-  return mouted && !asPath.includes('/edit') && Cookies.get('tina_strapi_jwt') && <div
+  if (!(mouted && !asPath.includes('/edit') && Cookies.get('tina_strapi_jwt'))) return null
+  return <div
     className={classNames('border-b bg-accent-7 border-accent-7 text-white', {
     })}
   >
