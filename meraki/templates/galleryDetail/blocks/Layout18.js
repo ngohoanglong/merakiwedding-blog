@@ -8,18 +8,18 @@ export const Layout18 = ({
 }) => {
   return <Container>
     <RatioContaner ratio={80 / 100}>
-      <div className="absolute inset-0 gap-1 md:gap-6 grid grid-cols-4 grid-rows-6">
+      <div className="absolute inset-0 gap-1 md:gap-6 grid grid-cols-4 grid-rows-6  content-between">
         <div className=" relative col-start-1 col-end-3 row-start-1 row-end-7 bg-gray-100">
-          {images[0] && <Image {...images[0]} />}
+          {images[0] && <Image {...images[0]} objectPosition="center center" />}
         </div>
         <div className=" relative col-start-3 col-end-4 row-start-1 row-end-4 bg-gray-100">
-          {images[1] && <Image {...images[1]} />}
+          {images[1] && <Image {...images[1]} objectPosition="center center" />}
         </div>
         <div className=" relative col-start-4 col-end-5 row-start-1 row-end-4 bg-gray-100">
-          {images[2] && <Image {...images[2]} />}
+          {images[2] && <Image {...images[2]} objectPosition="center center" />}
         </div>
         <div className=" relative col-start-3 col-end-5 row-start-4 row-end-7 bg-gray-100">
-          {images[3] && <Image {...images[3]} />}
+          {images[3] && <Image {...images[3]} objectPosition="center center" />}
         </div>
       </div>
     </RatioContaner>
