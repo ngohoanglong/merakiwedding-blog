@@ -9,7 +9,7 @@ export const Layout14 = ({
   return <Container>
     <div className="items-center space-y-12 text-center">
       <SectionHeadline>{title}</SectionHeadline>
-      <div className="grid lg:grid-cols-3 gap-6 lg:gap-12">
+      <div className="grid lg:grid-cols-3  gap-3  lg:gap-12">
         {
           contents.map((block, i) => (
             <div key={i}>

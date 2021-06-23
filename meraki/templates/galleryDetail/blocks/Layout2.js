@@ -17,16 +17,13 @@ export const Layout2 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="py-12" style={{ minWidth: '320px', width: '60%', }}>
-        <div className="max-w-md mx-auto">
-          <SectionHeadline>{title}</SectionHeadline>
-          <div className="h-6"></div>
-          <SectionTagline>{description}</SectionTagline>
-          <div className="h-3"></div>
-          <div className='text-justify' dangerouslySetInnerHTML={{ __html: content }}>
-          </div>
+      <div className="max-w-sm py-12">
+        <SectionHeadline>{title}</SectionHeadline>
+        <div className="h-6"></div>
+        <SectionTagline>{description}</SectionTagline>
+        <div className="h-3"></div>
+        <div className='text-justify whitespace-pre-line' dangerouslySetInnerHTML={{ __html: content }}>
         </div>
-
       </div>
     </div>
   </Container>;
