@@ -34,10 +34,9 @@ const Editable = () => {
     </Container>
   </div>
 }
-export default function Layout({ locale, children }) {
-  const { isReady, isPreview, asPath } = useRouter()
+export default function Layout({ children }) {
+  const { isReady, isPreview, asPath, locale } = useRouter()
   const [hasScrolled, setHasScrolled] = useState()
-
   useEffect(() => {
     if (!isReady) {
       return
@@ -59,6 +58,18 @@ export default function Layout({ locale, children }) {
   }, [isReady, hasScrolled])
   return (
     <>
+      <style>
+        {
+          locale === 'vi' ? `
+            .font-kinfolk{
+              font-family:Kinfolk-Vi, Times New Roman!important;
+            }
+            .font-sweetsans{
+              font-family:Commissioner, Times New Roman;!important;
+            }
+          `: ''
+        }
+      </style>
       <Editable />
       <Meta key="meta" />
       <div key="main" className="min-h-screen w-full">

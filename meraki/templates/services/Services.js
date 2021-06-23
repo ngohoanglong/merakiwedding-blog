@@ -38,7 +38,7 @@ const Blocks = () => {
           console.log(item)
           return <div key={i} className="text-center relative">
             <div className="lg:w-6/12 max-w-md mx-auto space-y-12 lg:px-12 lg:py-24">
-              <h2 className="text-6xl font-garamond italic font-bold">{item.title}</h2>
+              <h2 className="text-6xl font-garamond italic font-semibold">{item.title}</h2>
               <div className="flex space-x-2 lg:space-x-0 lg:m-0  lg:px-12 lg:absolute lg:inset-0  justify-between">
                 {item?.images[0] && <div className="relative flex-1 self-start lg:flex-none lg:w-3/12">
                   <div style={{

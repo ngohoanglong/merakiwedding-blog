@@ -21,7 +21,7 @@ const Cover = () => {
         get => <div><Image {...get('data.cover.image')} /></div>
       }
     </LG>
-    <div className="self-end py-16 z-10 text-center text-5xl font-garamond italic font-bold text-element-1">
+    <div className="self-end py-16 z-10 text-center text-5xl font-garamond italic font-semibold text-element-1">
       <Container >
         <XS>
           {
@@ -62,7 +62,6 @@ const Blog = ({ source, preview }) => {
       <Blocks />
     </Layout>
   </SourceProvider>
-
 }
 export const blog_template = {
   // label: "Hero",

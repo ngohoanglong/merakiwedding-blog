@@ -35,6 +35,12 @@
     format('opentype');
   font-display: block;
 }
+@font-face {
+  font-family: Kinfolk-Vi;
+  src: url('/fonts/Kinfolk_Vi.otf')
+    format('opentype');
+  font-display: block;
+}
 /* public/fonts/SweetSansProMedium.otf */
 @font-face {
   font-family: SweetSans;

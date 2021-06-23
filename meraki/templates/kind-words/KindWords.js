@@ -20,7 +20,7 @@ const Cover = () => {
         get => <div><Image {...get('data.cover.image')} variant="cover" /></div>
       }
     </LG>
-    <div style={{ minHeight: '500px' }} className="self-center py-16 z-10 text-center  font-bold text-element-1">
+    <div style={{ minHeight: '500px' }} className="self-center py-16 z-10 text-center  font-semibold text-element-1">
       <Container >
         <XS>
           {
