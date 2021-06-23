@@ -33,6 +33,7 @@ export default function Layout({ locale, children }) {
   }, [isReady, hasScrolled])
   return (
     <>
+      <Meta />
       {!asPath.includes('/edit') && Cookies.get('tina_strapi_jwt') && <div
         className={classNames('border-b bg-accent-7 border-accent-7 text-white', {
         })}
@@ -49,7 +50,6 @@ export default function Layout({ locale, children }) {
           </div>
         </Container>
       </div>}
-      <Meta />
       <div className="min-h-screen w-full">
         <Header hasScrolled={hasScrolled} />
         <main>{children}</main>
