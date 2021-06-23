@@ -7,7 +7,7 @@ export const Layout25 = ({
   image1 = {}, image2 = {}, image3 = {}
 }) => {
   return <Container>
-    <div className="grid md:grid-cols-2 items-center gap-3 lg:gap-6">
+    <div className="grid md:grid-cols-2 items-center gap-2 lg:gap-3">
       <div className="">
         <RatioContaner >
           <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>

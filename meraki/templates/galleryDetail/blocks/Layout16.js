@@ -8,7 +8,7 @@ export const Layout16 = ({
   contents = []
 }) => {
   return <Container>
-    <div className="grid grid-cols-2 gap-3 lg:gap-6 space-y-28">
+    <div className="grid grid-cols-2 gap-2 lg:gap-3 space-y-28">
       {
         contents.map((item, i) => {
           return <div key={i} className="flex flex-col justify-start odd:flex-col-reverse">
