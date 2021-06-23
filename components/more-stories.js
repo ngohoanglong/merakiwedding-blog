@@ -15,12 +15,19 @@ const fixExcerpt = node => {
   return excerpt
 }
 export default function MoreStories({ posts = [] }) {
-  const { query, } = useRouter()
+  const { query, locale } = useRouter()
   const { page = 1, ...rest } = query
+  let data = []
+  if (locale === "vi") {
+    data = posts.filter(item => item?.node?.categories && JSON.stringify(item?.node?.categories).includes("Vietnamese"))
+  }
+  if (locale === "en") {
+    data = posts.filter(item => item?.node?.categories && JSON.stringify(item?.node?.categories).includes("English"))
+  }
   return (
     <section>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-12 lg:gap-y-24 mb-32 ">
-        {posts.filter((item, i) => {
+        {data.filter((item, i) => {
           const from = perPage * (page - 1)
           const to = from + 6
           return i >= from && i < to
@@ -45,7 +52,7 @@ export default function MoreStories({ posts = [] }) {
           pageRangeDisplayed={5}
           scroll={false}
           shallow={true}
-          pageCount={Math.ceil(posts.length / perPage)} />
+          pageCount={Math.ceil(data.length / perPage)} />
       </div>
     </section>
   );

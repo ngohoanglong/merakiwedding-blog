@@ -33,17 +33,18 @@ const Intro = () => {
                     alt={alt}
                   />
                 </div>
+                {i === 0 && <div className='z-10 text-center absolute top-header left-0 w-full text-white'>
+                  <Container>
+                    <div className="pt-12">
+                      <div className="text-3xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
+                      <div className="text-xl font-bold font-garamond italic">{get('IntroSlider.subTitle')}</div>
+                    </div>
+                  </Container>
+                </div>}
               </div>
             ))}
           </IntroSlider>
-          <div className='z-10 text-center absolute top-header left-0 w-full text-white'>
-            <Container>
-              <div className="pt-12">
-                <div className="text-3xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
-                <div className="text-xl font-bold font-garamond italic">{get('IntroSlider.subTitle')}</div>
-              </div>
-            </Container>
-          </div>
+
         </div>
       }
     </XS>
@@ -65,17 +66,18 @@ const Intro = () => {
                     alt={alt}
                   />
                 </div>
+                {i === 0 && <div className='z-10 text-center absolute bottom-14 left-0 w-full text-white'>
+                  <Container>
+                    <div>
+                      <div className="text-4xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
+                      <div className="text-2xl font-bold font-garamond italic">{get('IntroSlider.subTitle')}</div>
+                    </div>
+                  </Container>
+                </div>}
               </div>
             ))}
           </IntroSlider>
-          <div className='z-10 text-center absolute bottom-14 left-0 w-full text-white'>
-            <Container>
-              <div>
-                <div className="text-4xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
-                <div className="text-2xl font-bold font-garamond italic">{get('IntroSlider.subTitle')}</div>
-              </div>
-            </Container>
-          </div>
+
         </div>
       }
     </LG>
