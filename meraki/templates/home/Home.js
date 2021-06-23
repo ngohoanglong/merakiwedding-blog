@@ -435,7 +435,7 @@ const Block4 = () => {
               </Link>
             </div>
             <div className="h-14"></div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-center'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 w-full items-start'>
               {
                 get("Block4.items", []).map((item, i) => {
                   return (
