@@ -37,7 +37,7 @@ export const banner_template = {
     { label: 'Địa điểm lễ ceremony:', value: ' Bảo tàng Mỹ thuật TPHCM ' },
     { label: 'Địa điểm tiệc tối:', value: ' Park Hyatt Saigon' },]
   },
-  fiels: createFields([
+  fields: createFields([
     {
       name: 'layout',
       component: 'select',

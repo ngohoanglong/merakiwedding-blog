@@ -32,7 +32,7 @@ export const layout8_template = {
       src: '/home/explore-our-wedding/3.jpg'
     }
   },
-  fiels: [
+  fields: [
     createImageFieldConfig({ name: 'image1' }),
     createImageFieldConfig({ name: 'image2' }),
   ]

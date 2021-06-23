@@ -1,7 +1,7 @@
 import Container from '@components/container';
 import React from 'react';
-const Banner3 = ({ title, subTitle, details }) => {
-  return <div className=" h-screen py-header relative -mt-header  flex w-full items-center justify-center px-12" >
+const Banner3 = ({ title, subTitle, details, }) => {
+  return <div className="relative flex w-full items-center justify-center px-12" >
     <div className="">
       <Container>
         <div className="text-xl md:text-2xl">{subTitle}</div>
@@ -15,7 +15,6 @@ const Banner3 = ({ title, subTitle, details }) => {
         </ul>
       </Container>
     </div>
-
   </div>
 }
 export default Banner3

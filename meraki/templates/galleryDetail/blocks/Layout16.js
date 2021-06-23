@@ -61,7 +61,7 @@ export const layout16_template = {
     ]
     ,
   },
-  fiels: [
+  fields: [
     {
       component: 'group-list',
       name: 'contents',

@@ -76,7 +76,7 @@ export const galleryDetail_template = {
         ...item,
         label: item.title
       }),
-      fields: banner_template.fiels
+      fields: banner_template.fields
     }))
     , {
       label: "Page Sections",

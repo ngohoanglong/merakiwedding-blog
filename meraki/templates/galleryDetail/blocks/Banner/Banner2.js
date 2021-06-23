@@ -3,7 +3,7 @@ import { Image } from 'meraki/components/Image';
 import React from 'react';
 import { RatioContaner } from '../RatioContaner';
 const Banner2 = ({ image = {}, image2 = {}, title, subTitle, details = [] }) => {
-  return <div className=" min-h-screen -mt-header  flex flex-col justify-center items-center w-full relative" >
+  return <div className=" min-h-screen -mt-header  flex flex-col justify-center items-center w-full relative bg-element-9" >
     <div className="flex relative w-full">
       <div style={{ zIndex: '-1' }} className='min-h-screen absolute inset-0 w-full md:w-1/3 md:relative flex-shrink-0'>
         <Image {...image} variant="cover" />

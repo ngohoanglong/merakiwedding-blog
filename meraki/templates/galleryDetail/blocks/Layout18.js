@@ -42,7 +42,7 @@ export const layout18_template = {
       }
     ]
   },
-  fiels: [
+  fields: [
     {
       name: 'images',
       component: 'group-list',

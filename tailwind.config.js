@@ -34,6 +34,8 @@ module.exports = {
         'element-6': "#faebd7",
         'element-7': "#e5dfd6",
         "element-8": "#fdf6f0",
+        "element-9": "#e8e5dd",
+
       },
       fontFamily: {
         serif: [

@@ -53,7 +53,7 @@ export const layout26_template = {
       }
     ]
   },
-  fiels: [
+  fields: [
     {
       name: 'images',
       component: 'group-list',

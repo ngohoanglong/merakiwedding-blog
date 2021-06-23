@@ -18,7 +18,7 @@ export const layout5_template = {
       src: '/home/explore-our-wedding/3.jpg'
     },
   },
-  fiels: [
+  fields: [
     createImageFieldConfig({ name: 'image1' }),
   ]
 }

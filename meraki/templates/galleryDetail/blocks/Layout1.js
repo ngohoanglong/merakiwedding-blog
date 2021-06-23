@@ -33,7 +33,7 @@ export const layout1_template = {
     ]
   },
 
-  fiels: [
+  fields: [
     {
       name: 'variant',
       label: 'horizontal image',
