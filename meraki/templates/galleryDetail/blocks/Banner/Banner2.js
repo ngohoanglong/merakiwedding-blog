@@ -5,7 +5,7 @@ import { RatioContaner } from '../RatioContaner';
 const Banner2 = ({ image = {}, image2 = {}, title, subTitle, details = [] }) => {
   return <div className=" min-h-screen -mt-header  flex flex-col justify-center items-center w-full relative bg-element-9" >
     <div className="flex relative w-full">
-      <div style={{ zIndex: '-1' }} className='min-h-screen absolute inset-0 w-full md:w-1/3 md:relative flex-shrink-0'>
+      <div className='min-h-screen absolute inset-0 w-full md:w-1/3 md:relative flex-shrink-0'>
         <Image {...image} variant="cover" />
       </div>
       <div className="py-header flex items-center flex-1">
@@ -16,7 +16,7 @@ const Banner2 = ({ image = {}, image2 = {}, title, subTitle, details = [] }) => 
             {details.map((item, i) => (<li key={i} className="flex items-baseline space-x-2"><div className="font-extrabold truncate">{item.label}</div><div>{item.value}</div></li>))}
           </ul>
         </Container>
-        <div style={{ zIndex: '-1' }} className='hidden h-full w-1/4 relative flex-shrink-0 md:flex flex-col justify-center'>
+        <div className='hidden h-full w-1/4 relative flex-shrink-0 md:flex flex-col justify-center'>
           <RatioContaner>
             <Image {...image2} />
           </RatioContaner>
