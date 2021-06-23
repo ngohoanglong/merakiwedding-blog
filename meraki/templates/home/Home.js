@@ -33,17 +33,18 @@ const Intro = () => {
                     alt={alt}
                   />
                 </div>
+                {i === 0 && <div className='z-10 text-center absolute top-header left-0 w-full text-white'>
+                  <Container>
+                    <div className="pt-12">
+                      <div className="text-3xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
+                      <div className="text-xl font-semibold font-garamond italic">{get('IntroSlider.subTitle')}</div>
+                    </div>
+                  </Container>
+                </div>}
               </div>
             ))}
           </IntroSlider>
-          <div className='z-10 text-center absolute top-header left-0 w-full text-white'>
-            <Container>
-              <div className="pt-12">
-                <div className="text-3xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
-                <div className="text-xl font-bold font-garamond italic">{get('IntroSlider.subTitle')}</div>
-              </div>
-            </Container>
-          </div>
+
         </div>
       }
     </XS>
@@ -65,17 +66,18 @@ const Intro = () => {
                     alt={alt}
                   />
                 </div>
+                {i === 0 && <div className='z-10 text-center absolute bottom-14 left-0 w-full text-white'>
+                  <Container>
+                    <div>
+                      <div className="text-4xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
+                      <div className="text-2xl font-semibold font-garamond italic">{get('IntroSlider.subTitle')}</div>
+                    </div>
+                  </Container>
+                </div>}
               </div>
             ))}
           </IntroSlider>
-          <div className='z-10 text-center absolute bottom-14 left-0 w-full text-white'>
-            <Container>
-              <div>
-                <div className="text-4xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
-                <div className="text-2xl font-bold font-garamond italic">{get('IntroSlider.subTitle')}</div>
-              </div>
-            </Container>
-          </div>
+
         </div>
       }
     </LG>
@@ -125,7 +127,7 @@ const Block1 = () => {
                 <div className="flex flex-col text-center items-center">
                   <div className="text-3xl font-kinfolk">{get('Block2.title')}</div>
                   <div className="text font-garamond italic">{get('Block2.subTitle')}</div>
-                  <div className="text font-commissioner font-bold">{get('Block2.description')}</div>
+                  <div className="text font-commissioner font-semibold">{get('Block2.description')}</div>
                   <div className="space-y-6 mt-3 leading-normal text-justify w-full">
                     {
                       get('Block2.texts', '').split("\n").map((item, i) => {
@@ -188,7 +190,7 @@ const Block1 = () => {
                   <div className="flex flex-col">
                     <div className="text-4xl font-kinfolk">{get('Block2.title')}</div>
                     <div className="text font-garamond italic text-lg mt-2">{get('Block2.subTitle')}</div>
-                    <div className="text font-commissioner font-bold">{get('Block2.description')}</div>
+                    <div className="text font-commissioner font-semibold">{get('Block2.description')}</div>
                     <div className="space-y-6 mt-6 text-justify">
                       {
                         get('Block2.texts', '').split("\n").map((item, i) => {
@@ -244,7 +246,7 @@ const Block3 = () => {
                           </div>
                           <div className='absolute bottom-0 left-0 right-0 px-8'>
                             <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                              <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
+                              <div className="font-garamond font-semibold text-2xl leading-none font-bolder">{item.title}</div>
                               <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
                             </div>
                           </div>
@@ -263,7 +265,7 @@ const Block3 = () => {
                           </div>
                           <div className='absolute bottom-0 left-0 right-0 px-8'>
                             <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                              <div className="font-garamond font-bold text-2xl leading-none font-bolder">{item.title}</div>
+                              <div className="font-garamond font-semibold text-2xl leading-none font-bolder">{item.title}</div>
                               <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
                             </div>
                           </div>
@@ -308,7 +310,7 @@ const Block3 = () => {
                         </div>
                         <div className='absolute bottom-0 left-0 right-0 px-12'>
                           <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
+                            <div className="font-garamond font-semibold text-xl leading-none font-bolder">{item.title}</div>
                             <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
                           </div>
                         </div>
@@ -327,7 +329,7 @@ const Block3 = () => {
                         </div>
                         <div className='absolute bottom-0 left-0 right-0 px-12'>
                           <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-bold text-xl leading-none font-bolder">{item.title}</div>
+                            <div className="font-garamond font-semibold text-xl leading-none font-bolder">{item.title}</div>
                             <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
                           </div>
                         </div>
@@ -578,7 +580,7 @@ const Block6 = () => {
                       </div>
                     </div>
                     <div className="flex-1 px-6 pt-3 pb-6 bg-element-2">
-                      <div className="font-garamond font-bold text-2xl italic">{item.title}</div>
+                      <div className="font-garamond font-semibold text-2xl italic">{item.title}</div>
                       <div style={{ fontSize: '0.8em' }} className='font-sweetsans'>{item.subTitle}</div>
                       <div className="mt-4 text-justify text-sm leading-loose">{item.description}</div>
                     </div>
@@ -603,7 +605,7 @@ const Block7 = () => {
             <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
             <Image {...get('Block7.image', data[local].Block7.image)}></Image>
             <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-              <div className="leading-none font-garamond italic text-xl font-bold">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>
+              <div className="leading-none font-garamond italic text-xl font-semibold">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>
               <div className='h-5'></div>
               <div className="leading-none text-4xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
               <div className='h-6'></div>
@@ -697,7 +699,7 @@ export const home_template = {
         "lg": "INDEPENDENT / ATTENTIVENESS / DEDICATION"
       },
       "description": {
-        "xs": "Every wedding crafted by Meraki is a <b class=\"font-bold\">unique experience</b> that was delivered beautifully."
+        "xs": "Every wedding crafted by Meraki is a <b class=\"font-semibold\">unique experience</b> that was delivered beautifully."
       },
       "text1": {
         "xs": "No detail is too small, nor any idea is too big. With years of expertise, Meraki team is here to help you create an occasion that you will never forget.",

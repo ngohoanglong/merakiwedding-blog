@@ -13,7 +13,7 @@ export const Contact = () => {
             <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
             <Image {...get('app.data.contact.image', { src: '/logo.png' })}></Image>
             <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-              <div className="leading-none font-garamond italic text-xl font-bold">{get('app.data.contact.subTitle',)}</div>
+              <div className="leading-none font-garamond italic text-xl font-semibold">{get('app.data.contact.subTitle',)}</div>
               <div className='h-5'></div>
               <div className="leading-none text-4xl font-kinfolk">{get('app.data.contact.title',)}</div>
               <div className='h-6'></div>

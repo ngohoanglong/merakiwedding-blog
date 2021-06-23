@@ -14,7 +14,7 @@ export default function Avatar({ author }) {
             className="w-12 h-12 rounded-full mr-4"
             alt={name}
           />
-          <div className="text-xl font-bold">{name}</div>
+          <div className="text-xl font-semibold">{name}</div>
         </div>
       )}
     </>

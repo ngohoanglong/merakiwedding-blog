@@ -89,7 +89,7 @@ const FaqList = () => {
                         <div onMouseEnter={() => {
                           handleItemClick(i)
                         }} className={classnames("flex w-full p-3 px-5 hover:border-gray-300 border border-transparent rounded-lg", {
-                          'font-bold': active[i]
+                          'font-semibold': active[i]
                         })}>
                           <div className="flex-1 whitespace-pre-line">{i + 1}. {item.title}</div>
                         </div>
@@ -103,7 +103,7 @@ const FaqList = () => {
                   questions.filter((_, i) => active[i]).map(item => {
                     return (
                       <div key={item.title} className='space-y-2'>
-                        <div className='font-garamond italic font-bold text-xl'>{item.title}</div>
+                        <div className='font-garamond italic font-semibold text-xl'>{item.title}</div>
                         <div className="" dangerouslySetInnerHTML={{ __html: item.content }} />
                       </div>
                     )
@@ -130,9 +130,9 @@ const Blocks = () => {
         backgroundColor: '#fdf6f0'
       }}>
         <div className="w-full max-w-sm mx-auto">
-          <h3 className=" text-3xl font-garamond italic font-bold">{get('data.cover.description.xs')}</h3>
+          <h3 className=" text-3xl font-garamond italic font-semibold">{get('data.cover.description.xs')}</h3>
           <div className="leading-relaxed  " dangerouslySetInnerHTML={{ __html: get('data.cover.content.xs') }}></div>
-          <div className="font-bold mt-2">{get('app.data.email', 'merakiweddingplanner@gmail.com')}</div>
+          <div className="font-semibold mt-2">{get('app.data.email', 'merakiweddingplanner@gmail.com')}</div>
           <div className="h-6" />
           <div className="flex justify-center items-center lg:hidden">
             <div className="w-16 h-16 relative">
@@ -154,7 +154,7 @@ const Blocks = () => {
     <div className="py-12 mt-20" style={{ backgroundColor: '#fdf6f0' }}>
       <Container>
         <div className="text-center space-y-8 mx-auto max-w-2xl lg:max-w-none">
-          <h3 className="font-garamond text-5xl font-bold italic uppercase">{get('data.faqs.title')}</h3>
+          <h3 className="font-garamond text-5xl font-semibold italic uppercase">{get('data.faqs.title')}</h3>
           <FaqList />
         </div>
       </Container>
@@ -188,7 +188,7 @@ const Input = ({
       break;
   }
   return <div className={classNames("flex flex-col w-full", layout === inputLayouts.block ? "xl:col-span-2" : "")}>
-    <label className="xl:h-12  xl:flex items-end font-bold mb-2 text-sm font-sweetsans  uppercase">{label}</label>
+    <label className="xl:h-12  xl:flex items-end font-semibold mb-2 text-sm font-sweetsans  uppercase">{label}</label>
     {inputElement}
     {description && < div className="text-gray-400 whitespace-pre-line overflow-hidden capitalize">{description}</div>
     }

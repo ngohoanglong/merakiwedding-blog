@@ -37,7 +37,7 @@ export default {
       alt: ''
     },
     title: 'INDEPENDENT / ATTENTIVENESS / DEDICATION',
-    description: 'Every wedding crafted by Meraki is a <b class="font-bold">unique experience</b> that was delivered beautifully.',
+    description: 'Every wedding crafted by Meraki is a <b class="font-semibold">unique experience</b> that was delivered beautifully.',
     text1: `We love weddings and we are here to serve you with everything we have while providing an experience you will never forget. We want to laugh with you, dance with you, jump around and adventure. We want the small moments to be memorable, and the big moments to become framed memories. Yes, we are absolutely thrilled to be considered as your potential wedding planner. Let’s get connected and let us fulfill the beginning of your journey with joy and amusement.`,
     text2: `"There is so much joy that goes into the planning and dreaming of your wedding - It is the happiest of projects"`,
     text3: `- MARTHA STEWART -`
