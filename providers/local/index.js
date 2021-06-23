@@ -14,13 +14,17 @@ const LocalProvider = ({ children, initialLocale = "en" }) => {
 }
 export const useLocal = () => {
   const localdata = useContext(ContextLocal)
-  const { locale, push, pathname, query, } = useRouter()
+  const { locale, push, pathname, asPath, query, } = useRouter()
   // if (localdata) return localdata
   return {
     local: locale,
     setLocal: (locale) => {
-      console.log(locale)
-      push(pathname, pathname, {
+      console.log(pathname, pathname, {
+        query,
+        locale,
+      })
+      push(pathname, asPath, {
+        query,
         locale,
       })
     }

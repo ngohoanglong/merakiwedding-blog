@@ -1,4 +1,3 @@
-import { useSource } from "@providers/source";
 import { createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import React from 'react';
 import Banner1 from "./Banner1";
@@ -16,10 +15,8 @@ const layouts = {
   default: Banner4,
 }
 
-const Banner = ({
+const Banner = (data = {
 }) => {
-  const { get } = useSource()
-  const data = get('data.banner') || {}
   const Component = layouts[data.layout] || layouts.default
   return <div className={styles.root}><Component {...data} /></div>
 };
@@ -28,6 +25,9 @@ export const banner_template = {
     title: 'LOREM IPSUM DOLOR SIT AMET, CONSECTETUER',
     subTitle: 'Lorem ipsum',
     image: {
+      src: '/home/explore-our-wedding/3.jpg'
+    },
+    image2: {
       src: '/home/explore-our-wedding/3.jpg'
     },
     layout: 'layout4',
@@ -57,7 +57,8 @@ export const banner_template = {
       }),
       fields: createFields(['label', 'value'])
     },
-    createImageFieldConfig()
+    createImageFieldConfig(),
+    createImageFieldConfig({ name: 'image2' })
   ])
 }
 export default Banner

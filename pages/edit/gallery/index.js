@@ -2,8 +2,7 @@
 import { fetcher, getGalleryPageInfo } from "@lib/app";
 import { withBuilderForm } from "@providers/tinacms/withBuilderForm";
 import Gallery, { gallery_template } from "@templates/gallery/Gallery";
-
-export default withBuilderForm({
+const builderFormConfig = {
   label: 'gallery',
   displayName: 'Gallery',
   getPageInfo: getGalleryPageInfo,
@@ -32,10 +31,12 @@ export default withBuilderForm({
     );
   },
   template: gallery_template,
-})(Gallery)
+}
+export default withBuilderForm(builderFormConfig)(Gallery)
 export async function getStaticProps({ preview = false }) {
   return {
     props: { preview, },
     revalidate: 300
   }
 }
+

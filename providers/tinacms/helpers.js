@@ -1,5 +1,6 @@
 const screens = ['xs', 'lg'];
 const screensdescriptions = ['mobile', 'laptop'];
+
 export const createScreenGroup = ({
   label,
   name,
@@ -46,6 +47,7 @@ export const createImageFields = () => {
   ]
 }
 export const getThumb = src => (src) && src.replace('/uploads/', '/uploads/small_')
+export const getLargeImage = src => (src) && src.replace('/uploads/', '/uploads/small_')
 export const createFields = (fields) => {
   return fields.map(item => {
     if (item === 'description') {

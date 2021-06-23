@@ -9,13 +9,14 @@ import BuilderProvider from ".";
 
 export const withBuilderForm = (
   { displayName,
-    template,
-    label,
+    id, label,
+    template, createPageId,
     getPageInfo,
     onSubmit, }
 ) => (Component) => {
   function Form({ id, pageData = {}, children, ...rest }) {
     const cms = useCMS();
+    const router = useRouter()
     const { local } = useLocal();
     const formConfig = {
       id,
@@ -27,7 +28,7 @@ export const withBuilderForm = (
             {
               data: (values),
               locale: local,
-            }, pageData?.pageInfo
+            }, pageData?.pageInfo, router
           );
           if (response) {
             cms.alerts.success("Changes Saved");
@@ -39,7 +40,6 @@ export const withBuilderForm = (
           console.error(error);
           cms.alerts.error("Error saving changes");
         }
-
       },
       ...template
     };
@@ -65,6 +65,7 @@ export const withBuilderForm = (
     useEffect(() => {
       if (!mouted) {
         setMouted(true)
+        return
       }
       let visible = true;
       const getData = async () => {
@@ -103,9 +104,9 @@ export const withBuilderForm = (
       return () => {
         visible = false;
       };
-    }, [local, router]);
+    }, [local, router, mouted]);
     return <>
-      {update &&
+      {mouted && update &&
         !isloading && <>
           <AppConfig data={data?.app?.data} >
             {appData => {
@@ -114,7 +115,7 @@ export const withBuilderForm = (
                 app: {
                   data: appData
                 }
-              }} id={label + '.' + local} />
+              }} id={createPageId ? createPageId(router) : id} />
             }}
           </AppConfig>
         </>}
