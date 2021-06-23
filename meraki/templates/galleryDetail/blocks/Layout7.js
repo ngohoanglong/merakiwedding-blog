@@ -7,7 +7,7 @@ export const Layout7 = ({
   title, description, content
 }) => {
   return <Container>
-    <div className="md:flex items-center max-w-prose mx-auto">
+    <div className="md:flex items-center max-w-prose mx-auto py-12">
       <div className="max-w-5xl mx-auto w-full text-center">
         <SectionHeadline>{title}</SectionHeadline>
         <div className="h-6"></div>
