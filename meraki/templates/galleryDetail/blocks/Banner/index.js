@@ -1,5 +1,6 @@
-import { useSource } from "@providers/source";
 import { createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
+import { LG } from "meraki/components/LG";
+import { XS } from "meraki/components/XS";
 import React from 'react';
 import Banner1 from "./Banner1";
 import Banner2 from "./Banner2";
@@ -18,10 +19,26 @@ const layouts = {
 
 const Banner = ({
 }) => {
-  const { get } = useSource()
-  const data = get('data.banner') || {}
-  const Component = layouts[data.layout] || layouts.default
-  return <div className={styles.root}><Component {...data} /></div>
+  return <>
+    <XS>
+      {
+        get => {
+          const data = get('data.banner') || {}
+          const Component = layouts[data.layout] || layouts.default
+          return <div className={styles.root}><Component {...data} /></div>
+        }
+      }
+    </XS>
+    <LG>
+      {
+        get => {
+          const data = get('data.banner') || {}
+          const Component = layouts[data.layout] || layouts.default
+          return <div className={styles.root}><Component {...data} /></div>
+        }
+      }
+    </LG>
+  </>
 };
 export const banner_template = {
   defaultItem: {

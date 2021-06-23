@@ -1,7 +1,7 @@
 
 import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
-import { createBlock } from "@providers/tinacms/helpers";
+import { createBlock, createScreenGroup } from "@providers/tinacms/helpers";
 import { PAGE_BLOCKS, PAGE_BLOCK_TEMPLATES } from "./blocks";
 import Banner, { banner_template } from "./blocks/Banner";
 
@@ -41,7 +41,10 @@ const GalleryDetail = ({ source, preview }) => {
 }
 
 const defaultItem = {
-  banner: banner_template.defaultItem,
+  banner: {
+    xs: banner_template.defaultItem,
+    lg: banner_template.defaultItem
+  },
   blocks: Object.keys(PAGE_BLOCK_TEMPLATES).reduce((result = [], item) => {
     console.log({ item: PAGE_BLOCK_TEMPLATES[item] })
     result.push({ _template: item, ...PAGE_BLOCK_TEMPLATES[item].detaultItem })
@@ -52,7 +55,7 @@ const defaultItem = {
 export const galleryDetail_template = {
   defaultItem,
   fields: [
-    createBlock({
+    createScreenGroup(createBlock({
       composeField: item => item,
       label: 'banner',
       name: 'banner',
@@ -61,10 +64,11 @@ export const galleryDetail_template = {
         label: item.title
       }),
       fields: banner_template.fiels
-    })
+    }))
     , {
       label: "Page Sections",
       name: "blocks",
+      description: <a className="hover:underline cursor-pointer" target={'_blank'} href="/edit/gallery/showcase">all layouts  : /edit/gallery/showcase</a>,
       component: "blocks",
       templates: PAGE_BLOCK_TEMPLATES,
     },
