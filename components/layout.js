@@ -65,6 +65,7 @@ export default function Layout({ children }) {
               font-family:Kinfolk-Vi, Times New Roman!important;
             }
             .font-sweetsans{
+              font-weight:500;
               font-family:Commissioner, Times New Roman;!important;
             }
           `: ''

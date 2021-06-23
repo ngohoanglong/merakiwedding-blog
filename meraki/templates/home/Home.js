@@ -605,7 +605,7 @@ const Block7 = () => {
             <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
             <Image {...get('Block7.image', data[local].Block7.image)}></Image>
             <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-              <div className="leading-none font-garamond italic text-xl font-semibold">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>
+              {get('Block7.subTitle') && get('Block7.subTitle').length && <div className="leading-none font-garamond italic text-xl font-semibold">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>}
               <div className='h-5'></div>
               <div className="leading-none text-4xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
               <div className='h-6'></div>
@@ -625,7 +625,7 @@ const Block7 = () => {
           <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
           <Image {...data[local].Block7.image}></Image>
           <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
-            <div className="leading-none font-garamond italic text-3xl">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>
+            {get('Block7.subTitle') && get('Block7.subTitle').length && <div className="leading-none font-garamond italic text-3xl">{get('Block7.subTitle')}</div>}
             <div className='h-5'></div>
             <div className="leading-none text-5xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
             <div className='h-6'></div>
