@@ -60,7 +60,7 @@ const defaultItem = {
   },
   blocks: Object.keys(PAGE_BLOCK_TEMPLATES).reduce((result = [], item) => {
     console.log({ item: PAGE_BLOCK_TEMPLATES[item] })
-    result.push({ _template: item, ...PAGE_BLOCK_TEMPLATES[item].detaultItem })
+    result.push({ _template: item, ...PAGE_BLOCK_TEMPLATES[item].defaultItem })
     console.log({ item: result[result.length - 1] })
     return result
   }, [])

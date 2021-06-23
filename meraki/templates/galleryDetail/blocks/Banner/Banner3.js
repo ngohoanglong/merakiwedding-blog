@@ -11,7 +11,7 @@ const Banner3 = ({ title, subTitle, details, }) => {
     <div className="md:px-12">
       <Container>
         <ul className="py-8 md:py-12  md:text-lg space-y-2 lg:space-y-5">
-          {details.map((item, i) => (<li key={i} className="flex md:flex-col flex-wrap justify-center truncate"><div className="font-extrabold ">{item.label}</div><div className="px-2">{item.value}</div></li>))}
+          {details.map((item, i) => (<li key={i} className="flex md:flex-col flex-wrap justify-center truncate"><div className="font-extrabold ">{item.label}</div><div className="px-2 md:px-0">{item.value}</div></li>))}
         </ul>
       </Container>
     </div>
