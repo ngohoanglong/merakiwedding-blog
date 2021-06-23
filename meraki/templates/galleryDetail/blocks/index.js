@@ -58,81 +58,107 @@ export const PAGE_BLOCKS = {
 
 export const PAGE_BLOCK_TEMPLATES = {
   Layout1: {
-    label: 'layout1', detaultItem: layout1_template.defaultItem, fields: layout1_template.fiels
+    key: "Layout1",
+    label: 'layout1', defaultItem: layout1_template.defaultItem, fields: layout1_template.fields
   },
   Layout10: {
-    label: 'layout10', detaultItem: layout10_template.defaultItem, fields: layout10_template.fiels
+    key: "Layout10",
+    label: 'layout10', defaultItem: layout10_template.defaultItem, fields: layout10_template.fields
   },
   Layout11: {
-    label: 'layout11', detaultItem: layout11_template.defaultItem, fields: layout11_template.fiels
+    key: "Layout11",
+    label: 'layout11', defaultItem: layout11_template.defaultItem, fields: layout11_template.fields
   },
   Layout12: {
-    label: 'layout12', detaultItem: layout12_template.defaultItem, fields: layout12_template.fiels
+    key: "Layout12",
+    label: 'layout12', defaultItem: layout12_template.defaultItem, fields: layout12_template.fields
   },
   Layout13: {
-    label: 'layout13', detaultItem: layout13_template.defaultItem, fields: layout13_template.fiels
+    key: "Layout13",
+    label: 'layout13', defaultItem: layout13_template.defaultItem, fields: layout13_template.fields
   },
   Layout14: {
-    label: 'layout14', detaultItem: layout14_template.defaultItem, fields: layout14_template.fiels
+    key: "Layout14",
+    label: 'layout14', defaultItem: layout14_template.defaultItem, fields: layout14_template.fields
   },
   Layout15: {
-    label: 'layout15', detaultItem: layout15_template.defaultItem, fields: layout15_template.fiels
+    key: "Layout15",
+    label: 'layout15', defaultItem: layout15_template.defaultItem, fields: layout15_template.fields
   },
   Layout16: {
-    label: 'layout16', detaultItem: layout16_template.defaultItem, fields: layout16_template.fiels
+    key: "Layout16",
+    label: 'layout16', defaultItem: layout16_template.defaultItem, fields: layout16_template.fields
   },
   Layout17: {
-    label: 'layout17', detaultItem: layout17_template.defaultItem, fields: layout17_template.fiels
+    key: "Layout17",
+    label: 'layout17', defaultItem: layout17_template.defaultItem, fields: layout17_template.fields
   },
   Layout18: {
-    label: 'layout18', detaultItem: layout18_template.defaultItem, fields: layout18_template.fiels
+    key: "Layout18",
+    label: 'layout18', defaultItem: layout18_template.defaultItem, fields: layout18_template.fields
   },
   Layout19: {
-    label: 'layout19', detaultItem: layout19_template.defaultItem, fields: layout19_template.fiels
+    key: "Layout19",
+    label: 'layout19', defaultItem: layout19_template.defaultItem, fields: layout19_template.fields
   },
   Layout2: {
-    label: 'layout2', detaultItem: layout2_template.defaultItem, fields: layout2_template.fiels
+    key: "Layout2",
+    label: 'layout2', defaultItem: layout2_template.defaultItem, fields: layout2_template.fields
   },
   Layout20: {
-    label: 'layout20', detaultItem: layout20_template.defaultItem, fields: layout20_template.fiels
+    key: "Layout20",
+    label: 'layout20', defaultItem: layout20_template.defaultItem, fields: layout20_template.fields
   },
   Layout21: {
-    label: 'layout21', detaultItem: layout21_template.defaultItem, fields: layout21_template.fiels
+    key: "Layout21",
+    label: 'layout21', defaultItem: layout21_template.defaultItem, fields: layout21_template.fields
   },
   Layout22: {
-    label: 'layout22', detaultItem: layout22_template.defaultItem, fields: layout22_template.fiels
+    key: "Layout22",
+    label: 'layout22', defaultItem: layout22_template.defaultItem, fields: layout22_template.fields
   },
   Layout23: {
-    label: 'layout23', detaultItem: layout23_template.defaultItem, fields: layout23_template.fiels
+    key: "Layout23",
+    label: 'layout23', defaultItem: layout23_template.defaultItem, fields: layout23_template.fields
   },
   Layout24: {
-    label: 'layout24', detaultItem: layout24_template.defaultItem, fields: layout24_template.fiels
+    key: "Layout24",
+    label: 'layout24', defaultItem: layout24_template.defaultItem, fields: layout24_template.fields
   },
   Layout25: {
-    label: 'layout25', detaultItem: layout25_template.defaultItem, fields: layout25_template.fiels
+    key: "Layout25",
+    label: 'layout25', defaultItem: layout25_template.defaultItem, fields: layout25_template.fields
   },
   Layout26: {
-    label: 'layout26', detaultItem: layout26_template.defaultItem, fields: layout26_template.fiels
+    key: "Layout26",
+    label: 'layout26', defaultItem: layout26_template.defaultItem, fields: layout26_template.fields
   },
   Layout3: {
-    label: 'layout3', detaultItem: layout3_template.defaultItem, fields: layout3_template.fiels
+    key: "Layout3",
+    label: 'layout3', defaultItem: layout3_template.defaultItem, fields: layout3_template.fields
   },
   Layout4: {
-    label: 'layout4', detaultItem: layout4_template.defaultItem, fields: layout4_template.fiels
+    key: "Layout4",
+    label: 'layout4', defaultItem: layout4_template.defaultItem, fields: layout4_template.fields
   },
   Layout5: {
-    label: 'layout5', detaultItem: layout5_template.defaultItem, fields: layout5_template.fiels
+    key: "Layout5",
+    label: 'layout5', defaultItem: layout5_template.defaultItem, fields: layout5_template.fields
   },
   Layout6: {
-    label: 'layout6', detaultItem: layout6_template.defaultItem, fields: layout6_template.fiels
+    key: "Layout6",
+    label: 'layout6', defaultItem: layout6_template.defaultItem, fields: layout6_template.fields
   },
   Layout7: {
-    label: 'layout7', detaultItem: layout7_template.defaultItem, fields: layout7_template.fiels
+    key: "Layout7",
+    label: 'layout7', defaultItem: layout7_template.defaultItem, fields: layout7_template.fields
   },
   Layout8: {
-    label: 'layout8', detaultItem: layout8_template.defaultItem, fields: layout8_template.fiels
+    key: "Layout8",
+    label: 'layout8', defaultItem: layout8_template.defaultItem, fields: layout8_template.fields
   },
   Layout9: {
-    label: 'layout9', detaultItem: layout9_template.defaultItem, fields: layout9_template.fiels
+    key: "Layout9",
+    label: 'layout9', defaultItem: layout9_template.defaultItem, fields: layout9_template.fields
   },
 };

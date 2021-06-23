@@ -2,32 +2,32 @@ import { getThumb } from "@providers/tinacms/helpers";
 import NextImage from "next/image";
 const breakpoints = {
   // xlarge: 1920,
-  large: 1000,
+  large: 1600,
   medium: 750,
   small: 500,
   // xsmall: 64
 }
-const strapiLoader = ({ src, width, quality }) => {
-  const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/')
-  if (!enable) return src
-  let size
-  switch (true) {
-    case width < breakpoints.small:
-      size = 'small'
-      break;
-    case width < breakpoints.medium:
-      size = 'medium'
-      break;
-    case width < breakpoints.large:
-      size = 'large'
-    default:
-      break;
-  }
-  if (!size) return src
-  return src.replace('/uploads/', '/uploads/' + size + '/')
-}
+// const strapiLoader = ({ src, width, quality }) => {
+
+//   let size
+//   switch (true) {
+//     case width < breakpoints.small:
+//       size = 'small'
+//       break;
+//     case width < breakpoints.medium:
+//       size = 'medium'
+//       break;
+//     case width < breakpoints.large:
+//       size = 'large'
+//     default:
+//       break;
+//   }
+//   if (!size) return src
+//   return src.replace('/uploads/', '/uploads/' + size + '_')
+// }
 export const Image = ({ src, alt, variant, priority, placeholder, ...rest }) => {
   let sizes = "(max-width: 400px) 300px, 800px";
+  const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/')
   switch (variant) {
     case 'cover':
       sizes = "(max-width: 400px) 800px, 1400px";
@@ -39,12 +39,13 @@ export const Image = ({ src, alt, variant, priority, placeholder, ...rest }) => 
       sizes = "(max-width: 400px) 400px, 800px";
       break;
     default:
+      sizes = "(max-width: 400px) 800px, 1400px";
       break;
   }
   return (
     <NextImage
       key={src}
-      loader={strapiLoader}
+      // loader={enable ? strapiLoader : undefined}
       layout="fill"
       src={src && src || '/logo.png'}
       alt={alt || 'Meraki Image'}
@@ -53,7 +54,7 @@ export const Image = ({ src, alt, variant, priority, placeholder, ...rest }) => 
       blurDataURL={placeholder && getThumb(src)}
       priority={priority}
       objectFit="cover"
-      objectPosition="center center"
+      objectPosition="bottom center"
       {...rest} />
   );
 };

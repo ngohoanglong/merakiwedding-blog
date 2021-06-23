@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap'rel='stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=block'rel='stylesheet');
 
 @font-face {
   font-family: 'Prata';
@@ -7,7 +7,7 @@
       format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: 'Leaguescript';
@@ -16,7 +16,7 @@
       format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -26,21 +26,21 @@
       format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: Kinfolk;
   src: url('/fonts/Kinfolk_Reg.otf')
     format('opentype');
-  font-display: swap;
+  font-display: block;
 }
 /* public/fonts/SweetSansProMedium.otf */
 @font-face {
   font-family: SweetSans;
   src: url('/fonts/SweetSansProMedium.otf')
     format('opentype');
-  font-display: swap;
+  font-display: block;
 }
 /* public/fonts/Commissioner-Light.ttf */
 @font-face {
@@ -48,14 +48,14 @@
   font-weight: 300;
   src: url('/fonts/Commissioner-Light.ttf')
     format('truetype');
-  font-display: swap;
+  font-display: block;
 }
 /* public/fonts/Commissioner-Medium.ttf */
 @font-face {
   font-family: Commissioner;
   src: url('/fonts/Commissioner-Medium.ttf')
     format('truetype');
-  font-display: swap;
+  font-display: block;
 }
 /* public/fonts/Commissioner-SemiBold.ttf */
 @font-face {
@@ -63,14 +63,14 @@
   font-weight: 600;
   src: url('/fonts/Commissioner-SemiBold.ttf')
     format('truetype');
-  font-display: swap;
+  font-display: block;
 }
 /* public/fonts/EBGaramond-VariableFont_wght.ttf */
 @font-face {
   font-family: EBGaramond;
   src: url('/fonts/EBGaramond-VariableFont_wght.ttf')
     format('truetype');
-  font-display: swap;
+  font-display: block;
 }
 
 /* public/fonts/EBGaramond-Italic-VariableFont_wght.ttf */
@@ -79,7 +79,7 @@
   font-style: italic;
   src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf')
     format('truetype');
-  font-display: swap;
+  font-display: block;
 }
 
 @tailwind base;

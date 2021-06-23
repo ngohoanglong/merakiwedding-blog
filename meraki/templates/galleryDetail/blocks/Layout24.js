@@ -49,7 +49,7 @@ export const layout24_template = {
       },
     ]
   },
-  fiels: [
+  fields: [
     {
       name: 'images',
       component: 'group-list',

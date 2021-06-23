@@ -18,7 +18,7 @@ export const layout20_template = {
       src: '/home/explore-our-wedding/3.jpg'
     }
   },
-  fiels: [
+  fields: [
     {
       name: 'variant',
       label: 'horizontal image',

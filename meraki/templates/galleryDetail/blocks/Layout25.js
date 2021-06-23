@@ -41,7 +41,7 @@ export const layout25_template = {
     }
     ,
   },
-  fiels: [
+  fields: [
     createImageFieldConfig({ name: 'image1' }),
     createImageFieldConfig({ name: 'image2' }),
     createImageFieldConfig({ name: 'image3' }),

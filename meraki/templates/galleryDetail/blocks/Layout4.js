@@ -47,7 +47,7 @@ export const layout4_template = {
     at vero eros et accumsan et iusto odio dignissim qui blandit praesent
     luptatum zzril delenit augue duis dolore te feugait nulla facilisi.`
   },
-  fiels: createFields([
+  fields: createFields([
     createImageFieldConfig(),
     'title', 'description', { name: 'content', component: 'textarea' }
   ])

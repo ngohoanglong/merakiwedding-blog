@@ -64,7 +64,7 @@ export const layout14_template = {
       }
     ]
   },
-  fiels: createFields([
+  fields: createFields([
     'title',
     {
       name: 'cotents',
