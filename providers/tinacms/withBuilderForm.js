@@ -19,7 +19,7 @@ export const withBuilderForm = (
     const router = useRouter()
     const { local } = useLocal();
     const formConfig = {
-      id: createPageId ? createPageId(router) : id,
+      id,
       label: `Page ${label} (${local})`,
       initialValues: pageData.data || template.defaultItem,
       onSubmit: async (values) => {
@@ -65,6 +65,7 @@ export const withBuilderForm = (
     useEffect(() => {
       if (!mouted) {
         setMouted(true)
+        return
       }
       let visible = true;
       const getData = async () => {
@@ -103,7 +104,7 @@ export const withBuilderForm = (
       return () => {
         visible = false;
       };
-    }, [local, router]);
+    }, [local, router, mouted]);
     return <>
       {mouted && update &&
         !isloading && <>
@@ -114,7 +115,7 @@ export const withBuilderForm = (
                 app: {
                   data: appData
                 }
-              }} id={label + '.' + local} />
+              }} id={createPageId ? createPageId(router) : id} />
             }}
           </AppConfig>
         </>}

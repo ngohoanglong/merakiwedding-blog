@@ -1,14 +1,16 @@
 import classNames from 'classnames'
+import Cookies from 'js-cookie'
 import { throttle } from 'lodash'
+import { Link } from 'meraki/components/Link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
+import Container from './container'
 import Header from './header'
 
-
 export default function Layout({ locale, children }) {
-  const { isReady, isPreview } = useRouter()
+  const { isReady, isPreview, asPath } = useRouter()
   const [hasScrolled, setHasScrolled] = useState()
   useEffect(() => {
     if (!isReady) {
@@ -31,7 +33,22 @@ export default function Layout({ locale, children }) {
   }, [isReady, hasScrolled])
   return (
     <>
-      {/* <Alert preview={isPreview} /> */}
+      {!asPath.includes('/edit') && Cookies.get('tina_strapi_jwt') && <div
+        className={classNames('border-b bg-accent-7 border-accent-7 text-white', {
+        })}
+      >
+        <Container>
+          <div className="py-2 text-center text-sm">
+            This is page is a preview.{' '}
+            <Link
+              href={"/edit" + asPath}
+              className=" hover:text-cyan duration-200 transition-colors"
+            >
+              Click here to edit
+            </Link>{' '}
+          </div>
+        </Container>
+      </div>}
       <Meta />
       <div className="min-h-screen w-full">
         <Header hasScrolled={hasScrolled} />
