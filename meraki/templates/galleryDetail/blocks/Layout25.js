@@ -10,18 +10,18 @@ export const Layout25 = ({
     <div className="grid md:grid-cols-2 items-center gap-3 lg:gap-6">
       <div className="">
         <RatioContaner >
-          <Image src={image1?.src} alt="meraki wedding planners"></Image>
+          <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
       <div className='flex space-x-3 lg:space-x-6'>
         <div className="flex-1 relative">
           <RatioContaner >
-            <Image src={image2?.src} alt="meraki wedding planners"></Image>
+            <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
         <div className="flex-1 relative">
           <RatioContaner >
-            <Image src={image3?.src} alt="meraki wedding planners"></Image>
+            <Image src={image3?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
       </div>

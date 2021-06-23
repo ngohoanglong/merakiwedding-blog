@@ -1,1 +1,1 @@
-export const SectionTagline = (props) => <div className="font-garamond italic font-bold text-lg" {...props}></div>;
+export const SectionTagline = (props) => <div className="font-garamond font-semibold italic text-lg" {...props}></div>;

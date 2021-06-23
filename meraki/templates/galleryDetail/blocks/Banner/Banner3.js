@@ -1,6 +1,6 @@
 import Container from '@components/container';
 import React from 'react';
-const Banner3 = ({ title, subTitle, details, }) => {
+const Banner3 = ({ title, subTitle, details = [], }) => {
   return <div className="relative text-center md:text-left flex flex-col md:flex-row w-full items-center justify-center " >
     <div className="">
       <Container>

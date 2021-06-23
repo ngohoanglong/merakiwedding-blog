@@ -13,7 +13,7 @@ export const Layout16 = ({
         contents.map((item, i) => {
           return <div key={i} className="flex flex-col justify-start odd:flex-col-reverse">
             <RatioContaner variant="horizontal">
-              <Image src={item.image.src} alt="meraki wedding planners"></Image>
+              <Image src={item.image.src} alt="meraki wedding planners" objectPosition="center center"></Image>
             </RatioContaner>
             <div className="py-8 px-16">
               <SectionTagline>{item.title}</SectionTagline>

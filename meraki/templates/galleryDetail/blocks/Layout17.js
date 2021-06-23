@@ -9,12 +9,12 @@ export const Layout17 = ({
   return <Container>
     <div className="grid grid-cols-2 gap-3 lg:gap-6">
       <RatioContaner variant="square">
-        <Image src={image1?.src} alt="meraki wedding planners"></Image>
+        <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
       </RatioContaner>
       <div className="flex justify-center items-center">
         <div className="w-2/3">
           <RatioContaner variant="square">
-            <Image src={image2?.src} alt="meraki wedding planners"></Image>
+            <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
       </div>
