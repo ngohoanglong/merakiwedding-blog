@@ -24,9 +24,7 @@ const Cover = () => {
         }
       </LG>
     </div>
-    <div style={{
-      textShadow: '2px 2px #000'
-    }} className="self-center py-16 z-10 text-center text-4xl lg:text-7xl font-kinfolk text-element-1">
+    <div className="py-16 self-end z-10 text-center text-4xl lg:text-7xl font-kinfolk text-element-1">
       <Container >
         <XS>
           {
