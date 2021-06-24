@@ -10,19 +10,19 @@ export const Layout24 = ({
     <RatioContaner ratio={70 / 100}>
       <div className="absolute inset-0 w-full h-full grid grid-cols-3 grid-rows-3  gap-3 ">
         <div className=" relative col-start-1 col-end-2 row-start-1 row-end-2 bg-gray-100">
-          {images[0]?.iamge && <Image {...images[0]?.image || {}} />}
+          {images[0]?.image && <Image {...images[0]?.image || {}} />}
         </div>
         <div className=" relative col-start-2 col-end-4 row-start-1 row-end-3 bg-gray-100">
-          {images[1]?.iamge && <Image {...images[1]?.image || {}} />}
+          {images[1]?.image && <Image {...images[1]?.image || {}} />}
         </div>
         <div className=" relative col-start-1 col-end-2 row-start-2 row-end-4 bg-gray-100">
-          {images[2]?.iamge && <Image {...images[2]?.image || {}} />}
+          {images[2]?.image && <Image {...images[2]?.image || {}} />}
         </div>
         <div className=" relative col-start-2 col-end-3 row-start-3 row-end-4 bg-gray-100">
-          {images[3]?.iamge && <Image {...images[3]?.image || {}} />}
+          {images[3]?.image && <Image {...images[3]?.image || {}} />}
         </div>
         <div className=" relative col-start-3 col-end-4 row-start-3 row-end-4 bg-gray-100">
-          {images[4]?.iamge && <Image {...images[4]?.image || {}} />}
+          {images[4]?.image && <Image {...images[4]?.image || {}} />}
         </div>
 
       </div>
