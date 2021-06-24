@@ -9,7 +9,7 @@ export const Layout2 = ({
   title, description, content, image
 }) => {
   return <Container>
-    <div className="md:flex items-center space-x-12">
+    <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-center">
       <div className="flex-1 relative">
         <div style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner>
@@ -17,7 +17,7 @@ export const Layout2 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="max-w-sm py-12">
+      <div className="flex-1 py-12 pl-12">
         <SectionHeadline>{title}</SectionHeadline>
         <div className="h-6"></div>
         <SectionTagline>{description}</SectionTagline>

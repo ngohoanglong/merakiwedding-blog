@@ -9,16 +9,10 @@ export const Layout4 = ({
   title, description, content, image
 }) => {
   return <Container>
-    <div className="md:flex items-center flex-row-reverse">
-      <div className="flex-1 relative">
-        <div style={{ minWidth: '200px', zIndex: '-1' }}>
-          <RatioContaner>
-            <Image src={image?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
-          </RatioContaner>
-        </div>
-      </div>
-      <div className="py-12" style={{ minWidth: '320px', width: '60%', }}>
-        <div className="max-w-md mx-auto">
+    <div className="md:grid grid-cols-2 gap-2 md:gap-3">
+
+      <div className="flex-1 py-12 pr-12" >
+        <div className="mx-auto">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>
           <SectionTagline>{description}</SectionTagline>
@@ -27,6 +21,13 @@ export const Layout4 = ({
           </div>
         </div>
 
+      </div>
+      <div className="flex-1 relative">
+        <div style={{ minWidth: '200px', zIndex: '-1' }}>
+          <RatioContaner>
+            <Image src={image?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
+          </RatioContaner>
+        </div>
       </div>
     </div>
   </Container>;
