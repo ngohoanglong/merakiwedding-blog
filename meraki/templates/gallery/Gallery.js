@@ -21,11 +21,9 @@ const Cover = () => {
                 borderTopLeftRadius: '9999em',
                 borderTopRightRadius: '9999em'
               }}>
-
               </div>
             </div>
           </div>
-
         </div>
       }
     </XS>
@@ -96,7 +94,6 @@ const Cover = () => {
 const Blocks = () => {
   const { get } = useSource()
   return <div style={{
-    backgroundColor: '#f5f3ed'
   }}>
     <div className="h-20" />
     <Container>
