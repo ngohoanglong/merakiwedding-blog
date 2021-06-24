@@ -3,6 +3,7 @@ import { fetcher } from "@lib/app";
 import { withBuilderForm } from "@providers/tinacms/withBuilderForm";
 import GalleryDetail, { galleryDetail_template } from "@templates/galleryDetail/GalleryDetail";
 const createPageId = router => {
+
   return `/gallery/${router.query.slug}`
 }
 export default withBuilderForm({
@@ -38,13 +39,15 @@ export default withBuilderForm({
               $data: JSON
               $title:String
               $pageId:String
+              $locale:String
           ) {
-            createPage(input: {data: {data: $data title:$title pageId:$pageId} } ) {
+            createPage(input: {data: {data: $data locale:$locale title:$title pageId:$pageId} } ) {
                   page{
                     id
                     title
                     data
                     pageId
+                    locale
                   }
               }
         }`;
@@ -54,7 +57,8 @@ export default withBuilderForm({
         variables: {
           ...variables,
           title: `/gallery/${router.query.slug}`,
-          pageId: createPageId(router)
+          pageId: createPageId(router),
+          locale: router.locale
         }
       }
     );
