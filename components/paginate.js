@@ -24,6 +24,8 @@ export const RouterPaginate = (props) => {
   const { query, push, pathname } = useRouter()
   const { page, ...rest } = query
   return <Paginate
+    initialPage={Number(page - 1)}
+    disableInitialCallback
     onPageChange={({ selected }) => {
       push({
         pathname,
@@ -34,7 +36,7 @@ export const RouterPaginate = (props) => {
 
           ...rest,
           ...selected ? {
-            page: selected + 1
+            page: Number(selected) + 1
           } : {}
 
         }
