@@ -37,7 +37,21 @@ export const layout1_template = {
     {
       name: 'variant',
       label: 'horizontal image',
-      component: 'toggle',
+      component: 'select',
+      options: [
+        {
+          label: 'horizontal',
+          value: 'horizontal',
+        },
+        {
+          label: 'verticle',
+          value: 'verticle',
+        },
+        {
+          label: 'square',
+          value: 'square',
+        }
+      ]
     },
     {
       name: 'images',
