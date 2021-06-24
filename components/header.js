@@ -54,7 +54,7 @@ export default function Header() {
           <div className="px-3 mt-1 flex-1 space-x-[3vw] flex flex-wrap justify-center items-center">
             {
               pages.map(({ title, href }, i) => {
-                return <a key={i} className="font-sweetsans py-1 text-[1vw] 2xl:text-base my-2 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                return <Link key={i} className="font-sweetsans py-1 text-[1vw] 2xl:text-base my-2 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</Link>
               })
             }
 
@@ -83,9 +83,9 @@ export default function Header() {
                     {
                       pages.map(({ title, href }, i, arr) => {
                         if (i === arr.length - 1) {
-                          return <a key={i} className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                          return <Link key={i} className="font-sweetsans text-element-5 py-5  w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</Link>
                         }
-                        return <a key={i} className="font-sweetsans text-element-5 py-5 border-b border-white w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</a>
+                        return <Link key={i} className="font-sweetsans text-element-5 py-5 border-b border-white w-full leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</Link>
                       })
                     }
                   </div>
