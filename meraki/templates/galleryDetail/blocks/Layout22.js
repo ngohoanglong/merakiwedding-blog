@@ -9,7 +9,7 @@ export const Layout22 = ({
   title, description, content, image1 = {}, image2 = {}, image3 = {}
 }) => {
   return <Container>
-    <div className="md:grid gap-2 md:gap-3 items-start">
+    <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
       <div className="flex-1 relative">
         <div style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner>

@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 function isValidHttpUrl(string) {
   let url;
@@ -13,11 +14,12 @@ function isValidHttpUrl(string) {
 }
 export const Link = React.forwardRef(({ href, ...props }, ref) => {
   // const cms = useSource();
+  const { locale } = useRouter()
   const cms = false
   const isExternal = isValidHttpUrl(href)
   if (isExternal)
     return <a href={href} target="_blank" rel="noreferrer" {...props} ></a>
-  return <NextLink ref={ref} href={cms ? `/edit${href}` : href} >
+  return <NextLink locale={locale} href={cms ? `/edit${href}` : href} >
     <a {...props} ></a>
   </NextLink>;
 });
