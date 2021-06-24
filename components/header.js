@@ -57,7 +57,6 @@ export default function Header() {
                 return <Link key={i} className="font-sweetsans py-1 text-[1vw] 2xl:text-base my-2 leading-none text-effect-1 uppercase text-pr hover:text-element-2" href={href}>{title}</Link>
               })
             }
-
           </div>
           <div className="leading-none">
             <LGLangSwitcher />
