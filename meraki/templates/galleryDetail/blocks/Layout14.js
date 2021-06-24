@@ -15,7 +15,7 @@ export const Layout14 = ({
             <div key={i}>
               <SectionTagline>{block.title}</SectionTagline>
               <div className="h-3"></div>
-              <div className='text-justify' dangerouslySetInnerHTML={{ __html: block.description }}>
+              <div className='text-justify whitespace-pre-line' dangerouslySetInnerHTML={{ __html: block.description }}>
               </div>
             </div>
           ))
