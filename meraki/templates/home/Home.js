@@ -219,7 +219,7 @@ const Block1 = () => {
 const Block3 = () => {
   const { get } = useSource()
 
-  const galleries = get('galleries', [])
+  const galleries = get('app.data.gallery', [])
   return (
     <>
       <XS>
@@ -235,46 +235,24 @@ const Block3 = () => {
             >
 
               <div className="mt-4 w-full">
-                {
-                  get('Block3.customGallery') === true ? <Slider>
-                    {
-                      get('Block3.items', []).map((item, i) => <div key={i} >
-                        <Link href={item.url || '/'} className="block p-3 relative pb-12">
-                          <div className="relative">
-                            <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                            <Image {...item.image}></Image>
+                <Slider>
+                  {
+                    galleries.map((item, i) => <div key={i} >
+                      <Link href={item.url || '/'} className="block p-3 relative pb-12">
+                        <div className="relative">
+                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                          <Image {...item.image} variant="card"></Image>
+                        </div>
+                        <div className='absolute bottom-0 left-0 right-0 px-8'>
+                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                            <div className="font-garamond font-semibold text-2xl leading-none font-bolder">{item.title}</div>
+                            <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
                           </div>
-                          <div className='absolute bottom-0 left-0 right-0 px-8'>
-                            <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                              <div className="font-garamond font-semibold text-2xl leading-none font-bolder">{item.title}</div>
-                              <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>)
-                    }
-                  </Slider> : <Slider>
-                    {
-                      galleries.map((item, i) => <div key={i} >
-                        <Link href={"https://merakiweddingplanner.com/gallery/" + item.slug} className="block p-3 relative pb-12">
-                          <div className="relative">
-                            <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                            <Image {...{
-                              src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
-                            }}></Image>
-                          </div>
-                          <div className='absolute bottom-0 left-0 right-0 px-8'>
-                            <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                              <div className="font-garamond font-semibold text-2xl leading-none font-bolder">{item.title}</div>
-                              <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
-                            </div>
-                          </div>
-                        </Link>
-
-                      </div>)
-                    }
-                  </Slider>
-                }
+                        </div>
+                      </Link>
+                    </div>)
+                  }
+                </Slider>
 
 
               </div>
@@ -299,45 +277,24 @@ const Block3 = () => {
             }
           >
             <div className="mt-8 w-full">
-              {
-                get('Block3.customGallery') === true ? <Slider>
-                  {
-                    data[local].Block3.slider.map((item, i) => <div key={i} >
-                      <Link href={item.url || '/'} className="block relative pb-12 px-4">
-                        <div className="relative">
-                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                          <Image {...item.image}></Image>
+              <Slider>
+                {
+                  galleries.map((item, i) => <div key={i} >
+                    <Link href={item.url || '/'} className="block relative pb-12 px-4">
+                      <div className="relative">
+                        <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
+                        <Image variant="card" {...item.image}></Image>
+                      </div>
+                      <div className='absolute bottom-0 left-0 right-0 px-12'>
+                        <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
+                          <div className="font-garamond font-semibold text-xl leading-none font-bolder">{item.title}</div>
+                          <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
                         </div>
-                        <div className='absolute bottom-0 left-0 right-0 px-12'>
-                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-semibold text-xl leading-none font-bolder">{item.title}</div>
-                            <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>)
-                  }
-                </Slider> : <Slider>
-                  {
-                    galleries.map((item, i) => <div key={i} >
-                      <Link href={"https://merakiweddingplanner.com/gallery/" + item.slug} className="block relative pb-12 px-4">
-                        <div className="relative">
-                          <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
-                          <Image {...{
-                            src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
-                          }}></Image>
-                        </div>
-                        <div className='absolute bottom-0 left-0 right-0 px-12'>
-                          <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-semibold text-xl leading-none font-bolder">{item.title}</div>
-                            <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.couples}</div>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>)
-                  }
-                </Slider>
-              }
+                      </div>
+                    </Link>
+                  </div>)
+                }
+              </Slider>
             </div>
             <div className="h-12"></div>
             <div className="flex justify-center">
@@ -1089,11 +1046,11 @@ export const home_template = {
         'description',
         'url',
         'buttonText',
-        {
-          label: 'custom gallery',
-          name: 'customGallery',
-          component: 'toggle'
-        },
+        // {
+        //   label: 'custom gallery',
+        //   name: 'customGallery',
+        //   component: 'toggle'
+        // },
         {
           label: 'images',
           name: 'items',
