@@ -26,8 +26,10 @@ import { Layout6, layout6_template } from "./Layout6";
 import { Layout7, layout7_template } from "./Layout7";
 import { Layout8, layout8_template } from "./Layout8";
 import { Layout9, layout9_template } from "./Layout9";
+import { Space, space_template } from "./Space";
 
 export const PAGE_BLOCKS = {
+  Space: Space,
   Layout1: Layout1,
   Layout10: Layout10,
   Layout11: Layout11,
@@ -57,6 +59,10 @@ export const PAGE_BLOCKS = {
 };
 
 export const PAGE_BLOCK_TEMPLATES = {
+  Space: {
+    key: "Space",
+    label: 'Space', defaultItem: space_template.defaultItem, fields: space_template.fields
+  },
   Layout1: {
     key: "Layout1",
     label: 'layout1', defaultItem: layout1_template.defaultItem, fields: layout1_template.fields
