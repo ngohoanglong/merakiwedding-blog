@@ -97,7 +97,7 @@ const Blocks = () => {
   }}>
     <div className="h-20" />
     <Container>
-      <ListGallery items={get('galleries', [])} />
+      <ListGallery items={get('app.data.gallery', [])} />
     </Container>
     <div className="h-20" />
   </div>

@@ -72,6 +72,37 @@ const AppConfig = ({ data = {}, children }) => {
           'href'
         ]),
       },
+      ({
+        label: 'Gallery',
+        name: 'gallery',
+        component: 'group-list',
+        defaultItem: () => ({
+          title: 'Boundles Amour',
+          subTitle: 'TESS & ANDY',
+          url: '/'
+        }),
+        itemProps: (item, i) => {
+          return ({
+            label: item.title,
+            key: i
+          })
+        },
+        fields: [
+          {
+            label: 'title',
+            name: 'title',
+            component: 'text'
+          }, {
+            label: 'subTitle',
+            name: 'subTitle',
+            component: 'text'
+          }, {
+            label: 'url',
+            name: 'url',
+            component: 'text'
+          }, createImageFieldConfig()
+        ],
+      }),
       {
         label: 'Instagram Images',
         name: 'instagram',

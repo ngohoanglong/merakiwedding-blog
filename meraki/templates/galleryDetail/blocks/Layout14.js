@@ -7,7 +7,7 @@ export const Layout14 = ({
   title, contents = []
 }) => {
   return <Container>
-    <div className="items-center space-y-12 text-center">
+    <div className="items-center space-y-12 py-12 text-center">
       <SectionHeadline>{title}</SectionHeadline>
       <div className="grid lg:grid-cols-3  gap-3  lg:gap-12">
         {
@@ -67,7 +67,7 @@ export const layout14_template = {
   fields: createFields([
     'title',
     {
-      name: 'cotents',
+      name: 'contents',
       component: 'group-list',
       fields: createFields(['title', 'description'])
     }

@@ -12,25 +12,25 @@ const useListPage = ({ items, perPage = 6 }) => {
     return i >= from && i < to
   }))
 }
-export default function ListGallery({ items = [], perPage = 6, buttonText = "view more" }) {
+export default function ListGallery({ items = [], perPage = 9, buttonText = "view more" }) {
   const listItems = useListPage({ items, perPage })
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-12 lg:gap-x-12 lg:gap-y-32 mb-12 ">
         {listItems.map((item, i) => {
           return (
-            <Link key={i} href={"/gallery/" + item.slug} className=" p-3 relative space-y-6 flex flex-col justify-center sm:odd:flex-col-reverse sm:odd:space-y-reverse hover:shadow-2xl transition-shadow duration-700 ease-in-out">
+            <Link key={i} href={item.url || '/gallery'} className=" p-3 relative space-y-6 flex flex-col justify-center sm:odd:flex-col-reverse sm:odd:space-y-reverse hover:shadow-2xl transition-shadow duration-700 ease-in-out">
               <div className="relative">
                 <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
                 <Image {...{
-                  src: item?.photo?.url && process.env.STRAPI_URL + item?.photo?.url || '/logo-2.png'
+                  src: item?.image?.src
                 }}></Image>
               </div>
               <div className='text-center'>
                 <div className="w-full flex flex-col items-center text-center">
                   <h4 className="font-kinfolk text-lg leading-none font-bolder pb-3 pt:3 sm:pt-0 w-full">{item.title}</h4>
                   <div className="px-3 flex border-t border-element-5 py-2 w-full truncate capitalize">
-                    <div  >{item.couples.toLowerCase()}</div>
+                    <div  >{item.subTitle}</div>
                     <div className="flex-1 w-3" />
                     <div className="flex space-x-2 items-center"><div>{buttonText}</div><svg stroke="currentColor" fill="none" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6" /></svg></div>
                   </div>
