@@ -6,14 +6,14 @@ import { SectionHeadline } from "./SectionHeadline";
 import { SectionTagline } from "./SectionTagline";
 
 export const Layout11 = ({
-  title, description, content, image1
+  title, description, content, image
 }) => {
   return <Container>
     <div className="md:flex items-center space-x-12 flex-row-reverse space-x-reverse">
       <div className="flex-1 relative">
         <div style={{ minWidth: '200px', zIndex: '-1' }}>
           <RatioContaner variant="horizontal">
-            <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
+            <Image src={image?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
       </div>
@@ -32,7 +32,7 @@ export const Layout11 = ({
 };
 export const layout11_template = {
   defaultItem: {
-    image1: {
+    image: {
       src: '/home/explore-our-wedding/3.jpg'
     },
     title: 'LOREM IPSUM DOLOR SIT AMET,',
