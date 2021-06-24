@@ -13,6 +13,7 @@ export default withBuilderForm({
   getPageInfo: async ({
     locale, router
   }) => {
+    let result
     const { pages } = await fetcher(
       {
         query: `
@@ -30,7 +31,28 @@ export default withBuilderForm({
         }
       }
     )
-    return pages && pages[0]
+    result = pages && pages[0]
+    if (!result) {
+      const { pages } = await fetcher(
+        {
+          query: `
+            query getPageInfo($locale:String $pageId:String ){
+              pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
+                data
+                title
+                 pageId
+              }
+            }
+          `
+          , variables: {
+            locale: "en",
+            pageId: createPageId(router)
+          }
+        }
+      )
+      result = pages && pages[0]
+    }
+    return result
   },
   onSubmit: async (variables, pageInfo, router) => {
     console.log({ variables, pageInfo, router })
