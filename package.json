@@ -32,7 +32,9 @@
   "devDependencies": {
     "@types/classnames": "^2.3.1",
     "@types/lodash.get": "^4.4.6",
+    "@types/react-beautiful-dnd": "^13.0.0",
     "@types/react-paginate": "^7.1.0",
+    "@types/styled-components": "^5.1.10",
     "postcss": "^8.2.9",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",

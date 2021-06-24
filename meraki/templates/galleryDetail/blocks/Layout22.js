@@ -18,7 +18,7 @@ export const Layout22 = ({
         </div>
       </div>
       <div style={{ minWidth: '320px', width: '60%', }}>
-        <div className="max-w-md mx-auto">
+        <div className="">
           <div className="flex space-x-6 mb-6">
             <div className="flex-1">
               <RatioContaner>

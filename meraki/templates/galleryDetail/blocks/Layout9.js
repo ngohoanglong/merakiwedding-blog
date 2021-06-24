@@ -18,7 +18,7 @@ export const Layout9 = ({
         </div>
       </div>
       <div className="py-12" style={{ minWidth: '320px', width: '45%', }}>
-        <div className="max-w-md mx-auto">
+        <div className="">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>
           <SectionTagline>{description}</SectionTagline>
