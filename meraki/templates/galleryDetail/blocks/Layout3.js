@@ -4,14 +4,14 @@ import { Image } from "meraki/components/Image";
 import React from 'react';
 import { RatioContaner } from "./RatioContaner";
 export const Layout3 = ({
-  image1, image2
+  image1, image2, variant
 }) => {
   return <Container>
     <div className="grid grid-cols-2 gap-2 lg:gap-3">
-      <RatioContaner>
+      <RatioContaner variant={variant}>
         <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
       </RatioContaner>
-      <RatioContaner>
+      <RatioContaner variant={variant}>
         <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
       </RatioContaner>
     </div>
@@ -28,6 +28,25 @@ export const layout3_template = {
     ,
   },
   fields: [
+    {
+      name: 'variant',
+      label: 'horizontal image',
+      component: 'select',
+      options: [
+        {
+          label: 'horizontal',
+          value: 'horizontal',
+        },
+        {
+          label: 'verticle',
+          value: 'verticle',
+        },
+        {
+          label: 'square',
+          value: 'square',
+        }
+      ]
+    },
     createImageFieldConfig({ name: 'image1' }),
     createImageFieldConfig({ name: 'image2' }),
   ]
