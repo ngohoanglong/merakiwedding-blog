@@ -13,7 +13,7 @@ export const Layout7 = ({
         <div className="h-6"></div>
         <SectionTagline>{description}</SectionTagline>
         <div className="h-3"></div>
-        <div className="justify-center" dangerouslySetInnerHTML={{ __html: content }}>
+        <div className="justify-center whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content }}>
         </div>
       </div>
     </div>

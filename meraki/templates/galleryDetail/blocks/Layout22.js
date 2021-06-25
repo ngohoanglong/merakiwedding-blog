@@ -11,7 +11,7 @@ const LAYOUT = {
 export const Layout22 = ({
   title, description, content, image1 = {}, image2 = {}, image3 = {}, variant
 }) => {
-  if (variant = LAYOUT.layout2) {
+  if (variant === LAYOUT.layout2) {
     return <Container>
       <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
         <div className="pr-12" style={{ minWidth: '320px', }}>
@@ -45,7 +45,6 @@ export const Layout22 = ({
         </div>
       </div>
     </Container>;
-
   }
   return <Container>
     <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
