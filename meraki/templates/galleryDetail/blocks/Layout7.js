@@ -8,12 +8,12 @@ export const Layout7 = ({
 }) => {
   return <Container>
     <div className="md:flex items-center max-w-prose mx-auto py-12">
-      <div className="max-w-5xl mx-auto w-full text-center">
+      <div className="text-center flex  flex-col text-center">
         <SectionHeadline>{title}</SectionHeadline>
         <div className="h-6"></div>
         <SectionTagline>{description}</SectionTagline>
         <div className="h-3"></div>
-        <div className="justify-center whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content }}>
+        <div className="whitespace-pre-line text-justify" dangerouslySetInnerHTML={{ __html: content }}>
         </div>
       </div>
     </div>
