@@ -212,7 +212,7 @@ const Item = ({
       ' Item'
   return (
     <Draggable
-      // type={field.name}
+      type={field.name}
       draggableId={`${field.name}.${index}`}
       index={index}>
       {(provider, snapshot) => (
