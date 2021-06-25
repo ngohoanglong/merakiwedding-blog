@@ -16,24 +16,37 @@ limitations under the License.
 
 */
 
-import * as React from 'react'
-import { Field, Form } from '@tinacms/forms'
-import styled, { css } from 'styled-components'
 import { FieldsBuilder } from '@tinacms/form-builder'
-import { IconButton } from '@tinacms/styles'
-import { Droppable, Draggable } from 'react-beautiful-dnd'
+import {
+  Field,
+  Form,
+} from '@tinacms/forms'
 import {
   AddIcon,
   DragIcon,
+  LeftArrowIcon,
   ReorderIcon,
   TrashIcon,
-  LeftArrowIcon,
 } from '@tinacms/icons'
-import { GroupPanel, PanelHeader, PanelBody } from './GroupFieldPlugin'
 import { useFormPortal } from '@tinacms/react-forms'
+import { IconButton } from '@tinacms/styles'
+import * as React from 'react'
+import {
+  Draggable,
+  Droppable,
+} from 'react-beautiful-dnd'
+import styled, {
+  css,
+} from 'styled-components'
+import {
+  GroupPanel,
+  PanelBody,
+  PanelHeader,
+} from './GroupFieldPlugin'
 import { FieldDescription } from './wrapFieldWithMeta'
 
-interface GroupFieldDefinititon extends Field {
+interface GroupFieldDefinititon
+  extends Field {
   component: 'group'
   fields: Field[]
   defaultItem?: object | (() => object)
@@ -41,9 +54,7 @@ interface GroupFieldDefinititon extends Field {
    * An optional function which generates `props` for
    * this items's `li`.
    */
-  itemProps?: (
-    item: object
-  ) => {
+  itemProps?: (item: object) => {
     /**
      * The `key` property used to optimize the rendering of lists.
      *
@@ -69,16 +80,29 @@ interface GroupProps {
   tinaForm: Form
 }
 
-const Group = ({ tinaForm, form, field, input }: GroupProps) => {
-  const addItem = React.useCallback(() => {
-    let obj = {}
-    if (typeof field.defaultItem === 'function') {
-      obj = field.defaultItem()
-    } else {
-      obj = field.defaultItem || {}
-    }
-    form.mutators.insert(field.name, 0, obj)
-  }, [form, field])
+const Group = ({
+  tinaForm,
+  form,
+  field,
+  input,
+}: GroupProps) => {
+  const addItem =
+    React.useCallback(() => {
+      let obj = {}
+      if (
+        typeof field.defaultItem ===
+        'function'
+      ) {
+        obj = field.defaultItem()
+      } else {
+        obj = field.defaultItem || {}
+      }
+      form.mutators.insert(
+        field.name,
+        0,
+        obj
+      )
+    }, [form, field])
 
   const items = input.value || []
   const itemProps = React.useCallback(
@@ -93,32 +117,53 @@ const Group = ({ tinaForm, form, field, input }: GroupProps) => {
     <>
       <GroupListHeader>
         <GroupListMeta>
-          <GroupLabel>{field.label || field.name}</GroupLabel>
+          <GroupLabel>
+            {field.label || field.name}
+          </GroupLabel>
           {field.description && (
-            <FieldDescription>{field.description}</FieldDescription>
+            <FieldDescription>
+              {field.description}
+            </FieldDescription>
           )}
         </GroupListMeta>
-        <IconButton onClick={addItem} primary small>
+        <IconButton
+          onClick={addItem}
+          primary
+          small>
           <AddIcon />
         </IconButton>
       </GroupListHeader>
       <GroupListPanel>
         <ItemList>
-          <Droppable droppableId={field.name} type={field.name}>
-            {provider => (
-              <div ref={provider.innerRef}>
-                {items.length === 0 && <EmptyState />}
-                {items.map((item: any, index: any) => (
-                  <Item
-                    // NOTE: Supressing warnings, but not helping with render perf
-                    key={index}
-                    tinaForm={tinaForm}
-                    field={field}
-                    item={item}
-                    index={index}
-                    {...itemProps(item)}
-                  />
-                ))}
+          <Droppable
+            droppableId={field.name}
+            type={field.name}>
+            {(provider) => (
+              <div
+                ref={provider.innerRef}>
+                {items.length === 0 && (
+                  <EmptyState />
+                )}
+                {items.map(
+                  (
+                    item: any,
+                    index: any
+                  ) => (
+                    <Item
+                      // NOTE: Supressing warnings, but not helping with render perf
+                      key={index}
+                      tinaForm={
+                        tinaForm
+                      }
+                      field={field}
+                      item={item}
+                      index={index}
+                      {...itemProps(
+                        item
+                      )}
+                    />
+                  )
+                )}
                 {provider.placeholder}
               </div>
             )}
@@ -129,7 +174,11 @@ const Group = ({ tinaForm, form, field, input }: GroupProps) => {
   )
 }
 
-const EmptyState = () => <EmptyList>There are no items</EmptyList>
+const EmptyState = () => (
+  <EmptyList>
+    There are no items
+  </EmptyList>
+)
 
 interface ItemProps {
   tinaForm: Form
@@ -139,33 +188,54 @@ interface ItemProps {
   label?: string
 }
 
-const Item = ({ tinaForm, field, index, item, label, ...p }: ItemProps) => {
+const Item = ({
+  tinaForm,
+  field,
+  index,
+  item,
+  label,
+  ...p
+}: ItemProps) => {
   const FormPortal = useFormPortal()
-  const [isExpanded, setExpanded] = React.useState<boolean>(false)
-  const removeItem = React.useCallback(() => {
-    tinaForm.mutators.remove(field.name, index)
-  }, [tinaForm, field, index])
-  const title = label || (field.label || field.name) + ' Item'
+  const [isExpanded, setExpanded] =
+    React.useState<boolean>(false)
+  const removeItem =
+    React.useCallback(() => {
+      tinaForm.mutators.remove(
+        field.name,
+        index
+      )
+    }, [tinaForm, field, index])
+  const title =
+    label ||
+    (field.label || field.name) +
+      ' Item'
   return (
     <Draggable
-      type={field.name}
+      // type={field.name}
       draggableId={`${field.name}.${index}`}
-      index={index}
-    >
+      index={index}>
       {(provider, snapshot) => (
         <>
           <ItemHeader
             ref={provider.innerRef}
-            isDragging={snapshot.isDragging}
+            isDragging={
+              snapshot.isDragging
+            }
             {...provider.draggableProps}
             {...provider.dragHandleProps}
-            {...p}
-          >
+            {...p}>
             <DragHandle />
-            <ItemClickTarget onClick={() => setExpanded(true)}>
-              <GroupLabel>{title}</GroupLabel>
+            <ItemClickTarget
+              onClick={() =>
+                setExpanded(true)
+              }>
+              <GroupLabel>
+                {title}
+              </GroupLabel>
             </ItemClickTarget>
-            <DeleteButton onClick={removeItem}>
+            <DeleteButton
+              onClick={removeItem}>
               <TrashIcon />
             </DeleteButton>
           </ItemHeader>
@@ -173,12 +243,16 @@ const Item = ({ tinaForm, field, index, item, label, ...p }: ItemProps) => {
             {({ zIndexShift }) => (
               <Panel
                 isExpanded={isExpanded}
-                setExpanded={setExpanded}
+                setExpanded={
+                  setExpanded
+                }
                 field={field}
                 index={index}
                 tinaForm={tinaForm}
                 itemTitle={title}
-                zIndexShift={zIndexShift}
+                zIndexShift={
+                  zIndexShift
+                }
               />
             )}
           </FormPortal>
@@ -198,7 +272,9 @@ const ItemClickTarget = styled.div`
   padding: 8px;
 `
 
-export const GroupLabel = styled.span<{ error?: boolean }>`
+export const GroupLabel = styled.span<{
+  error?: boolean
+}>`
   margin: 0;
   font-size: var(--tina-font-size-1);
   font-weight: 600;
@@ -212,10 +288,12 @@ export const GroupLabel = styled.span<{ error?: boolean }>`
   transition: all 85ms ease-out;
   text-align: left;
 
-  ${props =>
+  ${(props) =>
     props.error &&
     css`
-      color: var(--tina-color-error) !important;
+      color: var(
+        --tina-color-error
+      ) !important;
     `};
 `
 
@@ -242,37 +320,52 @@ const GroupListPanel = styled.div`
   position: relative;
   height: auto;
   margin-bottom: 24px;
-  border-radius: var(--tina-radius-small);
-  background-color: var(--tina-color-grey-2);
+  border-radius: var(
+    --tina-radius-small
+  );
+  background-color: var(
+    --tina-color-grey-2
+  );
 `
 
 const EmptyList = styled.div`
   text-align: center;
-  border-radius: var(--tina-radius-small);
-  background-color: var(--tina-color-grey-2);
+  border-radius: var(
+    --tina-radius-small
+  );
+  background-color: var(
+    --tina-color-grey-2
+  );
   color: var(--tina-color-grey-4);
   line-height: 1.35;
   padding: 12px 0;
   font-size: var(--tina-font-size-2);
-  font-weight: var(--tina-font-weight-regular);
+  font-weight: var(
+    --tina-font-weight-regular
+  );
 `
 
 const ItemList = styled.div``
 
-const ItemHeader = styled.div<{ isDragging: boolean }>`
+const ItemHeader = styled.div<{
+  isDragging: boolean
+}>`
   position: relative;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   background-color: white;
-  border: 1px solid var(--tina-color-grey-2);
+  border: 1px solid
+    var(--tina-color-grey-2);
   margin: 0 0 -1px 0;
   overflow: visible;
   line-height: 1.35;
   padding: 0;
   font-size: var(--tina-font-size-2);
-  font-weight: var(--tina-font-weight-regular);
+  font-weight: var(
+    --tina-font-weight-regular
+  );
 
   ${GroupLabel} {
     color: var(--tina-color-grey-8);
@@ -303,21 +396,28 @@ const ItemHeader = styled.div<{ isDragging: boolean }>`
   &:nth-last-child(2) {
     border-radius: 0 0 4px 4px;
     &:first-child {
-      border-radius: var(--tina-radius-small);
+      border-radius: var(
+        --tina-radius-small
+      );
     }
   }
 
-  ${p =>
+  ${(p) =>
     p.isDragging &&
     css<any>`
-      border-radius: var(--tina-radius-small);
-      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
+      border-radius: var(
+        --tina-radius-small
+      );
+      box-shadow: 0px 2px 3px
+        rgba(0, 0, 0, 0.12);
 
       svg {
         fill: var(--tina-color-grey-8);
       }
       ${GroupLabel} {
-        color: var(--tina-color-primary);
+        color: var(
+          --tina-color-primary
+        );
       }
 
       ${DragHandle} {
@@ -344,18 +444,24 @@ const DeleteButton = styled.button`
     transition: all 85ms ease-out;
   }
   &:hover {
-    background-color: var(--tina-color-grey-1);
+    background-color: var(
+      --tina-color-grey-1
+    );
   }
 `
 
-const DragHandle = styled(function DragHandle({ ...styleProps }) {
-  return (
-    <div {...styleProps}>
-      <DragIcon />
-      <ReorderIcon />
-    </div>
-  )
-})`
+const DragHandle = styled(
+  function DragHandle({
+    ...styleProps
+  }) {
+    return (
+      <div {...styleProps}>
+        <DragIcon />
+        <ReorderIcon />
+      </div>
+    )
+  }
+)`
   margin: 0;
   flex: 0 0 auto;
   width: 32px;
@@ -364,7 +470,9 @@ const DragHandle = styled(function DragHandle({ ...styleProps }) {
   padding: 12px 0;
   transition: all 85ms ease-out;
   &:hover {
-    background-color: var(--tina-color-grey-1);
+    background-color: var(
+      --tina-color-grey-1
+    );
     cursor: grab;
   }
   svg {
@@ -373,7 +481,11 @@ const DragHandle = styled(function DragHandle({ ...styleProps }) {
     top: 50%;
     width: 20px;
     height: 20px;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(
+      -50%,
+      -50%,
+      0
+    );
     transition: all 85ms ease-out;
   }
   svg:last-child {
@@ -408,21 +520,42 @@ const Panel = function Panel({
   itemTitle,
   zIndexShift,
 }: PanelProps) {
-  const fields: any[] = React.useMemo(() => {
-    return field.fields.map((subField: any) => ({
-      ...subField,
-      name: `${field.name}.${index}.${subField.name}`,
-    }))
-  }, [field.fields, field.name, index])
+  const fields: any[] =
+    React.useMemo(() => {
+      return field.fields.map(
+        (subField: any) => ({
+          ...subField,
+          name: `${field.name}.${index}.${subField.name}`,
+        })
+      )
+    }, [
+      field.fields,
+      field.name,
+      index,
+    ])
 
   return (
-    <GroupPanel isExpanded={isExpanded} style={{ zIndex: zIndexShift + 1000 }}>
-      <PanelHeader onClick={() => setExpanded(false)}>
+    <GroupPanel
+      isExpanded={isExpanded}
+      style={{
+        zIndex: zIndexShift + 1000,
+      }}>
+      <PanelHeader
+        onClick={() =>
+          setExpanded(false)
+        }>
         <LeftArrowIcon />
-        <GroupLabel>{itemTitle}</GroupLabel>
+        <GroupLabel>
+          {itemTitle}
+        </GroupLabel>
       </PanelHeader>
       <PanelBody>
-        {isExpanded ? <FieldsBuilder form={tinaForm} fields={fields} /> : null}
+        {isExpanded ? (
+          <FieldsBuilder
+            form={tinaForm}
+            fields={fields}
+          />
+        ) : null}
       </PanelBody>
     </GroupPanel>
   )
