@@ -82,7 +82,7 @@ export const galleryDetail_template = {
       label: "Page Sections",
       name: "blocks",
       description: <a className="hover:underline" target={'_blank'} href="/edit/gallery/showcase">all layouts  : /edit/gallery/showcase</a>,
-      component: "blocks",
+      component: "longblocks",
       templates: PAGE_BLOCK_TEMPLATES,
     },
   ],

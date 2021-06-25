@@ -8,6 +8,7 @@ import {
   StrapiProvider
 } from 'react-tinacms-strapi';
 import { TinaCMS, TinaProvider } from 'tinacms';
+import {LongBlocksFieldPlugin} from "@lib/tina/BlocksFieldPlugin";
 
 
 export class MyMediaStore extends StrapiMediaStore {
@@ -44,6 +45,7 @@ function BuilderProvider({ children }) {
   useEffect(() => {
     cms.plugins.add(MarkdownFieldPlugin)
     cms.plugins.add(HtmlFieldPlugin)
+    cms.fields.add(LongBlocksFieldPlugin)
   }, [])
   if (!isReady) return null
   return <TinaProvider cms={cms}>
