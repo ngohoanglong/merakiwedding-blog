@@ -4,10 +4,49 @@ import { Image } from "meraki/components/Image";
 import { RatioContaner } from "./RatioContaner";
 import { SectionHeadline } from "./SectionHeadline";
 import { SectionTagline } from "./SectionTagline";
-
+const LAYOUT = {
+  layout1: 'layout1',
+  layout2: 'layout2',
+}
 export const Layout22 = ({
-  title, description, content, image1 = {}, image2 = {}, image3 = {}
+  title, description, content, image1 = {}, image2 = {}, image3 = {}, variant
 }) => {
+  if (variant = LAYOUT.layout2) {
+    return <Container>
+      <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
+        <div className="pr-12" style={{ minWidth: '320px', }}>
+          <div className="">
+            <div className="flex space-x-6 mb-6">
+              <div className="flex-1">
+                <RatioContaner>
+                  <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
+                </RatioContaner>
+              </div>
+              <div className="flex-1">
+                <RatioContaner>
+                  <Image src={image3?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
+                </RatioContaner>
+              </div>
+            </div>
+            <SectionHeadline>{title}</SectionHeadline>
+            <div className="h-2"></div>
+            <SectionTagline>{description}</SectionTagline>
+            <div className="h-3"></div>
+            <div className='text-justify whitespace-pre-line' dangerouslySetInnerHTML={{ __html: content }}>
+            </div>
+          </div>
+        </div>
+        <div className="flex-1 relative">
+          <div style={{ minWidth: '200px', zIndex: '-1' }}>
+            <RatioContaner>
+              <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
+            </RatioContaner>
+          </div>
+        </div>
+      </div>
+    </Container>;
+
+  }
   return <Container>
     <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
       <div className="flex-1 relative">
@@ -17,7 +56,7 @@ export const Layout22 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="pl-12" style={{ minWidth: '320px', width: '60%', }}>
+      <div className="pl-12" style={{ minWidth: '320px', }}>
         <div className="">
           <div className="flex space-x-6 mb-6">
             <div className="flex-1">
@@ -65,6 +104,21 @@ export const layout22_template = {
     luptatum zzril delenit augue duis dolore te feugait nulla facilisi.`
   },
   fields: createFields([
+    {
+      name: 'variant',
+      label: 'layout',
+      component: 'select',
+      options: [
+        {
+          label: LAYOUT.layout1,
+          value: LAYOUT.layout1,
+        },
+        {
+          label: LAYOUT.layout2,
+          value: LAYOUT.layout2,
+        },
+      ]
+    },
     createImageFieldConfig({ name: 'image1' }),
     createImageFieldConfig({ name: 'image2' }),
     createImageFieldConfig({ name: 'image3' }),
