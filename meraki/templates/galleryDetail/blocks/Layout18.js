@@ -12,7 +12,7 @@ export const Layout18 = ({
         style={{
           paddingBottom: '70%',
         }}>
-        <div className="absolute w-full h-full inset-0 gap-12 md:gap-3 grid grid-cols-4 grid-rows-4  content-between">
+        <div className="absolute w-full h-full inset-0 gap-2 md:gap-3 grid grid-cols-4 grid-rows-4  content-between">
           <div className=" relative col-start-1 col-end-3 row-start-1 row-end-5 bg-gray-100">
             {images[0] && (
               <Image

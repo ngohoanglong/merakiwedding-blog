@@ -9,14 +9,14 @@ export const Layout13 = ({
   title, description, content, image1, image2
 }) => {
   return <Container>
-    <div className="md:flex items-center space-x-12">
+    <div className="md:flex items-center md:space-x-12">
       <div className="flex-1 relative flex space-x-3">
-        <div className="flex-1" style={{ minWidth: '200px', zIndex: '-1' }}>
+        <div className="flex-1" style={{ minWidth: '', zIndex: '-1' }}>
           <RatioContaner>
             <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
-        <div className="flex-1" style={{ minWidth: '200px', zIndex: '-1' }}>
+        <div className="flex-1" style={{ minWidth: '', zIndex: '-1' }}>
           <RatioContaner>
             <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
