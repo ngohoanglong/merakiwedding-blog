@@ -20,7 +20,7 @@ const Cover = () => {
         get => <div><Image {...get('data.cover.image')} variant="cover" /></div>
       }
     </LG>
-    <div style={{ minHeight: '500px' }} className="self-center py-16 z-10 text-center  font-semibold text-element-1">
+    <div style={{ minHeight: '500px' }} className="self-center py-16 z-10 text-center text-element-1">
       <Container >
         <XS>
           {
@@ -33,7 +33,7 @@ const Cover = () => {
         <LG>
           {
             get => <div>
-              <h2 className="text-3xl lg:text-5xl font-kinfolk">{get('data.cover.title')}</h2>
+              <h2 className="text-3xl lg:text-6xl font-kinfolk">{get('data.cover.title')}</h2>
               <div className="text-xl lg:text-2xl font-garamond italic mt-2">{get('data.cover.subTitle')}</div>
             </div>
           }
@@ -45,7 +45,6 @@ const Cover = () => {
 const Blocks = () => {
   const { get } = useSource()
   return <div style={{
-    backgroundColor: '#f7f5ef'
   }}>
     <div className="h-20" />
     <div className="space-y-20">

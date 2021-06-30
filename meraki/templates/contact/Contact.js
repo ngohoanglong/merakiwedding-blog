@@ -129,9 +129,9 @@ const Blocks = () => {
       <div className="py-12 text-center lg:text-left px-6 lg:px-20 w-full mx-auto max-w-xl lg:max-w-6xl lg:flex lg:space-x-20" style={{
         backgroundColor: '#fdf6f0'
       }}>
-        <div className="w-full max-w-sm mx-auto">
+        <div className="w-1/3 max-w-xs mx-auto">
           <h3 className=" text-3xl font-garamond italic font-semibold">{get('data.cover.description.xs')}</h3>
-          <div className="leading-relaxed  " dangerouslySetInnerHTML={{ __html: get('data.cover.content.xs') }}></div>
+          <div className="leading-relaxed  text-justify" dangerouslySetInnerHTML={{ __html: get('data.cover.content.xs') }}></div>
           <div className="font-semibold mt-2">{get('app.data.email', 'merakiweddingplanner@gmail.com')}</div>
           <div className="h-6" />
           <div className="flex justify-center items-center lg:hidden">
@@ -190,7 +190,7 @@ const Input = ({
   return <div className={classNames("flex flex-col w-full", layout === inputLayouts.block ? "xl:col-span-2" : "")}>
     <label className="xl:h-12  xl:flex items-end font-semibold mb-2 text-sm font-sweetsans  uppercase">{label}</label>
     {inputElement}
-    {description && < div className="text-gray-400 whitespace-pre-line overflow-hidden capitalize">{description}</div>
+    {description && < div className="text-gray-400 text-sm whitespace-pre-line overflow-hidden capitalize">{description}</div>
     }
   </div >
 }

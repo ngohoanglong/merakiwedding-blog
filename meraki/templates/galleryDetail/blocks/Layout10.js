@@ -7,15 +7,15 @@ export const Layout10 = ({
   title, description, content
 }) => {
   return <Container>
-    <div className="md:flex space-x-12">
+    <div className="md:flex md:space-x-12">
       <div className="flex-1 relative">
         <SectionHeadline>{title}</SectionHeadline>
       </div>
-      <div className="" style={{ minWidth: '320px', width: '45%', }}>
+      <div className="w-full md:w-1/2" >
         <div className="">
           <SectionTagline>{description}</SectionTagline>
           <div className="h-3"></div>
-          <div className='text-justify whitespace-pre-line' dangerouslySetInnerHTML={{ __html: content }}>
+          <div className='text-center md:text-justify whitespace-pre-line' dangerouslySetInnerHTML={{ __html: content }}>
           </div>
         </div>
       </div>
