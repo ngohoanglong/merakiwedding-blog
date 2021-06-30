@@ -1,28 +1,39 @@
-import Container from "@components/container";
-import { createFields } from "@providers/tinacms/helpers";
-import { SectionHeadline } from "./SectionHeadline";
-import { SectionTagline } from "./SectionTagline";
+import Container from '@components/container'
+import { createFields } from '@providers/tinacms/helpers'
+import { SectionHeadline } from './SectionHeadline'
+import { SectionTagline } from './SectionTagline'
 
 export const Layout7 = ({
-  title, description, content
+  title,
+  description,
+  content,
 }) => {
-  return <Container>
-    <div className="md:flex items-center max-w-prose mx-auto py-12">
-      <div className="text-center flex  flex-col text-center">
-        <SectionHeadline>{title}</SectionHeadline>
+  return (
+    <Container>
+      <div className="flex flex-col items-center max-w-md mx-auto py-12 w-full text-center  ">
+        <SectionHeadline>
+          {title}
+        </SectionHeadline>
         <div className="h-6"></div>
-        <SectionTagline>{description}</SectionTagline>
+        <SectionTagline>
+          {description}
+        </SectionTagline>
         <div className="h-3"></div>
-        <div className="whitespace-pre-line text-justify" dangerouslySetInnerHTML={{ __html: content }}>
-        </div>
+        <div
+          className="whitespace-pre-line "
+          dangerouslySetInnerHTML={{
+            __html: content,
+          }}></div>
       </div>
-    </div>
-  </Container>;
-};
+    </Container>
+  )
+}
 export const layout7_template = {
   defaultItem: {
-    title: 'LOREM IPSUM DOLOR SIT AMET,',
-    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing',
+    title:
+      'LOREM IPSUM DOLOR SIT AMET,',
+    description:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing',
     content: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
     nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
     erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
@@ -30,9 +41,14 @@ export const layout7_template = {
     consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
     velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
     at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-    luptatum zzril delenit augue duis dolore te feugait nulla facilisi.`
+    luptatum zzril delenit augue duis dolore te feugait nulla facilisi.`,
   },
   fields: createFields([
-    'title', 'description', { name: 'content', component: 'textarea' }
-  ])
+    'title',
+    'description',
+    {
+      name: 'content',
+      component: 'textarea',
+    },
+  ]),
 }
