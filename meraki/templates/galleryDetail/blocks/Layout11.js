@@ -9,9 +9,9 @@ export const Layout11 = ({
   title, description, content, image
 }) => {
   return <Container>
-    <div className="md:flex items-center space-x-12 flex-row-reverse space-x-reverse">
+    <div className="md:flex items-center md:space-x-12 flex-row-reverse space-x-reverse">
       <div className="flex-1 relative">
-        <div style={{ minWidth: '200px', zIndex: '-1' }}>
+        <div style={{ minWidth: '', zIndex: '-1' }}>
           <RatioContaner variant="horizontal">
             <Image src={image?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>

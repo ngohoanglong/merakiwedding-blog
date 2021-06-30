@@ -9,20 +9,20 @@ export const Layout12 = ({
   title, description, content, image1, image2
 }) => {
   return <Container>
-    <div className="md:flex items-center space-x-12 flex-row-reverse space-x-reverse">
+    <div className="md:flex items-center flex-row-reverse ">
       <div className="flex-1 relative flex space-x-3">
-        <div className="flex-1" style={{ minWidth: '200px', zIndex: '-1' }}>
+        <div className="flex-1" style={{ minWidth: '', zIndex: '-1' }}>
           <RatioContaner >
             <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
-        <div className="flex-1" style={{ minWidth: '200px', zIndex: '-1' }}>
+        <div className="flex-1" style={{ minWidth: '', zIndex: '-1' }}>
           <RatioContaner >
             <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
           </RatioContaner>
         </div>
       </div>
-      <div className="py-12" style={{ minWidth: '320px', width: '45%', }}>
+      <div className="py-12 md:pr-12" style={{ minWidth: '320px', width: '45%', }}>
         <div className="">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>

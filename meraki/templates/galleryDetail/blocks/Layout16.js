@@ -8,14 +8,14 @@ export const Layout16 = ({
   contents = []
 }) => {
   return <Container>
-    <div className="grid grid-cols-2 gap-2 lg:gap-3 space-y-28">
+    <div className="md:grid grid-cols-2 gap-2 lg:gap-3 md:space-y-28">
       {
         contents.map((item, i) => {
-          return <div key={i} className="flex flex-col justify-start odd:flex-col-reverse">
+          return <div key={i} className="flex flex-col justify-start md:odd:flex-col-reverse">
             <RatioContaner variant="horizontal">
               <Image src={item.image.src} alt="meraki wedding planners" objectPosition="center center"></Image>
             </RatioContaner>
-            <div className="py-8 px-16">
+            <div className="py-8 md:px-16">
               <SectionTagline>{item.title}</SectionTagline>
               <div className="h-3"></div>
               <div className='text-justify' dangerouslySetInnerHTML={{ __html: item.description }}>

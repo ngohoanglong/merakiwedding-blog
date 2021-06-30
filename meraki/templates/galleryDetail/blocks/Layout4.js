@@ -37,7 +37,7 @@ export const Layout4 = ({
         <div className="col-span-2 relative">
           <div
             style={{
-              minWidth: '200px',
+              minWidth: '',
               zIndex: '-1',
             }}>
             <RatioContaner>

@@ -66,7 +66,7 @@ export const Layout22 = ({
           <div className="flex-1 relative">
             <div
               style={{
-                minWidth: '200px',
+                minWidth: '',
                 zIndex: '-1',
               }}>
               <RatioContaner>
@@ -87,7 +87,7 @@ export const Layout22 = ({
         <div className="flex-1 relative">
           <div
             style={{
-              minWidth: '200px',
+              minWidth: '',
               zIndex: '-1',
             }}>
             <RatioContaner>
