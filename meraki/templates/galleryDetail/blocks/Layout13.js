@@ -9,7 +9,7 @@ export const Layout13 = ({
   title, description, content, image1, image2
 }) => {
   return <Container>
-    <div className="md:flex items-center md:space-x-12">
+    <div className="md:flex items-center space-x-2 md:space-x-3">
       <div className="flex-1 relative flex space-x-3">
         <div className="flex-1" style={{ minWidth: '', zIndex: '-1' }}>
           <RatioContaner>
@@ -22,7 +22,7 @@ export const Layout13 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="py-12" style={{ minWidth: '320px', width: '45%', }}>
+      <div className="py-12 md:pl-12" >
         <div className="">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>
