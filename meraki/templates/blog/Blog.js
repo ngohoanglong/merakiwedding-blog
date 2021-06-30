@@ -21,7 +21,7 @@ const Cover = () => {
         get => <div><Image {...get('data.cover.image')} /></div>
       }
     </LG>
-    <div className="self-end py-16 z-10 text-center text-5xl font-garamond italic font-semibold text-element-1">
+    <div className="self-end py-16 z-10 text-center text-5xl font-garamond italic  text-element-1">
       <Container >
         <XS>
           {
@@ -41,7 +41,6 @@ const Cover = () => {
 const Blocks = () => {
   const { get } = useSource()
   return <div style={{
-    backgroundColor: '#ede8df'
   }}>
     <div className="h-20" />
     <Container>

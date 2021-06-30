@@ -32,13 +32,13 @@ const Cover = () => {
 const Blocks = () => {
   const { get } = useSource()
   return <Container>
-    <div className="flex flex-col space-y-12 lg:space-y-24">
+    <div className="flex flex-col">
       {
         get('data.blocks', []).map((item = {}, i) => {
           console.log(item)
-          return <div key={i} className="text-center relative">
+          return <div key={i} className=" relative">
             <div className="lg:w-6/12 max-w-md mx-auto space-y-12 lg:px-12 lg:py-24">
-              <h2 className="text-6xl font-garamond italic font-semibold">{item.title}</h2>
+              <h2 className="text-6xl text-center font-garamond italic ">{item.title}</h2>
               <div className="flex space-x-2 lg:space-x-0 lg:m-0  lg:px-12 lg:absolute lg:inset-0  justify-between">
                 {item?.images[0] && <div className="relative flex-1 self-start lg:flex-none lg:w-3/12">
                   <div style={{
@@ -53,7 +53,7 @@ const Blocks = () => {
                   <Image {...item?.images[1]} />
                 </div>}
               </div>
-              <div className="" dangerouslySetInnerHTML={{ __html: item.description }}></div>
+              <div className="text-justify" dangerouslySetInnerHTML={{ __html: item.description }}></div>
               <div className="flex justify-center items-center lg:hidden">
                 <div className="w-16 h-16 relative">
                   <Image src="/home/icons/web-homepage-icons-02.png" objectFit="contain" />

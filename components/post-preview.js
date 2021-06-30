@@ -29,7 +29,7 @@ export default function PostPreview({
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
       <div>
-        <a href={href} className="hover:text-primary text-xl font-semibold font-garamond italic">Read more »</a>
+        <a href={href} className="hover:text-primary text-xl font-garamond italic">Read more »</a>
       </div>
     </div>
   )
