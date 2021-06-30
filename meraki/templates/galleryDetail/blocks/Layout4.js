@@ -1,7 +1,7 @@
 import Container from '@components/container'
 import {
   createFields,
-  createImageFieldConfig,
+  createImageFieldConfig
 } from '@providers/tinacms/helpers'
 import { Image } from 'meraki/components/Image'
 import { RatioContaner } from './RatioContaner'
@@ -17,7 +17,7 @@ export const Layout4 = ({
   return (
     <Container>
       <div className="md:grid grid-cols-5 gap-2 md:gap-3">
-        <div className="col-span-3 py-12 pr-12">
+        <div className="col-span-3 py-12 md:pr-12">
           <div className="mx-auto">
             <SectionHeadline>
               {title}

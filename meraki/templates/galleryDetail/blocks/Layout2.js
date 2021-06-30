@@ -1,7 +1,7 @@
 import Container from '@components/container'
 import {
   createFields,
-  createImageFieldConfig,
+  createImageFieldConfig
 } from '@providers/tinacms/helpers'
 import { Image } from 'meraki/components/Image'
 import { RatioContaner } from './RatioContaner'
@@ -25,7 +25,7 @@ export const Layout2 = ({
               objectPosition="center center"></Image>
           </RatioContaner>
         </div>
-        <div className="col-span-3 py-12 pl-12">
+        <div className="col-span-3 py-12 md:pl-12">
           <SectionHeadline>
             {title}
           </SectionHeadline>

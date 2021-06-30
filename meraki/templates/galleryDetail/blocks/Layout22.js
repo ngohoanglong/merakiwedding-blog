@@ -1,7 +1,7 @@
 import Container from '@components/container'
 import {
   createFields,
-  createImageFieldConfig,
+  createImageFieldConfig
 } from '@providers/tinacms/helpers'
 import { Image } from 'meraki/components/Image'
 import { RatioContaner } from './RatioContaner'
@@ -25,7 +25,7 @@ export const Layout22 = ({
       <Container>
         <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
           <div
-            className="pr-12"
+            className="md:pr-12"
             style={{
               minWidth: '320px',
             }}>
@@ -99,7 +99,7 @@ export const Layout22 = ({
           </div>
         </div>
         <div
-          className="pl-12"
+          className="md:pl-12"
           style={{ minWidth: '320px' }}>
           <div className="">
             <div className="flex space-x-2 md:space-x-3 mb-6">

@@ -1,7 +1,7 @@
 import Container from '@components/container';
 import React from 'react';
 const Banner3 = ({ title, subTitle, details = [], }) => {
-  return <div className="relative text-center md:text-left flex flex-col md:flex-row w-full items-center justify-center " >
+  return <div className="py-12 md:py-0 relative text-center md:text-left flex flex-col md:flex-row w-full items-center justify-center " >
     <div className="">
       <Container>
         <div className="text-lg md:text-2xl">{subTitle}</div>
