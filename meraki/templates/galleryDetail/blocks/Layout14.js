@@ -1,6 +1,5 @@
 import Container from "@components/container";
 import { createFields } from "@providers/tinacms/helpers";
-import { SectionHeadline } from "./SectionHeadline";
 import { SectionTagline } from "./SectionTagline";
 
 export const Layout14 = ({
@@ -8,7 +7,7 @@ export const Layout14 = ({
 }) => {
   return <Container>
     <div className="items-center space-y-12 py-12 text-center">
-      <SectionHeadline>{title}</SectionHeadline>
+      <h3 className="font-kinfolk text-center text-4xl leading-none" >{title}</h3>
       <div className="grid lg:grid-cols-3  gap-3  lg:gap-12">
         {
           contents.map((block, i) => (
