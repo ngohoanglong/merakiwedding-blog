@@ -100,12 +100,15 @@ const FaqList = () => {
               </ol>
               <div className="max-w-md py-12">
                 {
-                  questions.filter((_, i) => active[i]).map(item => {
+                  questions.filter((_, i) => active[i]).map((item, i) => {
                     return (
-                      <div key={item.title} className='space-y-2'>
-                        <div className='font-garamond italic font-semibold text-xl'>{item.title}</div>
-                        <div className="" dangerouslySetInnerHTML={{ __html: item.content }} />
+                      <div key={i} className="relative">
+                        <div className='space-y-2 animated fadeIn faster'>
+                          <div className='font-garamond italic font-semibold text-xl'>{item.title}</div>
+                          <div className="" dangerouslySetInnerHTML={{ __html: item.content }} />
+                        </div>
                       </div>
+
                     )
                   })
                 }
@@ -154,7 +157,7 @@ const Blocks = () => {
     <div className="py-12 mt-20" style={{ backgroundColor: '#fdf6f0' }}>
       <Container>
         <div className="text-center space-y-8 mx-auto max-w-2xl lg:max-w-none">
-          <h3 className="font-garamond text-5xl font-semibold italic uppercase">{get('data.faqs.title')}</h3>
+          <h3 className="font-garamond text-5xl italic uppercase">{get('data.faqs.title')}</h3>
           <FaqList />
         </div>
       </Container>
