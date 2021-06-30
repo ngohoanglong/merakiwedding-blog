@@ -182,3 +182,10 @@ p {
   width: 0.8em;
   margin-right: 0.3em;
 }
+
+.font-semibold {
+  /* -webkit-text-stroke-width: 0.01em; */
+}
+.font-bold {
+  -webkit-text-stroke-width: 0.05em;
+}

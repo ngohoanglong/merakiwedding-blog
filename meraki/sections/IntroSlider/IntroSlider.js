@@ -34,7 +34,10 @@ const IntroSlider = ({ children, loop = true }) => {
   })
 
   return (
-    <div ref={sliderContainerRef} className={s.root} data-testid="IntroSlider">
+    <div ref={sliderContainerRef} className={cn(s.root, "transition-opacity duration-700 ease-in-out", {
+      "opacity-100": isMounted,
+      "opacity-0": !isMounted
+    })} data-testid="IntroSlider">
       <div className="pointer-events-none absolute inset-0  flex items-center">
         <div className="px-3 lg:px-12 w-full mx-auto">
           <div className="flex items-center justify-between">

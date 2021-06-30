@@ -37,7 +37,7 @@ const Intro = () => {
                   <Container>
                     <div className="pt-12">
                       <div className="text-3xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
-                      <div className="text-xl font-semibold font-garamond italic">{get('IntroSlider.subTitle')}</div>
+                      <div className="text-xl font-garamond italic">{get('IntroSlider.subTitle')}</div>
                     </div>
                   </Container>
                 </div>}
@@ -70,7 +70,7 @@ const Intro = () => {
                   <Container>
                     <div>
                       <div className="text-4xl uppercase font-kinfolk">{get('IntroSlider.title')}</div>
-                      <div className="text-2xl font-semibold font-garamond italic">{get('IntroSlider.subTitle')}</div>
+                      <div className="text-2xl font-garamond italic">{get('IntroSlider.subTitle')}</div>
                     </div>
                   </Container>
                 </div>}
@@ -177,7 +177,7 @@ const Block1 = () => {
             </div>
             <div className="h-20" />
             <div className='lg:flex w-full'>
-              <div className="lg:w-2/5 flex justify-center items-center">
+              <div className="lg:w-2/5 flex justify-center items-center -mt-20">
                 <div className="relative w-4/6">
                   <div style={{ paddingTop: `${2048 / 1364 * 100}%` }}></div>
                   <Image src={get('Block2.image', {
@@ -287,7 +287,7 @@ const Block3 = () => {
                       </div>
                       <div className='absolute bottom-0 left-0 right-0 px-12'>
                         <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                          <div className="font-garamond font-semibold text-xl leading-none font-bolder">{item.title}</div>
+                          <div className="font-garamond  italic text-xl leading-none font-bolder">{item.title}</div>
                           <div style={{ fontSize: '0.7em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
                         </div>
                       </div>
@@ -531,13 +531,13 @@ const Block6 = () => {
               {
                 get('Block6.items', data[local].Block6.items).map((item, i) => {
                   return <div key={i} className='flex flex-col lg:flex-row '>
-                    <div className="flex-1 py-6 h-full">
-                      <div style={{ minHeight: "300px" }} className="w-full h-full relative">
+                    <div className="flex-1 flex flex-col justify-center h-full">
+                      <div style={{ minHeight: "300px" }} className="w-full h-4/5 relative">
                         <Image {...item.image} variant="card"></Image>
                       </div>
                     </div>
                     <div className="flex-1 px-6 pt-3 pb-6 bg-element-2">
-                      <div className="font-garamond font-semibold text-2xl italic">{item.title}</div>
+                      <div className="font-garamond text-2xl italic">{item.title}</div>
                       <div style={{ fontSize: '0.8em' }} className='font-sweetsans'>{item.subTitle}</div>
                       <div className="mt-4 text-justify text-sm leading-loose">{item.description}</div>
                     </div>
@@ -557,14 +557,40 @@ const Block7 = () => {
   return <>
     <XS>
       {
-        get => <div>
-          <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
+        get => {
+          const description = get('Block7.description')
+
+          return <div>
+            <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
+              <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
+              <Image {...get('Block7.image', data[local].Block7.image)}></Image>
+              <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
+                {description && description.length && <div className="leading-none font-garamond italic text-xl font-semibold">{description}</div>}
+                <div className='h-5'></div>
+                <div className="leading-none text-4xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
+                <div className='h-6'></div>
+                <div className='flex justify-center'>
+                  <Link href={get('Block7.url', '/')}>
+                    <Button reverse>{get('Block7.buttonText', data[local].Block7.buttonText)}</Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      }
+    </XS>
+    <LG>
+      {
+        get => {
+          const description = get('Block7.description')
+          return <div> <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
             <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
-            <Image {...get('Block7.image', data[local].Block7.image)}></Image>
-            <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-              {get('Block7.subTitle') && get('Block7.subTitle').length && <div className="leading-none font-garamond italic text-xl font-semibold">{get('Block7.subTitle', data[local].Block7.subTitle)}</div>}
+            <Image {...data[local].Block7.image}></Image>
+            <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
+              {description && description.length && <div className="leading-none font-garamond italic text-3xl">{description}</div>}
               <div className='h-5'></div>
-              <div className="leading-none text-4xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
+              <div className="leading-none text-5xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
               <div className='h-6'></div>
               <div className='flex justify-center'>
                 <Link href={get('Block7.url', '/')}>
@@ -572,27 +598,8 @@ const Block7 = () => {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      }
-    </XS>
-    <LG>
-      {
-        get => <div> <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
-          <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
-          <Image {...data[local].Block7.image}></Image>
-          <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
-            {get('Block7.subTitle') && get('Block7.subTitle').length && <div className="leading-none font-garamond italic text-3xl">{get('Block7.subTitle')}</div>}
-            <div className='h-5'></div>
-            <div className="leading-none text-5xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
-            <div className='h-6'></div>
-            <div className='flex justify-center'>
-              <Link href={get('Block7.url', '/')}>
-                <Button reverse>{get('Block7.buttonText', data[local].Block7.buttonText)}</Button>
-              </Link>
-            </div>
-          </div>
-        </div></div>
+          </div></div>
+        }
       }
     </LG>
   </>
