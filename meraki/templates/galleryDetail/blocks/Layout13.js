@@ -22,7 +22,7 @@ export const Layout13 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="py-12 md:pl-12" >
+      <div className="flex-1 py-12 md:pl-12" >
         <div className="">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>
