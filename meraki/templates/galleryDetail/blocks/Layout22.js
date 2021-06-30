@@ -25,7 +25,7 @@ export const Layout22 = ({
       <Container>
         <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
           <div
-            className="md:pr-12"
+            className="md:pr-12 flex-1"
             style={{
               minWidth: '320px',
             }}>
@@ -99,7 +99,7 @@ export const Layout22 = ({
           </div>
         </div>
         <div
-          className="md:pl-12"
+          className="md:pl-12 flex-1"
           style={{ minWidth: '320px' }}>
           <div className="">
             <div className="flex space-x-2 md:space-x-3 mb-6">

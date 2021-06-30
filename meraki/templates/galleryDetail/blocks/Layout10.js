@@ -7,11 +7,11 @@ export const Layout10 = ({
   title, description, content
 }) => {
   return <Container>
-    <div className="md:flex md:space-x-12">
+    <div className="md:flex items-center space-x-2 md:space-x-3">
       <div className="flex-1 relative">
         <SectionHeadline>{title}</SectionHeadline>
       </div>
-      <div className="w-full md:w-1/2" >
+      <div className="w-full flex-1 md:pl-12" >
         <div className="">
           <SectionTagline>{description}</SectionTagline>
           <div className="h-3"></div>

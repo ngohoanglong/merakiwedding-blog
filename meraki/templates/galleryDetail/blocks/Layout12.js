@@ -22,7 +22,7 @@ export const Layout12 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="py-12 md:pr-12" style={{ minWidth: '320px', width: '45%', }}>
+      <div className="py-12 flex-1 md:pr-12">
         <div className="">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>

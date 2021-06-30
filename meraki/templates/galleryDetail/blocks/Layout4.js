@@ -16,7 +16,7 @@ export const Layout4 = ({
 }) => {
   return (
     <Container>
-      <div className="md:grid grid-cols-5 gap-2 md:gap-3">
+      <div className="md:grid grid-cols-6 items-center gap-2 md:gap-3">
         <div className="col-span-3 py-12 md:pr-12">
           <div className="mx-auto">
             <SectionHeadline>
@@ -34,7 +34,7 @@ export const Layout4 = ({
               }}></div>
           </div>
         </div>
-        <div className="col-span-2 relative">
+        <div className="col-span-3 relative">
           <div
             style={{
               minWidth: '',

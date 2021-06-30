@@ -17,7 +17,7 @@ export const Layout11 = ({
           </RatioContaner>
         </div>
       </div>
-      <div className="py-12 w-full md:w-1/2 md:pr-12">
+      <div className="py-12 w-full md:flex-1 md:pr-12">
         <div className="">
           <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>

@@ -10,7 +10,7 @@ export const Layout7 = ({
 }) => {
   return (
     <Container>
-      <div className="flex flex-col items-center max-w-md mx-auto py-12 w-full text-center  ">
+      <div className="flex flex-col items-center py-12 w-full text-center  ">
         <SectionHeadline>
           {title}
         </SectionHeadline>
@@ -20,7 +20,7 @@ export const Layout7 = ({
         </SectionTagline>
         <div className="h-3"></div>
         <div
-          className="whitespace-pre-line "
+          className="whitespace-pre-line  max-w-prose mx-auto"
           dangerouslySetInnerHTML={{
             __html: content,
           }}></div>
