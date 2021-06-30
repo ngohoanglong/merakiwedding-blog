@@ -46,7 +46,7 @@ export default function Header() {
   const pages = get('app.data.navbar', appdata.en.navbar)
   return (
     <header className={classNames("z-50 text-element-2 ", open ? "sticky top-0" : "relative")}>
-      <Container style={{ maxWidth: '1440px' }}>
+      <Container >
         <nav style={{ height: 'var(--header-height)', margin: 'auto' }} className="hidden xl:flex justify-center items-center ">
           <Link href="/" style={{ width: '160px' }} className="flex-shrink-0 ">
             <img className="w-full" src="/logo-3.png" />
