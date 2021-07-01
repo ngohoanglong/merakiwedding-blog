@@ -16,7 +16,7 @@ export const Layout2 = ({
 }) => {
   return (
     <Container>
-      <div className="md:grid grid-cols-6 gap-2 md:gap-3 items-center">
+      <div className="md:grid grid-cols-6 gap-1 md:gap-3 items-center">
         <div className=" relative col-span-3">
           <RatioContaner>
             <Image

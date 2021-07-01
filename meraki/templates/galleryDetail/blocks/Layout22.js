@@ -23,7 +23,7 @@ export const Layout22 = ({
   if (variant === LAYOUT.layout2) {
     return (
       <Container>
-        <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
+        <div className="md:grid grid-cols-2 gap-1 md:gap-3 items-start">
           <div
             className="md:pr-12 flex-1"
             style={{
@@ -55,7 +55,7 @@ export const Layout22 = ({
               <SectionTagline>
                 {description}
               </SectionTagline>
-              <div className="h-3"></div>
+              <div className="h-6"></div>
               <div
                 className="text-justify whitespace-pre-line"
                 dangerouslySetInnerHTML={{
@@ -83,7 +83,7 @@ export const Layout22 = ({
   }
   return (
     <Container>
-      <div className="md:grid grid-cols-2 gap-2 md:gap-3 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-3 items-start">
         <div className="flex-1 relative">
           <div
             style={{
@@ -127,7 +127,7 @@ export const Layout22 = ({
             <SectionTagline>
               {description}
             </SectionTagline>
-            <div className="h-3"></div>
+            <div className="h-6"></div>
             <div
               className="text-justify whitespace-pre-line"
               dangerouslySetInnerHTML={{

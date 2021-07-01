@@ -8,7 +8,7 @@ export const Layout21 = ({
 }) => {
   if (variant === LAYOUT.layout2) {
     return <Container>
-      <div className="grid md:grid-cols-3 gap-2 lg:gap-3">
+      <div className="grid md:grid-cols-3 gap-1 md:gap-3">
         <div >
           <RatioContaner >
             <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
@@ -23,7 +23,7 @@ export const Layout21 = ({
     </Container>;
   }
   return <Container>
-    <div className="grid md:grid-cols-3 gap-2 lg:gap-3">
+    <div className="grid md:grid-cols-3 gap-1 md:gap-3">
       <div className="md:col-span-2">
         <RatioContaner variant="horizontal">
           <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
