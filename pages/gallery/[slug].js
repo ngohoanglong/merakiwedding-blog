@@ -48,7 +48,7 @@ export async function getStaticProps(config) {
         galleries, app, data: pageData
       }
     },
-    revalidate: 300
+    revalidate: 60
   }
 }
 export const getStaticPaths = async () => {

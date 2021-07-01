@@ -59,9 +59,9 @@ const defaultItem = {
     lg: banner_template.defaultItem
   },
   blocks: Object.keys(PAGE_BLOCK_TEMPLATES).reduce((result = [], item) => {
-    console.log({ item: PAGE_BLOCK_TEMPLATES[item] })
+    // console.log({ item: PAGE_BLOCK_TEMPLATES[item] })
     result.push({ _template: item, ...PAGE_BLOCK_TEMPLATES[item].defaultItem })
-    console.log({ item: result[result.length - 1] })
+    // console.log({ item: result[result.length - 1] })
     return result
   }, [])
 }

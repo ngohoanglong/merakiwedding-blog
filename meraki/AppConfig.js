@@ -1,5 +1,5 @@
 import { useLocal } from "@providers/local";
-import { createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
+import { createBlock, createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import { useCMS, useForm, usePlugin } from 'tinacms';
 
 const AppConfig = ({ data = {}, children }) => {
@@ -102,6 +102,21 @@ const AppConfig = ({ data = {}, children }) => {
             component: 'text'
           }, createImageFieldConfig()
         ],
+      }),
+      createBlock({
+        label: 'CONTACT',
+        name: 'contact',
+        fields: [
+          'title',
+          'description',
+          'url',
+          'buttonText',
+          {
+            label: 'image',
+            name: 'image',
+            component: 'image',
+          },
+        ]
       }),
       {
         label: 'Instagram Images',

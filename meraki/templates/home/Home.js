@@ -3,6 +3,8 @@ import Container from "@components/container";
 import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createImageFieldConfig, createScreenGroup } from "@providers/tinacms/helpers";
+import { Contact } from "@sections/Contact";
+import { Instagram } from "@sections/Instagram";
 import IntroSlider from "@sections/IntroSlider";
 import Slider from "@sections/Slider";
 import homeData from "data/homeData";
@@ -308,39 +310,7 @@ const Block3 = () => {
     </>
   )
 }
-const Instagram = () => {
-  const { get } = useSource()
-  console.log({
-    instagram: get('instagram')
-  })
-  return <div className="lg:max-w-5xl mx-auto lg:px-12">
-    <div className="flex flex-col items-center text-center">
-      <div className="text-2xl font-sweetsans">
-        {get('instagram.title', 'INSTAGRAM')}
-      </div>
-      <div className="w-40 h-14 relative">
-        <Image {...get('instagram.image', {
-          src: '/home/icons/web-homepage-icons-04.png'
-        })} objectFit="contain"></Image>
-      </div>
-      <div className='h-12'></div>
-      <div className="flex flex-wrap w-full justify-center" >
-        {
-          get('instagram', []).map((item, i) => {
-            const src = item.image
-            if (!src) return null
-            return <div key={i} className="flex-1 w-1/3 lg:w-32 p-px lg:p-3">
-              <div className="w-full relative bg-element-4">
-                <div style={{ paddingTop: '100%' }}></div>
-                <Image variant="card" src={item.image || '/logo.png'}></Image>
-              </div>
-            </div>
-          })
-        }
-      </div>
-    </div>
-  </div>
-}
+
 // services
 const Block4 = () => {
   return <>
@@ -552,58 +522,7 @@ const Block6 = () => {
   </>
 }
 
-//contact
-const Block7 = () => {
-  return <>
-    <XS>
-      {
-        get => {
-          const description = get('Block7.description')
 
-          return <div>
-            <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
-              <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
-              <Image {...get('Block7.image', data[local].Block7.image)}></Image>
-              <div className="absolute inset-0 flex text-white flex-col justify-center items-center text-center p-12">
-                {description && description.length && <div className="leading-none font-garamond italic text-xl font-semibold">{description}</div>}
-                <div className='h-5'></div>
-                <div className="leading-none text-4xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
-                <div className='h-6'></div>
-                <div className='flex justify-center'>
-                  <Link href={get('Block7.url', '/')}>
-                    <Button reverse>{get('Block7.buttonText', data[local].Block7.buttonText)}</Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-      }
-    </XS>
-    <LG>
-      {
-        get => {
-          const description = get('Block7.description')
-          return <div> <div style={{ minHeight: '350px' }} className="bg-element-3 relative">
-            <div style={{ paddingTop: `${2428 / 5760 * 100}%` }}></div>
-            <Image {...data[local].Block7.image}></Image>
-            <div className="absolute inset-0 text-element-2 flex flex-col justify-center items-center text-center p-12">
-              {description && description.length && <div className="leading-none font-garamond italic text-3xl">{description}</div>}
-              <div className='h-5'></div>
-              <div className="leading-none text-5xl font-kinfolk">{get('Block7.title', data[local].Block7.title)}</div>
-              <div className='h-6'></div>
-              <div className='flex justify-center'>
-                <Link href={get('Block7.url', '/')}>
-                  <Button reverse>{get('Block7.buttonText', data[local].Block7.buttonText)}</Button>
-                </Link>
-              </div>
-            </div>
-          </div></div>
-        }
-      }
-    </LG>
-  </>
-}
 export default function Home({ source }) {
   return (
     <SourceProvider source={
@@ -637,7 +556,7 @@ export default function Home({ source }) {
             <Block6 />
           </div>
           <div className="bg-element-3">
-            <Block7 />
+            <Contact />
           </div>
           <div className=" py-14">
             <Instagram />
@@ -917,39 +836,7 @@ export const home_template = {
         ]
       }
     },
-    "instagram": [
-      {
-        "name": "Title",
-        "id": "oj09xbol0"
-      },
-      {
-        "name": "Title",
-        "id": "sdv7l1hp6",
-        "title": "wwwwwasdasdsxcxc",
-        "image": "https://strapi.merakiweddingplanner.com/uploads/anh_background_trong_dong_dep_095236757_4ae6b428ad.jpeg?1",
-        "url": "sdssfsdfd"
-      },
-      {
-        "name": "Title",
-        "id": "goennngwc",
-        "title": "hgghhgff",
-        "url": "hhnf",
-        "image": "https://strapi.merakiweddingplanner.com/uploads/anh_background_trong_dong_dep_095236757_4ae6b428ad.jpeg?1"
-      },
-      {
-        "name": "Title",
-        "id": "sahurkg52",
-        "title": "asdssss",
-        "image": "https://strapi.merakiweddingplanner.com/uploads/pubby_9b16bae1b9.png?2"
-      },
-      {
-        "name": "Title",
-        "id": "ipir0nnys",
-        "title": "Phong Hoang",
-        "url": "https://www.google.com/",
-        "image": "https://strapi.merakiweddingplanner.com/uploads/anh_background_trong_dong_dep_095236757_4ae6b428ad.jpeg?1"
-      }
-    ]
+
   },
   fields: [
     {
@@ -1172,21 +1059,7 @@ export const home_template = {
         })
       ]
     }),
-    createBlock({
-      label: 'CONTACT',
-      name: 'Block7',
-      fields: [
-        'title',
-        'description',
-        'url',
-        'buttonText',
-        {
-          label: 'image',
-          name: 'image',
-          component: 'image',
-        },
-      ]
-    }),
+
     {
       label: 'Instagram Images',
       name: 'instagram',
