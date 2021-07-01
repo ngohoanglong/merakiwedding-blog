@@ -2,31 +2,34 @@ import Container from "@components/container";
 import { createImageFieldConfig } from "@providers/tinacms/helpers";
 import { Image } from "meraki/components/Image";
 import React from 'react';
-import { RatioContaner } from "./RatioContaner";
 export const Layout24 = ({
   images = [],
 }) => {
   return <Container>
-    <RatioContaner ratio={70 / 100}>
-      <div className="absolute inset-0 w-full h-full grid grid-cols-3 grid-rows-3  gap-3 ">
-        <div className=" relative col-start-1 col-end-2 row-start-1 row-end-2 bg-gray-100">
+    <div className="md:pt-[70%] md:relative">
+      <div className="md:absolute inset-0 w-full h-full grid md:grid-cols-3 md:grid-rows-3  gap-1 md:gap-3 ">
+        <div className="order-3 relative md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 bg-gray-300">
+          <div className="pt-[70%] md:hidden"></div>
           {images[0]?.image && <Image {...images[0]?.image || {}} />}
         </div>
-        <div className=" relative col-start-2 col-end-4 row-start-1 row-end-3 bg-gray-100">
+        <div className="order-1 md:order-2 relative md:col-start-2 md:col-end-4 md:row-start-1 md:row-end-3 bg-gray-300">
+          <div className="pt-[70%] md:hidden"></div>
           {images[1]?.image && <Image {...images[1]?.image || {}} />}
         </div>
-        <div className=" relative col-start-1 col-end-2 row-start-2 row-end-4 bg-gray-100">
+        <div className="order-2 relative md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-4 bg-gray-300">
+          <div className="pt-[130%] md:hidden"></div>
           {images[2]?.image && <Image {...images[2]?.image || {}} />}
         </div>
-        <div className=" relative col-start-2 col-end-3 row-start-3 row-end-4 bg-gray-100">
+        <div className="order-3 relative md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-4 bg-gray-300">
+          <div className="pt-[70%] md:hidden"></div>
           {images[3]?.image && <Image {...images[3]?.image || {}} />}
         </div>
-        <div className=" relative col-start-3 col-end-4 row-start-3 row-end-4 bg-gray-100">
+        <div className="order-3 relative md:col-start-3 md:col-end-4 md:row-start-3 md:row-end-4 bg-gray-300">
+          <div className="pt-[70%] md:hidden"></div>
           {images[4]?.image && <Image {...images[4]?.image || {}} />}
         </div>
-
       </div>
-    </RatioContaner>
+    </div>
   </Container>;
 };
 export const layout24_template = {

@@ -10,7 +10,7 @@ export const Layout7 = ({
 }) => {
   return (
     <Container>
-      <div className="flex flex-col items-center py-12 w-full text-center  ">
+      <div className="flex flex-col items-center py-12 w-full">
         <SectionHeadline>
           {title}
         </SectionHeadline>
@@ -20,7 +20,7 @@ export const Layout7 = ({
         </SectionTagline>
         <div className="h-3"></div>
         <div
-          className="whitespace-pre-line  max-w-prose mx-auto"
+          className="whitespace-pre-line text-justify max-w-prose mx-auto"
           dangerouslySetInnerHTML={{
             __html: content,
           }}></div>
@@ -34,14 +34,7 @@ export const layout7_template = {
       'LOREM IPSUM DOLOR SIT AMET,',
     description:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing',
-    content: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-    nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-    erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-    consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
-    at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-    luptatum zzril delenit augue duis dolore te feugait nulla facilisi.`,
+    content: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi`,
   },
   fields: createFields([
     'title',

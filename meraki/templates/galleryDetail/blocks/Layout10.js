@@ -12,7 +12,7 @@ export const Layout10 = ({
         <SectionHeadline>{title}</SectionHeadline>
       </div>
       <div className="w-full flex-1 md:pl-12" >
-        <div className="">
+        <div className="py-6 md:py-0">
           <SectionTagline>{description}</SectionTagline>
           <div className="h-3"></div>
           <div className='text-center md:text-justify whitespace-pre-line' dangerouslySetInnerHTML={{ __html: content }}>

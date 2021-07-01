@@ -8,7 +8,7 @@ export const Layout14 = ({
   return <Container>
     <div className="items-center space-y-12 py-12 text-center">
       <h3 className="font-kinfolk text-center text-4xl leading-none" >{title}</h3>
-      <div className="grid lg:grid-cols-3  gap-3  lg:gap-12">
+      <div className="grid lg:grid-cols-3  gap-1 md:gap-3  lg:gap-12">
         {
           contents.map((block, i) => (
             <div key={i}>
