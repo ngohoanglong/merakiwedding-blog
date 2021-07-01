@@ -237,7 +237,7 @@ const Block3 = () => {
               <div className="mt-4 w-full">
                 <Slider>
                   {
-                    galleries.map((item, i) => <div key={i} >
+                    galleries.map((item, i) => i >= 15 ? null : <div key={i} >
                       <Link href={item.url || '/'} className="block p-3 relative pb-12">
                         <div className="relative">
                           <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
@@ -245,7 +245,7 @@ const Block3 = () => {
                         </div>
                         <div className='absolute bottom-0 left-0 right-0 px-8'>
                           <div style={{ minHeight: '82px' }} className="w-full justify-center px-6 py-2 flex flex-col items-center text-center bg-element-1">
-                            <div className="font-garamond font-semibold text-2xl leading-none font-bolder">{item.title}</div>
+                            <div className="font-garamond italic text-2xl leading-none">{item.title}</div>
                             <div style={{ fontSize: '0.6em' }} className="uppercase font-sweetsans mt-2 ">{item.subTitle}</div>
                           </div>
                         </div>
@@ -279,7 +279,7 @@ const Block3 = () => {
             <div className="mt-8 w-full">
               <Slider>
                 {
-                  galleries.map((item, i) => <div key={i} >
+                  galleries.map((item, i) => i >= 15 ? null : <div key={i} >
                     <Link href={item.url || '/'} className="block relative pb-12 px-4">
                       <div className="relative">
                         <div style={{ paddingTop: `${5788 / 3864 * 100}%` }}></div>
