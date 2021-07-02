@@ -63,6 +63,7 @@ export default function Layout({ children }) {
           locale === 'vi' ? `
             .font-kinfolk{
               font-family:Kinfolk-Vi, Times New Roman!important;
+              text-transform:uppercase;
             }
             .font-sweetsans{
               font-weight:500;
