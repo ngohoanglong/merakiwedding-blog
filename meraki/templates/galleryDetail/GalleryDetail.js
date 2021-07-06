@@ -47,6 +47,7 @@ const GalleryDetail = ({ source, preview }) => {
             </p>
           </div>
         } />
+        <div className="h-12" />
       </div>
     </Layout>
   </SourceProvider>

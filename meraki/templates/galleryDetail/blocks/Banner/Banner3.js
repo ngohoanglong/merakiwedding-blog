@@ -5,7 +5,7 @@ const Banner3 = ({ title, subTitle, details = [], }) => {
     <div className="">
       <Container>
         <div className="text-lg md:text-2xl">{subTitle}</div>
-        <h1 className="leading-none text-xl  md:ext-3xl  md:text-5xl font-kinfolk pt-6 md:pt-6 max-w-sm">{title}</h1>
+        <h1 className="leading-none text-3xl  md:text-3xl  md:text-5xl font-kinfolk pt-2 md:pt-6 max-w-sm">{title}</h1>
       </Container>
     </div>
     <div className="md:px-12">
