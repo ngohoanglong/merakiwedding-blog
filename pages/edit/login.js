@@ -39,11 +39,10 @@ export default function UserLogin() {
       return res.json()
     })
     if (error) {
-      alert(error)
+      console.error(error)
       setError(error)
     }
     if (jwt) {
-      alert(jwt)
       document.cookie = `tina_strapi_jwt=${jwt}; expires=2023-06-03T09:40:20.000Z ;path=/`;
       location.replace('/edit')
     }
