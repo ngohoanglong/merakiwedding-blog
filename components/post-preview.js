@@ -15,7 +15,7 @@ export default function PostPreview({
       <div className="mb-5">
         <CoverImage title={title} coverImage={coverImage} href={href} />
       </div>
-      <h3 style={{ fontWeight: 200 }} className="text-xl leading-tight font-kinfolk">
+      <h3 style={{ fontWeight: 200 }} className="text-xl font-sweetsans leading-snug">
         <a href={href}
           className="hover:underline"
           dangerouslySetInnerHTML={{ __html: title }}
