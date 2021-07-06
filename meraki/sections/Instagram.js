@@ -1,4 +1,5 @@
 import { useSource } from "@providers/source";
+import { Link } from "meraki/components/Link";
 import { Image } from "../components/Image";
 
 export const Instagram = () => {
@@ -22,12 +23,12 @@ export const Instagram = () => {
           const src = item.image;
           if (!src)
             return null;
-          return <div key={i} className="flex-1 w-1/3 lg:w-32 p-px lg:p-3">
+          return <Link href={item.url || "#"} key={i} className="flex-1 w-1/3 lg:w-32 p-px lg:p-3">
             <div className="w-full relative bg-element-4">
               <div style={{ paddingTop: '100%' }}></div>
               <Image variant="card" src={item.image || '/logo.png'}></Image>
             </div>
-          </div>;
+          </Link>;
         })}
       </div>
     </div>

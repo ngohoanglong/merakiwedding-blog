@@ -101,8 +101,8 @@ const Block1 = () => {
             <Image priority src="/home/icons/web-homepage-icons-01.png" objectFit="contain" >
             </Image>
           </div>
-          <h2 className="font-kinfolk uppercase text-2xl text-center leading-normal">
-            {get('Block1.title')}
+          <h2 className="font-kinfolk uppercase text-2xl text-center leading-normal whitespace-pre-line flex flex-col items-center">
+            {get('Block1.title', '').split(' ').map((str, i) => <span key={i}>{str}</span>)}
           </h2>
           <div className="font-garamond italic text-xl text-center mt-4" dangerouslySetInnerHTML={{ __html: get('Block1.description') }}></div>
           <div className="h-6" />
@@ -252,7 +252,7 @@ const Block3 = () => {
                           </div>
                         </div>
                       </Link>
-                    </div>)
+                    </div>).filter(Boolean)
                   }
                 </Slider>
 
@@ -294,7 +294,7 @@ const Block3 = () => {
                         </div>
                       </div>
                     </Link>
-                  </div>)
+                  </div>).filter(Boolean)
                 }
               </Slider>
             </div>
@@ -552,7 +552,7 @@ export default function Home({ source }) {
           <div className="bg-white">
             <Block5 />
           </div>
-          <div className="bg-element-1">
+          <div className="bg-element-1 hidden lg:flex">
             <Block6 />
           </div>
           <div className="bg-element-3">
