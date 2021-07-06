@@ -552,7 +552,7 @@ export default function Home({ source }) {
           <div className="bg-white">
             <Block5 />
           </div>
-          <div className="bg-element-1 hidden lg:flex">
+          <div className="bg-element-1 hidden lg:block">
             <Block6 />
           </div>
           <div className="bg-element-3">
