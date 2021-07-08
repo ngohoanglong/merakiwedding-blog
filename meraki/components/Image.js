@@ -25,7 +25,7 @@ const breakpoints = {
 //   if (!size) return src
 //   return src.replace('/uploads/', '/uploads/' + size + '_')
 // }
-export const Image = ({ src, alt, variant, priority, placeholder = "blur", ...rest }) => {
+export const Image = ({ src, alt, variant, priority = 100, placeholder = "blur", ...rest }) => {
   let sizes = "(max-width: 400px) 300px, 800px";
   const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/')
   switch (variant) {
