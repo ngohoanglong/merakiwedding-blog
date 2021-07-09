@@ -18,7 +18,7 @@ const PostDetail = ({ source, preview }) => {
     <Layout preview={preview}>
       <Container>
         {router.isFallback ? (
-          <div className="fixed flex justify-center items-center"><LoadingDots /></div>
+          <div className="fixed inset-0 flex justify-center items-center"><LoadingDots /></div>
         ) : (
           <>
             <article>
@@ -50,11 +50,11 @@ const PostDetail = ({ source, preview }) => {
                 </style>
               </Head>
               <div style={{ zIndex: "-1" }} className="fixed inset-0">
-                <Image src={get(source, 'data.background_image', "/IMG_8890.JPG")} />
+                <Image src={get(source, 'data.background_image', "/bg_blog.JPG")} />
               </div>
               <div className=" pb-12 lg:py-12 lg:pb-32">
                 <div>
-                  <div className="p-6 bg-white py-12 rounded-lg lg:y-24 ">
+                  <div className="py-6 bg-white rounded lg:py-24 ">
                     <PostBody content={post.content} />
                   </div>
                 </div>
@@ -69,7 +69,7 @@ const PostDetail = ({ source, preview }) => {
 }
 
 const defaultItem = {
-  background_image: "/IMG_8890.JPG"
+  background_image: "/bg_blog.JPG"
 }
 export const postDetail_template = {
   defaultItem,
