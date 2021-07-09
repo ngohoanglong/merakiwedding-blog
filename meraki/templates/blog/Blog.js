@@ -21,7 +21,7 @@ const Cover = () => {
         get => <div><Image {...get('data.cover.image')} /></div>
       }
     </LG>
-    <div className="self-end py-16 z-10 text-center text-5xl font-garamond italic  text-element-1">
+    <div className="self-end py-16 z-10 text-center text-3xl lg:text-5xl font-garamond italic  text-element-1">
       <Container >
         <XS>
           {
@@ -30,7 +30,7 @@ const Cover = () => {
         </XS>
         <LG>
           {
-            get => <h2>{get('data.cover.title')}</h2>
+            get => <h2 className="py-12">{get('data.cover.title')}</h2>
           }
         </LG>
       </Container>

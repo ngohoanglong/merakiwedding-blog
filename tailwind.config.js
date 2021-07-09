@@ -84,6 +84,9 @@ module.exports = {
     },
 
   },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   variants: {
     extend: {
       translate: ['active', 'group-hover', 'group-focus'],
