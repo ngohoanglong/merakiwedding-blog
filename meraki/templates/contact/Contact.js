@@ -5,9 +5,11 @@ import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import { default as classNames, default as classnames } from 'classnames';
+import get from "lodash.get";
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
 import { XS } from "meraki/components/XS";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 const Cover = () => {
 
@@ -128,6 +130,7 @@ const FaqList = () => {
 const Blocks = () => {
   const { get } = useSource()
   return <div >
+
     <Container>
       <div className="py-12 text-center lg:text-left px-6 lg:px-20 w-full mx-auto max-w-xl lg:max-w-6xl lg:flex lg:space-x-20" style={{
         backgroundColor: '#fdf6f0'
@@ -144,9 +147,9 @@ const Blocks = () => {
           </div>
           <div className="h-12" />
         </div>
-        <form className="grid xl:grid-cols-2 gap-6">
+        <form action="/api/contact" method="GET" className="grid xl:grid-cols-2 gap-6">
           {
-            Object.values(get('data.form', {})).map(item => <Input key={item.name} {...item}></Input>)
+            Object.values(get('data.form', {})).map(item => <Input key={item.name} {...item} required={requiredFields.includes(item.name)}></Input>)
           }
           <div className="xl:col-span-2">
             <Button style={{ minWidth: '120px' }} size={'large'} type="submit">{get('data.buttonText')}</Button>
@@ -166,6 +169,15 @@ const Blocks = () => {
 }
 const Contact = ({ source, preview }) => {
   const contactRef = useRef()
+  const router = useRouter()
+  const { posted } = router.query
+  console.log({ posted })
+  const [hidePosted, setHidePosted] = useState(false)
+  useEffect(() => {
+    if (posted) {
+    }
+
+  }, [posted])
   useEffect(() => {
     let scroller = false
     const handleScroll = function (e) {
@@ -184,6 +196,14 @@ const Contact = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      {posted && !hidePosted && <div className="fixed z-50 inset-0 bg-black bg-opacity-70 p-12 flex flex-col items-center justify-center space-y-6">
+        <div className='bg-white p-12 max-w-prose w-full flex flex-col items-center justify-center space-y-6'>
+          <div className="text-3xl font-kinfolk">{get(source, 'data.successModal.title', 'Thank you')}</div>
+          <div className="">{get(source, 'data.successModal.message', 'Your infomation had been sent')}</div>
+          <Button onClick={() => setHidePosted(true)} size='large'>{get(source, 'data.successModal.closeText', 'Close')}</Button>
+        </div>
+
+      </div>}
       <Cover />
       <div ref={contactRef}>
         <Blocks />
@@ -272,6 +292,7 @@ const createInputField = ({
     }))
   })
 }
+const requiredFields = ['firstname', 'lastname', 'email', 'coupleName']
 const formFields = [
   createInputField({
     name: 'firstname',
@@ -373,6 +394,11 @@ const faqs_template = {
 export const contact_template = {
   // label: "Hero",
   defaultItem: {
+    successModal: {
+      title: 'Thank you',
+      message: 'Your infomation had been sent',
+      closeText: 'Close',
+    },
     cover: {
       title: {
         xs: "Contact us"
@@ -437,7 +463,16 @@ export const contact_template = {
       label: 'faqs',
       component: 'group',
       fields: faqs_template.fields
-    }
+    },
+    createBlock({
+      label: 'success contact modal',
+      name: 'successModal',
+      fields: [
+        'title',
+        'message',
+        'closeText'
+      ]
+    }),
   ],
 };
 export default Contact
