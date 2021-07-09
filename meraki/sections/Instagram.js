@@ -1,3 +1,4 @@
+import Container from "@components/container";
 import { useSource } from "@providers/source";
 import { Link } from "meraki/components/Link";
 import { Image } from "../components/Image";
@@ -7,7 +8,7 @@ export const Instagram = () => {
   console.log({
     instagram: get('app.data.instagram')
   });
-  return <div className="px-3 md:px-6">
+  return <Container >
     <div className="">
       <div className="flex flex-col items-center text-center">
         <div className="text-2xl font-sweetsans">
@@ -40,5 +41,5 @@ export const Instagram = () => {
         </div>
       </div>
     </div>
-  </div>;
+  </Container>;
 };
