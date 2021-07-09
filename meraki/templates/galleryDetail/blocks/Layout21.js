@@ -29,7 +29,7 @@ export const Layout21 = ({
           <Image src={image1?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>
       </div>
-      <div>
+      <div className="grid">
         <RatioContaner>
           <Image src={image2?.src} alt="meraki wedding planners" objectPosition="center center"></Image>
         </RatioContaner>

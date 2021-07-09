@@ -1,6 +1,7 @@
 import { getAllPostsWithSlug, getPostAndMorePosts } from '@lib/api'
 import { getAppInfo } from "@lib/app"
 import SourceProvider from "@providers/source"
+import { Image } from 'meraki/components/Image'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -51,15 +52,15 @@ export default function Post({ post, posts, preview, source }) {
                   <style>
                     {
                       `
-                      .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
-                        color: #3a3a3a;
-                    }
+                        .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
+                          color: #3a3a3a;
+                      }
                       `
                     }
                   </style>
                 </Head>
                 <div style={{ zIndex: "-1" }} className="fixed inset-0">
-                  {/* <Image src="/_DSC3741.jpg" /> */}
+                  <Image src="/IMG_8890.JPG" />
                 </div>
                 <div className=" pb-12 lg:py-12 lg:pb-32">
                   <div>
