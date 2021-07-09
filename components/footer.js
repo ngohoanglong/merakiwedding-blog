@@ -1,4 +1,5 @@
 import { useSource } from "@providers/source";
+import { Link } from "meraki/components/Link";
 import Button from "./button";
 import Container from "./container";
 
@@ -22,7 +23,9 @@ export default function Footer() {
         <div className="">{get('app.data.address', '353/2 Nguyen Trai, Distric 1, HCMC')}</div>
       </div>
       <div className="flex justify-center">
-        <Button style={{ padding: "0 6px" }} size="large">Contact us</Button>
+        <Link href="/contact">
+          <Button style={{ padding: "0 6px" }} size="large">Contact us</Button>
+        </Link>
       </div>
       <div className="h-6" />
       <Container >
