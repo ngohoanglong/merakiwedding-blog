@@ -25,7 +25,7 @@ const Cover = () => {
       <Container >
         <XS>
           {
-            get => <h2>{get('data.cover.title')}</h2>
+            get => <h2 className="py-12">{get('data.cover.title')}</h2>
           }
         </XS>
         <LG>

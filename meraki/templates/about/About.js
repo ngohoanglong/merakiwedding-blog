@@ -58,7 +58,6 @@ const Blocks = () => {
     <div className="relative bg-element-2 lg:hidden">
       <div style={{
         paddingTop: '100%',
-
       }}></div>
       {get('data.image') && <Image {...get('data.image')} />}
     </div>
@@ -85,10 +84,9 @@ const Blocks = () => {
             <div className="w-20 h-20 relative ">
               <Image src="/home/icons/web-homepage-icons-02.png" objectFit="contain" />
             </div>
-            <div className="-mt-6 text-center lg:text-lg font-garamond italic mx-auto max-w-2xl leading-loose" dangerouslySetInnerHTML={{ __html: get('data.content.quote') }} />
+            <div className="-mt-6 text-center text-lg lg:text-xl font-garamond italic mx-auto max-w-2xl leading-loose" dangerouslySetInnerHTML={{ __html: get('data.content.quote') }} />
           </div>
         </div>
-
       </div>
     </Container>
     <div className="h-20" />
