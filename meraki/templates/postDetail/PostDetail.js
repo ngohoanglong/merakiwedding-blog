@@ -54,7 +54,7 @@ const PostDetail = ({ source, preview }) => {
               </div>
               <div className=" pb-12 lg:py-12 lg:pb-32">
                 <div>
-                  <div className="p-6 bg-white py-12 rounded lg:y-24 ">
+                  <div className="py-6 bg-white rounded lg:py-24 ">
                     <PostBody content={post.content} />
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 .root {
-  @apply leading-loose text-xs md:text-sm lg:px-12 xl:px-24;
+  @apply leading-loose text-xs md:text-sm px-6 lg:px-12 xl:px-24;
   --e-global-color-primary: #6ec1e4;
   --e-global-color-secondary: #54595f;
   --e-global-color-text: #7a7a7a;
