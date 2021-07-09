@@ -1059,50 +1059,6 @@ export const home_template = {
         })
       ]
     }),
-
-    {
-      label: 'Instagram Images',
-      name: 'instagram',
-      component: 'group-list',
-      description: 'Instagram Images',
-      itemProps: item => ({
-        key: item.id,
-        label: item.title,
-      }),
-      defaultItem: () => ({
-        name: 'Title',
-        id: Math.random()
-          .toString(36)
-          .substr(2, 9),
-      }),
-      fields: [
-        {
-          label: 'Title',
-          name: 'title',
-          component: 'text',
-        },
-        {
-          label: 'Url',
-          name: 'url',
-          component: 'text',
-        },
-        {
-          label: 'Image',
-          name: 'image',
-          component: 'image',
-          // Generate the frontmatter value based on the filename
-          parse: media => process.env.STRAPI_URL + '/uploads/' + media.filename,
-
-          // Decide the file upload directory for the post
-          uploadDir: () => '/',
-
-          // Generate the src attribute for the preview image.
-          previewSrc: fullSrc => {
-            return fullSrc.replace('/uploads/', '/uploads/small_');
-          },
-        },
-      ],
-    },
   ],
 }
 
