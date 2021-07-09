@@ -51,9 +51,9 @@ export default function Post({ post, posts, preview, source }) {
                   <style>
                     {
                       `
-                      .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
-                        color: #3a3a3a;
-                    }
+                        .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
+                          color: #3a3a3a;
+                      }
                       `
                     }
                   </style>

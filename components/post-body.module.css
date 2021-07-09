@@ -33,3 +33,6 @@
 .root p {
   margin-bottom: 1.6em;
 }
+.root b {
+  font-weight: bold;
+}

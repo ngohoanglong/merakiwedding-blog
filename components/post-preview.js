@@ -9,7 +9,7 @@ export default function PostPreview({
   author,
   slug,
 }) {
-  const href = `https://merakiweddingplanner.com/${slug}`
+  const href = `/posts/${slug}`
   return (
     <div>
       <div className="mb-5">
