@@ -64,14 +64,14 @@ const Blocks = () => {
     </div>
     <Container>
       <div className="flex flex-col space-y-6 lg:space-y-8 py-12 max-w-4xl mx-auto">
-        <h2 className=" text-center text-3xl font-kinfolk">
+        <h2 className=" text-center text-3xl font-kinfolk lg:text-6xl">
           {get('data.content.title')}
         </h2>
         <div>
-          <div className="leading-loose text-center lg:px-6 font-garamond italic lg:text-lg">{get('data.content.subTitle')}</div>
-          <div className="flex lg:space-x-20 lg:py-12 justify-center items-center lg:px-6">
-            <div className="whitespace-pre-line text-justify leading-loose flex-1 w-full text-sm" dangerouslySetInnerHTML={{ __html: get('data.content.description') }}></div>
-            <div style={{ maxWidth: '400px' }} className=" relative w-full hidden lg:block">
+          <div className="leading-loose text-center lg:px-6 font-garamond italic text-lg lg:text-xl">{get('data.content.subTitle')}</div>
+          <div className="flex lg:space-x-12 lg:py-12 justify-center items-center lg:px-6">
+            <div className="whitespace-pre-line text-justify leading-loose flex-1 w-full mb-4" dangerouslySetInnerHTML={{ __html: get('data.content.description') }}></div>
+            <div style={{ maxWidth: '400px' }} className="relative w-full hidden lg:block">
               <div className='w-full relative'>
                 <div style={{
                   paddingTop: '100%',
@@ -81,13 +81,14 @@ const Blocks = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col items-center mt-12">
-          <div className="w-20 h-20 relative ">
-            <Image src="/home/icons/web-homepage-icons-02.png" objectFit="contain" />
+          <div className="flex flex-col items-center ">
+            <div className="w-20 h-20 relative ">
+              <Image src="/home/icons/web-homepage-icons-02.png" objectFit="contain" />
+            </div>
+            <div className="-mt-6 text-center lg:text-lg font-garamond italic mx-auto max-w-2xl leading-loose" dangerouslySetInnerHTML={{ __html: get('data.content.quote') }} />
           </div>
-          <div className="-mt-6 text-center lg:text-lg font-garamond italic mx-auto max-w-2xl leading-loose" dangerouslySetInnerHTML={{ __html: get('data.content.quote') }} />
         </div>
+
       </div>
     </Container>
     <div className="h-20" />
