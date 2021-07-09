@@ -1,5 +1,4 @@
 
-import Container from "@components/container";
 import Layout from "@components/layout";
 import PostBody from '@components/post-body';
 import SourceProvider from "@providers/source";
@@ -16,7 +15,7 @@ const PostDetail = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
-      <Container>
+      <div className="max-w-6xl px-2 lg:px-0 mx-auto">
         {router.isFallback ? (
           <div className="fixed inset-0 flex justify-center items-center"><LoadingDots /></div>
         ) : (
@@ -62,7 +61,7 @@ const PostDetail = ({ source, preview }) => {
             </article>
           </>
         )}
-      </Container>
+      </div>
     </Layout>
   </SourceProvider>
 
