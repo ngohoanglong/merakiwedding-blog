@@ -32,7 +32,7 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <title>Meraki wedding planner</title>
+      <title>Meraki Wedding Planner</title>
       <meta
         name="description"
         content={`DESTINATION WEDDING PLANNER in Vietnam Independence &#8211; Attentiveness &#8211; Dedication Every wedding crafted by Meraki is an unique experience that was delivered beautifully our Gallery Browse our weddings for tips and inspiration. From Ha Long Bay to Ho Chi Minh city, let us inspire you Mai &#038; Chris Phong &#038; Hoang Tess &#038; Andy Lucia &#038; &hellip; Home Read More &raquo;`}
