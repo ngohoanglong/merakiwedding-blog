@@ -51,7 +51,7 @@
 /* public/fonts/Commissioner-Light.ttf */
 @font-face {
   font-family: Commissioner;
-  font-weight: 300;
+  font-weight: 300 400;
   src: url('/fonts/Commissioner-Light.ttf')
     format('truetype');
   font-display: block;
@@ -64,20 +64,20 @@
   font-display: block;
 }
 /* public/fonts/Commissioner-SemiBold.ttf */
-@font-face {
+/* @font-face {
   font-family: Commissioner;
-  font-weight: 600;
+  font-weight: 00;
   src: url('/fonts/Commissioner-SemiBold.ttf')
     format('truetype');
   font-display: block;
-}
+} */
 /* public/fonts/EBGaramond-VariableFont_wght.ttf */
-@font-face {
+/* @font-face {
   font-family: EBGaramond;
   src: url('/fonts/EBGaramond-VariableFont_wght.ttf')
     format('truetype');
   font-display: block;
-}
+} */
 
 /* public/fonts/EBGaramond-Italic-VariableFont_wght.ttf */
 @font-face {

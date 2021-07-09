@@ -57,10 +57,10 @@ const FaqList = () => {
         {
           questions.map((item, i) => {
             return (
-              <div key={i} className="bg-[#fffdfb] odd:bg-[#ede9e4]">
+              <div tabIndex="-1" key={i} className="bg-[#fffdfb] odd:bg-[#ede9e4] group focus:pointer-events-none">
                 <div onMouseEnter={() => {
                   handleItemClick(i)
-                }} className="flex w-full p-3 ">
+                }} className="flex w-full p-3 pointer-events-auto group-focus:pointer-events-none">
                   <div className="p-3 py-1 self-start">{i + 1}.</div>
                   <div className="px-3 py-1 flex-1 whitespace-pre-line">{item.title}</div>
                   <div className="p-3 py-1 self-end">
@@ -69,8 +69,10 @@ const FaqList = () => {
                     </div>
                   </div>
                 </div>
-                {active[i] && <div className="text-justify p-3" dangerouslySetInnerHTML={{ __html: item.content }}>
-                </div>}
+                <div className="h-0 ease-in-out duration-300  overflow-hidden group-focus:h-auto transition-all pointer-events-auto mt-0 group-focus:mt-5">
+                  <div className="-mt-10 text-justify p-3 pb-7 invisible overflow-hidden h-0 opacity-0 duration-700 ease-in-out transition-all  transform group-focus:opacity-100 group-focus:h-auto  group-focus:block group-focus:visible" dangerouslySetInnerHTML={{ __html: item.content }}>
+                  </div>
+                </div>
               </div>
             )
           })
@@ -89,7 +91,7 @@ const FaqList = () => {
                       <li key={i}>
                         <div onMouseEnter={() => {
                           handleItemClick(i)
-                        }} className={classnames("flex w-full p-3 px-5 hover:border-gray-300 border border-transparent rounded-lg", {
+                        }} className={classnames("flex w-full p-3 px-5 focus:border-gray-300 border border-transparent rounded-lg", {
                           'font-semibold': active[i]
                         })}>
                           <div className="flex-1 whitespace-pre-line">{i + 1}. {item.title}</div>
