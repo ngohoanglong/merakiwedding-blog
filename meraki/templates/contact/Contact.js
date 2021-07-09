@@ -8,10 +8,10 @@ import { default as classNames, default as classnames } from 'classnames';
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
 import { XS } from "meraki/components/XS";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const Cover = () => {
-  const { get } = useSource()
-  return <div className=" relative -mt-header min-h-screen  py-header flex justify-center">
+
+  return <div className=" relative -mt-header min-h-screen transition-all py-header flex justify-center">
     <div style={{ zIndex: -1 }} className="fixed inset-0">
       <XS>
         {
@@ -29,7 +29,7 @@ const Cover = () => {
 
         <XS>
           {
-            get => <h2 className="self-center">{get('data.cover.title')}</h2>
+            get => <h2 className="self-center py-12">{get('data.cover.title')}</h2>
           }
         </XS>
         <LG>
@@ -127,10 +127,7 @@ const FaqList = () => {
 }
 const Blocks = () => {
   const { get } = useSource()
-  return <div style={{
-
-  }}>
-    <div className="h-20" />
+  return <div >
     <Container>
       <div className="py-12 text-center lg:text-left px-6 lg:px-20 w-full mx-auto max-w-xl lg:max-w-6xl lg:flex lg:space-x-20" style={{
         backgroundColor: '#fdf6f0'
@@ -168,12 +165,29 @@ const Blocks = () => {
   </div>
 }
 const Contact = ({ source, preview }) => {
+  const contactRef = useRef()
+  useEffect(() => {
+    let scroller = false
+    const handleScroll = function (e) {
+      scroller = true
+      document.removeEventListener('scroll', handleScroll)
+    }
+    document && document.addEventListener('scroll', handleScroll);
+    const timmer = setTimeout(() => {
+      !scroller && contactRef && contactRef.current.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }, 2000)
+    return () => {
+      clearTimeout(timmer)
+    }
+  }, [])
   return <SourceProvider source={{
     en: source
   }}>
     <Layout preview={preview}>
       <Cover />
-      <Blocks />
+      <div ref={contactRef}>
+        <Blocks />
+      </div>
     </Layout>
   </SourceProvider>
 
