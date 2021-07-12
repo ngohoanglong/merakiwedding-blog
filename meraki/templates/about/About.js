@@ -3,7 +3,6 @@ import Container from "@components/container";
 import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createFields, createImageFields } from "@providers/tinacms/helpers";
-import { Instagram } from "@sections/Instagram";
 import defaultData from '@templates/about/data';
 import { Image } from "meraki/components/Image";
 
@@ -100,7 +99,6 @@ const About = ({ source, preview }) => {
       <Cover />
       <Blocks />
       <div className="h-24" />
-      <Instagram />
     </Layout>
   </SourceProvider>
 
