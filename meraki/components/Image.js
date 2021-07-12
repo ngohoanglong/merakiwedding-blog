@@ -25,9 +25,12 @@ const strapiLoader = ({ src, width, quality }) => {
   if (!size) return src
   return src.replace('/uploads/', '/uploads/' + size + '_')
 }
+const coverLoader = ({ src }) => {
+  return src
+}
 export const Image = ({ src, alt = "", variant, priority = 100, placeholder = "blur", ...rest }) => {
   let sizes = "(max-width: 400px) 300px, 800px";
-  const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/') && variant !== "cover"
+  const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/')
   switch (variant) {
     case 'cover':
       sizes = "(max-width: 400px) 800px, 1400px";
@@ -45,7 +48,7 @@ export const Image = ({ src, alt = "", variant, priority = 100, placeholder = "b
   return (
     <NextImage
       key={src}
-      loader={enable ? strapiLoader : undefined}
+      loader={enable ? variant !== "cover" ? strapiLoader : coverLoader : undefined}
       layout="fill"
       src={src && src || '/logo.png'}
       alt={alt || 'Meraki Image'}
