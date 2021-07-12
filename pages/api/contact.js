@@ -1,4 +1,3 @@
-const sampletoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI1ODI5NDQzLCJleHAiOjE2Mjg0MjE0NDN9.-lhFeOE53WMD0pcCYIejCHYzO1JcaSRjVOSrUmMI104"
 
 export default async function contact(req, res) {
   // Exit the current user from "Preview Mode". This function accepts no args.
