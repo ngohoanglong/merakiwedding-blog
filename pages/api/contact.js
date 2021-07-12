@@ -6,7 +6,6 @@ export default async function contact(req, res) {
   res.writeHead(307, { Location: '/contact?posted=true', })
   res.end()
 
-  console.log({ query: req.query })
   try {
     const identifier = process.env.STRAPI_IDENTIFIER
     const password = process.env.STRAPI_PASSWOR
@@ -29,6 +28,7 @@ export default async function contact(req, res) {
     }
     if (jwt) {
       console.log({ jwt })
+      console.log({ query: req.query })
       const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + jwt

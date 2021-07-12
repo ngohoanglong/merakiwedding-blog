@@ -55,7 +55,6 @@ const Blog = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
-      <FixFooterBackgroundColor />
       <Head>
         <title>Meraki wedding planner - Blog</title>
       </Head>
