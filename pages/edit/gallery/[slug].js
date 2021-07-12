@@ -55,7 +55,7 @@ export default withBuilderForm({
     return result
   },
   onSubmit: async (variables, pageInfo, router) => {
-    console.log({ variables, pageInfo, router })
+    // console.log({ variables, pageInfo, router })
     const createPageMutation = `
         mutation createPage(
               $data: JSON

@@ -5,9 +5,9 @@ import { Image } from "../components/Image";
 
 export const Instagram = () => {
   const { get } = useSource();
-  console.log({
-    instagram: get('app.data.instagram')
-  });
+  // console.log({
+  //   instagram: get('app.data.instagram')
+  // });
   return <Container >
     <div className="">
       <div className="flex flex-col items-center text-center">
