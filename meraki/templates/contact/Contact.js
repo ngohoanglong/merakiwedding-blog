@@ -138,7 +138,7 @@ const Blocks = () => {
         <div className="max-w-xs mx-auto">
           <h3 className=" text-3xl font-garamond italic font-semibold">{get('data.cover.description.xs')}</h3>
           <div className="leading-relaxed  text-justify" dangerouslySetInnerHTML={{ __html: get('data.cover.content.xs') }}></div>
-          <div className="font-semibold mt-2">{get('app.data.email', 'merakiweddingplanner@gmail.com')}</div>
+          <div className="font-semibold mt-2">{get('app.data.email', 'info@merakiweddingplanner.com')}</div>
           <div className="h-6" />
           <div className="flex justify-center items-center lg:hidden">
             <div className="w-16 h-16 relative">
