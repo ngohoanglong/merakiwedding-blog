@@ -1,8 +1,6 @@
 import Container from "@components/container";
 import { createImageFieldConfig } from "@providers/tinacms/helpers";
 import { Image } from "meraki/components/Image";
-import { LG } from "meraki/components/LG";
-import { XS } from "meraki/components/XS";
 import React from 'react';
 import { RatioContaner } from "./RatioContaner";
 export const Layout1 = ({
@@ -16,20 +14,16 @@ export const Layout1 = ({
       <div className="col-span-1 order-1"><RatioContaner variant={variant}>
         {image1 && <Image src={image1.src} alt="meraki wedding planners" objectPosition="center center"></Image>}
       </RatioContaner></div>
-      <XS>
-        {() => <div className="col-span-2 md:col-span-1 order-2 md:order-1">
-          <RatioContaner variant="square">
-            {image2 && <Image src={image2.src} alt="meraki wedding planners" objectPosition="center center"></Image>}
-          </RatioContaner>
-        </div>}
-      </XS>
-      <LG>
-        {() => <div className="col-span-2 md:col-span-1 order-2 md:order-1">
-          <RatioContaner variant={variant}>
-            {image2 && <Image src={image2.src} alt="meraki wedding planners" objectPosition="center center"></Image>}
-          </RatioContaner>
-        </div>}
-      </LG>
+      <div className="col-span-2 md:col-span-1 order-2 md:order-1 lg:hidden">
+        <RatioContaner variant="square">
+          {image2 && <Image src={image2.src} alt="meraki wedding planners" objectPosition="center center"></Image>}
+        </RatioContaner>
+      </div>
+      <div className="col-span-2 md:col-span-1 order-2 md:order-1 hidden lg:grid">
+        <RatioContaner variant={variant}>
+          {image2 && <Image src={image2.src} alt="meraki wedding planners" objectPosition="center center"></Image>}
+        </RatioContaner>
+      </div>
       <div className="col-span-1 order-1"><RatioContaner variant={variant}>
         {image3 && <Image src={image3.src} alt="meraki wedding planners" objectPosition="center center"></Image>}
       </RatioContaner></div>
