@@ -1,7 +1,6 @@
 
 import { fetcher, getAppInfo } from "@lib/app";
 import GalleryDetail from "@templates/galleryDetail/GalleryDetail";
-import get from "lodash.get";
 const createPageId = router => {
   return `/gallery/${router.query.slug}`
 }
@@ -52,19 +51,25 @@ export async function getStaticProps(config) {
     revalidate: 60
   }
 }
+// export async function getStaticPaths({ locales }) {
+//   const { app = {} } = await getAppInfo({ locale: "en" })
+//   const gallery = get(app, 'data.gallery', [])
+//   return {
+//     paths: locales
+//       ? locales.reduce((arr, locale) => {
+//         // Add a product path for every locale
+//         gallery.forEach((item) => {
+//           arr.push(`/${locale}${item.url}`)
+//         })
+//         return arr
+//       }, [])
+//       : gallery.map((item) => `${item.url}`),
+//     fallback: 'blocking',
+//   }
+// }
 export async function getStaticPaths({ locales }) {
-  const { app = {} } = await getAppInfo({ locale: "en" })
-  const gallery = get(app, 'data.gallery', [])
   return {
-    paths: locales
-      ? locales.reduce((arr, locale) => {
-        // Add a product path for every locale
-        gallery.forEach((item) => {
-          arr.push(`/${locale}${item.url}`)
-        })
-        return arr
-      }, [])
-      : gallery.map((item) => `${item.url}`),
-    fallback: 'blocking',
+    paths: [],
+    fallback: true,
   }
 }
