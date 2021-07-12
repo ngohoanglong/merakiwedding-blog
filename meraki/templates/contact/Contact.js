@@ -171,7 +171,7 @@ const Contact = ({ source, preview }) => {
   const contactRef = useRef()
   const router = useRouter()
   const { posted } = router.query
-  console.log({ posted })
+  // console.log({ posted })
   const [hidePosted, setHidePosted] = useState(false)
   useEffect(() => {
     if (posted) {

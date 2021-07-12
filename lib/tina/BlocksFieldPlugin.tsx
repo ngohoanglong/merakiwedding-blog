@@ -125,9 +125,9 @@ const Blocks = ({
   )
 
   const items = input.value || []
-  console.log('BlocksFieldPlugin', {
-    items,
-  })
+  // console.log('BlocksFieldPlugin', {
+  //   items,
+  // })
   const [visible, setVisible] =
     React.useState(false)
   return (

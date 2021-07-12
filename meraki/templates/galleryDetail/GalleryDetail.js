@@ -11,10 +11,10 @@ export const Blocks = ({ blocks, placeholder = null }) => {
   const { get } = useSource()
   const data = get('data.blocks') || []
   if (data.length < 1) return placeholder;
-  console.log({ data })
+  // console.log({ data })
   return data && data.map
     ? data.map(function (block, i) {
-      console.log({ block, component: blocks[block._template] })
+      // console.log({ block, component: blocks[block._template] })
       const BlockComponent = blocks[block._template]
         ? blocks[block._template]
         : null;

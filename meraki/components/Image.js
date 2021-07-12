@@ -48,7 +48,7 @@ export const Image = ({ src, alt = "", variant, priority = 100, placeholder = "b
   return (
     <NextImage
       key={src}
-      loader={enable ? variant !== "cover" ? strapiLoader : coverLoader : undefined}
+      // loader={enable ? variant !== "cover" ? strapiLoader : coverLoader : undefined}
       layout="fill"
       src={src && src || '/logo.png'}
       alt={alt || 'Meraki Image'}

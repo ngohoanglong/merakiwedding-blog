@@ -35,7 +35,7 @@ const Blocks = () => {
     <div className="flex flex-col">
       {
         get('data.blocks', []).map((item = {}, i) => {
-          console.log(item)
+          // console.log(item)
           return <div key={i} className=" relative">
             <div className="lg:w-6/12 max-w-md mx-auto space-y-12 lg:px-12 lg:py-24">
               <h2 className="text-6xl text-center font-garamond italic ">{item.title}</h2>
