@@ -49,11 +49,13 @@ const Blocks = () => {
     <div className="h-20" />
   </div>
 }
+
 const Blog = ({ source, preview }) => {
   return <SourceProvider source={{
     en: source
   }}>
     <Layout preview={preview}>
+      <FixFooterBackgroundColor />
       <Head>
         <title>Meraki wedding planner - Blog</title>
       </Head>

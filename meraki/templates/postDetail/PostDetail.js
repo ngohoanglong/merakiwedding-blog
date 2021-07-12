@@ -7,7 +7,15 @@ import { Image } from "meraki/components/Image";
 import LoadingDots from "meraki/components/LoadingDots";
 import Head from "next/head";
 import { useRouter } from "next/router";
-
+const FixFooterBackgroundColor = () => <style>
+  {
+    `
+      footer{
+        background:transparent!important
+      }
+    `
+  }
+</style>
 const PostDetail = ({ source, preview }) => {
   const post = get(source, 'post', {})
   const router = useRouter()
@@ -15,6 +23,7 @@ const PostDetail = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <FixFooterBackgroundColor />
       <div className="max-w-6xl px-2 lg:px-0 mx-auto">
         {router.isFallback ? (
           <div className="fixed inset-0 flex justify-center items-center"><LoadingDots /></div>
