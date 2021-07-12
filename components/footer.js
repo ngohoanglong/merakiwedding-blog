@@ -20,7 +20,7 @@ export default function Footer() {
       </div>
       <div className="text-center leading-relaxed lg:hidden">
         <div className="uppercase">{get('app.data.name', 'Meraki Wedding Planner')}</div>
-        <div className="">{get('app.data.address', '353/2 Nguyen Trai, Distric 1, HCMC')}</div>
+        <div className="">{get('app.data.address', '353/2 Nguyen Trai, District 1, HCMC')}</div>
       </div>
       <div className="flex justify-center lg:hidden">
         <Link href="/contact">
