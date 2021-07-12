@@ -19,17 +19,15 @@ const Intro = () => {
   return <>
     <XS>
       {
-        (get) => <div className="relative text-element-2">
+        (get) => <div className="relative w-screen h-screen text-element-2">
           <IntroSlider >
             {Array.from(get('IntroSlider.items', []), ({ src, alt }, i) => (
               <div
                 key={i}
-                className="w-full relative h-screen"
+                className="w-screen relative h-screen"
               >
                 <div className="absolute inset-0">
                   <Image
-                    placeholder={false}
-                    priority={i === 0}
                     variant="cover"
                     src={src}
                     alt={alt}
@@ -52,17 +50,15 @@ const Intro = () => {
     </XS>
     <LG>
       {
-        (get) => <div className="relative text-element-2">
+        (get) => <div className="relative w-screen h-screen text-element-2">
           <IntroSlider >
             {Array.from(get('IntroSlider.items', []), ({ src, alt }, i) => (
               <div
                 key={i}
-                className="w-full relative h-screen"
+                className="w-screen relative h-screen"
               >
                 <div className="absolute inset-0">
                   <Image
-                    placeholder={false}
-                    priority={i === 0}
                     variant="cover"
                     src={src}
                     alt={alt}
@@ -534,7 +530,7 @@ export default function Home({ source }) {
       }
     }>
       <Layout>
-        <div className="-mt-header">
+        <div className="-mt-header w-full">
           <div className="bg-element-3">
             <Intro />
           </div>

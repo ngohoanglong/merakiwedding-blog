@@ -1,4 +1,3 @@
-import { getThumb } from "@providers/tinacms/helpers";
 import NextImage from "next/image";
 const breakpoints = {
   // xlarge: 1920,
@@ -25,24 +24,22 @@ const strapiLoader = ({ src, width, quality }) => {
   if (!size) return src
   return src.replace('/uploads/', '/uploads/' + size + '_')
 }
-const coverLoader = ({ src }) => {
-  return src
-}
-export const Image = ({ src, alt = "", variant, priority = 100, placeholder = "blur", ...rest }) => {
-  let sizes = "(max-width: 400px) 300px, 800px";
-  const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/')
+
+export const Image = ({ src, alt = "Meraki wedding planner image", variant, placeholder = "blur", ...rest }) => {
+  let sizes = "(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)";
+  // const enable = src && src.includes('strapi.merakiweddingplanner.com/uploads/')
   switch (variant) {
     case 'cover':
-      sizes = "(max-width: 400px) 800px, 1400px";
+      sizes = "(min-width: 1100px) 100vw, 100vw";
       break;
     case 'card':
-      sizes = "(max-width: 400px) 400px, 400px";
+      sizes = "(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)";
       break;
     case 'card-large':
-      sizes = "(max-width: 400px) 400px, 800px";
+      sizes = "(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)";
       break;
     default:
-      sizes = "(max-width: 400px) 800px, 800px";
+      sizes = "(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)";
       break;
   }
   return (
@@ -54,9 +51,9 @@ export const Image = ({ src, alt = "", variant, priority = 100, placeholder = "b
       alt={alt || 'Meraki Image'}
       sizes={sizes}
       placeholder={src && placeholder}
-      blurDataURL={placeholder && getThumb(src)}
-      priority={priority}
+      blurDataURL={placeholder && "/bg_blog.png"}
       objectFit="cover"
+      quality={85}
       objectPosition="bottom center"
       {...rest} />
   );
