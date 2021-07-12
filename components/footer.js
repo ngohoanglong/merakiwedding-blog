@@ -21,6 +21,7 @@ export default function Footer() {
       <div className="text-center leading-relaxed lg:hidden ">
         <div className="uppercase">{get('app.data.name', 'Meraki Wedding Planner')}</div>
         <div className="">{get('app.data.address', '353/2 Nguyen Trai, District 1, HCMC')}</div>
+        <a href={"mailto:" + get('app.data.email', 'info@merakiweddingplanner.com')} className="">{get('app.data.email', 'info@merakiweddingplanner.com')}</a>
       </div>
       <div className="flex justify-center lg:hidden ">
         <Link href="/contact">
@@ -35,6 +36,6 @@ export default function Footer() {
           </div >
         </div>
       </Container>
-    </footer>
+    </footer >
   )
 }
