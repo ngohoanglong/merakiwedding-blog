@@ -11,11 +11,13 @@ const Cover = () => {
   return <div style={{ backgroundColor: '#61684b' }} className="min-h-screen relative -mt-header  pt-header">
     <Container >
       <div className="flex lg:space-x-20  py-6 lg:py-6 lg:pb-12 items-center mx-auto max-w-5xl">
-        <div className="hidden lg:flex relative w-1/3">
-          <div style={{
-            paddingTop: `${2048 / 1400 * 100}%`
-          }}></div>
-          {get('data.images', [])[0] && <Image {...get('data.images', [])[0]} />}
+        <div className="hidden lg:flex relative w-1/3 pt-[88px]">
+          <div className="w-full h-full relative">
+            <div style={{
+              paddingTop: `${2048 / 1400 * 100}%`
+            }}></div>
+            {get('data.images', [])[0] && <Image {...get('data.images', [])[0]} />}
+          </div>
         </div>
         <div className="flex flex-1 flex-col text-center lg:text-left  h-full">
           <div className=" text-white lg:text-element-5 space-y-6 lg:space-y-10">
