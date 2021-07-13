@@ -1,4 +1,4 @@
-import { getAllPostsWithSlug, getPostAndMorePosts } from '@lib/api'
+import { getPostAndMorePosts } from '@lib/api'
 import { fetcher, getAppInfo } from "@lib/app"
 import PostDetail from '@templates/postDetail/PostDetail'
 
@@ -59,11 +59,9 @@ export async function getStaticProps(config) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
-
   return {
-    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
-    fallback: true,
+    paths: [],
+    fallback: 'blocking',
   }
 }
 
