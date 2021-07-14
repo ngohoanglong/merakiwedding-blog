@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { HOME_OG_IMAGE_URL } from '../lib/constants'
 
 export default function Meta() {
   return (
@@ -28,7 +27,7 @@ export default function Meta() {
         name="description"
         content={`DESTINATION WEDDING PLANNER in Vietnam Independence &#8211; Attentiveness &#8211; Dedication Every wedding crafted by Meraki is an unique experience that was delivered beautifully our Gallery Browse our weddings for tips and inspiration. From Ha Long Bay to Ho Chi Minh city, let us inspire you Mai &#038; Chris Phong &#038; Hoang Tess &#038; Andy Lucia &#038; &hellip; Home Read More &raquo;`}
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:image" content={"/home/banner/banner-1.jpg"} />
     </Head>
   )
 }
