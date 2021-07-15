@@ -15,7 +15,7 @@ const description = `DESTINATION WEDDING IN VIETNAM Meraki [may-rah-kee]: in Gre
 
 const defaultSeo = {
   "title": title,
-  "titleTemplate": "Meraki Wedding Planner | Destination Wedding Planner in Vietnam - %s",
+  "titleTemplate": "Meraki Wedding Planner | Destination Wedding Planner in Vietnam | %s",
   "description": description,
   "openGraph": {
     title,
