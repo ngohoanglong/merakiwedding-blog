@@ -13,6 +13,7 @@ const FixFooterBackgroundColor = () => <style>
       footer{
         background:transparent!important
       }
+      
     `
   }
 </style>
@@ -44,15 +45,19 @@ const PostDetail = ({ source, preview }) => {
                 <link rel='stylesheet' id='elementor-frontend-legacy-css' href='https://merakiweddingplanner.com/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css?ver=3.2.4' media='all' />
                 <link rel='stylesheet' id='elementor-frontend-css' href='https://merakiweddingplanner.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.4' media='all' />
                 <link rel='stylesheet' id={`elementor-post-` + post.databaseId + `-css`} href={`https://merakiweddingplanner.com/wp-content/uploads/elementor/css/post-` + post.databaseId + `.css?ver=1625218922`} media='all' />
+                <link rel='stylesheet' href={`https://merakiweddingplanner.com/wp-content/uploads/elementor/css/post-6343.css?ver=1626326961`} media='all' />
+
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap" rel="stylesheet"></link>
                 <style>
                   {
                     `
                       .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
                         color: #3a3a3a;
-                    }
+                      }
                     `
                   }
                 </style>
@@ -62,7 +67,7 @@ const PostDetail = ({ source, preview }) => {
               </div>
               <div className=" pb-12 lg:py-12 lg:pb-32">
                 <div>
-                  <div className="py-6 bg-white rounded lg:py-24 ">
+                  <div className="py-6 bg-white rounded lg:py-24 elementor-kit-6343">
                     <PostBody content={post.content} />
                   </div>
                 </div>
