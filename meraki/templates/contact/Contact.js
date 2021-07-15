@@ -5,9 +5,11 @@ import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import { default as classNames, default as classnames } from 'classnames';
+import { contactSeo } from "data/seo";
 import get from "lodash.get";
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
+import Seo from "meraki/components/Seo";
 import { XS } from "meraki/components/XS";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -196,6 +198,7 @@ const Contact = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <Seo {...contactSeo} />
       {posted && !hidePosted && <div className="fixed z-50 inset-0 bg-black bg-opacity-70 p-12 flex flex-col items-center justify-center space-y-6">
         <div className='bg-white p-12 max-w-prose w-full flex flex-col items-center justify-center space-y-6 text-center'>
           <div className="text-3xl font-kinfolk">{get(source, 'data.successModal.title', 'Thank you')}</div>

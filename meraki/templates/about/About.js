@@ -4,7 +4,9 @@ import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createFields, createImageFields } from "@providers/tinacms/helpers";
 import defaultData from '@templates/about/data';
+import { aboutSeo } from "data/seo";
 import { Image } from "meraki/components/Image";
+import Seo from "meraki/components/Seo";
 
 const Cover = () => {
   const { get } = useSource()
@@ -98,6 +100,7 @@ const About = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <Seo {...aboutSeo} />
       <Cover />
       <Blocks />
       <div className="h-24" />

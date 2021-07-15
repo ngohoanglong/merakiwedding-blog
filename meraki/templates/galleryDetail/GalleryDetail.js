@@ -2,7 +2,9 @@
 import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createScreenGroup } from "@providers/tinacms/helpers";
+import { createGalleryDetailSeo } from "data/seo";
 import { LG } from "meraki/components/LG";
+import Seo from "meraki/components/Seo";
 import { XS } from "meraki/components/XS";
 import { PAGE_BLOCKS, PAGE_BLOCK_TEMPLATES } from "./blocks";
 import Banner, { banner_template } from "./blocks/Banner";
@@ -27,6 +29,7 @@ const GalleryDetail = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <Seo {...createGalleryDetailSeo(source)} />
       <>
         <XS>
           {

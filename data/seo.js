@@ -8,9 +8,12 @@
 // Contact: Meraki Wedding Planner | Destination Wedding Planner in Vietnam | Contact
 // Service: Meraki Wedding Planner | Destination Wedding Planner in Vietnam | Service
 
+import get from "lodash.get"
+
 const title = "Meraki Wedding Planner | Destination Wedding Planner in Vietnam"
 const description = `DESTINATION WEDDING IN VIETNAM Meraki [may-rah-kee]: in Greek means doing something with soul, creativity and love; to put something of yourself into your work.`
-export default {
+
+const defaultSeo = {
   "title": title,
   "titleTemplate": "Meraki Wedding Planner | Destination Wedding Planner in Vietnam - %s",
   "description": description,
@@ -31,3 +34,37 @@ export default {
     ]
   }
 }
+
+export const blogSeo = {
+  title: "Blog"
+}
+
+export const gallerySeo = {
+  title: "Journal"
+}
+
+export const galleryDetailSeo = {
+  title: 'data.banner.xs.subTitle'
+}
+export const createGalleryDetailSeo = source => {
+  const title = get(source, 'data.banner.xs.subTitle')
+  return ({
+    title,
+    "openGraph": {
+      title,
+      "images": [
+        {
+          "url": get(source, 'data.banner.xs.image.src'),
+          "width": 800,
+          "height": 600,
+          "alt": title
+        }
+      ]
+    }
+  })
+}
+export const aboutSeo = { title: "About Us" }
+export const kindWordsSeo = { title: "Kind Words" }
+export const contactSeo = { title: "Contact" }
+export const serviceSeo = { title: "Service" }
+export default defaultSeo
