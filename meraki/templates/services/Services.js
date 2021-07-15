@@ -4,7 +4,9 @@ import SourceProvider, { useSource } from "@providers/source";
 import { createFields, createImageFieldConfig, createImageFields } from "@providers/tinacms/helpers";
 import { Contact } from "@sections/Contact";
 import defaultData from '@templates/services/data';
+import { serviceSeo } from "data/seo";
 import { Image } from "meraki/components/Image";
+import Seo from "meraki/components/Seo";
 const Cover = () => {
   const { get } = useSource()
   return <div className="min min-h-screen relative -mt-header ">
@@ -71,6 +73,7 @@ const Services = ({ source, preview }) => {
     { en: source }
   }>
     <Layout preview={preview}>
+      <Seo {...serviceSeo} />
       <Cover />
       <div className="h-24 lg:hidden" />
       <Blocks />

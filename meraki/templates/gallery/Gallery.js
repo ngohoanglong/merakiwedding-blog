@@ -3,9 +3,11 @@ import Container from "@components/container";
 import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createImageFieldConfig } from "@providers/tinacms/helpers";
+import { gallerySeo } from "data/seo";
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
 import ListGallery from "meraki/components/ListGallery";
+import Seo from "meraki/components/Seo";
 import { XS } from "meraki/components/XS";
 const Cover = () => {
   return <div style={{ backgroundColor: '#e8e5dd' }} className=" -mt-header pt-header lg:pt-0 pb-14 flex justify-center flex-col relative items-center">
@@ -107,6 +109,7 @@ const Gallery = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <Seo {...gallerySeo} />
       <Cover />
       <Blocks />
     </Layout>

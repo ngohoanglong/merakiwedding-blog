@@ -4,8 +4,10 @@ import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createFields, createImageFieldConfig } from "@providers/tinacms/helpers";
 import classNames from 'classnames';
+import { kindWordsSeo } from "data/seo";
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
+import Seo from "meraki/components/Seo";
 import { XS } from "meraki/components/XS";
 const Cover = () => {
   const { get } = useSource()
@@ -101,6 +103,7 @@ const KindWords = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+      <Seo {...kindWordsSeo} />
       <Cover />
       <Blocks />
     </Layout>
