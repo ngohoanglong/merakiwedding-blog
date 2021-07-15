@@ -26,7 +26,7 @@ const defaultSeo = {
     "site_name": title,
     "images": [
       {
-        "url": "https://merakiweddingplanner.com/image.jpg",
+        "url": "https://merakiweddingplanner.com/image2.jpg",
         "width": 800,
         "height": 600,
         "alt": title
