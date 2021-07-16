@@ -46,12 +46,13 @@ export const gallerySeo = {
 export const galleryDetailSeo = {
   title: 'data.banner.xs.subTitle'
 }
-export const createGalleryDetailSeo = source => {
+export const createGalleryDetailSeo = (source, router) => {
   const title = get(source, 'data.banner.xs.subTitle')
   return ({
     title,
     "openGraph": {
       title,
+      url: 'https://merakiweddingplanner.com/gallery/' + get(router, 'query.slug'),
       "images": [
         {
           "url": get(source, 'data.banner.xs.image.src'),

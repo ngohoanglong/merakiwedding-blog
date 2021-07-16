@@ -6,6 +6,7 @@ import { createGalleryDetailSeo } from "data/seo";
 import { LG } from "meraki/components/LG";
 import Seo from "meraki/components/Seo";
 import { XS } from "meraki/components/XS";
+import { useRouter } from "next/router";
 import { PAGE_BLOCKS, PAGE_BLOCK_TEMPLATES } from "./blocks";
 import Banner, { banner_template } from "./blocks/Banner";
 
@@ -25,11 +26,12 @@ export const Blocks = ({ blocks, placeholder = null }) => {
     : null;
 };
 const GalleryDetail = ({ source, preview }) => {
+  const router = useRouter()
   return <SourceProvider source={{
     en: source
   }}>
     <Layout preview={preview}>
-      <Seo {...createGalleryDetailSeo(source)} />
+      <Seo {...createGalleryDetailSeo(source, router)} />
       <>
         <XS>
           {
