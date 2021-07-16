@@ -19,5 +19,6 @@ module.exports = {
     BASE_BRANCH:
       process.env.BASE_BRANCH,
     STRAPI_URL: process.env.STRAPI_URL,
+    HOST: process.env.HOST
   },
 }
