@@ -5,6 +5,7 @@ import SourceProvider from "@providers/source";
 import get from "lodash.get";
 import { Image } from "meraki/components/Image";
 import LoadingDots from "meraki/components/LoadingDots";
+import Seo from "meraki/components/Seo";
 import Head from "next/head";
 import { useRouter } from "next/router";
 const FixFooterBackgroundColor = () => <style>
@@ -24,6 +25,7 @@ const PostDetail = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
+
       <FixFooterBackgroundColor />
       <div className="max-w-6xl px-2 lg:px-0 mx-auto">
         {router.isFallback ? (
@@ -31,14 +33,23 @@ const PostDetail = ({ source, preview }) => {
         ) : (
           <>
             <article>
+              <Seo title={
+                post.title
+              }
+                openGraph={{
+                  title: post.title,
+                  url: 'https://merakiweddingplanner.com/posts/' + get(router, 'query.slug'),
+                  "images": [
+                    {
+                      "url": post.featuredImage?.node?.sourceUrl,
+                      "width": 800,
+                      "height": 600,
+                      "alt": post.title
+                    }
+                  ]
+                }}
+              />
               <Head>
-                <title>
-                  {post.title}
-                </title>
-                <meta
-                  property="og:image"
-                  content={post.featuredImage?.node?.sourceUrl}
-                />
                 <link rel='stylesheet' id='elementor-icons-css' href='https://merakiweddingplanner.com/wp-content/themes/astra/assets/css/minified/style.min.css?ver=3.4.8' media='all' />
                 <link rel='stylesheet' id='elementor-icons-css' href='https://merakiweddingplanner.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.11.0' media='all' />
                 <link rel='stylesheet' id='elementor-animations-css' href='https://merakiweddingplanner.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.2.4' media='all' />
