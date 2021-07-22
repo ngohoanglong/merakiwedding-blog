@@ -64,7 +64,6 @@ export default function Layout({ children }) {
             .font-kinfolk{
               font-family:Kinfolk-Vi, Times New Roman!important;
               text-transform:uppercase;
-              word-spacing: 0.2em;
             }
             .font-sweetsans{
               font-weight:500;
