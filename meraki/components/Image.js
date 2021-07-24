@@ -1,5 +1,5 @@
-import { getThumb } from '@providers/tinacms/helpers'
-import NextImage from 'next/image'
+import { getThumb } from '@providers/tinacms/helpers';
+import NextImage from 'next/image';
 const breakpoints = {
   // xlarge: 1920,
   large: 1600,
@@ -7,6 +7,15 @@ const breakpoints = {
   small: 500,
   // xsmall: 64
 }
+
+const myLoader = ({ src, width, quality }) => {
+  if (src.indexOf('strapi.merakiweddingplanner') !== -1) {
+    return `https://merakiwp.imgix.net/${src.replace('https://strapi.merakiweddingplanner.com/uploads/', '')}?w=${width}`;
+  } else {
+    return `/_next/image?url=${src}&w=${width}&q=${quality || 80}`
+  }
+}
+
 // const strapiLoader = ({ src, width, quality }) => {
 
 //   let size
@@ -51,7 +60,7 @@ export const Image = ({
       break
     case 'card-large':
       sizes =
-        '(max-width: 384px) 400px,(max-width: px) 500px,(max-width: 1200px) 960px, 960px'
+        '(max-width: 384px) 400px,(max-width: px) 500px,(max-width: 1400px) 960px, 960px'
       break
     default:
       sizes =
@@ -61,7 +70,7 @@ export const Image = ({
   return (
     <NextImage
       key={src}
-      // loader={enable ? strapiLoader : undefined}
+      loader={myLoader}
       layout="fill"
       src={(src && src) || '/logo.png'}
       alt={alt || 'Meraki Image'}
