@@ -10,7 +10,8 @@ const breakpoints = {
 
 const myLoader = ({ src, width, quality }) => {
   if (src.indexOf('strapi.merakiweddingplanner') !== -1) {
-    return `https://merakiwp.imgix.net/${src.replace('https://strapi.merakiweddingplanner.com/uploads/', '')}?w=${width}`;
+    const connect = src.indexOf('?') === -1 ? '?' : '&';
+    return `https://merakiwp.imgix.net/${src.replace('https://strapi.merakiweddingplanner.com/uploads/', '')}${connect}w=${width}`;
   } else {
     return `/_next/image?url=${src}&w=${width}&q=${quality || 80}`
   }
@@ -79,6 +80,7 @@ export const Image = ({
       blurDataURL={
         placeholder && getThumb(src)
       }
+      quality="80"
       objectFit="cover"
       objectPosition="bottom center"
       {...rest}

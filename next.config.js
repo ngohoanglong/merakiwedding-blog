@@ -8,6 +8,7 @@ module.exports = {
     domains: [
       'merakiweddingplanner.com',
       'strapi.merakiweddingplanner.com',
+      'merakiwp.imgix.net'
     ],
     deviceSizes: [640, 828, 1200, 1920],
   },
