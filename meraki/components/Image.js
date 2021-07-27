@@ -8,8 +8,9 @@ const breakpoints = {
   // xsmall: 64
 }
 
+// @todo replace the url to the one on env
 const myLoader = ({ src, width, quality }) => {
-  if (src.indexOf('strapi.merakiweddingplanner') !== -1) {
+  if (src.indexOf('strapi.merakiweddingplanner') !== -1 && src.indexOf('.png') === -1) {
     const connect = src.indexOf('?') === -1 ? '?' : '&';
     return `https://merakiwp.imgix.net/${src.replace('https://strapi.merakiweddingplanner.com/uploads/', '')}${connect}w=${width}`;
   } else {
