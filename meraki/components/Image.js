@@ -10,10 +10,8 @@ const breakpoints = {
 
 // @todo replace the url to the one on env
 const myLoader = ({ src, width, quality }) => {
-  return `/_next/image?url=${src}&w=${width}&q=${quality || 80}`
-  if (src.indexOf('strapi.merakiweddingplanner') !== -1 && src.indexOf('.png') === -1) {
-    const connect = src.indexOf('?') === -1 ? '?' : '&';
-    return `https://merakiwp.imgix.net/${src.replace('https://strapi.merakiweddingplanner.com/uploads/', '')}${connect}w=${width}`;
+  if (src.indexOf('strapi.merakiweddingplanner') !== -1 || (src.indexOf('wp-content') !== -1)) {
+    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_${width}/${src.replace('https://strapi.merakiweddingplanner.com/', '')}`;
   } else {
     return `/_next/image?url=${src}&w=${width}&q=${quality || 80}`
   }
