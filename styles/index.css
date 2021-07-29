@@ -173,3 +173,7 @@ p {
   font-weight: normal;
   -webkit-text-stroke-width: 0.01em;
 }
+b,
+strong {
+  font-weight: bold;
+}
