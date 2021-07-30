@@ -122,7 +122,7 @@ const PostDetail = ({
                     crossOrigin
                   />
                   <link
-                    href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap"
                     rel="stylesheet"
                   />
                   <link
@@ -135,6 +135,9 @@ const PostDetail = ({
                     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap"
                     rel="stylesheet"
                   />
+                  <link
+                    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+                    rel="stylesheet"></link>
                   <style>
                     {`
                       .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
