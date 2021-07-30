@@ -141,6 +141,12 @@ const PostDetail = ({
                   <link
                     href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
                     rel="stylesheet"></link>
+                  <link
+                    href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+                    rel="stylesheet"></link>
+                  <link
+                    href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+                    rel="stylesheet"></link>
                   <style>
                     {`
                       .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
