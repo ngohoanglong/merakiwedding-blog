@@ -4,7 +4,7 @@
   "scss.validate": false,
   "editor.tabSize": 2,
   "editor.foldingStrategy": "indentation",
-  "prettier.printWidth": 40,
+  "prettier.printWidth": 80,
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.jsxBracketSameLine": true,
