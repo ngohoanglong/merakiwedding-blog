@@ -1,6 +1,10 @@
 import Layout from '@components/layout'
 import PostBody from '@components/post-body'
 import SourceProvider from '@providers/source'
+import {
+  createNewsArticleJsonLdSeo,
+  createPostDetailSeo,
+} from 'data/seo'
 import get from 'lodash.get'
 import { Image } from 'meraki/components/Image'
 import LoadingDots from 'meraki/components/LoadingDots'
@@ -39,28 +43,18 @@ const PostDetail = ({
             <>
               <article>
                 <Seo
-                  title={post.title}
-                  openGraph={{
-                    title: post.title,
-                    url:
-                      'https://merakiweddingplanner.com/posts/' +
-                      get(
-                        router,
-                        'query.slug'
-                      ),
-                    images: [
-                      {
-                        url: post
-                          .featuredImage
-                          ?.node
-                          ?.sourceUrl,
-                        width: 800,
-                        height: 600,
-                        alt: post.title,
-                      },
-                    ],
-                  }}
+                  {...createPostDetailSeo(
+                    source,
+                    router
+                  )}
                 />
+                <script type="application/ld+json">
+                  {createNewsArticleJsonLdSeo(
+                    source,
+                    router
+                  )}
+                </script>
+
                 <Head>
                   <link
                     rel="stylesheet"
