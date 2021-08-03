@@ -60,8 +60,8 @@ export const getServerSideProps = async ({res}) => {
         return `
             <url>
               <loc>${baseUrl}/posts/${node.slug}</loc>
-              <lastmod>${new Date().toISOString()}</lastmod>
-              <changefreq>monthly</changefreq>
+              <lastmod>2021-08-03T03:30:45.055Z</lastmod>
+              <changefreq>never</changefreq>
               <priority>1.0</priority>
             </url>
           `;
