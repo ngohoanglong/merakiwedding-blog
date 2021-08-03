@@ -1,4 +1,4 @@
-import { fetcher, getAppInfo } from '@lib/app'
+import { getAppInfo, getSeoApi, updateSeoApi } from '@lib/app'
 import { useLocal } from '@providers/local'
 import AppConfig from 'meraki/AppConfig'
 import LoadingDots from 'meraki/components/LoadingDots'
@@ -7,40 +7,13 @@ import { useEffect, useState } from 'react'
 import { useCMS, useForm, usePlugin } from 'tinacms'
 import BuilderProvider from '.'
 import { createFields } from './helpers'
-const updateSeoApi = async (variables, router) => {
-  let pageId = 'seo:' + router.asPath
-  const createPageMutation = `
-      mutation createPage(
-            $data: JSON
-            $title:String
-            $pageId:String
-            $locale:String
-        ) {
-          createPage(input: {data: {data: $data locale:$locale title:$title pageId:$pageId} } ) {
-                page{
-                  id
-                  title
-                  data
-                  pageId
-                  locale
-                }
-            }
-      }`
-  return await fetcher({
-    query: createPageMutation,
-    variables: {
-      ...variables,
-      title: pageId,
-      pageId,
-      locale: router.locale,
-    },
-  })
-}
-const SeoConfig = ({ seo, id }) => {
+
+const SeoForm = ({ seo, id }) => {
+  const cms = useCMS()
   const { local } = useLocal()
   const router = useRouter()
   const formConfig = {
-    id: 'seo:' + id,
+    id: id,
     label: `Seo (${local})`,
     initialValues: seo,
     onSubmit: async (values) => {
@@ -50,7 +23,8 @@ const SeoConfig = ({ seo, id }) => {
             data: values,
             locale: local,
           },
-          router
+          router,
+          id
         )
         if (response) {
           cms.alerts.success('Changes Saved')
@@ -68,6 +42,53 @@ const SeoConfig = ({ seo, id }) => {
   const [formdata, form] = useForm(formConfig)
   usePlugin(form)
   return null
+}
+const SeoConfig = ({ id, getPageInfo = getSeoApi, ...props }) => {
+  const router = useRouter()
+  const [update, setUpdate] = useState()
+  const [data, setSetData] = useState({})
+  const [isloading, setLoading] = useState()
+  useEffect(() => {
+    if (update) {
+      return
+    }
+    let visible = true
+    const getData = async () => {
+      let data = {}
+      if (getPageInfo) {
+        const pageInfo = await getPageInfo({
+          locale: router.locale,
+          router,
+          id,
+        })
+        data = pageInfo?.data
+        if (typeof data === 'string') {
+          data = JSON.parse(data)
+        }
+      }
+      return {
+        data,
+      }
+    }
+    setLoading(true)
+    getData()
+      .then((data) => {
+        if (visible) {
+          setSetData(data)
+          setUpdate(Date.now())
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+    return () => {
+      visible = false
+    }
+  }, [router, getPageInfo, update])
+  return <>{update && <SeoForm id={id} seo={data.data} />}</>
 }
 export const withBuilderForm =
   ({ displayName, id, label, template, createPageId, getPageInfo, onSubmit }) =>

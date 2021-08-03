@@ -1,15 +1,11 @@
-
-import { fetcher, getAppInfo } from "@lib/app";
-import GalleryDetail from "@templates/galleryDetail/GalleryDetail";
-const createPageId = router => {
+import { fetcher, getAppInfo, getSeoApi } from '@lib/app'
+import GalleryDetail from '@templates/galleryDetail/GalleryDetail'
+const createPageId = (router) => {
   return `/gallery/${router.query.slug}`
 }
-const getPageInfo = async ({
-  locale, router
-}) => {
-  const { pages } = await fetcher(
-    {
-      query: `
+const getPageInfo = async ({ locale, id }) => {
+  const { pages } = await fetcher({
+    query: `
         query getPageInfo($locale:String $pageId:String ){
           pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
             data
@@ -17,25 +13,39 @@ const getPageInfo = async ({
              pageId
           }
         }
-      `
-      , variables: {
-        locale,
-        pageId: createPageId(router)
-      }
-    }
-  )
+      `,
+    variables: {
+      locale,
+      pageId: id,
+    },
+  })
   return pages && pages[0]
 }
 export default GalleryDetail
 export async function getStaticProps(config) {
+  const id = createPageId({
+    query: {
+      slug: config?.params?.slug,
+    },
+  })
   const { galleries, app } = await getAppInfo(config)
+  const seo =
+    (await getSeoApi({
+      id,
+      router: {
+        query: {
+          slug: config?.params?.slug,
+        },
+      },
+    })) || {}
   const result = await getPageInfo({
     ...config,
     router: {
       query: {
-        slug: config?.params?.slug
-      }
-    }
+        slug: config?.params?.slug,
+      },
+    },
+    id,
   })
   let pageData = result?.data || {}
   if (typeof pageData === 'string') {
@@ -45,10 +55,13 @@ export async function getStaticProps(config) {
   return {
     props: {
       source: {
-        galleries, app, data: pageData
-      }
+        galleries,
+        app,
+        data: pageData,
+        seo,
+      },
     },
-    revalidate: 60
+    revalidate: 60,
   }
 }
 // export async function getStaticPaths({ locales }) {
