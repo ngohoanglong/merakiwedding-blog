@@ -1,22 +1,21 @@
-import { getPostAndMorePosts } from '@lib/api';
-import { fetcher, getAppInfo } from "@lib/app";
-import { withBuilderForm } from "@providers/tinacms/withBuilderForm";
-import PostDetail, { postDetail_template } from "@templates/postDetail/PostDetail";
+import { getPostAndMorePosts } from '@lib/api'
+import { fetcher, getAppInfo } from '@lib/app'
+import { withBuilderForm } from '@providers/tinacms/withBuilderForm'
+import PostDetail, {
+  postDetail_template,
+} from '@templates/postDetail/PostDetail'
 
-const createPageId = router => {
-  return `/post/[slug]`
+const createPageId = (router) => {
+  return `/post/${router.query.slug}`
 }
 export default withBuilderForm({
   label: 'post detail',
   displayName: 'Post detail',
   createPageId,
-  getPageInfo: async ({
-    router
-  }) => {
+  getPageInfo: async ({ router }) => {
     let result
-    const { pages } = await fetcher(
-      {
-        query: `
+    const { pages } = await fetcher({
+      query: `
           query getPageInfo($locale:String $pageId:String ){
             pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
               data
@@ -24,13 +23,12 @@ export default withBuilderForm({
                pageId
             }
           }
-        `
-        , variables: {
-          locale: "en",
-          pageId: createPageId(router)
-        }
-      }
-    )
+        `,
+      variables: {
+        locale: 'en',
+        pageId: createPageId(router),
+      },
+    })
     result = pages && pages[0]
     return result
   },
@@ -51,24 +49,21 @@ export default withBuilderForm({
                     locale
                   }
               }
-        }`;
-    return await fetcher(
-      {
-        query: createPageMutation,
-        variables: {
-          ...variables,
-          title: createPageId(router),
-          pageId: createPageId(router),
-          locale: "en"
-        }
-      }
-    );
-
+        }`
+    return await fetcher({
+      query: createPageMutation,
+      variables: {
+        ...variables,
+        title: createPageId(router),
+        pageId: createPageId(router),
+        locale: 'en',
+      },
+    })
   },
   template: postDetail_template,
 })(PostDetail)
 export async function getStaticProps(config) {
-  const { params, preview = false, previewData } = config;
+  const { params, preview = false, previewData } = config
   const data = await getPostAndMorePosts(params.slug, preview, previewData)
   const { galleries, app } = await getAppInfo(config)
   return {
@@ -77,8 +72,9 @@ export async function getStaticProps(config) {
       post: data.post,
       posts: data.posts,
       source: {
-        galleries, app
-      }
+        galleries,
+        app,
+      },
     },
   }
 }

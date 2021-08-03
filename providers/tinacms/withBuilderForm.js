@@ -141,14 +141,29 @@ export const withBuilderForm =
     }
     function Loader({ ...props }) {
       const router = useRouter()
-      const [mouted, setMouted] = useState()
+      const [ready, setReady] = useState()
+      const [pageId, setpageId] = useState()
       const [update, setUpdate] = useState()
       const [data, setSetData] = useState({})
       const [isloading, setLoading] = useState()
       const { local } = useLocal()
       useEffect(() => {
-        if (!mouted) {
-          setMouted(true)
+        if (!ready) {
+          setReady(true)
+        }
+      }, [ready])
+      useEffect(() => {
+        if (ready) {
+          console.log(router, createPageId)
+          setpageId(
+            createPageId
+              ? createPageId(router)
+              : id || router.asPath.replace('/edit', '')
+          )
+        }
+      }, [ready, router])
+      useEffect(() => {
+        if (!pageId) {
           return
         }
         let visible = true
@@ -192,10 +207,10 @@ export const withBuilderForm =
         return () => {
           visible = false
         }
-      }, [local, router, mouted])
+      }, [local, pageId, router])
       return (
         <>
-          {mouted && update && !isloading && (
+          {pageId && update && !isloading && (
             <>
               <AppConfig data={data?.app?.data}>
                 {(appData) => {
@@ -209,10 +224,10 @@ export const withBuilderForm =
                             data: appData,
                           },
                         }}
-                        id={createPageId ? createPageId(router) : id}
+                        id={pageId}
                       />
                       <SeoConfig
-                        id={createPageId ? createPageId(router) : id}
+                        id={pageId}
                         createPageId={createPageId}
                         seo={data?.app?.seo || {}}
                       />

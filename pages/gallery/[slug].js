@@ -31,6 +31,7 @@ export async function getStaticProps(config) {
   const { galleries, app } = await getAppInfo(config)
   const seo =
     (await getSeoApi({
+      ...config,
       id,
       router: {
         query: {
