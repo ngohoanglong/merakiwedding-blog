@@ -1,3 +1,4 @@
+import { Link } from 'meraki/components/Link'
 import Date from '../components/date'
 import CoverImage from './cover-image'
 
@@ -16,10 +17,10 @@ export default function PostPreview({
         <CoverImage title={title} coverImage={coverImage} href={href} />
       </div>
       <h3 className="text-xl font-sweetsans leading-snug">
-        <a href={href}
+        <Link
+          href={href}
           className="hover:underline"
-          dangerouslySetInnerHTML={{ __html: title }}
-        ></a>
+          dangerouslySetInnerHTML={{ __html: title }}></Link>
       </h3>
       <div className="mb-4 mt-2 text-sm font-garamond italic">
         <Date dateString={date} />
@@ -29,7 +30,11 @@ export default function PostPreview({
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
       <div>
-        <a href={href} className="hover:text-primary text-xl font-garamond italic">Read more »</a>
+        <Link
+          href={href}
+          className="hover:text-primary text-xl font-garamond italic">
+          Read more »
+        </Link>
       </div>
     </div>
   )
