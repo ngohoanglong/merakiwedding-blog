@@ -1,4 +1,4 @@
-import { getAppInfo } from '@lib/app'
+import { fetcher, getAppInfo } from '@lib/app'
 import { useLocal } from '@providers/local'
 import AppConfig from 'meraki/AppConfig'
 import LoadingDots from 'meraki/components/LoadingDots'
@@ -8,7 +8,7 @@ import { useCMS, useForm, usePlugin } from 'tinacms'
 import BuilderProvider from '.'
 import { createFields } from './helpers'
 const updateSeoApi = async (variables, router) => {
-  let pageId = 'seo:' + router.asPath()
+  let pageId = 'seo:' + router.asPath
   const createPageMutation = `
       mutation createPage(
             $data: JSON
@@ -30,7 +30,7 @@ const updateSeoApi = async (variables, router) => {
     query: createPageMutation,
     variables: {
       ...variables,
-      titlepageId,
+      title: pageId,
       pageId,
       locale: router.locale,
     },
