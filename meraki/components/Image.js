@@ -1,5 +1,5 @@
-import { getThumb } from '@providers/tinacms/helpers';
-import NextImage from 'next/image';
+import { getThumb } from '@providers/tinacms/helpers'
+import NextImage from 'next/image'
 const breakpoints = {
   // xlarge: 1920,
   large: 1600,
@@ -10,8 +10,14 @@ const breakpoints = {
 
 // @todo replace the url to the one on env
 const myLoader = ({ src, width, quality }) => {
-  if (src.indexOf('strapi.merakiweddingplanner') !== -1 || (src.indexOf('wp-content') !== -1)) {
-    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_${width}/${src.replace('https://strapi.merakiweddingplanner.com/', '')}`;
+  if (
+    src.indexOf('strapi.merakiweddingplanner') !== -1 ||
+    src.indexOf('wp-content') !== -1
+  ) {
+    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_${width}/${src.replace(
+      'https://strapi.merakiweddingplanner.com/',
+      ''
+    )}`
   } else {
     return `/_next/image?url=${src}&w=${width}&q=${quality || 80}`
   }
@@ -52,20 +58,17 @@ export const Image = ({
   //   )
   switch (variant) {
     case 'cover':
-      sizes =
-        '(max-width: 384px) 100vw, 100vw'
+      sizes = '(max-width: 384px) 100vw, 100vw'
       break
     case 'card':
-      sizes =
-        '(max-width: 384px) 400px, 600px'
+      sizes = '(max-width: 384px) 400px, 600px'
       break
     case 'card-large':
       sizes =
         '(max-width: 384px) 400px,(max-width: px) 500px,(max-width: 1400px) 960px, 960px'
       break
     default:
-      sizes =
-        '(max-width: 384px) 800px, 1400px'
+      sizes = '(max-width: 384px) 800px, 800px'
       break
   }
   return (
@@ -77,9 +80,7 @@ export const Image = ({
       alt={alt || 'Meraki Image'}
       sizes={sizes}
       placeholder={src && placeholder}
-      blurDataURL={
-        placeholder && getThumb(src)
-      }
+      blurDataURL={placeholder && getThumb(src)}
       quality="80"
       objectFit="cover"
       objectPosition="bottom center"
