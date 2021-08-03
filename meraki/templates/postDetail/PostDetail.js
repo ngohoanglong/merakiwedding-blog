@@ -1,10 +1,7 @@
 import Layout from '@components/layout'
 import PostBody from '@components/post-body'
 import SourceProvider from '@providers/source'
-import {
-  createNewsArticleJsonLdSeo,
-  createPostDetailSeo,
-} from 'data/seo'
+import { createNewsArticleJsonLdSeo, createPostDetailSeo } from 'data/seo'
 import get from 'lodash.get'
 import { Image } from 'meraki/components/Image'
 import LoadingDots from 'meraki/components/LoadingDots'
@@ -21,10 +18,7 @@ const FixFooterBackgroundColor = () => (
     `}
   </style>
 )
-const PostDetail = ({
-  source,
-  preview,
-}) => {
+const PostDetail = ({ source, preview }) => {
   const post = get(source, 'post', {})
   const router = useRouter()
   return (
@@ -42,17 +36,9 @@ const PostDetail = ({
           ) : (
             <>
               <article>
-                <Seo
-                  {...createPostDetailSeo(
-                    source,
-                    router
-                  )}
-                />
+                <Seo {...createPostDetailSeo(source, router)} />
                 <script type="application/ld+json">
-                  {createNewsArticleJsonLdSeo(
-                    source,
-                    router
-                  )}
+                  {createNewsArticleJsonLdSeo(source, router)}
                 </script>
 
                 <Head>
@@ -88,11 +74,7 @@ const PostDetail = ({
                   />
                   <link
                     rel="stylesheet"
-                    id={
-                      `elementor-post-` +
-                      post.databaseId +
-                      `-css`
-                    }
+                    id={`elementor-post-` + post.databaseId + `-css`}
                     href={
                       `https://merakiweddingplanner.com/wp-content/uploads/elementor/css/post-` +
                       post.databaseId +
@@ -106,10 +88,7 @@ const PostDetail = ({
                     media="all"
                   />
 
-                  <link
-                    rel="preconnect"
-                    href="https://fonts.googleapis.com"
-                  />
+                  <link rel="preconnect" href="https://fonts.googleapis.com" />
                   <link
                     rel="preconnect"
                     href="https://fonts.gstatic.com"
@@ -120,7 +99,7 @@ const PostDetail = ({
                     rel="stylesheet"
                   />
                   <link
-                    href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
                     rel="stylesheet"></link>
                   <link
                     href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap"
@@ -141,6 +120,9 @@ const PostDetail = ({
                   <link
                     href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
                     rel="stylesheet"></link>
+                  <link
+                    href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
+                    rel="stylesheet"></link>
                   <style>
                     {`
                       .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
@@ -155,21 +137,13 @@ const PostDetail = ({
                   }}
                   className="fixed inset-0">
                   <Image
-                    src={get(
-                      source,
-                      'data.background_image',
-                      '/bg_blog.JPG'
-                    )}
+                    src={get(source, 'data.background_image', '/bg_blog.JPG')}
                   />
                 </div>
                 <div className=" pb-12 lg:py-12 lg:pb-32">
                   <div>
                     <div className="py-6 bg-white rounded lg:py-24 elementor-kit-6343">
-                      <PostBody
-                        content={
-                          post.content
-                        }
-                      />
+                      <PostBody content={post.content} />
                     </div>
                   </div>
                 </div>
@@ -193,10 +167,7 @@ export const postDetail_template = {
       name: 'background_image',
       component: 'image',
       // Generate the frontmatter value based on the filename
-      parse: (media) =>
-        process.env.STRAPI_URL +
-        '/uploads/' +
-        media.filename,
+      parse: (media) => process.env.STRAPI_URL + '/uploads/' + media.filename,
 
       // Decide the file upload directory for the post
       uploadDir: () => '/',
