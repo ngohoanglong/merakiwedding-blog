@@ -11,6 +11,9 @@ import { useRouter } from 'next/router'
 const FixFooterBackgroundColor = () => (
   <style>
     {`
+      body{
+        background:#eae4df;
+      }
       footer{
         background:transparent!important
       }
@@ -157,7 +160,7 @@ const PostDetail = ({ source, preview }) => {
 }
 
 const defaultItem = {
-  background_image: '/bg_blog.JPG',
+  background_image: '/bg_blog.png',
 }
 export const postDetail_template = {
   defaultItem,
