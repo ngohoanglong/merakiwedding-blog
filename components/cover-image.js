@@ -1,9 +1,18 @@
-import cn from 'classnames'
-import Image from 'next/image'
+import cn from 'classnames';
+import Image from 'next/image';
+
+const myLoader = ({ src, width, quality }) => {
+  if (src.indexOf('wp-content') !== -1) {
+    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_700/${src.replace('https://merakiweddingplanner.com/', '')}`;
+  } else {
+    return `/_next/image?url=${src}&w=${width}&q=${quality || 80}`
+  }
+}
 
 export default function CoverImage({ title, coverImage, href, slug }) {
   const image = coverImage?.sourceUrl ? (
     <Image
+      loader={myLoader}
       layout="responsive"
       height={371}
       width={557}
