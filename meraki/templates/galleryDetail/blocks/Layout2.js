@@ -1,19 +1,14 @@
 import Container from '@components/container'
 import {
   createFields,
-  createImageFieldConfig
+  createImageFieldConfig,
 } from '@providers/tinacms/helpers'
-import { Image } from 'meraki/components/Image'
+import Image from '../components/Image'
 import { RatioContaner } from './RatioContaner'
 import { SectionHeadline } from './SectionHeadline'
 import { SectionTagline } from './SectionTagline'
 
-export const Layout2 = ({
-  title,
-  description,
-  content,
-  image,
-}) => {
+export const Layout2 = ({ title, description, content, image }) => {
   return (
     <Container>
       <div className="md:grid grid-cols-6 gap-1 md:gap-3 items-center">
@@ -26,13 +21,9 @@ export const Layout2 = ({
           </RatioContaner>
         </div>
         <div className="col-span-3 py-12 md:pl-12">
-          <SectionHeadline>
-            {title}
-          </SectionHeadline>
+          <SectionHeadline>{title}</SectionHeadline>
           <div className="h-6"></div>
-          <SectionTagline>
-            {description}
-          </SectionTagline>
+          <SectionTagline>{description}</SectionTagline>
           <div className="h-3"></div>
           <div
             className="text-justify whitespace-pre-line"
@@ -49,10 +40,8 @@ export const layout2_template = {
     image: {
       src: '/home/explore-our-wedding/3.jpg',
     },
-    title:
-      'LOREM IPSUM DOLOR SIT AMET,',
-    description:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing',
+    title: 'LOREM IPSUM DOLOR SIT AMET,',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing',
     content: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
     nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
     erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
