@@ -1,9 +1,9 @@
 import Container from '@components/container'
 import {
   createFields,
-  createImageFieldConfig
+  createImageFieldConfig,
 } from '@providers/tinacms/helpers'
-import { Image } from 'meraki/components/Image'
+import Image from '../components/Image'
 import { RatioContaner } from './RatioContaner'
 import { SectionHeadline } from './SectionHeadline'
 import { SectionTagline } from './SectionTagline'
@@ -48,13 +48,9 @@ export const Layout22 = ({
                   </RatioContaner>
                 </div>
               </div>
-              <SectionHeadline>
-                {title}
-              </SectionHeadline>
+              <SectionHeadline>{title}</SectionHeadline>
               <div className="h-2"></div>
-              <SectionTagline>
-                {description}
-              </SectionTagline>
+              <SectionTagline>{description}</SectionTagline>
               <div className="h-6"></div>
               <div
                 className="text-justify whitespace-pre-line"
@@ -98,9 +94,7 @@ export const Layout22 = ({
             </RatioContaner>
           </div>
         </div>
-        <div
-          className="md:pl-12 flex-1"
-          style={{ minWidth: '320px' }}>
+        <div className="md:pl-12 flex-1" style={{ minWidth: '320px' }}>
           <div className="">
             <div className="flex space-x-2 md:space-x-3 mb-6">
               <div className="flex-1">
@@ -120,13 +114,9 @@ export const Layout22 = ({
                 </RatioContaner>
               </div>
             </div>
-            <SectionHeadline>
-              {title}
-            </SectionHeadline>
+            <SectionHeadline>{title}</SectionHeadline>
             <div className="h-2"></div>
-            <SectionTagline>
-              {description}
-            </SectionTagline>
+            <SectionTagline>{description}</SectionTagline>
             <div className="h-6"></div>
             <div
               className="text-justify whitespace-pre-line"
@@ -150,10 +140,8 @@ export const layout22_template = {
     image3: {
       src: '/home/explore-our-wedding/3.jpg',
     },
-    title:
-      'LOREM IPSUM DOLOR SIT AMET,',
-    description:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing',
+    title: 'LOREM IPSUM DOLOR SIT AMET,',
+    description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing',
     content: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
     nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
     erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
