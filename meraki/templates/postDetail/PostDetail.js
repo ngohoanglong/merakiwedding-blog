@@ -40,10 +40,11 @@ const PostDetail = ({ source, preview }) => {
             <>
               <article>
                 <Seo {...createPostDetailSeo(source, router)} />
-                <script type="application/ld+json">
-                  {createNewsArticleJsonLdSeo(source, router)}
-                </script>
-
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{
+                    __html: createNewsArticleJsonLdSeo(source, router),
+                  }}></script>
                 <Head>
                   <link
                     rel="stylesheet"
