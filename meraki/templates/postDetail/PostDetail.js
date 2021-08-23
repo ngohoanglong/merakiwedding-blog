@@ -11,13 +11,17 @@ import { useRouter } from 'next/router'
 const FixFooterBackgroundColor = () => (
   <style>
     {`
-      body{
-        background:#eae4df;
-      }
-      footer{
-        background:transparent!important
-      }
-      
+     
+    body{
+      background:#eae4df;
+    }
+    footer{
+      background:transparent!important
+    }
+    p{ 
+        margin-top:0;
+    }
+  
     `}
   </style>
 )
