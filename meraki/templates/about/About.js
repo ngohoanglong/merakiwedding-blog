@@ -7,6 +7,7 @@ import defaultData from '@templates/about/data';
 import { aboutSeo } from "data/seo";
 import { Image } from "meraki/components/Image";
 import Seo from "meraki/components/Seo";
+import { useRouter } from "next/router";
 
 const Cover = () => {
   const { get } = useSource()
@@ -95,12 +96,15 @@ const Blocks = () => {
     <div className="h-20" />
   </div>
 }
+
+
 const About = ({ source, preview }) => {
+  const router = useRouter()
   return <SourceProvider source={{
     en: source
   }}>
     <Layout preview={preview}>
-      <Seo {...aboutSeo} />
+      <Seo defaultSeo={aboutSeo} />
       <Cover />
       <Blocks />
       <div className="h-24" />

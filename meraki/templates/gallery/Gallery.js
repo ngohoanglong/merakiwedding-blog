@@ -109,7 +109,7 @@ const Gallery = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
-      <Seo {...gallerySeo} />
+      <Seo defaultSeo={gallerySeo} />
       <Cover />
       <Blocks />
     </Layout>

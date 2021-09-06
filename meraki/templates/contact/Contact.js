@@ -198,7 +198,7 @@ const Contact = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
-      <Seo {...contactSeo} />
+      <Seo defaultSeo={contactSeo} />
       {posted && !hidePosted && <div className="fixed z-50 inset-0 bg-black bg-opacity-70 p-12 flex flex-col items-center justify-center space-y-6">
         <div className='bg-white p-12 max-w-prose w-full flex flex-col items-center justify-center space-y-6 text-center'>
           <div className="text-3xl font-kinfolk">{get(source, 'data.successModal.title', 'Thank you')}</div>

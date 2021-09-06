@@ -1,22 +1,27 @@
 import { useSource } from '@providers/source'
+import { createSeo } from 'data/seo'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
-const Seo = ({ title, path, ...props }) => {
+const Seo = ({ defaultSeo, ...props }) => {
   const { get } = useSource()
-  const seo = get('seo.data') || {}
+  const router = useRouter()
+  const seo = get('seo') || {}
   const { keywords } = seo
   return (
     <>
       <NextSeo
-        title={path ? get(path, title) : title}
-        {...props}
-        {...seo}
+        {...createSeo({
+          ...defaultSeo,
+          ...seo
+        }, router)}
         additionalMetaTags={[
           keywords && {
             property: 'keywords',
             content: keywords,
           },
         ].filter(Boolean)}
+        {...props}
       />
     </>
   )

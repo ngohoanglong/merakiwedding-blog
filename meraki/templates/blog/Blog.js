@@ -6,8 +6,9 @@ import SourceProvider, { useSource } from "@providers/source";
 import { createBlock, createImageFieldConfig } from "@providers/tinacms/helpers";
 import { Image } from "meraki/components/Image";
 import { LG } from "meraki/components/LG";
+import Seo from "meraki/components/Seo";
 import { XS } from "meraki/components/XS";
-import Head from "next/head";
+import { useRouter } from "next/router";
 const Cover = () => {
   const { get } = useSource()
   return <div style={{ backgroundColor: '#61684b' }} className="min-h-screen relative -mt-header  pt-header flex justify-center">
@@ -51,13 +52,12 @@ const Blocks = () => {
 }
 
 const Blog = ({ source, preview }) => {
+  const router = useRouter()
   return <SourceProvider source={{
     en: source
   }}>
     <Layout preview={preview}>
-      <Head>
-        <title>Meraki wedding planner - Blog</title>
-      </Head>
+      <Seo defaultSeo={{ title: 'Blog' }} />
       <Cover />
       <Blocks />
     </Layout>

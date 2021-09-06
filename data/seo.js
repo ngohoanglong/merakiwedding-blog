@@ -17,7 +17,7 @@ const description = `DESTINATION WEDDING IN VIETNAM Meraki [may-rah-kee]: in Gre
 const defaultSeo = {
   title: title,
   titleTemplate:
-    'Meraki Wedding Planner | Destination Wedding Planner in Vietnam | %s',
+    '%s | Meraki Wedding Planner | Destination Wedding Planner in Vietnam',
   description: description,
   openGraph: {
     title,
@@ -66,17 +66,17 @@ export const createGalleryDetailSeo = (source, router) => {
       images: [
         gallery
           ? {
-              url: get(gallery, 'image.src', image),
-              width: 800,
-              height: 600,
-              alt: title,
-            }
+            url: get(gallery, 'image.src', image),
+            width: 800,
+            height: 600,
+            alt: title,
+          }
           : {
-              url: get(gallery, 'data.banner.xs.image.src'),
-              width: 800,
-              height: 600,
-              alt: title,
-            },
+            url: get(gallery, 'data.banner.xs.image.src'),
+            width: 800,
+            height: 600,
+            alt: title,
+          },
       ],
     },
   }
@@ -153,4 +153,30 @@ export const contactSeo = {
 export const serviceSeo = {
   title: 'Service',
 }
+
+export const createSeo = ({ title, description, image, ...rest }, router) => {
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: 'https://merakiweddingplanner.com' + router.pathname,
+      ...image?.src ? {
+        images: [
+          image?.src && {
+            url: `https://res.cloudinary.com/dfgbpib38/image/upload/w_600/${image.src.replace(
+              'https://strapi.merakiweddingplanner.com/',
+              ''
+            )}`,
+            alt: image.alt || title,
+          },
+        ],
+      } : {}
+
+    },
+    ...rest
+  }
+}
+
 export default defaultSeo

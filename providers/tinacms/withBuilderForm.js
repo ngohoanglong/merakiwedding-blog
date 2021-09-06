@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useCMS, useForm, usePlugin } from 'tinacms'
 import BuilderProvider from '.'
-import { createFields } from './helpers'
+import { createFields, createImageFieldConfig } from './helpers'
 
 const SeoForm = ({ seo, id }) => {
   const cms = useCMS()
@@ -37,7 +37,7 @@ const SeoForm = ({ seo, id }) => {
         cms.alerts.error('Error saving changes')
       }
     },
-    fields: createFields(['title', 'description', 'keywords']),
+    fields: createFields(['title', 'description', 'keywords', createImageFieldConfig()]),
   }
   const [formdata, form] = useForm(formConfig)
   usePlugin(form)

@@ -2,18 +2,19 @@ import Button from '@components/button'
 import Container from '@components/container'
 import Layout from '@components/layout'
 import SourceProvider, {
-  useSource,
+  useSource
 } from '@providers/source'
 import {
   createBlock,
   createImageFieldConfig,
-  createScreenGroup,
+  createScreenGroup
 } from '@providers/tinacms/helpers'
 import { Contact } from '@sections/Contact'
 import { Instagram } from '@sections/Instagram'
 import IntroSlider from '@sections/IntroSlider'
 import Slider from '@sections/Slider'
 import homeData from 'data/homeData'
+import Seo from 'meraki/components/Seo'
 import { Block } from '../../components/Block'
 import { Image } from '../../components/Image'
 import { LG } from '../../components/LG'
@@ -368,7 +369,7 @@ const Block1 = () => {
                               data[
                                 local
                               ].others[
-                                'read more'
+                              'read more'
                               ]
                             }
                           </Button>
@@ -614,9 +615,8 @@ const Block4 = () => {
                     <div
                       key={i}
                       className="flex flex-col items-center text-center max-w-md">
-                      <div className="text-3xl font-kinfolk ">{`${
-                        i < 9 ? '0' : ''
-                      }${i + 1}.`}</div>
+                      <div className="text-3xl font-kinfolk ">{`${i < 9 ? '0' : ''
+                        }${i + 1}.`}</div>
                       <div className="font-sweetsans text-sm uppercase">
                         {item.title}
                       </div>
@@ -684,9 +684,8 @@ const Block4 = () => {
                     <div
                       key={i}
                       className="flex flex-col items-center text-center max-w-md">
-                      <div className="text-6xl font-kinfolk px-6">{`${
-                        i < 9 ? '0' : ''
-                      }${i + 1}.`}</div>
+                      <div className="text-6xl font-kinfolk px-6">{`${i < 9 ? '0' : ''
+                        }${i + 1}.`}</div>
                       <div className="font-sweetsans mt-2  px-12 uppercase">
                         {item.title}
                       </div>
@@ -973,6 +972,7 @@ export default function Home({
           ...(source?.data || {}),
         },
       }}>
+      <Seo {...(source?.seo || {})} />
       <Layout>
         <div className="-mt-header w-full">
           <div className="bg-element-3">
@@ -1314,11 +1314,11 @@ export const home_template = {
             key: item.id,
             label: item.src
               ? item.src.replace(
-                  process.env
-                    .STRAPI_URL +
-                    '/uploads/',
-                  ''
-                )
+                process.env
+                  .STRAPI_URL +
+                '/uploads/',
+                ''
+              )
               : 'undefined',
           }),
           defaultItem: () => ({

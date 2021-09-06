@@ -1,5 +1,5 @@
 
-import { getAppInfo, getKindWordsPageInfo } from '@lib/app';
+import { getAppInfo, getKindWordsPageInfo, getSeoApi } from '@lib/app';
 import KindWords from '@templates/kind-words/KindWords';
 
 export default KindWords
@@ -11,11 +11,22 @@ export async function getStaticProps(config) {
   if (typeof pageData === 'string') {
     pageData = JSON.parse(pageData)
   }
-
+  const router = {
+    locale: config.locale
+  }
+  const seoInfo = await getSeoApi({
+    locale: router.locale,
+    router,
+    id: '/kind-words',
+  })
+  const seo = seoInfo?.data || null
+  if (typeof data === 'string') {
+    seo = JSON.parse(data)
+  }
   return {
     props: {
       source: {
-        galleries, app, data: pageData
+        galleries, app, data: pageData, seo
       }
     },
     revalidate: 300

@@ -1,5 +1,5 @@
 
-import { fetcher, getAppInfo, getGalleryPageInfo } from '@lib/app';
+import { fetcher, getAppInfo, getGalleryPageInfo, getSeoApi } from '@lib/app';
 import Gallery, { gallery_template } from '@templates/gallery/Gallery';
 const builderFormConfig = {
   label: 'gallery',
@@ -42,11 +42,22 @@ export async function getStaticProps(config) {
   if (typeof pageData === 'string') {
     pageData = JSON.parse(pageData)
   }
-
+  const router = {
+    locale: config.locale
+  }
+  const seoInfo = await getSeoApi({
+    locale: router.locale,
+    router,
+    id: '/gallery',
+  })
+  const seo = seoInfo?.data || null
+  if (typeof data === 'string') {
+    seo = JSON.parse(data)
+  }
   return {
     props: {
       source: {
-        galleries, app, data: pageData
+        galleries, app, data: pageData, seo
       }
     },
     revalidate: 300

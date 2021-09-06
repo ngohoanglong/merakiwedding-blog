@@ -103,7 +103,7 @@ const KindWords = ({ source, preview }) => {
     en: source
   }}>
     <Layout preview={preview}>
-      <Seo {...kindWordsSeo} />
+      <Seo defaultSeo={kindWordsSeo} />
       <Cover />
       <Blocks />
     </Layout>

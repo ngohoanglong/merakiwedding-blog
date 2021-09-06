@@ -73,7 +73,7 @@ const Services = ({ source, preview }) => {
     { en: source }
   }>
     <Layout preview={preview}>
-      <Seo {...serviceSeo} />
+      <Seo defaultSeo={serviceSeo} />
       <Cover />
       <div className="h-24 lg:hidden" />
       <Blocks />
