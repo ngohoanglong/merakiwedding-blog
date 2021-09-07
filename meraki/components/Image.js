@@ -14,7 +14,7 @@ const myLoader = ({ src, width, quality }) => {
     src.indexOf('strapi.merakiweddingplanner') !== -1 ||
     src.indexOf('wp-content') !== -1
   ) {
-    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_${width}/${src.replace(
+    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_${width},f_auto/${src.replace(
       'https://strapi.merakiweddingplanner.com/',
       ''
     )}`
