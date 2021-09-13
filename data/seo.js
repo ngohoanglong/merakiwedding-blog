@@ -8,6 +8,7 @@
 // Contact: Meraki Wedding Planner | Destination Wedding Planner in Vietnam | Contact
 // Service: Meraki Wedding Planner | Destination Wedding Planner in Vietnam | Service
 
+import { fixExcerpt } from '@lib/post'
 import get from 'lodash.get'
 const url = 'https://merakiweddingplanner.com'
 const name = 'Meraki Wedding Planner'
@@ -94,11 +95,14 @@ export const createPostDetailSeo = (source, router) => {
       alt: post.title,
     },
   ]
+  const description = fixExcerpt(post)
   return {
     title: title,
     type: 'NewsArticle',
+    description,
     openGraph: {
       title: title,
+      description,
       url: url,
       article: {
         publishedTime: post.date,

@@ -1,25 +1,9 @@
+import { fixExcerpt } from "@lib/post";
 import { useRouter } from "next/router";
-import { stripHtml } from "string-strip-html";
 import PostPreview from '../components/post-preview';
 import { RouterPaginate } from './paginate';
 const perPage = 6
-const fixExcerpt = node => {
-  let {comments} = node;
-  if (comments.nodes.length > 0) {
-    var excerpt = comments.nodes[0];
-    return excerpt.content;
-  } else {
-    var excerpt = stripHtml(node.content || '').result
-    excerpt = excerpt.replace(/\n|\r/g, " ");
-    excerpt = excerpt.replace(/\s\s+/g, ' ');
-    excerpt = excerpt.trim();
-    const duplicated = excerpt.toLowerCase().startsWith(node.title.toLowerCase().replace('  ', ' '))
-    excerpt.replace(node.title, '')
-    excerpt = excerpt.substring(duplicated ? node.title.length : 0, Math.min(excerpt.length, 174)) + '...';
-    excerpt = excerpt.trim();
-  }
-  return excerpt
-}
+
 export default function MoreStories({ posts = [] }) {
   const { query, locale } = useRouter()
   const { page = 1, ...rest } = query
