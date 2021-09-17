@@ -55,11 +55,7 @@ export default async function planningchecklist(req, res) {
   // Redirect the user back to the index page.
   const { query = {} } = req
   let locale = query.locale
-  if (locale === 'vi') {
-    res.writeHead(307, { Location: '/planningchecklist-vie.pdf', })
-  } else {
-    res.writeHead(307, { Location: '/planningchecklist-eng.pdf', })
-  }
+  res.writeHead(307, { Location: `/${locale}/planningchecklist?posted=true`, })
   res.end()
 
   try {

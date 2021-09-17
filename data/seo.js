@@ -154,6 +154,9 @@ export const kindWordsSeo = {
 export const contactSeo = {
   title: 'Contact',
 }
+export const planningchecklistSeo = {
+  title: 'Planning check list',
+}
 export const serviceSeo = {
   title: 'Service',
 }

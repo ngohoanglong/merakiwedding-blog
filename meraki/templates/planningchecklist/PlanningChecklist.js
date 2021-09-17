@@ -2,8 +2,12 @@
 import Button from "@components/button";
 import Layout from "@components/layout";
 import SourceProvider, { useSource } from "@providers/source";
-import { createFields } from "@providers/tinacms/helpers";
+import { createBlock, createFields } from "@providers/tinacms/helpers";
+import { planningchecklistSeo } from "data/seo";
+import { get } from "lodash";
+import Seo from "meraki/components/Seo";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Blocks = () => {
   const router = useRouter()
@@ -47,13 +51,16 @@ const Blocks = () => {
   </div>
 }
 const PlanningChecklist = ({ source, preview }) => {
+  const router = useRouter()
+  const { posted } = router.query
+  const [hidePosted, setHidePosted] = useState(false)
   return <SourceProvider source={{
     en: source
   }}>
     <Layout preview={preview}>
       <div className="max-w-6xl px-2 sm:px-6 md:px-12 mx-auto lg:py-12 ">
         <article>
-          {/* <Seo {...createPostDetailSeo(source, router)} /> */}
+          <Seo {...planningchecklistSeo} />
           <style>
             {`body{
               background:#eae4df;
@@ -68,6 +75,17 @@ const PlanningChecklist = ({ source, preview }) => {
           </div>
         </article>
       </div>
+      {posted && !hidePosted && <div className="fixed z-50 inset-0 bg-black bg-opacity-70 p-12 flex flex-col items-center justify-center space-y-6">
+        <div className='bg-white p-12 max-w-prose w-full flex flex-col items-center justify-center space-y-6 text-center relative'>
+          <button onClick={() => setHidePosted(true)} className="absolute top-2 right-2 rounded-full p-2 w-12 h-12 flex items-center justify-center hover:shadow-lg"><div className="text-xl"><svg stroke="currentColor" fill="none" strokeWidth={0} viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z" fill="currentColor" /></svg></div>
+          </button>
+          <div className="text-3xl font-kinfolk">{get(source, 'data.successModal.title', 'Thank you')}</div>
+          <div className="">{get(source, 'data.successModal.message', 'Your infomation had been sent')}</div>
+          <a download="planningchecklist.pdf" href={router.locale === 'vi' ? '/planningchecklist-vie.pdf' : '/planningchecklist-eng.pdf'} className="px-6 py-2 bg-primary text-white font-sweetsans uppercase hover:bg-opacity-70 focus:ring focus:outline-none ring-element-4 ring-offset-2 transition-all duration-300 ease-in-out flex space-x-6 items-center leading-loose" onClick={() => setHidePosted(true)} size='large'>
+            <div className="icon text-xl"><svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4.887 5.2l-.964-.165A2.5 2.5 0 103.5 10H6v1H3.5a3.5 3.5 0 11.59-6.95 5.002 5.002 0 119.804 1.98A2.501 2.501 0 0113.5 11H10v-1h3.5a1.5 1.5 0 00.237-2.981L12.7 6.854l.216-1.028a4 4 0 10-7.843-1.587l-.185.96z" /><path fillRule="evenodd" d="M5 12.5a.5.5 0 01.707 0L8 14.793l2.293-2.293a.5.5 0 11.707.707l-2.646 2.646a.5.5 0 01-.708 0L5 13.207a.5.5 0 010-.707z" clipRule="evenodd" /><path fillRule="evenodd" d="M8 6a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 6z" clipRule="evenodd" /></svg></div>
+            <div>{get(source, 'data.successModal.closeText', 'Download')}</div></a>
+        </div>
+      </div>}
     </Layout>
   </SourceProvider>
 
@@ -129,11 +147,20 @@ export const planningchecklist_template = {
         }
       }
     ])
-  }, 'finalQuestion', {
+  },
+    'finalQuestion', {
       name: 'buttonText',
       label: 'send button text',
       component: 'text',
-    }]),
+    }, createBlock({
+      label: 'success modal',
+      name: 'successModal',
+      fields: [
+        'title',
+        'message',
+        'closeText'
+      ]
+    }),]),
 
 };
 export default PlanningChecklist
