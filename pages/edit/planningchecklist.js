@@ -1,6 +1,6 @@
 
 import { getAllPostsForHome } from "@lib/api";
-import { fetcher } from '@lib/app';
+import { createGetPageInfo, fetcher } from '@lib/app';
 import { withBuilderForm } from "@providers/tinacms/withBuilderForm";
 import PlanningChecklist, { planningchecklist_template } from '@templates/planningchecklist/PlanningChecklist';
 
@@ -8,50 +8,7 @@ import PlanningChecklist, { planningchecklist_template } from '@templates/planni
 export default withBuilderForm({
   label: 'planningchecklist',
   displayName: 'PlanningChecklist',
-  getPageInfo: async ({
-    locale, router
-  }) => {
-    let result
-    const { pages } = await fetcher(
-      {
-        query: `
-          query getPageInfo($locale:String $pageId:String ){
-            pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
-              data
-              title
-               pageId
-            }
-          }
-        `
-        , variables: {
-          locale,
-          pageId: 'planningchecklist'
-        }
-      }
-    )
-    result = pages && pages[0]
-    if (!result) {
-      const { pages } = await fetcher(
-        {
-          query: `
-            query getPageInfo($locale:String $pageId:String ){
-              pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
-                data
-                title
-                 pageId
-              }
-            }
-          `
-          , variables: {
-            locale: "en",
-            pageId: 'planningchecklist'
-          }
-        }
-      )
-      result = pages && pages[0]
-    }
-    return result
-  },
+  getPageInfo: createGetPageInfo(() => 'planningchecklist'),
   onSubmit: async (variables, pageInfo, router) => {
     const createPageMutation = `
      mutation createPage(
