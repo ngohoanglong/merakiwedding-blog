@@ -50,37 +50,39 @@ export const galleryDetailSeo = {
   title: 'data.banner.xs.subTitle',
 }
 export const createGalleryDetailSeo = (source, router) => {
-  const title = get(source, 'data.banner.xs.subTitle')
+  const title = get(source, 'seo.data.title', get(source, 'data.banner.xs.subTitle'))
+  const description = get(source, 'seo.data.description')
   const galleries = get(source, 'app.data.gallery', [])
   const url =
     'https://merakiweddingplanner.com/gallery/' + get(router, 'query.slug')
   const gallery = galleries.find((item) =>
-    item.url.includes(get(router, 'query.slug'))
+    item?.url.includes(get(router, 'query.slug'))
   )
-  const image = get(source, 'data.banner.xs.image.src')
-  return {
+  let imageUrl = get(source, 'seo.data.image.src') || get(gallery, 'image.src') || get(gallery, 'data.banner.xs.image.src')
+  if (imageUrl) {
+    imageUrl = `https://res.cloudinary.com/dfgbpib38/image/upload/w_600/${imageUrl.replace(
+      'https://strapi.merakiweddingplanner.com/',
+      ''
+    )}`
+  }
+  return ({
     title,
+    description,
     openGraph: {
       title,
+      description,
       url:
-        'https://merakiweddingplanner.com/gallery/' + get(router, 'query.slug'),
+        url,
       images: [
-        gallery
-          ? {
-            url: get(gallery, 'image.src', image),
-            width: 800,
-            height: 600,
-            alt: title,
-          }
-          : {
-            url: get(gallery, 'data.banner.xs.image.src'),
-            width: 800,
-            height: 600,
-            alt: title,
-          },
+        imageUrl && {
+          url: imageUrl,
+          width: 800,
+          height: 600,
+          alt: title,
+        }
       ],
     },
-  }
+  })
 }
 export const createPostDetailSeo = (source, router) => {
   const post = get(source, 'post', {})
