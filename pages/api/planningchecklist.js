@@ -19,35 +19,33 @@ const loginApi = async () => {
   })
   return { jwt, user, ...rest }
 }
-const sendContactApi = async (req, jwt) => {
+const sendContactApi = async (req) => {
   const { query = {} } = req
   let text = '';
   for (const property in query) {
 
     text += `${property}: ${query[property]} ` + "\n";
   }
-  console.log(text)
-  const body = JSON.stringify({
-    to: process.env.STRAPI_EMAIL_TO || "hieunguyenel@gmail.com",
-    subject: 'planningchecklist',
-    text
-  })
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + jwt
-  }
-  const result = await fetch(process.env.STRAPI_URL + '/email', {
-    method: 'POST',
-    headers,
-    body,
-  }).then(res => {
-    return res.json()
-  })
-  console.log({ result })
-  const { error, message = 'system error' } = result
-  if (error) {
-    throw new Error(message)
-  }
+
+  const mailjet = require ('node-mailjet')
+      .connect(process.env.MJ_APIKEY_PUBLIC, process.env.MJ_APIKEY_PRIVATE);
+
+  const request = mailjet
+      .post("send", {'version': 'v3.1'})
+      .request({
+        "Messages":[{
+          "From": {
+            "Email": "contact@merakiweddingplanner.com",
+            "Name": "Meraki"
+          },
+          "To": [{
+            "Email": process.env.STRAPI_EMAIL_TO || "info@merakiweddingplanner.com",
+            "Name": "Meraki"
+          }],
+          "Subject": "Meraki Checklist From",
+          "TextPart": text
+        }]
+      })
 }
 
 export default async function planningchecklist(req, res) {
@@ -59,16 +57,8 @@ export default async function planningchecklist(req, res) {
   res.end()
 
   try {
-    const { jwt, user, ...rest } = await loginApi()
-    console.log({ user, jwt, ...rest })
-    if (!jwt) {
-      throw new Error("login failed")
-    }
-    console.log('login success')
-    if (jwt) {
-      await sendContactApi(req, jwt)
-      console.log('sent planningchecklist successfull')
-    }
+    await sendContactApi(req)
+    console.log('sent contact successfull')
   } catch (error) {
     console.error(error)
   }
