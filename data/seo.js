@@ -68,25 +68,6 @@ export const createGalleryDetailSeo = (source, router) => {
       ''
     )}`
   }
-  console.log({
-    source: source,
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url:
-        url,
-      images: [
-        imageUrl && {
-          url: imageUrl,
-          width: 800,
-          height: 600,
-          alt: title,
-        }
-      ],
-    },
-  })
   return ({
     title,
     description,
