@@ -8,7 +8,7 @@ const GalleryImage = ({ ...props }) => {
   }, [addImage, props.src])
   return (
     <Image
-      class="cursor-pointer"
+      className="cursor-pointer"
       {...props}
       onClick={() => {
         openLightBox(props.src)

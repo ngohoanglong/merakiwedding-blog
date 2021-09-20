@@ -50,6 +50,9 @@ export const galleryDetailSeo = {
   title: 'data.banner.xs.subTitle',
 }
 export const createGalleryDetailSeo = (source, router) => {
+  if (!source) {
+    return {}
+  }
   const title = get(source, 'seo.data.title', get(source, 'data.banner.xs.subTitle'))
   const description = get(source, 'seo.data.description')
   const galleries = get(source, 'app.data.gallery', [])
@@ -65,6 +68,25 @@ export const createGalleryDetailSeo = (source, router) => {
       ''
     )}`
   }
+  console.log({
+    source: source,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url:
+        url,
+      images: [
+        imageUrl && {
+          url: imageUrl,
+          width: 800,
+          height: 600,
+          alt: title,
+        }
+      ],
+    },
+  })
   return ({
     title,
     description,
