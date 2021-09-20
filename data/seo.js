@@ -76,8 +76,8 @@ export const createGalleryDetailSeo = (source, router) => {
       description,
       url:
         url,
-      images: [
-        imageUrl && {
+      images: imageUrl && [
+        {
           url: imageUrl,
           width: 800,
           height: 600,
