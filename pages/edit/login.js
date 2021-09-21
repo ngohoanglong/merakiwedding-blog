@@ -44,7 +44,7 @@ export default function UserLogin() {
     }
     if (jwt) {
       document.cookie = `tina_strapi_jwt=${jwt}; expires=2023-06-03T09:40:20.000Z ;path=/`;
-      location.replace('/edit')
+      location.replace('/edit/home')
     }
   }
   return <form onSubmit={
