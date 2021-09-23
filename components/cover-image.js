@@ -11,8 +11,8 @@ const myLoader = ({ src, width, quality }) => {
 
 export default function CoverImage({ title, coverImage, href, slug }) {
   const image = coverImage?.sourceUrl ? (
-    <Image
-      layout="responsive"
+    <img
+      //layout="responsive"
       height={371}
       width={557}
       alt={title}
