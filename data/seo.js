@@ -63,7 +63,7 @@ export const createGalleryDetailSeo = (source, router) => {
   )
   let imageUrl = get(source, 'seo.data.image.src') || get(gallery, 'image.src') || get(gallery, 'data.banner.xs.image.src')
   if (imageUrl) {
-    imageUrl = `https://res.cloudinary.com/dfgbpib38/image/upload/w_600/${imageUrl.replace(
+    imageUrl = `https://res.cloudinary.com/dfgbpib38/image/upload/w_1200/${imageUrl.replace(
       'https://strapi.merakiweddingplanner.com/',
       ''
     )}`
@@ -177,7 +177,7 @@ export const createSeo = ({ title, description, image, ...rest }, router) => {
       ...image?.src ? {
         images: [
           image?.src && {
-            url: `https://res.cloudinary.com/dfgbpib38/image/upload/w_600/${image.src.replace(
+            url: `https://res.cloudinary.com/dfgbpib38/image/upload/w_1200/${image.src.replace(
               'https://strapi.merakiweddingplanner.com/',
               ''
             )}`,
