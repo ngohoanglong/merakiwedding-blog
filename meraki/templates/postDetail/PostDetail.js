@@ -132,6 +132,7 @@ const PostDetail = ({ source, preview }) => {
                     href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap"
                     rel="stylesheet"></link>
                   <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet" />
+                  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" />
                   <style>
                     {`
                       .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6 {
