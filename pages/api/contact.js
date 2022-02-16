@@ -18,13 +18,13 @@ const sendContactApi = async (req) => {
     Messages: [
       {
         From: {
-          Email: 'contact@merakiweddingplanner.com',
+          Email: 'form@merakiweddingplanner.com',
           Name: 'Meraki Contact Form',
         },
         To: [
           {
             Email:
-              process.env.STRAPI_EMAIL_TO || 'info@merakiweddingplanner.com',
+              process.env.STRAPI_EMAIL_TO || 'contact@merakiweddingplanner.com',
             Name: 'Meraki',
           },
         ],
