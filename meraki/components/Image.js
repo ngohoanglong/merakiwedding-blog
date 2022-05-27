@@ -1,12 +1,6 @@
 import { getThumb } from '@providers/tinacms/helpers'
 import NextImage from 'next/image'
-const breakpoints = {
-  // xlarge: 1920,
-  large: 1600,
-  medium: 750,
-  small: 500,
-  // xsmall: 64
-}
+
 
 // @todo replace the url to the one on env
 const myLoader = ({ src, width, quality }) => {
@@ -14,7 +8,7 @@ const myLoader = ({ src, width, quality }) => {
     src.indexOf('strapi.merakiweddingplanner') !== -1 ||
     src.indexOf('wp-content') !== -1
   ) {
-    return `https://res.cloudinary.com/dfgbpib38/image/upload/w_${width},f_auto/${src.replace(
+    return `https://imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload/w_${width},f_auto/${src.replace(
       'https://strapi.merakiweddingplanner.com/',
       ''
     )}`
@@ -23,24 +17,7 @@ const myLoader = ({ src, width, quality }) => {
   }
 }
 
-// const strapiLoader = ({ src, width, quality }) => {
 
-//   let size
-//   switch (true) {
-//     case width < breakpoints.small:
-//       size = 'small'
-//       break;
-//     case width < breakpoints.medium:
-//       size = 'medium'
-//       break;
-//     case width < breakpoints.large:
-//       size = 'large'
-//     default:
-//       break;
-//   }
-//   if (!size) return src
-//   return src.replace('/uploads/', '/uploads/' + size + '_')
-// }
 export const Image = ({
   src,
   alt,
@@ -50,12 +27,7 @@ export const Image = ({
   ...rest
 }) => {
   let sizes
-  // '(max-width: 400px) 300px, 800px'
-  // const enable =
-  //   src &&
-  //   src.includes(
-  //     'strapi.merakiweddingplanner.com/uploads/'
-  //   )
+
   switch (variant) {
     case 'cover':
       sizes = '(max-width: 384px) 100vw, 100vw'
