@@ -18,7 +18,7 @@ export const Instagram = () => {
           res.data.map((item) => ({
             ...item,
             url: item.permalink,
-            image: item.media_url,
+            image: item.thumbnail_url || item.media_url,
             alt: item.caption,
           }))
         )
@@ -42,12 +42,30 @@ export const Instagram = () => {
           <div className="grid w-full grid-cols-3 gap-1 lg:grid-cols-6 lg:gap-3 lg:flex-wrap ">
             {(data || get('app.data.instagram', [])).map((item, i) => {
               const src = item.image
-              if (!src || i >= 6) return null
+              if (!src || i >= 9) return null
+              if (i < 6)
+                return (
+                  <Link
+                    href={item.url || '#'}
+                    key={i}
+                    className="transition-transform transform group">
+                    <div className="relative w-full overflow-hidden bg-element-4">
+                      <div style={{ paddingTop: '100%' }}></div>
+                      <NextImage
+                        className="absolute inset-0 object-cover w-full h-full transition-transform duration-1000 transform scale-100 group-hover:scale-105"
+                        alt={item.alt}
+                        layout="fill"
+                        sizes="(max-width: 600px) 245px,
+                      245px"
+                        src={item.image}></NextImage>
+                    </div>
+                  </Link>
+                )
               return (
                 <Link
                   href={item.url || '#'}
                   key={i}
-                  className="transition-transform transform group">
+                  className="transition-transform transform group lg:hidden">
                   <div className="relative w-full overflow-hidden bg-element-4">
                     <div style={{ paddingTop: '100%' }}></div>
                     <NextImage
