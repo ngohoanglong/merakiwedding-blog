@@ -10,6 +10,8 @@ module.exports = {
       'strapi.merakiweddingplanner.com',
       'res.cloudinary.com',
       'imageproxy.hieunguyen.dev',
+      'scontent.cdninstagram.com',
+      'image-proxy.ngohoanglongptit8635.workers.dev',
     ],
     deviceSizes: [640, 828, 1200, 1920],
   },
