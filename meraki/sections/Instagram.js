@@ -10,7 +10,7 @@ export const Instagram = () => {
   //   instagram: get('app.data.instagram')
   // });
   useEffect(() => {
-    fetch('/api/instagram')
+    fetch('https://meraki-instagram.ngohoanglongptit8635.workers.dev/')
       .then((res) => res.json())
       .then((res) => {
         setData(
