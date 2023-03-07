@@ -11,6 +11,8 @@ module.exports = {
       'res.cloudinary.com',
       'imageproxy.hieunguyen.dev',
       'scontent.cdninstagram.com',
+      'cdninstagram.com',
+      'scontent-mrs2-2.cdninstagram.com',
       'image-proxy.ngohoanglongptit8635.workers.dev',
     ],
     deviceSizes: [640, 828, 1200, 1920],
