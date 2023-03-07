@@ -1,7 +1,6 @@
 import Container from '@components/container'
 import { useSource } from '@providers/source'
 import { Link } from 'meraki/components/Link'
-import NextImage from 'next/image'
 import { useEffect, useState } from 'react'
 import { Image } from '../components/Image'
 export const Instagram = () => {
@@ -15,11 +14,11 @@ export const Instagram = () => {
       .then((res) => res.json())
       .then((res) => {
         setData(
-          res.data.map((item) => ({
+          res.items.map((item) => ({
             ...item,
-            url: item.permalink,
-            image: item.thumbnail_url || item.media_url,
-            alt: item.caption,
+            url: `https://www.instagram.com/p/${item.code}/`,
+            image: item.carousel_media?.[0].image_versions2.candidates?.[0].url,
+            alt: item.caption.text,
           }))
         )
       })
@@ -51,13 +50,13 @@ export const Instagram = () => {
                     className="transition-transform transform group">
                     <div className="relative w-full overflow-hidden bg-element-4">
                       <div style={{ paddingTop: '100%' }}></div>
-                      <NextImage
+                      <img
                         className="absolute inset-0 object-cover w-full h-full transition-transform duration-1000 transform scale-100 group-hover:scale-105"
                         alt={item.alt}
                         layout="fill"
                         sizes="(max-width: 600px) 245px,
                       245px"
-                        src={item.image}></NextImage>
+                        src={item.image}></img>
                     </div>
                   </Link>
                 )
@@ -68,13 +67,13 @@ export const Instagram = () => {
                   className="transition-transform transform group lg:hidden">
                   <div className="relative w-full overflow-hidden bg-element-4">
                     <div style={{ paddingTop: '100%' }}></div>
-                    <NextImage
+                    <img
                       className="absolute inset-0 object-cover w-full h-full transition-transform duration-1000 transform scale-100 group-hover:scale-105"
                       alt={item.alt}
                       layout="fill"
                       sizes="(max-width: 600px) 245px,
                       245px"
-                      src={item.image}></NextImage>
+                      src={item.image}></img>
                   </div>
                 </Link>
               )
