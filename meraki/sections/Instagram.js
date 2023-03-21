@@ -73,7 +73,10 @@ export const Instagram = () => {
                       layout="fill"
                       sizes="(max-width: 600px) 245px,
                       245px"
-                      src={item.image}></img>
+                      src={
+                        'https://image-proxy.ngohoanglongptit8635.workers.dev/' +
+                        item.image
+                      }></img>
                   </div>
                 </Link>
               )
