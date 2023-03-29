@@ -53,7 +53,11 @@ export const createGalleryDetailSeo = (source, router) => {
   if (!source) {
     return {}
   }
-  const title = get(source, 'seo.data.title', get(source, 'data.banner.xs.subTitle'))
+  const title = get(
+    source,
+    'seo.data.title',
+    get(source, 'data.banner.xs.subTitle')
+  )
   const description = get(source, 'seo.data.description')
   const galleries = get(source, 'app.data.gallery', [])
   const url =
@@ -61,31 +65,33 @@ export const createGalleryDetailSeo = (source, router) => {
   const gallery = galleries.find((item) =>
     item?.url.includes(get(router, 'query.slug'))
   )
-  let imageUrl = get(source, 'seo.data.image.src') || get(gallery, 'image.src') || get(gallery, 'data.banner.xs.image.src')
+  let imageUrl =
+    get(source, 'seo.data.image.src') ||
+    get(gallery, 'image.src') ||
+    get(gallery, 'data.banner.xs.image.src')
   if (imageUrl) {
-    imageUrl = `https://res.cloudinary.com/dfgbpib38/image/upload/w_1200/${imageUrl.replace(
+    imageUrl = `https://imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload/w_1200/${imageUrl.replace(
       'https://strapi.merakiweddingplanner.com/',
       ''
     )}`
   }
-  return ({
+  return {
     title,
     description,
     openGraph: {
       title,
       description,
-      url:
-        url,
+      url: url,
       images: imageUrl && [
         {
           url: imageUrl,
           width: 800,
           height: 600,
           alt: title,
-        }
+        },
       ],
     },
-  })
+  }
 }
 export const createPostDetailSeo = (source, router) => {
   const post = get(source, 'post', {})
@@ -174,20 +180,21 @@ export const createSeo = ({ title, description, image, ...rest }, router) => {
       title,
       description,
       url: 'https://merakiweddingplanner.com' + router.pathname,
-      ...image?.src ? {
-        images: [
-          image?.src && {
-            url: `https://res.cloudinary.com/dfgbpib38/image/upload/w_1200/${image.src.replace(
-              'https://strapi.merakiweddingplanner.com/',
-              ''
-            )}`,
-            alt: image.alt || title,
-          },
-        ],
-      } : {}
-
+      ...(image?.src
+        ? {
+            images: [
+              image?.src && {
+                url: `https://imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload/w_1200/${image.src.replace(
+                  'https://strapi.merakiweddingplanner.com/',
+                  ''
+                )}`,
+                alt: image.alt || title,
+              },
+            ],
+          }
+        : {}),
     },
-    ...rest
+    ...rest,
   }
 }
 

@@ -43,7 +43,7 @@ export const GalleryProvider = ({ children, props }) => {
             onClose: () => setOpen(false),
             images: imagesRef.current.map(
               (src) =>
-                `https://res.cloudinary.com/dfgbpib38/image/upload/w_1920,f_auto/${src.replace(
+                `https://imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload/w_1920,f_auto/${src.replace(
                   'https://strapi.merakiweddingplanner.com/',
                   ''
                 )}`
