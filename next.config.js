@@ -15,7 +15,7 @@ module.exports = {
       'scontent-mrs2-2.cdninstagram.com',
       'image-proxy.ngohoanglongptit8635.workers.dev',
     ],
-    deviceSizes: [640, 828, 1200, 1920],
+    deviceSizes: [640, 828, 1200, 1921],
   },
   env: {
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
