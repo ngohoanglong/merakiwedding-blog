@@ -1,5 +1,5 @@
 import styles from './post-body.module.css'
-https: export default function PostBody({ content = '' }) {
+export default function PostBody({ content = '' }) {
   let finalContent = content.replace(
     new RegExp('https://merakiweddingplanner.com/wp-content/uploads/', 'g'),
     'https://imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload/w_1200,f_auto/wp-content/uploads/'
