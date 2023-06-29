@@ -6,7 +6,7 @@ export default function PostBody({ content = '' }) {
   )
   finalContent = finalContent.replaceAll(
     'res.cloudinary.com/dfgbpib38/image/upload/',
-    'imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload'
+    'imageproxy.hieunguyen.dev/api/images/dfgbpib38/image/upload/'
   )
   return (
     <div className={styles.root}>
