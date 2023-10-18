@@ -3,14 +3,13 @@ import {
   createFields,
   createImageFieldConfig,
 } from '@providers/tinacms/helpers'
-import React from 'react'
 import Image from '../components/Image'
 import { RatioContaner } from './RatioContaner'
 import { SectionTagline } from './SectionTagline'
 export const Layout16 = ({ contents = [] }) => {
   return (
     <Container>
-      <div className="md:grid grid-cols-2 gap-1 md:gap-3 md:space-y-28">
+      <div className="md:grid grid-cols-2 gap-1 md:gap-3 ">
         {contents.map((item, i) => {
           return (
             <div
