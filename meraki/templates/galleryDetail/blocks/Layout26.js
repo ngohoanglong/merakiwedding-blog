@@ -3,7 +3,6 @@ import { createImageFieldConfig } from '@providers/tinacms/helpers'
 import Image from '../components/Image'
 export const Layout26 = ({ images = [] }) => {
   let imgs = images.map((item) => item?.image?.src || item?.src)
-  console.log(images)
 
   return (
     <Container>
