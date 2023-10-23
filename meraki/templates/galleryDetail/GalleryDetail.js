@@ -6,9 +6,9 @@ import { LG } from 'meraki/components/LG'
 import Seo from 'meraki/components/Seo'
 import { XS } from 'meraki/components/XS'
 import { useRouter } from 'next/router'
+import { GalleryProvider } from './GalleryContext'
 import { PAGE_BLOCKS, PAGE_BLOCK_TEMPLATES } from './blocks'
 import Banner, { banner_template } from './blocks/Banner'
-import { GalleryProvider } from './GalleryContext'
 
 export const Blocks = ({ blocks, placeholder = null }) => {
   const { get } = useSource()
