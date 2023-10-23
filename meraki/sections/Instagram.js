@@ -10,18 +10,18 @@ export const Instagram = () => {
   //   instagram: get('app.data.instagram')
   // });
   useEffect(() => {
-    fetch('https://meraki-instagram.ngohoanglongptit8635.workers.dev/')
-      .then((res) => res.json())
-      .then((res) => {
-        setData(
-          res.items.map((item) => ({
-            ...item,
-            url: `https://www.instagram.com/p/${item.code}/`,
-            image: item.carousel_media?.[0].image_versions2.candidates?.[0].url,
-            alt: item.caption.text,
-          }))
-        )
-      })
+    // fetch('https://meraki-instagram.ngohoanglongptit8635.workers.dev/')
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     setData(
+    //       res.items.map((item) => ({
+    //         ...item,
+    //         url: `https://www.instagram.com/p/${item.code}/`,
+    //         image: item.carousel_media?.[0].image_versions2.candidates?.[0].url,
+    //         alt: item.caption.text,
+    //       }))
+    //     )
+    //   })
   }, [])
   return (
     <Container>
