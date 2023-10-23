@@ -99,10 +99,10 @@ const Blocks = () => {
         <div className="absolute lg:text-left inset-0 z-10 text-white text-center">
           <Container>
             <div className="flex absolute  lg:relative inset-0 lg:items-start flex-col items-center space-y-12 lg:space-y-0 py-12  mx-auto z-10">
-              <h2 className=" text-[4.9vw] font-kinfolk lg:text-7xl flex-1">
+              <h2 className=" text-5xl font-kinfolk lg:text-7xl flex-1">
                 {get('data.content.title')}
               </h2>
-              <div className="leading-snug font-garamond italic text-[2.7vw] lg:text-3xl max-w-[60ch] flex-1 px-8 lg:px-0">
+              <div className="leading-snug font-garamond italic text-2xl lg:text-3xl max-w-[60ch] flex-1 px-12 lg:px-0">
                 {get('data.content.subTitle')}
               </div>
 
