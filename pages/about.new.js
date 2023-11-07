@@ -1,6 +1,46 @@
-import { getAboutPageInfo, getAppInfo, getSeoApi } from '@lib/app'
+import { getAppInfo, getSeoApi } from '@lib/app'
 import About from '@templates/about.new/About'
-
+const createPageId = (router) => {
+  return `/about`
+}
+const getAboutPageInfo = async ({ locale, router }) => {
+  let result
+  const { pages } = await fetcher({
+    query: `
+        query getPageInfo($locale:String $pageId:String ){
+          pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
+            data
+            title
+             pageId
+          }
+        }
+      `,
+    variables: {
+      locale,
+      pageId: createPageId(router),
+    },
+  })
+  result = pages && pages[0]
+  if (!result) {
+    const { pages } = await fetcher({
+      query: `
+          query getPageInfo($locale:String $pageId:String ){
+            pages(locale:$locale where:{pageId:$pageId} sort:"created_at:DESC" limit:1){
+              data
+              title
+               pageId
+            }
+          }
+        `,
+      variables: {
+        locale: 'en',
+        pageId: createPageId(router),
+      },
+    })
+    result = pages && pages[0]
+  }
+  return result
+}
 export default About
 export async function getStaticProps(config) {
   const { galleries, app } = await getAppInfo(config)
